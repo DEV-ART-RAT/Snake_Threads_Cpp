@@ -1,6 +1,16 @@
 #include <iostream>
+
+#ifdef _WIN32 /* Deberia estar definido en windows*/
 #include <windows.h>
 #include <winuser.h>
+#define mySleep(x) Sleep(x);
+
+#elif defined __unix__ /* Creo que es esta macro, deberia estar definida en sistemas Unix-like*/
+#include <unistd.h>
+#define mySleep(x) sleep(x);
+#else  /* No sabemos donde estamos*/
+#warning Missing sleep function
+#endif
 //#include <conio.h>
 
 using namespace std;

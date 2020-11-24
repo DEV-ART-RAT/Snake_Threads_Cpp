@@ -13,8 +13,9 @@
 //#include <conio.h>
 
 // COMPILAR:
-//    /usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ main.cpp
-
+/* 
+/usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
+*/
 using namespace std;
 void wellcome(int);
 

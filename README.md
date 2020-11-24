@@ -1,4 +1,8 @@
-# Dev-ART - ft.freddy.
+# Snake -> Dev-ART - ft.freddy.
+
+# Instrucciones:
+
+[Ver Instrucciones](https://wmoralesdev.github.io/actividadfinal/index)
 
 ## Estudiantes
 

@@ -1,9 +1,22 @@
 #include <iostream>
+// #ifdef _WIN32 /* Deberia estar definido en windows*/
 #include <windows.h>
 #include <winuser.h>
 #include <cstdlib>
+//#define mySleep(x) Sleep(x);
+
+// #elif defined __unix__ /* Creo que es esta macro, deberia estar definida en sistemas Unix-like*/
+// #include <unistd.h>
+// #define mySleep(x) sleep(x);
+// #else  /* No sabemos donde estamos*/
+// #warning Missing sleep function
+// #endif
 //#include <conio.h>
 
+// COMPILAR:
+/*
+/usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
+*/
 using namespace std;
 void wellcome(int);
 
@@ -65,10 +78,8 @@ int main(){
 }
 
 void wellcome(int opc){
-    //system("cls");//linux
-    system("clear");//windows
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t\t\t\tWELLCOME !! TO ......!!!\n\n";
+    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl;
+    cout<<"\t\t\t\t\t\tWELLCOME !! TO ......!!!\n";
     cout<<"\t\t\t=====\t===    =="   <<"\t=======\t  ==  =="  <<"\t====="   <<endl;
     cout<<"\t\t\t||   \t||\\\\   ||" <<"\t||   ||\t  || // "  <<"\t||"      <<endl;
     cout<<"\t\t\t=====\t|| \\\\  ||" <<"\t||===||\t  |||   "  <<"\t====="   <<endl;

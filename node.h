@@ -11,22 +11,22 @@ struct nodeinfo { //nodo con coordenadas matriciales i, j
     nodeinfo(int _i, int _c) : i(_i), j(_c) {}
 
     bool operator==(const nodeinfo& r) {
-        return this->i == r.i && this->c == r.j;
+        return this->i == r.i && this->j == r.j;
     }
 
     bool operator!=(const nodeinfo& r) {
-        return this->i != r.i && this->c != r.j;
+        return this->i != r.i && this->j != r.j;
     }
 
     bool comparate(nodeinfo& r,int flag){
         if(flag == 1){
             return this->i >= r.i;
         }
-        return this->c >= r.j;
+        return this->j >= r.j;
     }
 
     friend ostream& operator<<(ostream& os, const nodeinfo& p) {
-        os << "{" + to_string(p.i) + ":" + p.j + "}";
+        os << "{" + to_string(p.i) + ":" + to_string(p.j) + "}";
         return os;
     }
 };

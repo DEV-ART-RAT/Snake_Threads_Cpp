@@ -1,9 +1,18 @@
 #include <iostream>
 #include <string>
-#include "node.h"
-#pragma once
+//#include "node.h"
+//#pragma once
 
 using namespace std;
+
+template<class T>
+struct node {
+    T info;
+    node<T>* next,* prev;
+
+    node() { next = prev = NULL; }
+    node(T _info) : info(_info) { next = prev = NULL; }
+};
 
 template<class T>
 struct doubleLinked {
@@ -12,8 +21,21 @@ struct doubleLinked {
     doubleLinked () {
         front = back = NULL;
     }
+
+    void pushFront(T info){
+        node<T>* n = new node<T>;
+        n->info = info;
+        //n->prev = NULL;
+        if(this->front){
+            n->next = this->front;
+            this->front->prev = n;
+        }
+        this->front = n;
+        
+    }
 };
 
+/*
 template<class T>
 void pushFront(T info, doubleLinked<T>* dl) {
     node<T>* n = new node<T>;
@@ -35,7 +57,7 @@ void pushFront(T info, doubleLinked<T>* dl) {
     dl->front->prev = n;
     n->next = dl->front;
     dl->front = n;
-}
+}//*/
 
 template<class T>
 void pushBack(T info, doubleLinked<T>* dl) {
@@ -217,4 +239,54 @@ int removeIf(Predicative removeCondition, node<T>** front) {
     }
     else
         return 0;
+}
+
+
+int main(void) {
+    doubleLinked<int> dl;
+    dl.pushFront(1);
+    dl.pushFront(2);
+    dl.pushFront(3);
+    dl.pushFront(4);
+    dl.pushFront(5);
+    traverseBegin(dl.front);
+
+    /*
+    pushBack(T(5, 'e'), &dl);
+    pushBack(T(6, 'f'), &dl);
+    pushBack(T(7, 'g'), &dl);
+    cout << "List after pushing elements to back" << endl;
+    dl.traverseBeginy();
+    
+    pushFront(T(3, 'c'), &dl);
+    pushFront(T(2, 'b'), &dl);
+    pushFront(T(1, 'a'), &dl);
+    cout << "List after pushing elements to front" << endl;
+    dl.traverseBeginy();
+
+    pushAt(0, T(0, '*'), &dl.front);
+    cout << "List after pushing at 0" << endl;
+    dl.traverseBeginy();
+
+    pushAt(4, T(4, 'd'), &dl.front);
+    cout << "List after pushing at 4" << endl;
+    dl.traverseBeginy();
+    cout << endl;
+
+    cout << "Deleting 0 with remove: " << remove(T(0, '*'), &dl.front) << endl;
+    dl.traverseBeginy();
+
+    cout << "Deleting 4 with removeFirst: " << removeFirst(T(4, 'd'), &dl.front) << endl;
+    dl.traverseBeginy();
+
+    cout << "Deleting at pos 1: " << removeAt(0, 1, &dl.front) << endl;
+    dl.traverseBeginy();
+
+    cout << "Deleting odds with removeIf: " << removeIf([](T e) -> bool {
+        return e.i % 2 != 0;
+    }, &dl.front) << endl;
+    dl.traverseBeginy();
+    //*/
+
+    return 0;
 }

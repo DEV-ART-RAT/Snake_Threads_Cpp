@@ -29,9 +29,36 @@ struct doubleLinked {
         if(this->front){
             n->next = this->front;
             this->front->prev = n;
+        }else
+        {
+            this->back = n;
         }
+        
         this->front = n;
         
+    }
+
+    void pushBack(T info){
+        node<T>* n = new node<T>;
+        n->info = info;
+        //n->prev = NULL;
+        if(this->back){
+            n->prev = this->back;
+            this->back->next = n;
+        }else
+        {
+            this->front = n;
+        }
+        
+        this->back = n;
+        
+    }
+
+    node<T>* removeFront(){
+        node<T>* n = this->front;
+        this->front->next->prev=NULL;
+        this->front=this->front->next;
+        return n;
     }
 };
 
@@ -59,6 +86,7 @@ void pushFront(T info, doubleLinked<T>* dl) {
     dl->front = n;
 }//*/
 
+/*
 template<class T>
 void pushBack(T info, doubleLinked<T>* dl) {
     node<T>* n = new node<T>;
@@ -80,6 +108,7 @@ void pushBack(T info, doubleLinked<T>* dl) {
     dl->back->next = n;
     dl->back = n;
 }
+//*/
 
 template<class T>
 void pushAt(int pos, T info, node<T>** front) {
@@ -249,7 +278,14 @@ int main(void) {
     dl.pushFront(3);
     dl.pushFront(4);
     dl.pushFront(5);
+    dl.pushBack(6);
+    dl.pushBack(7);
+    dl.pushBack(8);
+    dl.pushBack(9);
+    cout<<"begin"<<endl;
     traverseBegin(dl.front);
+    cout<<"back"<<endl;
+    traverseEnd(dl.back);
 
     /*
     pushBack(T(5, 'e'), &dl);

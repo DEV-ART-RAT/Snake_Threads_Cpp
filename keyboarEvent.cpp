@@ -75,11 +75,11 @@ int main(){
             //sleep(0.1);//para corregir fallo de while
         }
         //*evento de key DOWN
-         if( /*GetAsyncKeyState(VK_DOWN) & 0x8000*/ key=='B'){
-             if(flag < sizeOption){
-                 flag++;
+        if( /*GetAsyncKeyState(VK_DOWN) & 0x8000*/ key=='B'){
+            if(flag < sizeOption){
+                flag++;
                  //wellcome(flag);
-             }
+            }
             //Sleep(100);//para corregir fallo de while
         }
         wellcome(flag);
@@ -118,19 +118,19 @@ void wellcome(int opc){
     cout<<flush;
     system("clear");//windows
     //sleep(0.01);//para corregir fallo de while
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl;
-    cout<<"\t\t\t\t\t\tWELLCOME !! TO ......!!!\n";
+    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
+    cout<<"\t\t\t\tWELLCOME !! TO ......!!!\n\n";
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
     cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
     cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
     cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
-    cout<<"\t\t\t\t\t\t"<<((opc==1)?"*":"")<<" START";
+    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" START "<<((opc==1)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t\t"<<((opc==2)?"*":"")<<" EXIT";
+    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<"  EXIT "<<((opc==2)?"*":"");
     cout<<endl<<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
+    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }
 
 

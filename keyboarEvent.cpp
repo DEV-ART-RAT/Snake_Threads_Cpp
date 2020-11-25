@@ -1,8 +1,11 @@
 #include <iostream>
 // #ifdef _WIN32 /* Deberia estar definido en windows*/
-#include <windows.h>
-#include <winuser.h>
-#include <cstdlib>
+//#include <windows.h>
+//#include <winuser.h>
+//#include <cstdlib>
+//#include <conio.h>
+
+//#include <thread>
 
 #include <termios.h>
 #include <unistd.h>
@@ -21,6 +24,18 @@
 /usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
 */
 using namespace std;
+
+void keyEvent(char& key,bool& flag)
+{
+    struct termios term;
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+
+    key=getchar();//up:65 down:66 left:68 rigth:67
+
+
+}
 void wellcome(int);
 
 /*
@@ -37,9 +52,10 @@ int main(){
     int flag = 1;       //opcion actual del menu
     int sizeOption=2;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
-    Sleep(100);//para corregir fallo de while
+    sleep(0.1);//para corregir fallo de while
     wellcome(   flag);  //invocacion del menu
 
+    //*
     struct termios term;
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~ICANON;
@@ -56,7 +72,7 @@ int main(){
                 flag--;
                 //wellcome(flag);
             }
-            Sleep(100);//para corregir fallo de while
+            //sleep(0.1);//para corregir fallo de while
         }
         //*evento de key DOWN
          if( /*GetAsyncKeyState(VK_DOWN) & 0x8000*/ key=='B'){
@@ -86,7 +102,7 @@ int main(){
         }
          //*/
 
-         Sleep(10);//para corregir fallo de while
+        //sleep(0.01);//para corregir fallo de while
     }
 
     tcgetattr(STDIN_FILENO, &term);
@@ -101,14 +117,14 @@ void wellcome(int opc){
     //system("cls");//linux
     cout<<flush;
     system("clear");//windows
-    Sleep(10);//para corregir fallo de while
+    //sleep(0.01);//para corregir fallo de while
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl;
     cout<<"\t\t\t\t\t\tWELLCOME !! TO ......!!!\n";
-    cout<<"\t\t\t=====\t===    =="   <<"\t=======\t  ==  =="  <<"\t====="   <<endl;
-    cout<<"\t\t\t||   \t||\\\\   ||" <<"\t||   ||\t  || // "  <<"\t||"      <<endl;
-    cout<<"\t\t\t=====\t|| \\\\  ||" <<"\t||===||\t  |||   "  <<"\t====="   <<endl;
-    cout<<"\t\t\t   ||\t||  \\\\ ||" <<"\t||   ||\t  || \\\\ "<<"\t||"      <<endl;
-    cout<<"\t\t\t=====\t==   ===="   <<"\t==   ==\t  ==  =="  <<"\t====="   <<endl;
+    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
+    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
+    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
+    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
+    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
     cout<<"\t\t\t\t\t\t"<<((opc==1)?"*":"")<<" START";
     cout<<endl;

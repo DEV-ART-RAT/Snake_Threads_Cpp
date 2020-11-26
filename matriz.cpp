@@ -176,6 +176,26 @@ void snakeDown(doubleLinked<T>* list, charMatriz M, int fil, int col,int step){
     }
 }
 
+template<class T>
+void snakeDirection(doubleLinked<T>* list, charMatriz M, int fil, int col,int step, int* dir){
+    switch (*dir)
+        {
+        case 1:
+            snakeUp(list,M,fil,col,step);
+            break;
+        case 2:
+            snakeDown(list,M,fil,col,step);
+            break;
+        case 3:
+            snakeRight(list,M,fil,col,step);
+            break;
+        case 4:
+            snakeLeft(list,M,fil,col,step);
+            break;
+        default:
+            break;
+        }
+}
 
 
 
@@ -187,6 +207,7 @@ int main(void){
     int FILA = 11;
     int COLUMNA = 23;
     char key = '0';
+    int dir = 3;
     bool flag = true;
     //cout<<OS_Windows;
 
@@ -213,23 +234,24 @@ int main(void){
             flag=false;
             break;
         case 65:
-            snakeUp(&list,M,FILA,COLUMNA,1);
+            dir = (dir!=2)? 1 : 2;
             break;
         case 66:
-            snakeDown(&list,M,FILA,COLUMNA,1);
+            dir = (dir!=1)? 2 : 1;
             break;
         case 67:
-            snakeRight(&list,M,FILA,COLUMNA,1);
+            dir = (dir!=4)? 3 : 4;
             break;
         case 68:
-            snakeLeft(&list,M,FILA,COLUMNA,1);
+            dir = (dir!=3)? 4 : 3;
             break;
         default:
             break;
         }
+        snakeDirection(&list,M,FILA,COLUMNA,1,&dir);
         //snakeRight(&list,M,FILA,COLUMNA,1);
         //flag++;
-        usleep(1000 * 1000);
+        usleep(500 * 1000);
     }
 
     /*flag =0;

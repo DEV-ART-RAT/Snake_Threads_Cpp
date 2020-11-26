@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include <thread>
+
 #include <termios.h>
 #include <unistd.h>
 
@@ -17,16 +18,29 @@
 //#pragma once
 
 using namespace std;
+
 typedef char** charMatriz;
 
 
 
-void myThreadOne(int a, int b){
-    cout<<b;
-    for (int i = 0 ; i  < a; i++){
-        cout<<"thread one "<<i<<endl;
-        sleep(1);
+void keyboardEvent(char* key, bool* flag){
+    struct termios term;
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+
+    while (*flag)
+    {
+        *key=getchar();
     }
+    
+
+
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+
+
 }
 void myThreadTwo(int b){
     for (int i = 0 ; i  < b; i++){
@@ -172,6 +186,8 @@ int main(void){
     charMatriz M;
     int FILA = 11;
     int COLUMNA = 23;
+    char key = '0';
+    bool flag = true;
     //cout<<OS_Windows;
 
     getMatrizChar(&M,FILA,COLUMNA);//tamaño 11x11
@@ -182,21 +198,41 @@ int main(void){
     list.pushBack(nodeinfo(5,6));
     list.pushBack(nodeinfo(5,7));
     list.pushBack(nodeinfo(5,8));
-    thread th1(myThreadOne,10,23);
-    thread th2(myThreadTwo,4);
+    thread th1(keyboardEvent,&key,&flag);
+    //thread th2(myThreadTwo,4);
     //*
 
     defineSnake(list,M,FILA,COLUMNA);
-    int flag =0;
-    while (flag<4)
+    //int flag =0;
+    while (flag)
     {
         printMatrizChar(M,FILA,COLUMNA);//-----
-        snakeRight(&list,M,FILA,COLUMNA,1);
-        flag++;
-        usleep(500 * 1000);
+        switch (key)
+        {
+        case '\n':
+            flag=false;
+            break;
+        case 65:
+            snakeUp(&list,M,FILA,COLUMNA,1);
+            break;
+        case 66:
+            snakeDown(&list,M,FILA,COLUMNA,1);
+            break;
+        case 67:
+            snakeRight(&list,M,FILA,COLUMNA,1);
+            break;
+        case 68:
+            snakeLeft(&list,M,FILA,COLUMNA,1);
+            break;
+        default:
+            break;
+        }
+        //snakeRight(&list,M,FILA,COLUMNA,1);
+        //flag++;
+        usleep(1000 * 1000);
     }
 
-    flag =0;
+    /*flag =0;
     while (flag<3)
     {
         printMatrizChar(M,FILA,COLUMNA);//-----
@@ -228,7 +264,7 @@ int main(void){
     
     
     th1.join();
-    th2.join();
+    //th2.join();
 
     return 0;
 }

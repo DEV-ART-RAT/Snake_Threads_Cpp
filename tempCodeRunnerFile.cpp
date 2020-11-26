@@ -1,1 +1,0 @@
-#ifdef _WIN32

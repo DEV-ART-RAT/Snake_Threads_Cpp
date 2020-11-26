@@ -1,10 +1,40 @@
 #include <iostream>
 #include <unistd.h>
 #include "list.cpp"
+#include <stdlib.h>
+#include <stdio.h>
+#ifdef __unix__
+#define OS_Windows 0
+#else
+#define OS_Windows 1
+#include <windows.h>
+#endif
+
+
 //#pragma once
 
 using namespace std;
 typedef char** charMatriz;
+#ifdef __unix__
+#define CLS system("clear");
+#else
+void clrscr()
+{
+    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD coord = {0, 0};
+    DWORD count;
+
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(hStdOut, &csbi);
+
+    FillConsoleOutputCharacter(hStdOut, ' ', csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
+
+    SetConsoleCursorPosition(hStdOut, coord);
+}
+#define CLS clrscr();
+#endif
+
+
 
 
 void getMatrizChar(char** array, int b, int a){//solucion de J
@@ -29,7 +59,8 @@ void getMatrizChar(char*** array, int b, int a){
 
 void printMatrizChar(charMatriz array, int a, int b){
     //cout<<flush;
-    system("clear");//windows
+    //system("clear");//windows
+    CLS;
     for(int i=0; i< b; i++)cout<<"- ";
     cout<<"-"<<endl;
     for(int i = 0; i < a; i++) {
@@ -141,6 +172,7 @@ int main(void){
     charMatriz M;
     int FILA = 11;
     int COLUMNA = 23;
+    //cout<<OS_Windows;
 
     getMatrizChar(&M,FILA,COLUMNA);//tamaño 11x11
     
@@ -150,6 +182,7 @@ int main(void){
     list.pushBack(nodeinfo(5,6));
     list.pushBack(nodeinfo(5,7));
     list.pushBack(nodeinfo(5,8));
+    //*
 
     defineSnake(list,M,FILA,COLUMNA);
     int flag =0;
@@ -158,7 +191,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeRight(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep(500 * 1000);
     }
 
     flag =0;
@@ -167,7 +200,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeUp(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep(500 * 1000);
     }
 
     flag =0;
@@ -176,7 +209,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeLeft(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep(500 * 1000);
     }
 
     flag =0;
@@ -185,10 +218,11 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeDown(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep( 500 * 1000);
     }
 
     traverseBegin(list.front);
+     //*/
     
     
 

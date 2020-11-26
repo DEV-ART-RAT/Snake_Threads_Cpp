@@ -10,6 +10,8 @@
 #include <windows.h>
 #endif
 
+#include <thread>
+
 //#pragma once
 
 using namespace std;
@@ -33,6 +35,19 @@ void clrscr()
 #define CLS clrscr();
 #endif
 
+
+void myThreadOne(int a){
+    for (int i = 0 ; i  < a; i++){
+        cout<<"thread one "<<i<<endl;
+        sleep(1);
+    }
+}
+void myThreadTwo(int b){
+    for (int i = 0 ; i  < b; i++){
+        cout<<"thread two "<<i<<endl;
+        sleep(2);
+    }
+}
 
 
 
@@ -181,7 +196,9 @@ int main(void){
     list.pushBack(nodeinfo(5,6));
     list.pushBack(nodeinfo(5,7));
     list.pushBack(nodeinfo(5,8));
-    //*
+    thread th1(myThreadOne,10);
+    thread th2(myThreadTwo,4);
+    /*
 
     defineSnake(list,M,FILA,COLUMNA);
     int flag =0;
@@ -220,7 +237,7 @@ int main(void){
         usleep( 500 * 1000);
     }
 
-    traverseBegin(list.front);
+    //traverseBegin(list.front);
      //*/
     
     

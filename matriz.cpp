@@ -1,10 +1,14 @@
 #include <iostream>
 #include <unistd.h>
 #include "list.cpp"
+#include <stdlib.h>
+
 //#pragma once
 
 using namespace std;
 typedef char** charMatriz;
+
+
 
 
 void getMatrizChar(char** array, int b, int a){//solucion de J
@@ -158,7 +162,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeRight(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep(500 * 1000);
     }
 
     flag =0;
@@ -167,7 +171,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeUp(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep(500 * 1000);
     }
 
     flag =0;
@@ -176,7 +180,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeLeft(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep(500 * 1000);
     }
 
     flag =0;
@@ -185,7 +189,7 @@ int main(void){
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeDown(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(1);
+        usleep( 500 * 1000);
     }
 
     traverseBegin(list.front);

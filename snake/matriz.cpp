@@ -50,7 +50,7 @@ int playmatrix(void){
     //int flag =0;
     thread th1(keyEventSnake , &snake);
     double timer = 0;
-    double speed = 6;
+    double speed = 1;
     while (snake.flag)
     {
         if(snake.redirect || timer == 10 * speed){

@@ -1,8 +1,6 @@
 #include <iostream>
 #include "./views/windows_start.cpp"
-#include "./user/listdouble.cpp"
-#include "./user/nodeuser.h"
-#include "./user/readuser.cpp"
+#include "./views/usermain.cpp"
 using namespace std;
 
 /* 
@@ -12,11 +10,7 @@ g++ -pthread main.cpp -o main
 */
 
 int main(void) {
-    doubleLinked<nodeinfo> user;
-    int P=0;
-    xx(&user);
-    pushBack(nodeinfo(P, user), &user);
-
+    //usermain();
     welcomemain();
 
     return 0;

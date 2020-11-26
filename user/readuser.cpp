@@ -1,3 +1,9 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
 
 /*
 xx) Hacer una función en C++ que dado un archivo de texto llamado “data.csv”, que por cada fila tiene
@@ -11,7 +17,7 @@ void xx(doubleLinked<T> *list) {
     //definimos la variable
     ifstream data;
     //abrimos el archivo
-    data.open("data.csv",ios::in);
+    data.open("../data/user.csv",ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
         string puntaje,name;

@@ -1,17 +1,19 @@
 #include "nodeuser.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
 template<class T>
 //struct de la lista
-struct doubleLinked {
+struct doubleLinkeduser {
     node<T>* front,* back;
-    doubleLinked () {
+    doubleLinkeduser () {
         front = back = NULL;
     }
 };
 //template ya que es tipo nodo
 template<class T>
-void pushFront(T info, doubleLinked<T>* dl) {
+void pushFront(T info, doubleLinkeduser<T>* dl) {
     //verificamos si tiene a alguien enfrente , sino es porque es el primero
     node<T>* n = new node<T>;
     n->info = info;
@@ -27,7 +29,7 @@ void pushFront(T info, doubleLinked<T>* dl) {
 }
 
 template<class T>
-void pushBack(T info, doubleLinked<T>* dl) {
+void pushBack(T info, doubleLinkeduser<T>* dl) {
     //Verificamos como siempre si tiene a a alguien
     node<T>* n = new node<T>;
     n->info = info;
@@ -43,7 +45,7 @@ void pushBack(T info, doubleLinked<T>* dl) {
 }
 
 template<class T>
-void pushAt(int pos, T info, node<T>** front) {
+void pushAtuser(int pos, T info, node<T>** front) {
     //para push en una posicion
     node<T>* n = new node<T>;
     n->info = info;
@@ -67,27 +69,27 @@ void pushAt(int pos, T info, node<T>** front) {
 }
 
 template<class T>
-void traverseBegin(node<T>* front) {
+void traverseBeginuser(node<T>* front) {
     if(front) {
         cout << front->info << "  ";
-        traverseBegin(front->next);
+        traverseBeginuser(front->next);
     }
     else
         cout << endl;
 }
 
 template<class T>
-void traverseEnd(node<T>* back) {
+void traverseEnduser(node<T>* back) {
     if(back) {
         cout << back->info << "  ";
-        traverseEnd(back->prev);
+        traverseEnduser(back->prev);
     }
     else
         cout << endl;
 }
 
 template<class T>
-int remove(T e, node<T>** front) {
+int removeuser(T e, node<T>** front) {
     if(*front) {
         if((*front)->info == e) {
             if(!(*front)->prev) {
@@ -104,17 +106,17 @@ int remove(T e, node<T>** front) {
                 prev->next = *front;
             }
 
-            return 1 + remove(e, front);
+            return 1 + removeuser(e, front);
         }
         else
-            return 0 + remove(e, &(*front)->next);
+            return 0 + removeuser(e, &(*front)->next);
     }
     else
         return 0;
 }
 
 template<class T>
-bool removeFirst(T e, node<T>** front) {
+bool removeuserFirst(T e, node<T>** front) {
     if(*front) {
         if((*front)->info == e) {
             if(!(*front)->prev) {
@@ -133,14 +135,14 @@ bool removeFirst(T e, node<T>** front) {
             return true;
         }
         else
-            return false + removeFirst(e, &(*front)->next);
+            return false + removeuserFirst(e, &(*front)->next);
     }
     else
         return false;
 }
 
 template<class T>
-bool removeAt(int current, int pos, node<T>** front) {
+bool removeuserAt(int current, int pos, node<T>** front) {
     if(*front) {
         if(current == pos) {
             if(!(*front)->prev) {
@@ -160,16 +162,16 @@ bool removeAt(int current, int pos, node<T>** front) {
             return true;
         }
         else
-            return false + removeAt(current + 1, pos, &(*front)->next);
+            return false + removeuserAt(current + 1, pos, &(*front)->next);
     }
     else
         return false;
 }
 
 template <class Predicative, class T>
-int removeIf(Predicative removeCondition, node<T>** front) {
+int removeuserIf(Predicative removeuserCondition, node<T>** front) {
     if(*front) {
-        if(removeCondition((*front)->info)) {
+        if(removeuserCondition((*front)->info)) {
             if(!(*front)->prev) {
                 *front = (*front)->next;
                 (*front)->prev = NULL;
@@ -184,10 +186,10 @@ int removeIf(Predicative removeCondition, node<T>** front) {
                 prev->next = *front;
             }
 
-            return 1 + removeIf(removeCondition, front);
+            return 1 + removeuserIf(removeuserCondition, front);
         }
         else
-            return 0 + removeIf(removeCondition, &(*front)->next);
+            return 0 + removeuserIf(removeuserCondition, &(*front)->next);
     }
     else
         return 0;

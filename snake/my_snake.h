@@ -18,7 +18,7 @@
 
 #define FOOD '+'
 #define SNAKE '*'
-#define CRASH 'F'
+#define CRASH 'X'
 #define SCENE ' '
 
 

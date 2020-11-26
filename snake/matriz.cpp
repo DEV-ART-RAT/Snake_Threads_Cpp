@@ -49,11 +49,9 @@ int playmatrix(void){
     
     //int flag =0;
     thread th1(keyEventSnake , &snake);
-    int timer = 0;
-    int speed = 1;
-    snake.show();
-    //printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
-    sleep(1);//tiempo de reaccion
+    double timer = 0;
+    double speed = 6;
+    sleep(1);
     while (snake.flag)
     {
         if(snake.redirect || timer == 10 * speed){

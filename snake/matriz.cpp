@@ -50,13 +50,14 @@ int playmatrix(void){
     //int flag =0;
     thread th1(keyEventSnake , &snake);
     double timer = 0;
-    double speed = 1;
+    double speed = 6;
     while (snake.flag)
     {
-        if(snake.redirect || timer == 10*speed){
+        if(snake.redirect || timer == 10 * speed){
             timer = 0;
             snake.redirect = false;
-            printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
+            snake.show();
+            //printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
             snakeDirection(&snake);
         }
         
@@ -66,35 +67,6 @@ int playmatrix(void){
         //sleep(2);
     }
 
-    /*flag =0;
-    while (flag<3)
-    {
-        printMatrizChar(M,FILA,COLUMNA);//-----
-        snakeUp(&list,M,FILA,COLUMNA,1);
-        flag++;
-        usleep(500 * 1000);
-    }
-
-    flag =0;
-    while (flag<4)
-    {
-        printMatrizChar(M,FILA,COLUMNA);//-----
-        snakeLeft(&list,M,FILA,COLUMNA,1);
-        flag++;
-        usleep(500 * 1000);
-    }
-
-    flag =0;
-    while (flag<4)
-    {
-        printMatrizChar(M,FILA,COLUMNA);//-----
-        snakeDown(&list,M,FILA,COLUMNA,1);
-        flag++;
-        usleep( 500 * 1000);
-    }
-
-    //traverseBegin(list.front);
-     //*/
     
     
     th1.join();

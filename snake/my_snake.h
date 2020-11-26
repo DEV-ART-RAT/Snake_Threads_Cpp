@@ -77,5 +77,23 @@ struct mySnake{
         M[i][j] = FOOD;
     }
 
+    void show(){
+    //cout<<flush;
+    //system("clear");//windows
+    CLEAR;
+    for(int i=0; i< COLUMNA; i++)cout<<"- ";
+    cout<<"-"<<endl;
+    for(int i = 0; i < FILA; i++) {
+        cout<<'|';
+        for(int j = 0; j < COLUMNA; j++)
+            cout<<M[i][j]<<" ";
+        cout<<'|'<<endl;
+    }  
+    //int c = 238;
+    //char a = c;
+    for(int i=0; i< COLUMNA; i++)cout<<"- ";
+    cout<<"-"<<endl;
+}
+
     
 };

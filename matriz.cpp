@@ -14,7 +14,7 @@
 
 using namespace std;
 typedef char** charMatriz;
-#ifdef linux
+#ifdef __unix__
 #define CLS system("clear");
 #else
 void clrscr()

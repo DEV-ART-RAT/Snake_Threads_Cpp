@@ -23,6 +23,7 @@
 using namespace std;
 
 int main(void){
+    srand(time(NULL));
 
     charMatriz M;
     int FILA = 11;
@@ -70,7 +71,7 @@ int main(void){
         default:
             break;
         }
-        snakeDirection(&list,M,&FILA,&COLUMNA,1,&dir);
+        snakeDirection(&list,M,&FILA,&COLUMNA,1,&dir,&flag);
         //snakeRight(&list,M,FILA,COLUMNA,1);
         //flag++;
         usleep(500 * 1000);

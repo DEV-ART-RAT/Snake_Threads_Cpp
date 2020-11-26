@@ -102,7 +102,7 @@ int main(){
         }
          //*/
 
-        //sleep(0.01);//para corregir fallo de while
+        sleep(0.01);//para corregir fallo de while
     }
 
     tcgetattr(STDIN_FILENO, &term);

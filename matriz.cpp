@@ -3,6 +3,7 @@
 #include "list.cpp"
 #include <stdlib.h>
 #include <stdio.h>
+#include <thread>
 #ifdef __unix__
 #define OS_Windows 0
 #else
@@ -10,7 +11,9 @@
 #include <windows.h>
 #endif
 
-#include <thread>
+//compile g++ -pthread  ...
+
+
 
 //#pragma once
 
@@ -36,7 +39,8 @@ void clrscr()
 #endif
 
 
-void myThreadOne(int a){
+void myThreadOne(int a, int b){
+    cout<<b;
     for (int i = 0 ; i  < a; i++){
         cout<<"thread one "<<i<<endl;
         sleep(1);
@@ -196,7 +200,7 @@ int main(void){
     list.pushBack(nodeinfo(5,6));
     list.pushBack(nodeinfo(5,7));
     list.pushBack(nodeinfo(5,8));
-    thread th1(myThreadOne,10);
+    thread th1(myThreadOne,10,23);
     thread th2(myThreadTwo,4);
     /*
 
@@ -241,7 +245,8 @@ int main(void){
      //*/
     
     
-
+    th1.join();
+    th2.join();
 
     return 0;
 }

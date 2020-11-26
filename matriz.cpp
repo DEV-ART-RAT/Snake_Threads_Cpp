@@ -50,9 +50,10 @@ int main(void){
     //int flag =0;
     thread th1(keyEventSnake , &snake);
     int timer = 0;
+    int speed = 1;
     while (snake.flag)
     {
-        if(snake.redirect || timer == 10){
+        if(snake.redirect || timer == 10*speed){
             timer = 0;
             snake.redirect = false;
             printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <thread>
-#ifdef __unix__
+
 #ifdef  linux
 #define OS_Windows 0
 #elif defined (__unix__)

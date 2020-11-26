@@ -92,7 +92,7 @@ int welcomemain(){
                 case 1:
                     cout<<"new game start :v"<<endl;
                     playmatrix();
-                    loop=false;
+                   // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:
                     loop=false;

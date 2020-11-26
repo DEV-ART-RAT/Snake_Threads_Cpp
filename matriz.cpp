@@ -13,6 +13,7 @@
 #include "keyEvent.h"
 #include "matriz.h"
 #include "snake.h"
+#include "my_snake.h"
 
 //compile g++ -pthread  ...
 
@@ -20,61 +21,45 @@
 
 //#pragma once
 
+
+
 using namespace std;
+
+
 
 int main(void){
     srand(time(NULL));
 
-    charMatriz M;
-    int FILA = 11;
-    int COLUMNA = 23;
-    char key = '0';
-    int dir = 3;
-    bool flag = true;
+    mySnake snake = mySnake(11,23);
     //cout<<OS_Windows;
+    snake.list.pushBack(nodeinfo(5,5));
+    snake.list.pushBack(nodeinfo(5,6));
+    snake.list.pushBack(nodeinfo(5,7));
+    snake.list.pushBack(nodeinfo(5,8));
 
-    getMatrizChar(&M,FILA,COLUMNA);//tamaño 11x11
+    snake.defineSnake();
+    snake.defineFood();
     
-
-    doubleLinked <nodeinfo> list;
-    list.pushBack(nodeinfo(5,5));
-    list.pushBack(nodeinfo(5,6));
-    list.pushBack(nodeinfo(5,7));
-    list.pushBack(nodeinfo(5,8));
-    thread th1(keyboardEvent,&key,&flag);
     //thread th2(myThreadTwo,4);
     //*
 
-    defineSnake(list,M,FILA,COLUMNA);
-    defineFood(M,&FILA,&COLUMNA);
+    
     //int flag =0;
-    while (flag)
+    thread th1(keyEventSnake , &snake);
+    int timer = 0;
+    while (snake.flag)
     {
-        printMatrizChar(M,FILA,COLUMNA);//-----
-        switch (key)
-        {
-        case '\n':
-            flag=false;
-            break;
-        case 65:
-            dir = (dir!=2)? 1 : 2;
-            break;
-        case 66:
-            dir = (dir!=1)? 2 : 1;
-            break;
-        case 67:
-            dir = (dir!=4)? 3 : 4;
-            break;
-        case 68:
-            dir = (dir!=3)? 4 : 3;
-            break;
-        default:
-            break;
+        if(snake.redirect || timer == 10){
+            timer = 0;
+            snake.redirect = false;
+            printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
+            snakeDirection(&snake);
         }
-        snakeDirection(&list,M,&FILA,&COLUMNA,1,&dir,&flag);
-        //snakeRight(&list,M,FILA,COLUMNA,1);
-        //flag++;
-        usleep(500 * 1000);
+        
+        
+        usleep(10 * 1000);
+        timer++;
+        //sleep(2);
     }
 
     /*flag =0;

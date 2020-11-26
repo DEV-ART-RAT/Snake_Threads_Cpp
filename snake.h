@@ -1,14 +1,13 @@
 #include "matriz.h"
+#include "my_snake.h"
 
-#define FOOD '+'
-#define SNAKE '*'
-#define CRASH 'F'
+#pragma once
 
-int getIntRand(int a, int b){   
-    return rand() % (b - a + 1) + a;
-}
 
-template<class T>
+
+
+
+/*template<class T>
 void defineSnake(doubleLinked<T> list, charMatriz M, int fil, int col){
     for(node<T>* e = list.front; e!=NULL; e=e->next){
         if(e->info.i>=fil)
@@ -19,120 +18,120 @@ void defineSnake(doubleLinked<T> list, charMatriz M, int fil, int col){
         //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
     }
 
-}
+}*/
 
-void defineFood(charMatriz M, int* fil, int* col){
+/*void defineFood(charMatriz M, int* fil, int* col){
     int i , j;
     do{
         i = getIntRand( 0 , *fil - 1 );
         j = getIntRand( 0 , *col - 1 );
-    }while (M[i][j]!=' ');
+    }while (M[i][j]!=SCENE);
     M[i][j] = FOOD;
-}
+}*/
 
-template<class T>
-void snakeDel(doubleLinked<T>* list, charMatriz M){
-    node<T>* n = list->removeFront();
-    M[n->info.i][n->info.j]=' ';
+//template<class T>
+void snakeDel(mySnake* snake){
+    node<nodeinfo>* n = snake->list.removeFront();
+    snake->M[n->info.i][n->info.j]=' ';
     delete(n);
 }
 
-template<class T>
-void snakeNew(doubleLinked<T>* list, charMatriz M, int fil, int col,int* sizeFil, int* sizeCol, bool* flag){
-    list->pushBack(T(fil,col));
-    if(M[fil][col]==FOOD ){
-        //list->pushFront(T(fil,col));
-        defineFood(M,sizeFil,sizeCol);
+//template<class T>
+void snakeNew(mySnake* snake, int fil, int col){
+    snake->list.pushBack(nodeinfo(fil,col));
+    if(snake->M[fil][col]==FOOD ){
+        //list.pushFront(T(fil,col));
+        snake->defineFood();
         //M[fil][col]='*';
-    }else if(M[fil][col]==SNAKE){
-        *flag = false;
-        M[fil][col]=CRASH;
-        printMatrizChar(M,*sizeFil,*sizeCol);//-----
+    }else if(snake->M[fil][col]==SNAKE){
+        snake->flag = false;
+        snake->M[fil][col]=CRASH;
+        printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
         cout<<"GAME OVER >:´v"<<endl;
 
     }else
     {
-        snakeDel(list,M);
+        snakeDel(snake);
     }    
-    M[fil][col]=SNAKE;
+    snake->M[fil][col]=SNAKE;
 }
 
 
-template<class T>
-void snakeRight(doubleLinked<T>* list, charMatriz M, int* fil, int* col,int step, bool* flag){
-    int prevF= list->back->info.i;
-    int prevC= list->back->info.j;
+//template<class T>
+void snakeRight(mySnake* snake){
+    int prevF= snake->list.back->info.i;
+    int prevC= snake->list.back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< step;k++){
+    for(int k = 0; k< snake->steep;k++){
         prevC++;
-        if(prevC>=*col){
+        if(prevC>=snake->COLUMNA){
             prevC=0;
         }
-        snakeNew(list,M,prevF,prevC,fil,col,flag);
+        snakeNew(snake,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
-template<class T>
-void snakeLeft(doubleLinked<T>* list, charMatriz M, int* fil, int* col,int step, bool* flag){
-    int prevF= list->back->info.i;
-    int prevC= list->back->info.j;
+//template<class T>
+void snakeLeft(mySnake* snake){
+    int prevF= snake->list.back->info.i;
+    int prevC= snake->list.back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< step;k++){
+    for(int k = 0; k< snake->steep;k++){
         prevC--;
         if(prevC < 0){
-            prevC = *col -1;
+            prevC = snake->COLUMNA -1;
         }
-        snakeNew(list,M,prevF,prevC,fil,col,flag);
+        snakeNew(snake,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
-template<class T>
-void snakeUp(doubleLinked<T>* list, charMatriz M, int* fil, int* col,int step, bool* flag){
-    int prevF= list->back->info.i;
-    int prevC= list->back->info.j;
+//template<class T>
+void snakeUp(mySnake* snake){
+    int prevF= snake->list.back->info.i;
+    int prevC= snake->list.back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< step;k++){
+    for(int k = 0; k< snake->steep;k++){
         prevF--;
         if(prevF < 0){
-            prevF = *fil - 1;
+            prevF = snake->FILA - 1;
         }
-        snakeNew(list,M,prevF,prevC,fil,col,flag);
+        snakeNew(snake,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
-template<class T>
-void snakeDown(doubleLinked<T>* list, charMatriz M, int* fil, int* col,int step, bool* flag){
-    int prevF= list->back->info.i;
-    int prevC= list->back->info.j;
+//template<class T>
+void snakeDown(mySnake* snake){
+    int prevF= snake->list.back->info.i;
+    int prevC= snake->list.back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< step;k++){
+    for(int k = 0; k< snake->steep;k++){
         prevF++;
-        if(prevF >= *fil){
+        if(prevF >= snake->FILA){
             prevF = 0;
         }
-        snakeNew(list,M,prevF,prevC,fil,col,flag);
+        snakeNew(snake,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
-template<class T>
-void snakeDirection(doubleLinked<T>* list, charMatriz M, int* fil, int* col,int step, int* dir, bool* flag){
-    switch (*dir)
+//template<class T>
+void snakeDirection(mySnake* snake){
+    switch (snake->dir)
         {
         case 1:
-            snakeUp(list,M,fil,col,step,flag);
+            snakeUp(snake);
             break;
         case 2:
-            snakeDown(list,M,fil,col,step,flag);
+            snakeDown(snake);
             break;
         case 3:
-            snakeRight(list,M,fil,col,step,flag);
+            snakeRight(snake);
             break;
         case 4:
-            snakeLeft(list,M,fil,col,step,flag);
+            snakeLeft(snake);
             break;
         default:
             break;

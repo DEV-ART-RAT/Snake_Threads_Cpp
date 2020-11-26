@@ -1,8 +1,18 @@
 #include <iostream>
 #include <string>
 #include <map>
-/*
+//*
 #include <boost/foreach.hpp>
+//sudo apt-get install libboost-atomic-dev
+
+#include <termios.h>
+#include <unistd.h>
+
+
+#include <stdio.h>//getChar()
+
+
+
 
 class SupervisedString;
 class IObserver{
@@ -56,11 +66,36 @@ class Counter: public IObserver{  // Prints the length of observed string into s
     }
 };
 
+
+void keyboardEvent(std::string* key, bool* flag,SupervisedString* str){
+    struct termios term;
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+
+    while (*flag)
+    {
+        *key=getchar();
+        str->reset(*key);
+        std::cout<<std::endl;   
+        
+    }
+    
+
+
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
+
+
 int main(){
 
     SupervisedString str;
     Reflector refl;
     Counter    cnt;
+    std::string key = "c";
+    bool flag = true;
 
     str.add(refl);
     str.reset("Hello, World!");
@@ -70,6 +105,7 @@ int main(){
     str.add   (cnt);
     str.reset("World, Hello!");
     std::cout<<std::endl;
+    keyboardEvent(&key,&flag,&str);
 
     return 0;
 }

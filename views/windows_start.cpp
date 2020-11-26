@@ -92,6 +92,7 @@ int welcomemain(){
                 case 1:
                     cout<<"new game start :v"<<endl;
                     playmatrix();
+                    loop=false;
                     break;
                 case 2:
                     loop=false;

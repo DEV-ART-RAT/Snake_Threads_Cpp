@@ -3,6 +3,7 @@
 using namespace std;
 
 /* 
+Para ejecutar: 
 g++ -pthread main.cpp -o main
 ./main
 */

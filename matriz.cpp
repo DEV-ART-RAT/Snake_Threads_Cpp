@@ -30,18 +30,18 @@ void getMatrizChar(char*** array, int b, int a){
 void printMatrizChar(charMatriz array, int a, int b){
     //cout<<flush;
     system("clear");//windows
-    for(int i=0; i< b; i++)cout<<'_';
-    cout<<"__"<<endl;
+    for(int i=0; i< b; i++)cout<<"- ";
+    cout<<"-"<<endl;
     for(int i = 0; i < a; i++) {
         cout<<'|';
         for(int j = 0; j < b; j++)
-            cout<<array[i][j];
+            cout<<array[i][j]<<" ";
         cout<<'|'<<endl;
     }  
     //int c = 238;
     //char a = c;
-    for(int i=0; i< b; i++)cout<<'T';
-    cout<<"TT"<<endl;
+    for(int i=0; i< b; i++)cout<<"- ";
+    cout<<"-"<<endl;
 }
 
 template<class T>
@@ -153,39 +153,39 @@ int main(void){
 
     defineSnake(list,M,FILA,COLUMNA);
     int flag =0;
-    while (flag<7)
+    while (flag<4)
     {
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeRight(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(0.5);
+        sleep(1);
     }
 
     flag =0;
-    while (flag<7)
+    while (flag<3)
     {
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeUp(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(0.3);
+        sleep(1);
     }
 
     flag =0;
-    while (flag<7)
+    while (flag<4)
     {
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeLeft(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(0.7);
+        sleep(1);
     }
 
     flag =0;
-    while (flag<7)
+    while (flag<4)
     {
         printMatrizChar(M,FILA,COLUMNA);//-----
         snakeDown(&list,M,FILA,COLUMNA,1);
         flag++;
-        sleep(0.3);
+        sleep(1);
     }
 
     traverseBegin(list.front);

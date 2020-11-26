@@ -3,7 +3,10 @@
 #include "list.cpp"
 #include <stdlib.h>
 //#include <stdio.h>
-
+/* 
+g++ -pthread matriz.cpp -o matriz
+./matriz
+*/
 #include <thread>
 
 //#include <termios.h>

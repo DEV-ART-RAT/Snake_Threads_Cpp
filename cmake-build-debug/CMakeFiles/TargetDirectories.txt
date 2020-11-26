@@ -1,0 +1,3 @@
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/cmake-build-debug/CMakeFiles/proyecto.dir
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/cmake-build-debug/CMakeFiles/edit_cache.dir

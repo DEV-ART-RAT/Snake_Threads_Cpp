@@ -10,6 +10,7 @@
     - [5.1. Buenas prácticas:](#51-buenas-prácticas)
     - [5.2. Estructuras de datos (dinámicas):](#52-estructuras-de-datos-dinámicas)
     - [5.3. Algoritmos de ordenamiento / búsqueda:](#53-algoritmos-de-ordenamiento--búsqueda)
+          - [Comandos:](#comandos)
 
 ## 2. Documento:
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="55">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
@@ -35,3 +36,15 @@
 ### 5.2. Estructuras de datos (dinámicas):
 
 ### 5.3. Algoritmos de ordenamiento / búsqueda:
+
+
+
+
+
+###### Comandos:
+git checkout main
+git pull --allow-unrelated-histories origin master
+git add .
+git commit -m "Merch :V"
+git push
+history

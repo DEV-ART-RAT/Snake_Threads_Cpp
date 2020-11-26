@@ -1,6 +1,8 @@
 #include  "clear.cpp"
 #include <iostream>
 
+//#include "my_snake.h"
+
 #pragma once
 
 using namespace std;
@@ -27,6 +29,7 @@ void getMatrizChar(char*** array, int b, int a){
     getMatrizChar(*array,a,b);
 }
 
+/*
 void printMatrizChar(charMatriz array, int a, int b){
     //cout<<flush;
     //system("clear");//windows
@@ -43,4 +46,4 @@ void printMatrizChar(charMatriz array, int a, int b){
     //char a = c;
     for(int i=0; i< b; i++)cout<<"- ";
     cout<<"-"<<endl;
-}
+}//*/

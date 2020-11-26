@@ -46,7 +46,8 @@ void snakeNew(mySnake* snake, int fil, int col){
     }else if(snake->M[fil][col]==SNAKE){
         snake->flag = false;
         snake->M[fil][col]=CRASH;
-        printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
+        snake->show();
+        //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
         cout<<"GAME OVER >:´v"<<endl;
 
     }else

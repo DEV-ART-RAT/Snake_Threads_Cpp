@@ -3,7 +3,7 @@
 #include "list.cpp"
 #include <stdlib.h>
 #include <stdio.h>
-#ifdef linux
+#ifdef __unix__
 #define OS_Windows 0
 #else
 #define OS_Windows 1

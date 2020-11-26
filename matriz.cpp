@@ -3,7 +3,9 @@
 #include "list.cpp"
 #include <stdlib.h>
 #include <stdio.h>
-#ifdef __unix__
+#ifdef  linux
+#define OS_Windows 0
+#elif defined (__unix__) 
 #define OS_Windows 0
 #else
 #define OS_Windows 1
@@ -15,7 +17,9 @@
 
 using namespace std;
 typedef char** charMatriz;
-#ifdef __unix__
+#ifdef linux
+#define CLS system("clear");
+#elif defined(__unix__ )
 #define CLS system("clear");
 #else
 void clrscr()

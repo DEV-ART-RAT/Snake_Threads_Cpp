@@ -8,6 +8,7 @@
 //#include <thread>
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
+#include "./shop.cpp"
 #include <termios.h>
 #include <unistd.h>
 //#define mySleep(x) Sleep(x);
@@ -51,7 +52,7 @@ int welcomemain(){
     char key;
     //bool key_up = false;
     int flag = 1;       //opcion actual del menu
-    int sizeOption=2;   //numero total de opciones en el menu
+    int sizeOption=3;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
     sleep(0.1);//para corregir fallo de while
     wellcome(   flag);  //invocacion del menu
@@ -94,6 +95,10 @@ int welcomemain(){
                     break;
                 case 2:
                     loop=false;
+                    welcomeshop();
+                    break;
+                case 3:
+                    loop=false;
                     cout<<"exit... :'v"<<endl;
                     break;
                 default:
@@ -131,7 +136,9 @@ void wellcome(int opc){
     cout<<endl<<endl;
     cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" START "<<((opc==1)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<"  EXIT "<<((opc==2)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" TIENDA "<<((opc==2)?"*":"");
+    cout<<endl;
+    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<"  EXIT "<<((opc==3)?"*":"");
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }

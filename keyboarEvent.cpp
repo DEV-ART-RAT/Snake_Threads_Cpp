@@ -6,6 +6,7 @@
 //#include <conio.h>
 
 //#include <thread>
+#include "clear.cpp"
 
 #include <termios.h>
 #include <unistd.h>
@@ -115,8 +116,9 @@ int main(){
 
 void wellcome(int opc){
     //system("cls");//linux
-    cout<<flush;
-    system("clear");//windows
+    //cout<<flush;
+    //system("clear");//windows
+    CLEAR;
     //sleep(0.01);//para corregir fallo de while
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t\tWELLCOME !! TO ......!!!\n\n";

@@ -3,9 +3,12 @@
 #include "list.cpp"
 #include <stdlib.h>
 #include <stdio.h>
-#include <thread>
 
-#include  "clear.h"
+#include <thread>
+#include <termios.h>
+#include <unistd.h>
+
+#include  "clear.cpp"
 
 //compile g++ -pthread  ...
 
@@ -57,7 +60,7 @@ void getMatrizChar(char*** array, int b, int a){
 void printMatrizChar(charMatriz array, int a, int b){
     //cout<<flush;
     //system("clear");//windows
-    CLS;
+    CLEAR;
     for(int i=0; i< b; i++)cout<<"- ";
     cout<<"-"<<endl;
     for(int i = 0; i < a; i++) {
@@ -181,7 +184,7 @@ int main(void){
     list.pushBack(nodeinfo(5,8));
     thread th1(myThreadOne,10,23);
     thread th2(myThreadTwo,4);
-    /*
+    //*
 
     defineSnake(list,M,FILA,COLUMNA);
     int flag =0;

@@ -51,8 +51,8 @@ int playmatrix(mySnake* snake){
     double timer = 0;
     
     snake->show();
-
     sleep(1);
+    
     while (snake->flag)
     {
                     

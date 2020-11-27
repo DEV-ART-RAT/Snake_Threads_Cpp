@@ -1,3 +1,4 @@
+#pragma once;
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -11,7 +12,6 @@
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
 #include "./shop.cpp"
-#pragma once;
 #include "./game_over.cpp"
 
 //#define mySleep(x) Sleep(x);

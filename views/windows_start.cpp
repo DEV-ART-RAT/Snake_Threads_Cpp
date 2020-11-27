@@ -1,4 +1,6 @@
 #include <iostream>
+#include <termios.h>
+#include <unistd.h>
 // #ifdef _WIN32 /* Deberia estar definido en windows*/
 //#include <windows.h>
 //#include <winuser.h>
@@ -9,8 +11,9 @@
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
 #include "./shop.cpp"
-#include <termios.h>
-#include <unistd.h>
+#pragma once;
+#include "./game_over.cpp"
+
 
 //#define mySleep(x) Sleep(x);
 
@@ -26,6 +29,7 @@
 /*
 /usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
 */
+
 using namespace std;
 struct termios term;
 void abrir_buffer();
@@ -92,8 +96,10 @@ int welcomemain(node<nodeuserinfouser>* userdata){
             //Sleep(100);//para corregir fallo de while
             switch (flag) {
                 case 1:
+                    loop=false;
                     cout<<"new game start :v"<<endl;
                     playmatrix(&snake);
+                    game_over(userdata);
                    // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:

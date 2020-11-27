@@ -41,9 +41,10 @@ void snakeNew(mySnake* snake, int fil, int col){
     snake->list.pushBack(nodeinfo(fil,col));
     if(snake->M[fil][col]==FOOD ){
         //list.pushFront(T(fil,col));
+        snake->sizeSnake = snake->sizeSnake + 1;
         snake->defineFood();
         //M[fil][col]='*';
-    }else if(snake->M[fil][col]==SNAKE){
+    }else if(snake->M[fil][col]==SNAKE || snake->M[fil][col]==WALL){
         snake->flag = false;
         snake->M[fil][col]=CRASH;
         snake->show();

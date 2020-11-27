@@ -18,8 +18,9 @@
 
 #define FOOD '+'
 #define SNAKE '*'
-#define CRASH 'X'
+#define CRASH '?'
 #define SCENE ' '
+#define WALL 'X'
 
 
 
@@ -33,6 +34,8 @@ int getIntRand(int a, int b){
     return rand() % (b - a + 1) + a;
 }
 
+void levelOne(char** , int , int);
+
 
 struct mySnake{
     charMatriz M;
@@ -43,6 +46,7 @@ struct mySnake{
     bool flag;
     bool redirect;
     int steep;
+    int sizeSnake;
     doubleLinked <nodeinfo> list;
 
     mySnake() {}
@@ -52,9 +56,22 @@ struct mySnake{
         flag=true;
         redirect=false;
         steep=1;
+        sizeSnake = 4;
         getMatrizChar(&M,FILA,COLUMNA);//inicando matriz
         //defineSnake(list,M,FILA,COLUMNA);//inciando snake
         //defineFood(M,&FILA,&COLUMNA);//comida inicial
+    }
+
+    void defineLevel(int i){
+        switch (i)
+        {
+        case 1:
+            levelOne(M,FILA,COLUMNA);//inicando matriz
+            break;
+        
+        default:
+            break;
+        }
     }
 
     void defineSnake(){
@@ -78,22 +95,34 @@ struct mySnake{
     }
 
     void show(){
-    //cout<<flush;
-    //system("clear");//windows
-    CLEAR;
-    for(int i=0; i< COLUMNA; i++)cout<<"- ";
-    cout<<"-"<<endl;
-    for(int i = 0; i < FILA; i++) {
-        cout<<'|';
-        for(int j = 0; j < COLUMNA; j++)
-            cout<<M[i][j]<<" ";
-        cout<<'|'<<endl;
-    }  
-    //int c = 238;
-    //char a = c;
-    for(int i=0; i< COLUMNA; i++)cout<<"- ";
-    cout<<"-"<<endl;
+        //cout<<flush;
+        //system("clear");//windows
+        CLEAR;
+        for(int i=0; i< COLUMNA; i++)cout<<"- ";
+        cout<<"-"<<endl;
+        for(int i = 0; i < FILA; i++) {
+            cout<<'|';
+            for(int j = 0; j < COLUMNA; j++)
+                cout<<M[i][j]<<" ";
+            cout<<'|'<<endl;
+        }  
+        //int c = 238;
+        //char a = c;
+        for(int i=0; i< COLUMNA; i++)cout<<"- ";
+        cout<<"-"<<endl;
 }
 
     
 };
+
+void levelOne(char** array, int a, int b){//escenario FULL paredes
+    for(int i = 0; i < a; i++) {
+            array[i][0]=WALL;
+            array[i][b-1]=WALL;
+    }
+
+    for(int j = 0; j < b; j++) {
+            array[0][j]=WALL;
+            array[a-1][j]=WALL;
+    }
+}

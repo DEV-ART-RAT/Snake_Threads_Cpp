@@ -41,7 +41,7 @@ void snakeNew(mySnake* snake, int fil, int col){
     snake->list.pushBack(nodeinfo(fil,col));
     if(snake->M[fil][col]==FOOD ){
         //list.pushFront(T(fil,col));
-        snake->sizeSnake = snake->sizeSnake + 1;
+        snake->sizeSnake ++;
         int max = snake->sizeMax;
         if(snake->sizeSnake < max*0.2)
             snake->speed = snake->initialSpeed * 0.8;
@@ -57,6 +57,7 @@ void snakeNew(mySnake* snake, int fil, int col){
             snake->speed = snake->initialSpeed  * 0.2;
         else
             snake->speed = snake->initialSpeed  * 0.1;
+            
         snake->defineFood();
         //M[fil][col]='*';
     }else if(snake->M[fil][col]==SNAKE || snake->M[fil][col]==WALL){

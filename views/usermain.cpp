@@ -7,7 +7,6 @@
 #include "../user/readuser.cpp"
 using namespace std;
 void welcomeuser();
-
 template<class T>
 void printUsers(doubleLinked<T>* dl,int &P,int &C,string user);
 
@@ -24,7 +23,8 @@ int usermain(nodeuserinfouser* userdata) {
         cout<<"Tus monedas : "<<C<<endl;
         cout<<"Tus puntajes : "<<P<<endl;
     }
-    nodeuserinfouser userdata =  nodeuserinfouser(P,C,user)  ;
+     *userdata =  nodeuserinfouser(P,C,user)  ;
+
      // getchar(); borrar buffer
     //traverseBegin(userlist.front);
     return 0;

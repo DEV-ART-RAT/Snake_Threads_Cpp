@@ -1,6 +1,4 @@
 #include <iostream>
-#include <termios.h>
-#include <unistd.h>
 #pragma once;
 #include "./windows_start.cpp"
 

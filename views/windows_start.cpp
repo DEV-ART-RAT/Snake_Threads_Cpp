@@ -14,7 +14,6 @@
 #pragma once;
 #include "./game_over.cpp"
 
-
 //#define mySleep(x) Sleep(x);
 
 // #elif defined __unix__ /* Creo que es esta macro, deberia estar definida en sistemas Unix-like*/

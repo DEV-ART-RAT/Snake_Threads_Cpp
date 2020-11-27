@@ -82,13 +82,17 @@ int welcomeshop(nodeuserinfouser* userdata){
             //Sleep(100);//para corregir fallo de while
             switch (flag) {
                 case 1:
-                    cout<<"Compraste Vidas"<<endl;
+                    buyLife(userdata);
+                    sleep(1);
+                    shopwelcome(flag, userdata);
                     break;
                 case 2:
                     cout<<"Compraste Velocidad"<<endl;
                     break;
                 case 3:
-                    cout<<"moneda comprada"<<endl;
+                    buyCoin(userdata);
+                    sleep(1);
+                    shopwelcome(flag, userdata);
                     break;
                 case 4:
                     loop=false;
@@ -126,13 +130,13 @@ void shopwelcome(int opc,nodeuserinfouser* userdata){
     cout<<"Points: "<<userdata->puntaje<<endl;
     cout<<"Coins: "<<userdata->coin<<endl;
     //cout<<"Lifes: "<<snake->lifes<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vidas Extra "<<((opc==1)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vida Extra (5 monedas) "<<((opc==1)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Velocidad "<<((opc==2)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Potenciar puntaje x2 (500 puntos) "<<((opc==2)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" 1 moneda por 100 puntos "<<((opc==3)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" 1 moneda (100 puntos)"<<((opc==3)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  Salir "<<((opc==4)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  Regresar "<<((opc==4)?"*":"");
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }

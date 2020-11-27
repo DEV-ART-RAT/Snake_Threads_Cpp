@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./views/windows_start.cpp"
-#include "./views/usermain.cpp"
+//#include "./views/usermain.cpp"
 using namespace std;
 
 /* 

@@ -1,8 +1,10 @@
+#pragma once;
+
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
-#pragma once;
 #include "./windows_start.cpp"
+
 
 
 using namespace std;
@@ -60,6 +62,7 @@ int game_over(node<nodeuserinfouser>* userdata) {
 };
 
 void game_over_Print(int opc){
+    CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
     cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;

@@ -75,6 +75,7 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
 }
 
 void welcomeuser(void){
+    // borra esto porque hay nose que conflicto de pragma once
     CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;

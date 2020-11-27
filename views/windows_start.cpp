@@ -11,10 +11,10 @@
 //#include <thread>
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
+#include "../snake/keyEvent.h"
 #include "./shop.cpp"
 #include "./game_over.cpp"
 //#pragma once;
-
 
 
 //#define mySleep(x) Sleep(x);
@@ -100,7 +100,8 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                     break;
                 case 3:
                     loop=false;
-                    cout<<"exit... :'v   press any key to continue"<<endl;
+                    cout<<"exit... :'v"<<endl;
+                    exit(EXIT_SUCCESS);
                     break;
                 default:
                     break;

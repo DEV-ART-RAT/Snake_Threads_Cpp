@@ -1,4 +1,4 @@
-#include "nodeuser.h"
+#include "nodeuseruser.h"
 #include <iostream>
 #include <string>
 
@@ -6,7 +6,7 @@ using namespace std;
 template<class T>
 //struct de la lista
 struct doubleLinkeduser {
-    node<T>* front,* back;
+    nodeuser<T>* front,* back;
     doubleLinkeduser () {
         front = back = NULL;
     }
@@ -15,7 +15,7 @@ struct doubleLinkeduser {
 template<class T>
 void pushFront(T info, doubleLinkeduser<T>* dl) {
     //verificamos si tiene a alguien enfrente , sino es porque es el primero
-    node<T>* n = new node<T>;
+    nodeuser<T>* n = new nodeuser<T>;
     n->info = info;
     n->prev = NULL;
     if(!dl->front) {
@@ -29,9 +29,9 @@ void pushFront(T info, doubleLinkeduser<T>* dl) {
 }
 
 template<class T>
-void pushBack(T info, doubleLinkeduser<T>* dl) {
+void pushBackuser(T info, doubleLinkeduser<T>* dl) {
     //Verificamos como siempre si tiene a a alguien
-    node<T>* n = new node<T>;
+    nodeuser<T>* n = new nodeuser<T>;
     n->info = info;
     n->next = NULL;
     if(!dl->front) {
@@ -45,9 +45,9 @@ void pushBack(T info, doubleLinkeduser<T>* dl) {
 }
 
 template<class T>
-void pushAtuser(int pos, T info, node<T>** front) {
+void pushAtuser(int pos, T info, nodeuser<T>** front) {
     //para push en una posicion
-    node<T>* n = new node<T>;
+    nodeuser<T>* n = new nodeuser<T>;
     n->info = info;
     n->prev = n->next = NULL;
     if(pos == 0) {
@@ -57,7 +57,7 @@ void pushAtuser(int pos, T info, node<T>** front) {
         return;
     }
     int counter = 0;
-    node<T>* aux = *front;
+    nodeuser<T>* aux = *front;
     while(counter < pos - 1) {
         aux = aux->next;
         counter++;
@@ -69,7 +69,7 @@ void pushAtuser(int pos, T info, node<T>** front) {
 }
 
 template<class T>
-void traverseBeginuser(node<T>* front) {
+void traverseBeginuser(nodeuser<T>* front) {
     if(front) {
         cout << front->info << "  ";
         traverseBeginuser(front->next);
@@ -79,7 +79,7 @@ void traverseBeginuser(node<T>* front) {
 }
 
 template<class T>
-void traverseEnduser(node<T>* back) {
+void traverseEnduser(nodeuser<T>* back) {
     if(back) {
         cout << back->info << "  ";
         traverseEnduser(back->prev);
@@ -89,7 +89,7 @@ void traverseEnduser(node<T>* back) {
 }
 
 template<class T>
-int removeuser(T e, node<T>** front) {
+int removeuser(T e, nodeuser<T>** front) {
     if(*front) {
         if((*front)->info == e) {
             if(!(*front)->prev) {
@@ -97,7 +97,7 @@ int removeuser(T e, node<T>** front) {
                 (*front)->prev = NULL;
             }
             else {
-                node<T>* prev = (*front)->prev;
+                nodeuser<T>* prev = (*front)->prev;
                 *front = (*front)->next;
                 
                 if(*front)
@@ -116,7 +116,7 @@ int removeuser(T e, node<T>** front) {
 }
 
 template<class T>
-bool removeuserFirst(T e, node<T>** front) {
+bool removeuserFirst(T e, nodeuser<T>** front) {
     if(*front) {
         if((*front)->info == e) {
             if(!(*front)->prev) {
@@ -124,7 +124,7 @@ bool removeuserFirst(T e, node<T>** front) {
                 (*front)->prev = NULL;
             }
             else {
-                node<T>* prev = (*front)->prev;
+                nodeuser<T>* prev = (*front)->prev;
                 *front = (*front)->next;
                 
                 if(*front)
@@ -142,7 +142,7 @@ bool removeuserFirst(T e, node<T>** front) {
 }
 
 template<class T>
-bool removeuserAt(int current, int pos, node<T>** front) {
+bool removeuserAt(int current, int pos, nodeuser<T>** front) {
     if(*front) {
         if(current == pos) {
             if(!(*front)->prev) {
@@ -150,7 +150,7 @@ bool removeuserAt(int current, int pos, node<T>** front) {
                 (*front)->prev = NULL;
             }
             else {
-                node<T>* prev = (*front)->prev;
+                nodeuser<T>* prev = (*front)->prev;
                 *front = (*front)->next;
                 
                 if(*front)
@@ -169,7 +169,7 @@ bool removeuserAt(int current, int pos, node<T>** front) {
 }
 
 template <class Predicative, class T>
-int removeuserIf(Predicative removeuserCondition, node<T>** front) {
+int removeuserIf(Predicative removeuserCondition, nodeuser<T>** front) {
     if(*front) {
         if(removeuserCondition((*front)->info)) {
             if(!(*front)->prev) {
@@ -177,7 +177,7 @@ int removeuserIf(Predicative removeuserCondition, node<T>** front) {
                 (*front)->prev = NULL;
             }
             else {
-                node<T>* prev = (*front)->prev;
+                nodeuser<T>* prev = (*front)->prev;
                 *front = (*front)->next;
                 
                 if(*front)

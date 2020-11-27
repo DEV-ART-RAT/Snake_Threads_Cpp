@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <ostream>
 #pragma once
 using namespace std;
 

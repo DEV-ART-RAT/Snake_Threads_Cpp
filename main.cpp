@@ -12,6 +12,7 @@ g++ -pthread main.cpp -o main
 int main(void) {
     node<nodeuserinfouser> user;
     doubleLinked<nodeuserinfouser> userlist;
+
     usermain(&user,&userlist);
     welcomemain(&user);
 

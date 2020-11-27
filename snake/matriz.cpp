@@ -50,9 +50,18 @@ int playmatrix(void){
     //int flag =0;
     thread th1(keyEventSnake , &snake);
     double timer = 0;
-    double speed = 1;
+    double speed = 6;
+    int max = 30;
+    double snakeSizeAux = snake.sizeSnake;
     while (snake.flag)
-    {
+    {   
+        if (snake.sizeSnake <= max){
+            speed = max - snake.sizeSnake + 0.3;
+        }
+        else{
+         speed = 0.5;
+        }
+        cout << speed;
         if(snake.redirect || timer == 10 * speed){
             timer = 0;
             snake.redirect = false;

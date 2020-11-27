@@ -43,6 +43,7 @@ struct mySnake{
     bool flag;
     bool redirect;
     int steep;
+    int sizeSnake;
     doubleLinked <nodeinfo> list;
 
     mySnake() {}
@@ -52,6 +53,7 @@ struct mySnake{
         flag=true;
         redirect=false;
         steep=1;
+        sizeSnake = 4;
         getMatrizChar(&M,FILA,COLUMNA);//inicando matriz
         //defineSnake(list,M,FILA,COLUMNA);//inciando snake
         //defineFood(M,&FILA,&COLUMNA);//comida inicial

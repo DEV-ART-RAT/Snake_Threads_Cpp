@@ -13,6 +13,8 @@
 #include "../snake/matriz.cpp"
 #include "./shop.cpp"
 #include "./game_over.cpp"
+//#pragma once;
+
 
 //#define mySleep(x) Sleep(x);
 

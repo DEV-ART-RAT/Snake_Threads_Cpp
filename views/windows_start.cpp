@@ -100,7 +100,7 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                     break;
                 case 3:
                     loop=false;
-                    cout<<"exit... :'v"<<endl;
+                    cout<<"exit... :'v   press any key to continue"<<endl;
                     break;
                 default:
                     break;

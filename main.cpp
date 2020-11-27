@@ -13,7 +13,7 @@ int main(void) {
     node<nodeuserinfouser> user;
     doubleLinked<nodeuserinfouser> userlist;
     usermain(&user,&userlist);
-    //welcomemain(&user);
+    welcomemain(&user);
 
     return 0;
 };

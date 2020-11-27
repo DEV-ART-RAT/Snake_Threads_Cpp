@@ -57,8 +57,10 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
                 // aqui es donde guardo los datos que se obtienen del csv
                 dl->pushBack(T(point,coin,name));
                 if(name==user){
-                    userInfo = dl->back;
+                    *userInfo = *dl->back;
+                    //cout<<"encontre: "<<name<<endl;
                 }
+                //cout<<"encontre no user: "<<name<<endl;
             }
 
         }

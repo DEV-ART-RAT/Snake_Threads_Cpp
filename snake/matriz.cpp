@@ -47,12 +47,25 @@ int playmatrix(void){
     //thread th2(myThreadTwo,4);
     //*
 
-    
-    //int flag =0;
     thread th1(keyEventSnake , &snake);
     double timer = 0;
+    double speed = 5;
+    int max = 10;
+    snake.show();
+    sleep(1);
+    while (snake.flag)
+    {
+        if(snake.sizeSnake < max/4)
+            speed = 4;
+        else if (snake.sizeSnake < max/3)
+            speed = 3;
+        else if (snake.sizeSnake < max/2)
+            speed = 2;
+        else
+            speed = 1;
         if(snake.redirect || timer == 10 * speed){
             timer = 0;
+            snake.redirect = false;
             snake.show();
             //printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
             snakeDirection(&snake);

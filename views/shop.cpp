@@ -18,6 +18,27 @@ void keyEventshop(char& key,bool& flag)
 }
 void shopwelcome(int, mySnake*);
 int welcomemain();
+
+void buyCoin(mySnake* snake){
+    if(snake->points >= 100){
+        snake->points -= 100;
+        snake->coins++;
+        cout<<"Moneda comprada"<<endl;
+    } else {
+        cout<<"Puntos insuficientes"<<endl;
+    }
+}
+
+void buyLife(mySnake* snake){
+    if(snake->coins >= 5){
+        snake->coins -= 5;
+        snake->lifes++;
+        cout<<"Vida comprada"<<endl;
+    } else {
+        cout<<"Monedas insuficientes"<<endl;
+    }
+}
+
 int welcomeshop(mySnake* snake){
 
     char key;
@@ -111,7 +132,7 @@ void shopwelcome(int opc, mySnake* snake){
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" 1 moneda por 100 puntos "<<((opc==3)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  EXIT "<<((opc==4)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  Salir "<<((opc==4)?"*":"");
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }

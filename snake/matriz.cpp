@@ -49,30 +49,14 @@ int playmatrix(mySnake* snake){
 
     thread th1(keyEventSnake , snake);
     double timer = 0;
-    double speed = 4;
-    double aux = speed;
-    int max = 20;
+    
     snake->show();
 
     sleep(1);
     while (snake->flag)
     {
-        if(snake->sizeSnake < max*0.2)
-            speed = aux * 0.8;
-        else if (snake->sizeSnake < max*0.4)
-            speed = aux * 0.6;
-        else if (snake->sizeSnake < max*0.5)
-            speed = aux * 0.5;
-        else if (snake->sizeSnake < max*0.60)
-            speed = aux * 0.4;
-        else if (snake->sizeSnake < max*0.80)
-            speed = aux * 0.3;
-        else if (snake->sizeSnake < max * 1.2)
-            speed = aux * 0.2;
-        else
-            speed = aux * 0.1;
-            
-        if(snake->redirect || timer == 10 * speed){
+                    
+        if(snake->redirect || timer == 10 * snake->speed){
             timer = 0;
             snake->redirect = false;
             snake->show();

@@ -7,27 +7,29 @@
 #include "../user/readuser.cpp"
 using namespace std;
 void welcomeuser();
+
 template<class T>
-void printUsers(doubleLinked<T>* dl);
+void printUsers(doubleLinked<T>* dl,int &P,int &C,string user);
 
-int usermain(void) {
+int usermain(int &P,int &C,string &user) {
     doubleLinked<nodeuserinfouser> userlist;
-    int P;
-    P=0;
-    // xx(&user);
-    //pushBackuser(nodeuserinfouser(P, user), &user);
+   
+    P=0,C=0;
     welcomeuser();
-    string user;
     cin>>user;
-    
-    printUsers(&userlist);
-
-
+    printUsers(&userlist,P,C,user);
+    if(C!=0&&P!=0){
+        cout<<"Bienvenido de nuevo!"<<endl;
+        cout<<"Tus monedas : "<<C<<endl;
+        cout<<"Tus puntajes : "<<P<<endl;
+    }
+    // getchar(); borrar buffer
+    //traverseBegin(userlist.front);
     return 0;
 };
 
 template<class T>
-void printUsers(doubleLinked<T>* dl){
+void printUsers(doubleLinked<T>* dl,int &P,int &C,string user){
     ifstream data;
     data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
@@ -48,6 +50,11 @@ void printUsers(doubleLinked<T>* dl){
             else if(col==2){
                 coin = stoi(puntaje);
                 //cout<<puntaje<<endl;
+                // aqui es donde guardo los datos que se obtienen del csv
+                if(name==user){
+                    P=point;
+                    C=coin;
+                }
                 dl->pushBack(T(point,coin,name));
             }
 

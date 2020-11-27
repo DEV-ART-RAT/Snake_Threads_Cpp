@@ -9,23 +9,33 @@
 #include "my_snake.h"
 #pragma once
 
+struct termios term;
 
-void keyboardEvent(char* key, bool* flag){
-    struct termios term;
+void abrir_buffer(){
+    //*
+    cin.ignore();
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    //*/
+}
+void cerrar_buffer(){
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    cin.ignore();
+}
+
+
+void keyboardEvent(char* key, bool* flag){
+    abrir_buffer();
 
     while (*flag)
     {
         *key=getchar();
     }
-    
 
-
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    cerrar_buffer();
 }
 
 void snakeEvent(mySnake* snake){
@@ -37,10 +47,7 @@ void snakeEvent(mySnake* snake){
 
 //template<class T>
 void keyEventSnake(mySnake* snake){
-    struct termios term;
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    abrir_buffer();
 
     while (snake->flag)
     {   
@@ -94,9 +101,7 @@ void keyEventSnake(mySnake* snake){
     
 
 
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    cerrar_buffer();
 }
 
 /* Thread

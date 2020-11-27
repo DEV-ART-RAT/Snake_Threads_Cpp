@@ -29,8 +29,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec97f19-da0d-4e6d-9e14-45f063cace71" name="Default Changelist" comment="merge">
+    <list default="true" id="0ec97f19-da0d-4e6d-9e14-45f063cace71" name="Default Changelist" comment="solve menu conflict">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake/keyEvent.h" beforeDir="false" afterPath="$PROJECT_DIR$/snake/keyEvent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snake/matriz.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/snake/matriz.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/windows_start.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/windows_start.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +78,7 @@
       <updated>1606441021639</updated>
       <workItem from="1606441059093" duration="264000" />
       <workItem from="1606441334036" duration="2959000" />
-      <workItem from="1606446582439" duration="6060000" />
+      <workItem from="1606446582439" duration="6621000" />
     </task>
     <task id="LOCAL-00001" summary="change DIDE">
       <created>1606441476659</created>
@@ -161,7 +164,28 @@
       <option name="project" value="LOCAL" />
       <updated>1606452767988</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="merge">
+      <created>1606453789435</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1606453789435</updated>
+    </task>
+    <task id="LOCAL-00014" summary="merge">
+      <created>1606453813904</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1606453813904</updated>
+    </task>
+    <task id="LOCAL-00015" summary="solve menu conflict">
+      <created>1606453985769</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1606453985769</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,7 +209,8 @@
     <MESSAGE value="modificacion de manejo de usuario" />
     <MESSAGE value="modificacion del control de usuarios" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="solve menu conflict" />
+    <option name="LAST_COMMIT_MESSAGE" value="solve menu conflict" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="139" key="FileChooserDialogImpl" timestamp="1606441309022">
@@ -220,17 +245,17 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="129" y="59" key="MergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1606450567233" />
-    <state x="321" y="145" key="MultipleFileMergeDialog" timestamp="1606450567258">
+    <state x="321" y="145" key="MultipleFileMergeDialog" timestamp="1606453824554">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1606450567258" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606452773874">
+    <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1606453824554" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606453992071">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606452773874" />
-    <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606452687084">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606453992071" />
+    <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606453819100">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="320" y="172" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1606452687084" />
+    <state x="320" y="172" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1606453819100" />
   </component>
 </project>

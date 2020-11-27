@@ -11,7 +11,7 @@ void welcomeuser();
 template<class T>
 void printUsers(doubleLinked<T>* dl,int &P,int &C,string user);
 
-int usermain(void) {
+int usermain(int &P,int &C,string &user) {
     doubleLinked<nodeuserinfouser> userlist;
    
     P=0,C=0;

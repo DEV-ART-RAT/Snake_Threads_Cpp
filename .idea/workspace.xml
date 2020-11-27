@@ -29,7 +29,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ec97f19-da0d-4e6d-9e14-45f063cace71" name="Default Changelist" comment="modificacion de manejo de usuario" />
+    <list default="true" id="0ec97f19-da0d-4e6d-9e14-45f063cace71" name="Default Changelist" comment="merge">
+      <change beforePath="$PROJECT_DIR$/views/shop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +75,7 @@
       <updated>1606441021639</updated>
       <workItem from="1606441059093" duration="264000" />
       <workItem from="1606441334036" duration="2959000" />
-      <workItem from="1606446582439" duration="3553000" />
+      <workItem from="1606446582439" duration="3664000" />
     </task>
     <task id="LOCAL-00001" summary="change DIDE">
       <created>1606441476659</created>
@@ -117,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606450473127</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="merge">
+      <created>1606450605282</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606450605282</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,31 +147,31 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change DIDE" />
     <MESSAGE value="change IDE" />
-    <MESSAGE value="merge" />
     <MESSAGE value="modificacion de manejo de usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="modificacion de manejo de usuario" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="139" key="FileChooserDialogImpl" timestamp="1606441309022">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1606441309022" />
-    <state width="1323" height="364" key="GridCell.Tab.0.bottom" timestamp="1606445728941">
+    <state width="1323" height="226" key="GridCell.Tab.0.bottom" timestamp="1606450626370">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="364" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1606445728941" />
-    <state width="1323" height="364" key="GridCell.Tab.0.center" timestamp="1606445728941">
+    <state width="1323" height="226" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1606450626370" />
+    <state width="1323" height="226" key="GridCell.Tab.0.center" timestamp="1606450626370">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="364" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1606445728941" />
-    <state width="1323" height="364" key="GridCell.Tab.0.left" timestamp="1606445728941">
+    <state width="1323" height="226" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1606450626370" />
+    <state width="1323" height="226" key="GridCell.Tab.0.left" timestamp="1606450626368">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="364" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1606445728941" />
-    <state width="1323" height="364" key="GridCell.Tab.0.right" timestamp="1606445728941">
+    <state width="1323" height="226" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1606450626368" />
+    <state width="1323" height="226" key="GridCell.Tab.0.right" timestamp="1606450626370">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="364" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1606445728941" />
+    <state width="1323" height="226" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1606450626370" />
     <state width="640" height="201" key="ImportCMakeProjectWizard.bottomPanel" timestamp="1606441325820">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -179,10 +188,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1606450567258" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606450479656">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606450610795">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606450479656" />
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606450610795" />
     <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606450494414">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

@@ -19,19 +19,19 @@ void keyEventshop(char& key,bool& flag)
 void shopwelcome(int, node<nodeuserinfouser>* userdata);
 int welcomemain(node<nodeuserinfouser>* userdata);
 
-void buyCoin(nodeuserinfouser* userdata){
-    if(userdata->puntaje >= 100){
-        userdata->puntaje -= 100;
-        userdata->coin++;
+void buyCoin(node<nodeuserinfouser>* userdata){
+    if(userdata->info.puntaje >= 100){
+        userdata->info.puntaje -= 100;
+        userdata->info.coin++;
         cout<<"Moneda comprada"<<endl;
     } else {
         cout<<"Puntos insuficientes"<<endl;
     }
 }
 
-void buyLife(nodeuserinfouser* userdata){
-    if(userdata->coin >= 5){
-        userdata->coin -= 5;
+void buyLife(node<nodeuserinfouser>* userdata){
+    if(userdata->info.coin >= 5){
+        userdata->info.coin -= 5;
        // userdata->lifes++;
         cout<<"Vida comprada"<<endl;
     } else {

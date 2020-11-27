@@ -33,7 +33,7 @@ using namespace std;
 int playmatrix(void){
     srand(time(NULL));
 
-    mySnake snake = mySnake(11,23);
+    mySnake snake = mySnake(15,32);
     //cout<<OS_Windows;
     snake.list.pushBack(nodeinfo(5,5));
     snake.list.pushBack(nodeinfo(5,6));
@@ -42,6 +42,7 @@ int playmatrix(void){
 
     snake.defineSnake();
     snake.defineFood();
+    snake.defineLevel(1);
     
     //thread th2(myThreadTwo,4);
     //*

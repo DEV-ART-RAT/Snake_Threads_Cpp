@@ -42,7 +42,7 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
     for(string line; getline(data,line);){
         stringstream data(line);
         string puntaje,name;
-        int point,coin;
+        int point,coin,lifes;
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;

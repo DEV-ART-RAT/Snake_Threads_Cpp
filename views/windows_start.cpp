@@ -13,15 +13,12 @@
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
 #include "./shop.cpp"
-<<<<<<< HEAD
 #include "./difficulty.cpp"
 #include <termios.h>
 #include <unistd.h>
-=======
 #include "./game_over.cpp"
 //#pragma once;
 
->>>>>>> 2371dfdbd1e4757afe907d7b74f241c68290d654
 
 //#define mySleep(x) Sleep(x);
 
@@ -96,13 +93,10 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                 case 1:
                     loop=false;
                     cout<<"new game start :v"<<endl;
-<<<<<<< HEAD
                     //playmatrix(&snake);
                     welcomedifficulty(userdata);
-=======
-                    playmatrix(&snake);
+                    //playmatrix(&snake);
                     game_over(userdata);
->>>>>>> 2371dfdbd1e4757afe907d7b74f241c68290d654
                    // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:

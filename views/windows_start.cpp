@@ -96,7 +96,7 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                     //playmatrix(&snake);
                     welcomedifficulty(userdata);
                     //playmatrix(&snake);
-                    //game_over(userdata);
+                    game_over(userdata);
                     // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:

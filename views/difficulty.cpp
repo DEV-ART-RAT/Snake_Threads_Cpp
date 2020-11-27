@@ -68,12 +68,15 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
             switch (flag) {
                 case 1:
                     playmatrix(&snake,1);
+                    loop=false;
                     break;
                 case 2:
                     playmatrix(&snake,2);
+                    loop=false;
                     break;
                 case 3:
                     playmatrix(&snake,3);
+                    loop=false;
                     break;
                 case 4:
                     loop=false;

@@ -47,7 +47,7 @@ int playmatrix(mySnake* snake){
     //thread th2(myThreadTwo,4);
     //*
 
-    thread th1(keyEventSnake , snake);
+    thread th1 (keyEventSnake , snake);
     double timer = 0;
     
     snake->show();
@@ -73,6 +73,7 @@ int playmatrix(mySnake* snake){
     
     
     th1.join();
+    //delete(th1);
     //th2.join();
 
     return 0;

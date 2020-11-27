@@ -20,7 +20,8 @@ void keyEventDifficulty(char& key,bool& flag)
 
 }
 void difficultywelcome(int, node<nodeuserinfouser>* userdata);
-int welcomemain(node<nodeuserinfouser>* userdata);
+int startMenu(node<nodeuserinfouser>* );
+int startMenuOpc(node<nodeuserinfouser>* ,int);
 
 
 int welcomedifficulty(node<nodeuserinfouser>* userdata){
@@ -80,7 +81,7 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
                     break;
                 case 4:
                     loop=false;
-                    welcomemain(userdata);
+                    startMenuOpc(userdata,startMenu(userdata));
                     break;
                 default:
                     break;

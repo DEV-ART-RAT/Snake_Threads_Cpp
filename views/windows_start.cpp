@@ -17,27 +17,11 @@
 #include <termios.h>
 #include <unistd.h>
 #include "./game_over.cpp"
-//#pragma once;
 
-
-//#define mySleep(x) Sleep(x);
-
-// #elif defined __unix__ /* Creo que es esta macro, deberia estar definida en sistemas Unix-like*/
-// #include <unistd.h>
-// #define mySleep(x) sleep(x);
-// #else  /* No sabemos donde estamos*/
-// #warning Missing sleep function
-// #endif
-//#include <conio.h>
-
-// COMPILAR:
-/*
-/usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
-*/
 
 using namespace std;
 
-//int welcomemain(int &P,int&C,string user);
+int welcomemain(int &P,int&C,string user);
 void wellcome(int,node<nodeuserinfouser>* );
 
 
@@ -51,6 +35,8 @@ int startMenu(node<nodeuserinfouser>* userdata){
     wellcome(flag,userdata);  //invocacion del menu
 
     abrir_buffer();
+    sleep(0.1);//para corregir fallo de whiles
+    
     
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67

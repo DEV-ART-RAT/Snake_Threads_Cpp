@@ -31,22 +31,12 @@
 */
 
 using namespace std;
-struct termios term;
-void abrir_buffer();
-void cerrar_buffer();
+
+//void abrir_buffer();
+//void cerrar_buffer();
 int welcomemain(int &P,int&C,string user);
 
-void keyEvent(char& key,bool& flag)
-{
-    struct termios term;
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
 
-    key=getchar();//up:65 down:66 left:68 rigth:67
-
-
-}
 void wellcome(int);
 
 /*
@@ -67,7 +57,7 @@ int welcomemain(node<nodeuserinfouser>* userdata){
     sleep(0.1);//para corregir fallo de while
     wellcome(   flag);  //invocacion del menu
 
-    cin.ignore();
+    //cin.ignore();
     abrir_buffer();
     
     while(loop){
@@ -150,17 +140,6 @@ void wellcome(int opc){
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }
 
-void abrir_buffer(){
-    //*
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-    //*/
-}
-void cerrar_buffer(){
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-}
+
 
 

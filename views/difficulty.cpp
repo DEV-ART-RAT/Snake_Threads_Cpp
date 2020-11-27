@@ -67,7 +67,7 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
             //Sleep(100);//para corregir fallo de while
             switch (flag) {
                 case 1:
-                    playmatrix(&snake,1);
+                    playmatrix(&snake,0);
                     break;
                 case 2:
                     playmatrix(&snake,2);

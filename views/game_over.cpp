@@ -3,6 +3,7 @@
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
+#include "../snake/keyEvent.h"
 #include "./windows_start.cpp"
 
 

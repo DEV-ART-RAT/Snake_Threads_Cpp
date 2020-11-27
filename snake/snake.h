@@ -42,6 +42,21 @@ void snakeNew(mySnake* snake, int fil, int col){
     if(snake->M[fil][col]==FOOD ){
         //list.pushFront(T(fil,col));
         snake->sizeSnake = snake->sizeSnake + 1;
+        int max = snake->sizeMax;
+        if(snake->sizeSnake < max*0.2)
+            snake->speed = snake->initialSpeed * 0.8;
+        else if (snake->sizeSnake < max*0.4)
+            snake->speed = snake->initialSpeed  * 0.6;
+        else if (snake->sizeSnake < max*0.5)
+            snake->speed = snake->initialSpeed * 0.5;
+        else if (snake->sizeSnake < max*0.60)
+            snake->speed = snake->initialSpeed  * 0.4;
+        else if (snake->sizeSnake < max*0.80)
+            snake->speed = snake->initialSpeed  * 0.3;
+        else if (snake->sizeSnake < max * 1.2)
+            snake->speed = snake->initialSpeed  * 0.2;
+        else
+            snake->speed = snake->initialSpeed  * 0.1;
         snake->defineFood();
         //M[fil][col]='*';
     }else if(snake->M[fil][col]==SNAKE || snake->M[fil][col]==WALL){
@@ -73,6 +88,26 @@ void snakeRight(mySnake* snake){
         //snakeDel(list,M);
     }
 }
+
+/*
+void speedBooster(mySnake* snake){
+        int max = 30;
+        if(snake->sizeSnake < max*0.2)
+            snake->speed = snake->initialSpeed * 0.8;
+        else if (snake->sizeSnake < max*0.4)
+            snake->speed = snake->initialSpeed  * 0.6;
+        else if (snake->sizeSnake < max*0.5)
+            snake->speed = snake->initialSpeed * 0.5;
+        else if (snake->sizeSnake < max*0.60)
+            snake->speed = snake->initialSpeed  * 0.4;
+        else if (snake->sizeSnake < max*0.80)
+            snake->speed = snake->initialSpeed  * 0.3;
+        else if (snake->sizeSnake < max * 1.2)
+            snake->speed = snake->initialSpeed  * 0.2;
+        else
+            snake->speed = snake->initialSpeed  * 0.1;
+}
+*/
 
 //template<class T>
 void snakeLeft(mySnake* snake){

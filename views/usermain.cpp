@@ -11,9 +11,9 @@ template<class T>
 void printUsers(doubleLinked<T>* dl);
 
 int usermain(void) {
-     doubleLinked<nodeuserinfouser> userlist;
-     int P;
-     P=0;
+    doubleLinked<nodeuserinfouser> userlist;
+    int P;
+    P=0;
     // xx(&user);
     //pushBackuser(nodeuserinfouser(P, user), &user);
     welcomeuser();
@@ -37,17 +37,17 @@ void printUsers(doubleLinked<T>* dl){
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;
-                cout<<name<<endl;
+                //cout<<name<<endl;
             }
             else if(col==1)
             {
                 point = stoi(puntaje);
-                cout<<puntaje<<endl;
+                //cout<<puntaje<<endl;
 
             }
             else if(col==2){
                 coin = stoi(puntaje);
-                cout<<puntaje<<endl;
+                //cout<<puntaje<<endl;
                 dl->pushBack(T(point,coin,name));
             }
 

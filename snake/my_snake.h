@@ -48,6 +48,12 @@ struct mySnake{
     int steep;
     int sizeSnake;
     double speedBost;
+    int points;
+    int coins;
+    int lifes;
+    double speed;
+    double initialSpeed;
+    int sizeMax;
     doubleLinked <nodeinfo> list;
 
     mySnake() {}
@@ -59,7 +65,12 @@ struct mySnake{
         steep=1;
         sizeSnake = 4;
         speedBost = 0.5;
-        
+        speed = 4;
+        initialSpeed = speed;
+        points= 1000;
+        coins = 0;
+        lifes = 3;
+        sizeMax = 20;
         getMatrizChar(&M,FILA,COLUMNA);//inicando matriz
         //defineSnake(list,M,FILA,COLUMNA);//inciando snake
         //defineFood(M,&FILA,&COLUMNA);//comida inicial

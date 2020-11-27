@@ -17,7 +17,7 @@ g++ -pthread main.cpp -o main
 int main(void) {
     node<nodeuserinfouser> user;
     doubleLinked<nodeuserinfouser> userlist;
-    int flag = 0;
+    //int flag = 0;
     usermain(&user,&userlist);//ingresando 
     
 
@@ -26,8 +26,9 @@ int main(void) {
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 
-    flag = startMenu(&user);//obteniendo opcion de menu principal
-    startMenuOpc(&user,flag);//opcion de menu principal
+    //flag = startMenu(&user);//obteniendo opcion de menu principal
+    startMenu(&user);
+    //startMenuOpc(&user,startMenu(&user));//opcion de menu principal
 
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag |= ICANON;

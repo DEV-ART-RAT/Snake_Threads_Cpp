@@ -8,22 +8,24 @@
 using namespace std;
 void welcomeuser();
 template<class T>
-void printUsers(doubleLinked<T>* dl,int &P,int &C,int &life,string user);
+void printUsers(doubleLinked<T>* dl,string user,node<T>*);
 
-int usermain(nodeuserinfouser* userdata) {
-    doubleLinked<nodeuserinfouser> userlist;
-    int P,C,life;
+int usermain(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist) {
+    //doubleLinked<nodeuserinfouser> userlist;
+    //int P,C;
     string user;
-    P=0,C=0,life=3;
+    //P=0,C=0;
     welcomeuser();
     cin>>user;
-    printUsers(&userlist,P,C,life,user);
-    if(C!=0&&P!=0){
+    printUsers(userlist,user,userdata);
+    if(userdata){
         cout<<"Bienvenido de nuevo!"<<endl;
-        cout<<"Tus monedas : "<<C<<endl;
-        cout<<"Tus puntajes : "<<P<<endl;
+        cout<<"Tus monedas : "<<userdata->info.coin<<endl;
+        cout<<"Tus puntajes : "<<userdata->info.puntaje<<endl;
+    } else{
+        *userdata =  node<nodeuserinfouser>(nodeuserinfouser(0,0,user))  ;
     }
-     *userdata =  nodeuserinfouser(P,C,user)  ;
+     //*userdata =  nodeuserinfouser(P,C,user)  ;
 
      // getchar(); borrar buffer
     //traverseBegin(userlist.front);
@@ -31,7 +33,7 @@ int usermain(nodeuserinfouser* userdata) {
 };
 
 template<class T>
-void printUsers(doubleLinked<T>* dl,int &P,int &C,int &life,string user){
+void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
     ifstream data;
     data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
@@ -53,15 +55,10 @@ void printUsers(doubleLinked<T>* dl,int &P,int &C,int &life,string user){
                 coin = stoi(puntaje);
                 //cout<<puntaje<<endl;
                 // aqui es donde guardo los datos que se obtienen del csv
-                
-            }else if(col==3){
-                lifes = stoi(puntaje);
-                if(name==user){
-                    P=point;
-                    C=coin;
-                    life=lifes;
-                }
                 dl->pushBack(T(point,coin,name));
+                if(name==user){
+                    userInfo = dl->back;
+                }
             }
 
         }

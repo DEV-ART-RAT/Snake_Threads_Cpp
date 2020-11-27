@@ -16,22 +16,22 @@ void keyEventshop(char& key,bool& flag)
 
 
 }
-void shopwelcome(int, nodeuserinfouser* userdata);
-int welcomemain(nodeuserinfouser* userdata);
+void shopwelcome(int, node<nodeuserinfouser>* userdata);
+int welcomemain(node<nodeuserinfouser>* userdata);
 
-void buyCoin(nodeuserinfouser* userdata){
-    if(userdata->puntaje >= 100){
-        userdata->puntaje -= 100;
-        userdata->coin++;
+void buyCoin(node<nodeuserinfouser>* userdata){
+    if(userdata->info.puntaje >= 100){
+        userdata->info.puntaje -= 100;
+        userdata->info.coin++;
         cout<<"Moneda comprada"<<endl;
     } else {
         cout<<"Puntos insuficientes"<<endl;
     }
 }
 
-void buyLife(nodeuserinfouser* userdata){
-    if(userdata->coin >= 5){
-        userdata->coin -= 5;
+void buyLife(node<nodeuserinfouser>* userdata){
+    if(userdata->info.coin >= 5){
+        userdata->info.coin -= 5;
        // userdata->lifes++;
         cout<<"Vida comprada"<<endl;
     } else {
@@ -39,7 +39,7 @@ void buyLife(nodeuserinfouser* userdata){
     }
 }
 
-int welcomeshop(nodeuserinfouser* userdata){
+int welcomeshop(node<nodeuserinfouser>* userdata){
 
     char key;
     //bool key_up = false;
@@ -117,7 +117,7 @@ int welcomeshop(nodeuserinfouser* userdata){
     return 0;
 }
 
-void shopwelcome(int opc,nodeuserinfouser* userdata){
+void shopwelcome(int opc,node<nodeuserinfouser>* userdata){
     CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
@@ -127,8 +127,8 @@ void shopwelcome(int opc,nodeuserinfouser* userdata){
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
 
-    cout<<"Points: "<<userdata->puntaje<<endl;
-    cout<<"Coins: "<<userdata->coin<<endl;
+    cout<<"Points: "<<userdata->info.puntaje<<endl;
+    cout<<"Coins: "<<userdata->info.coin<<endl;
     //cout<<"Lifes: "<<snake->lifes<<endl;
     cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vida Extra (5 monedas) "<<((opc==1)?"*":"");
     cout<<endl;

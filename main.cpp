@@ -10,9 +10,10 @@ g++ -pthread main.cpp -o main
 */
 
 int main(void) {
-    nodeuserinfouser userdata;
-    usermain(&userdata);
-    welcomemain(&userdata);
+    node<nodeuserinfouser> user;
+    doubleLinked<nodeuserinfouser> userlist;
+    usermain(&user,&userlist);
+    welcomemain(&user);
 
     return 0;
 };

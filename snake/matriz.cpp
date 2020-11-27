@@ -42,27 +42,35 @@ int playmatrix(void){
 
     snake.defineSnake();
     snake.defineFood();
-    snake.defineLevel(1);
+    snake.defineLevel(0);
     
     //thread th2(myThreadTwo,4);
     //*
 
     thread th1(keyEventSnake , &snake);
     double timer = 0;
-    double speed = 5;
-    int max = 10;
+    double speed = 4;
+    double aux = speed;
+    int max = 20;
     snake.show();
     sleep(1);
     while (snake.flag)
     {
-        if(snake.sizeSnake < max/4)
-            speed = 4;
-        else if (snake.sizeSnake < max/3)
-            speed = 3;
-        else if (snake.sizeSnake < max/2)
-            speed = 2;
+        if(snake.sizeSnake < max*0.2)
+            speed = aux * 0.8;
+        else if (snake.sizeSnake < max*0.4)
+            speed = aux * 0.6;
+        else if (snake.sizeSnake < max*0.5)
+            speed = aux * 0.5;
+        else if (snake.sizeSnake < max*0.60)
+            speed = aux * 0.4;
+        else if (snake.sizeSnake < max*0.80)
+            speed = aux * 0.3;
+        else if (snake.sizeSnake < max * 1.2)
+            speed = aux * 0.2;
         else
-            speed = 1;
+            speed = aux * 0.1;
+            
         if(snake.redirect || timer == 10 * speed){
             timer = 0;
             snake.redirect = false;

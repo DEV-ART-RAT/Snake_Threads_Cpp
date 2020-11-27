@@ -33,7 +33,7 @@ using namespace std;
 int playmatrix(void){
     srand(time(NULL));
 
-    mySnake snake = mySnake(11,23);
+    mySnake snake = mySnake(15,32);
     //cout<<OS_Windows;
     snake.list.pushBack(nodeinfo(5,5));
     snake.list.pushBack(nodeinfo(5,6));
@@ -42,6 +42,7 @@ int playmatrix(void){
 
     snake.defineSnake();
     snake.defineFood();
+    snake.defineLevel(1);
     
     //thread th2(myThreadTwo,4);
     //*
@@ -50,21 +51,8 @@ int playmatrix(void){
     //int flag =0;
     thread th1(keyEventSnake , &snake);
     double timer = 0;
-    double speed = 6;
-    int max = 30;
-    double snakeSizeAux = snake.sizeSnake;
-    while (snake.flag)
-    {   
-        if (snake.sizeSnake <= max){
-            speed = max - snake.sizeSnake + 0.3;
-        }
-        else{
-         speed = 0.5;
-        }
-        cout << speed;
         if(snake.redirect || timer == 10 * speed){
             timer = 0;
-            snake.redirect = false;
             snake.show();
             //printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
             snakeDirection(&snake);

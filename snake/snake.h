@@ -44,7 +44,7 @@ void snakeNew(mySnake* snake, int fil, int col){
         snake->sizeSnake = snake->sizeSnake + 1;
         snake->defineFood();
         //M[fil][col]='*';
-    }else if(snake->M[fil][col]==SNAKE){
+    }else if(snake->M[fil][col]==SNAKE || snake->M[fil][col]==WALL){
         snake->flag = false;
         snake->M[fil][col]=CRASH;
         snake->show();

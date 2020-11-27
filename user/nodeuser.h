@@ -7,42 +7,38 @@ using namespace std;
 
 //importamos funcion de nodo para listas dobles
 struct nodeuserinfouser {
-    int i;
-    string c;
+    int puntaje;
+    int coin;
+    string name;
 
     nodeuserinfouser() {}
-    nodeuserinfouser(int _i, string _c) : i(_i), c(_c) {}
+    nodeuserinfouser(int _puntaje,int _coin, string _name) : puntaje(_puntaje), coin(_coin),name(_name) {}
 
     bool operator==(const nodeuserinfouser& r) {
-        return this->i == r.i && this->c == r.c;
+        return this->puntaje == r.puntaje && this->name == r.name && this->coin == r.coin;
     }
 
     bool operator!=(const nodeuserinfouser& r) {
-        return this->i != r.i && this->c != r.c;
+        return this->puntaje != r.puntaje && this->name != r.name && this->coin != r.coin;
     }
 
     string toString() {
-        return "{" + to_string(this->i) + ":" + this->c + "}";
+        return "{"  + this->name + ":" + to_string(this->puntaje) +":" +to_string(this->coin)+ "}";
     }
 
     bool comparate(nodeuserinfouser& r,int flag){
         if(flag == 1){
-            return this->i >= r.i;
+            return this->puntaje >= r.puntaje;
         }
-        return this->c >= r.c;
+        if(flag == 2){
+            return this->coin >= r.coin;
+        }
+        return this->name >= r.name;
     }
 
     friend ostream& operator<<(ostream& os, const nodeuserinfouser& p) {
-        os << "{" + to_string(p.i) + ":" + p.c + "}";
+        os << "{" + to_string(p.puntaje) + ":" + p.name + "}";
         return os;
     }
 };
 
-template<class T>
-struct nodeuser {
-    T info;
-    nodeuser<T>* next,* prev;
-
-    nodeuser() { next = prev = NULL; }
-    nodeuser(T _info) : info(_info) { next = prev = NULL; }
-};

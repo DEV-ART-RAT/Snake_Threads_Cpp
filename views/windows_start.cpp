@@ -1,4 +1,7 @@
+#pragma once;
 #include <iostream>
+#include <termios.h>
+#include <unistd.h>
 // #ifdef _WIN32 /* Deberia estar definido en windows*/
 //#include <windows.h>
 //#include <winuser.h>
@@ -8,10 +11,17 @@
 //#include <thread>
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
+#include "../snake/keyEvent.h"
 #include "./shop.cpp"
+<<<<<<< HEAD
 #include "./difficulty.cpp"
 #include <termios.h>
 #include <unistd.h>
+=======
+#include "./game_over.cpp"
+//#pragma once;
+
+>>>>>>> 2371dfdbd1e4757afe907d7b74f241c68290d654
 
 //#define mySleep(x) Sleep(x);
 
@@ -27,23 +37,14 @@
 /*
 /usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
 */
+
 using namespace std;
-struct termios term;
-void abrir_buffer();
-void cerrar_buffer();
+
+//void abrir_buffer();
+//void cerrar_buffer();
 int welcomemain(int &P,int&C,string user);
 
-void keyEvent(char& key,bool& flag)
-{
-    struct termios term;
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
 
-    key=getchar();//up:65 down:66 left:68 rigth:67
-
-
-}
 void wellcome(int);
 
 /*
@@ -64,7 +65,7 @@ int welcomemain(node<nodeuserinfouser>* userdata){
     sleep(0.1);//para corregir fallo de while
     wellcome(   flag);  //invocacion del menu
 
-    cin.ignore();
+    //cin.ignore();
     abrir_buffer();
     
     while(loop){
@@ -93,9 +94,15 @@ int welcomemain(node<nodeuserinfouser>* userdata){
             //Sleep(100);//para corregir fallo de while
             switch (flag) {
                 case 1:
+                    loop=false;
                     cout<<"new game start :v"<<endl;
+<<<<<<< HEAD
                     //playmatrix(&snake);
                     welcomedifficulty(userdata);
+=======
+                    playmatrix(&snake);
+                    game_over(userdata);
+>>>>>>> 2371dfdbd1e4757afe907d7b74f241c68290d654
                    // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:
@@ -105,6 +112,7 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                 case 3:
                     loop=false;
                     cout<<"exit... :'v"<<endl;
+                    exit(EXIT_SUCCESS);
                     break;
                 default:
                     break;
@@ -146,18 +154,7 @@ void wellcome(int opc){
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }
 
-void abrir_buffer(){
-    //*
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-    //*/
-}
-void cerrar_buffer(){
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-}
+
 
 
 

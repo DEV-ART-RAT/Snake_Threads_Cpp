@@ -1,1 +1,1 @@
-nodeuserinfouser userdata;
+    welcomemain(&user);

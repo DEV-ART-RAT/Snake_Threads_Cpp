@@ -17,13 +17,16 @@ int usermain(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* us
     //P=0,C=0;
     welcomeuser();
     cin>>user;
+    //cout<<userdata->info;
     printUsers(userlist,user,userdata);
-    if(userdata){
+    if(userdata->info.name!=""){
         cout<<"Bienvenido de nuevo!"<<endl;
         cout<<"Tus monedas : "<<userdata->info.coin<<endl;
         cout<<"Tus puntajes : "<<userdata->info.puntaje<<endl;
     } else{
-        *userdata =  node<nodeuserinfouser>(nodeuserinfouser(0,0,user))  ;
+        userlist->pushBack(nodeuserinfouser(0,0,user));
+        *userdata = *userlist->back;
+        //cout<<userlist->back->info;
     }
      //*userdata =  nodeuserinfouser(P,C,user)  ;
 
@@ -39,7 +42,7 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
     for(string line; getline(data,line);){
         stringstream data(line);
         string puntaje,name;
-        int point,coin;
+        int point,coin,lifes;
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;
@@ -72,6 +75,8 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
 }
 
 void welcomeuser(void){
+    // borra esto porque hay nose que conflicto de pragma once
+    CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
     cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;

@@ -8,11 +8,11 @@ void welcomeuser();
 void printUsers();
 
 int usermain(void) {
-    // doubleLinked<nodeinfo> user;
-    // int P;
-    // P=0;
-    // xx(&user);
-    // pushBack(nodeinfo(P, user), &user);
+    doubleLinkeduser<nodeuserinfouser> user;
+    int P;
+    P=0;
+    xx(&user);
+    pushBackuser(nodeuserinfouser(P, user), &user);
     welcomeuser();
     printUsers();
 

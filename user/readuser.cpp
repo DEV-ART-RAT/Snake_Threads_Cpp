@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include "nodeuser.h"
 
 using namespace std;
 
@@ -13,11 +14,11 @@ una lista como la descrita en tt)
 
 
 template<class T>
-void xx(doubleLinked<T> *list) {
+void xx(doubleLinkeduser<T> *list) {
     //definimos la variable
     ifstream data;
     //abrimos el archivo
-    data.open("../data/user.csv",ios::in);
+    data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
         string puntaje,name;
@@ -29,7 +30,7 @@ void xx(doubleLinked<T> *list) {
             }else
             {
                 point = stoi(puntaje);
-                pushBack(T(point,name),list);
+                pushBackuser(T(point,name),list);
             }
         }
 

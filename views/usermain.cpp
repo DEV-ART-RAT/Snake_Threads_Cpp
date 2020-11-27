@@ -1,44 +1,56 @@
 #include <iostream>
-#include "../user/listdouble.cpp"
+#include <string>
+#include <iostream>
+#include <ostream>
 #include "../user/nodeuser.h"
+#include "../snake/list.cpp"
 #include "../user/readuser.cpp"
-
 using namespace std;
 void welcomeuser();
-void printUsers();
+template<class T>
+void printUsers(doubleLinked<T>* dl);
 
 int usermain(void) {
-    doubleLinkeduser<nodeuserinfouser> user;
-    int P;
-    P=0;
-    xx(&user);
-    pushBackuser(nodeuserinfouser(P, user), &user);
+     doubleLinked<nodeuserinfouser> userlist;
+     int P;
+     P=0;
+    // xx(&user);
+    //pushBackuser(nodeuserinfouser(P, user), &user);
     welcomeuser();
-    printUsers();
+    string user;
+    cin>>user;
+    
+    printUsers(&userlist);
 
 
     return 0;
 };
-void printUsers(){
+
+template<class T>
+void printUsers(doubleLinked<T>* dl){
     ifstream data;
-    //abrimos el archivo
     data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
         string puntaje,name;
-        int point;
-        //damos los datos
+        int point,coin;
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;
                 cout<<name<<endl;
-            }else
+            }
+            else if(col==1)
             {
                 point = stoi(puntaje);
                 cout<<puntaje<<endl;
 
-               // pushBack(T(point,name),list);
             }
+            else if(col==2){
+                coin = stoi(puntaje);
+                cout<<puntaje<<endl;
+                dl->pushBack(T(point,coin,name));
+            }
+
         }
 
     }
@@ -55,7 +67,8 @@ void welcomeuser(void){
     cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t BIENVENIDO USUARIO \n";
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<endl<<endl;
+    cout<<"\t\t\t Digita tu  USUARIO \n";
+    cout<<"\t\t\t (si ya tienes un usuario se recuperara tu progreso) \n";
+
 }

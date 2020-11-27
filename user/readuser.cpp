@@ -2,19 +2,13 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "nodeuser.h"
+#include "../snake/node.h"
+#include "../snake/list.cpp"
 
 using namespace std;
 
-/*
-xx) Hacer una función en C++ que dado un archivo de texto llamado “data.csv”, que por cada fila tiene
-una cadena de caracteres un entero separados por coma, lea estos puntajes y los vaya colocando en
-una lista como la descrita en tt)
-*/
-
-
 template<class T>
-void xx(doubleLinkeduser<T> *list) {
+void xx(doubleLinked<T> *list) {
     //definimos la variable
     ifstream data;
     //abrimos el archivo
@@ -30,7 +24,7 @@ void xx(doubleLinkeduser<T> *list) {
             }else
             {
                 point = stoi(puntaje);
-                pushBackuser(T(point,name),list);
+                pushBack(T(point,name),list);
             }
         }
 
@@ -39,12 +33,6 @@ void xx(doubleLinkeduser<T> *list) {
 }
 
 
-/*
-yy) Hacer una función en C++ que dada una lista como la descrita en tt) , escriba su contenido en un
-archivo de texto llamado “data.csv” con el formato descrito en xx) .
-*/
-
-// elemento tipo template
 template<class T>
 void yy(node<T>* list){
     //auxiliamos el nodo
@@ -62,4 +50,4 @@ void yy(node<T>* list){
     }
     data.close();
     
-}
+};

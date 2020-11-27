@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./views/windows_start.cpp"
-//#include "./views/usermain.cpp"
+#include "./views/usermain.cpp"
 using namespace std;
 
 /* 
@@ -10,8 +10,8 @@ g++ -pthread main.cpp -o main
 */
 
 int main(void) {
-    //usermain();
-    welcomemain();
+    usermain();
+   // welcomemain();
 
     return 0;
 };

@@ -8,7 +8,7 @@
 #include "../user/nodeuser.h"
 using namespace std;
 
-void keyEventDifficulty(char& key,bool& flag)
+/*void keyEventDifficulty(char& key,bool& flag)
 {
     struct termios term;
     tcgetattr(STDIN_FILENO, &term);
@@ -18,7 +18,7 @@ void keyEventDifficulty(char& key,bool& flag)
     key=getchar();//up:65 down:66 left:68 rigth:67
 
 
-}
+}*/
 void difficultywelcome(int, node<nodeuserinfouser>* userdata);
 int startMenu(node<nodeuserinfouser>* );
 int startMenuOpc(node<nodeuserinfouser>* ,int);
@@ -35,12 +35,13 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
     sleep(0.1);//para corregir fallo de while
     difficultywelcome(flag, userdata);  //invocacion del menu
 
-    //*
+    /*
     struct termios term;
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
     //*/
+    cin.ignore();
 
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
@@ -94,6 +95,8 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
         sleep(0.01);//para corregir fallo de while
     }
 
+    cin.ignore();
+    /*
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);

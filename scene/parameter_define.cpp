@@ -64,9 +64,8 @@ void sceneLevel(int level, int* row, int* col, int* cel,int* snkMax){
         levelTwo++;
         level -= 5;
     }
-    
     sceneSize(levelTwo,row,col);
-    sceneLevelDif(levl,row,col,cel,snkMax);s
+    sceneLevelDif(level,row,col,cel,snkMax);
 }
 
 /*

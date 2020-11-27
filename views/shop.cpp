@@ -17,8 +17,8 @@ void keyEventshop(char& key,bool& flag)
 
 }
 void shopwelcome(int, node<nodeuserinfouser>* userdata);
-int startMenu(node<nodeuserinfouser>* );
-int startMenuOpc(node<nodeuserinfouser>* ,int);
+int startMenu(node<nodeuserinfouser>*,doubleLinked<nodeuserinfouser>* );
+int startMenuOpc(node<nodeuserinfouser>* ,int,doubleLinked<nodeuserinfouser>* );
 
 void boostPointsx2(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
 	if(!x2boosted && !x3boosted && userdata->info.coin >= 20){
@@ -54,7 +54,7 @@ void buyLife(node<nodeuserinfouser>* userdata){
     }
 }
 
-int welcomeshop(node<nodeuserinfouser>* userdata){
+int welcomeshop(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
 
     char key;
     //bool key_up = false;
@@ -114,7 +114,7 @@ int welcomeshop(node<nodeuserinfouser>* userdata){
                 case 4:
                     loop=false;
                     //welcomemain(userdata);
-                    startMenuOpc(userdata,startMenu(userdata));
+                    startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
                     break;
                 default:
                     break;

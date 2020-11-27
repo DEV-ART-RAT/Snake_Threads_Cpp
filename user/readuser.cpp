@@ -7,6 +7,28 @@
 
 using namespace std;
 
+
+/*
+
+template<class T>
+void yy(node<T>* list){
+    //auxiliamos el nodo
+    node<T>* aux = list;
+    ofstream data;
+    remove("data.csv");
+    //abrimos data
+    data.open("data.csv",ios::app);
+    while (aux)
+    {
+        //segun nuestra lista que llene el csv
+        data<<aux->info.c<<","<<aux->info.i<<"\n";
+        //saltamos 
+        aux= aux->next;
+    }
+    data.close();
+    
+};
+
 template<class T>
 void xx(doubleLinked<T> *list) {
     //definimos la variable
@@ -32,22 +54,4 @@ void xx(doubleLinked<T> *list) {
     data.close();
 }
 
-
-template<class T>
-void yy(node<T>* list){
-    //auxiliamos el nodo
-    node<T>* aux = list;
-    ofstream data;
-    remove("data.csv");
-    //abrimos data
-    data.open("data.csv",ios::app);
-    while (aux)
-    {
-        //segun nuestra lista que llene el csv
-        data<<aux->info.c<<","<<aux->info.i<<"\n";
-        //saltamos 
-        aux= aux->next;
-    }
-    data.close();
-    
-};
+*/

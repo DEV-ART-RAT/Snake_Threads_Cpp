@@ -32,7 +32,7 @@ auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) {
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
 
-int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag){
+int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){
 
     mySnake snake = mySnake(15,32);
     switch (flag) {
@@ -46,7 +46,7 @@ int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag){
             playmatrix(&snake,3);
             break;
         case 4:
-            startMenu(userdata);
+            startMenu(userdata,userlist);
             break;
         default:
             break;
@@ -55,8 +55,8 @@ int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag){
     return 0;
 }
 
-int difficultyMenu(node<nodeuserinfouser>* userdata){
-    return difficultyMenuAuxOpc(userdata,startMenuAux(userdata,mensajeDifficulty,4));
+int difficultyMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
+    return difficultyMenuAuxOpc(userdata,startMenuAux(userdata,mensajeDifficulty,4),userlist);
 }
 
 

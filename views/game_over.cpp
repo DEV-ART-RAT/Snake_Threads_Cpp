@@ -28,10 +28,10 @@ auto mensajeGameOver = [](int opc,node<nodeuserinfouser>* userdata) {
     cout<<endl<<endl;
 };
 
-int gameOverMenuAux(node<nodeuserinfouser>* userdata, int flag) {
+int gameOverMenuAux(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuserinfouser>* userlist) {
     switch (flag) {
         case 1:
-            startMenu(userdata);
+            startMenu(userdata,userlist);
             break;
         case 2:
             exit(EXIT_SUCCESS);
@@ -41,7 +41,7 @@ int gameOverMenuAux(node<nodeuserinfouser>* userdata, int flag) {
     }
 };
 
-int gameOverMenu(node<nodeuserinfouser>* userdata){
-    gameOverMenuAux(userdata,startMenuAux(userdata,mensajeGameOver,2));
+int gameOverMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
+    gameOverMenuAux(userdata,startMenuAux(userdata,mensajeGameOver,2),userlist);
     return 0;
 }

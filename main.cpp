@@ -27,7 +27,7 @@ int main(void) {
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 
     //flag = startMenu(&user);//obteniendo opcion de menu principal
-    startMenu(&user);
+    startMenu(&user,&userlist);
     //startMenuOpc(&user,startMenu(&user));//opcion de menu principal
 
     tcgetattr(STDIN_FILENO, &term);

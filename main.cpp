@@ -12,9 +12,11 @@ g++ -pthread main.cpp -o main
 int main(void) {
     node<nodeuserinfouser> user;
     doubleLinked<nodeuserinfouser> userlist;
+    int flag = 0;
 
-    usermain(&user,&userlist);
-    welcomemain(&user);
+    usermain(&user,&userlist);//ingresando usuario
+    flag = startMenu(&user);//obteniendo opcion de menu principal
+    startMenuOpc(&user,flag);//opcion de menu principal
 
     return 0;
 };

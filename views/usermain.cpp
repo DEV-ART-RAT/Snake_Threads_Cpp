@@ -1,10 +1,13 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <iostream>
 #include <ostream>
 #include "../user/nodeuser.h"
 #include "../snake/list.cpp"
+#include "../snake/clear.cpp"
 #include "../user/readuser.cpp"
+
 using namespace std;
 void welcomeuser();
 template<class T>

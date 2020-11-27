@@ -30,7 +30,7 @@ using namespace std;
 
 
 
-int playmatrix(mySnake* snake){
+int playmatrix(mySnake* snake, int difficulty){
     srand(time(NULL));
 
     //mySnake snake = mySnake(15,32);
@@ -42,16 +42,19 @@ int playmatrix(mySnake* snake){
 
     snake->defineSnake();
     snake->defineFood();
-    snake->defineLevel(0);
+    snake->defineLevel(difficulty);
+        
+    snake->initialSpeed = snake->initialSpeed - difficulty;
     
     //thread th2(myThreadTwo,4);
     //*
 
-    thread th1 (keyEventSnake , snake);
+    thread th1(keyEventSnake , snake);
     double timer = 0;
     
     snake->show();
     sleep(1);
+
     
     while (snake->flag)
     {
@@ -73,8 +76,6 @@ int playmatrix(mySnake* snake){
     
     
     th1.join();
-    //cin.ignore();
-    //delete(th1);
     //th2.join();
 
     return 0;

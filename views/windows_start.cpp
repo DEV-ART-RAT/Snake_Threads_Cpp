@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -13,6 +13,9 @@
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
 #include "./shop.cpp"
+#include "./difficulty.cpp"
+#include <termios.h>
+#include <unistd.h>
 #include "./game_over.cpp"
 //#pragma once;
 
@@ -50,7 +53,7 @@ void __fastcall onKey::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 
 int welcomemain(node<nodeuserinfouser>* userdata){
 
-    mySnake snake = mySnake(15,32);
+    //mySnake snake = mySnake(15,32);
     char key;
     //bool key_up = false;
     int flag = 1;       //opcion actual del menu
@@ -90,9 +93,11 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                 case 1:
                     loop=false;
                     cout<<"new game start :v"<<endl;
-                    playmatrix(&snake);
+                    //playmatrix(&snake);
+                    welcomedifficulty(userdata);
+                    //playmatrix(&snake);
                     game_over(userdata);
-                   // loop=false; //para que termine el juego sin que se regrese al menu :
+                    // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:
                     loop=false;
@@ -134,7 +139,7 @@ void wellcome(int opc){
     cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" START "<<((opc==1)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<"  START "<<((opc==1)?"*":"");
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" TIENDA "<<((opc==2)?"*":"");
     cout<<endl;
@@ -142,6 +147,7 @@ void wellcome(int opc){
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }
+
 
 
 

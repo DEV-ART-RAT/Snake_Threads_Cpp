@@ -66,13 +66,14 @@ struct mySnake{
         steep=1;
         level=0;
         sizeSnake = 4;
-        speedBost = 1;
+        speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
         points= 1000;
         coins = 0;
         lifes = 3;
         sizeMax = 30;
+        
         getMatrizChar(&M,FILA,COLUMNA);//inicando matriz
         //defineSnake(list,M,FILA,COLUMNA);//inciando snake
         //defineFood(M,&FILA,&COLUMNA);//comida inicial
@@ -82,7 +83,16 @@ struct mySnake{
         switch (i)
         {
         case 1:
+            //levelOne(M,FILA,COLUMNA);//inicando matriz
+            //difficulty = 1;
+            break;
+        case 2:
+            //levelOne(M,FILA,COLUMNA);//inicando matriz
+            //difficulty = 2;
+            break;
+        case 3:
             levelOne(M,FILA,COLUMNA);//inicando matriz
+            //difficulty = 3;
             break;
         
         default:
@@ -141,8 +151,4 @@ void levelOne(char** array, int a, int b){//escenario FULL paredes
             array[0][j]=WALL;
             array[a-1][j]=WALL;
     }
-}
-
-double initialSpeed(double speed, double speedBoost){
-    return speed + speedBoost;
 }

@@ -1,5 +1,5 @@
 # Snake -> Dev-ART - ft.freddy. 
-
+[Pagina README](https://drubico.github.io/Snake_Terminal_cpp/)
 ## 1. Indice
 - [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
   - [1. Indice](#1-indice)

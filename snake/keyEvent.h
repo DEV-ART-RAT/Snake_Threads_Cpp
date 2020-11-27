@@ -9,20 +9,22 @@
 #include "my_snake.h"
 #pragma once
 
-struct termios term;
+//struct termios term;
 
 void abrir_buffer(){
-    //*
     cin.ignore();
+    /*
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
     //*/
 }
 void cerrar_buffer(){
+    /*
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    //*/
     cin.ignore();
 }
 

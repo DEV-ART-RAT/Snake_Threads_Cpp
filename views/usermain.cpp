@@ -1,38 +1,36 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include <iostream>
 #include <ostream>
 #include "../user/nodeuser.h"
 #include "../snake/list.cpp"
+#include "../snake/clear.cpp"
 #include "../user/readuser.cpp"
+
 using namespace std;
 void welcomeuser();
 template<class T>
 void printUsers(doubleLinked<T>* dl,string user,node<T>*);
 
-int usermain(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist) {
-    //doubleLinked<nodeuserinfouser> userlist;
-    //int P,C;
+void usermain(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist) {
     string user;
-    //P=0,C=0;
-    welcomeuser();
+    welcomeuser();//mostrando mensaje visual para pedir usuario
     cin>>user;
-    //cout<<userdata->info;
-    printUsers(userlist,user,userdata);
-    if(userdata->info.name!=""){
-        cout<<"Bienvenido de nuevo!"<<endl;
+
+    printUsers(userlist,user,userdata);//cargando lista de usuarios de fuente externa
+    if(userdata->info.name!=""){//revisando si el usuario ya estaba registrado
+        cout<<"Bienvenido de nuevo! "<<userdata->info.name<<endl;
         cout<<"Tus monedas : "<<userdata->info.coin<<endl;
         cout<<"Tus puntajes : "<<userdata->info.puntaje<<endl;
     } else{
-        userlist->pushBack(nodeuserinfouser(0,0,user));
+        userlist->pushBack(nodeuserinfouser(0,0,user));//creando nuevo usuario
         *userdata = *userlist->back;
-        //cout<<userlist->back->info;
+        cout<<"Bienvenido! "<<userdata->info.name<<endl;
     }
-     //*userdata =  nodeuserinfouser(P,C,user)  ;
-
-     // getchar(); borrar buffer
-    //traverseBegin(userlist.front);
-    return 0;
+    cout<<"presiona ENTER para continuar";
+    cin.ignore();
+    cin.get();
 };
 
 template<class T>

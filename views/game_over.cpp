@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 
 #include <iostream>
 #include <termios.h>
@@ -42,7 +42,7 @@ int game_over(node<nodeuserinfouser>* userdata) {
             switch (flag_game_over) {
                 case 1:
                     loop_game_over=false;
-                    welcomemain(userdata);
+                    startMenuOpc(userdata,startMenu(userdata));
                     break;
                 case 2:
                     loop_game_over=false;

@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -17,104 +17,45 @@
 #include <termios.h>
 #include <unistd.h>
 #include "./game_over.cpp"
-//#pragma once;
 
-
-//#define mySleep(x) Sleep(x);
-
-// #elif defined __unix__ /* Creo que es esta macro, deberia estar definida en sistemas Unix-like*/
-// #include <unistd.h>
-// #define mySleep(x) sleep(x);
-// #else  /* No sabemos donde estamos*/
-// #warning Missing sleep function
-// #endif
-//#include <conio.h>
-
-// COMPILAR:
-/*
-/usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
-*/
 
 using namespace std;
 
-//void abrir_buffer();
-//void cerrar_buffer();
 int welcomemain(int &P,int&C,string user);
+void wellcome(int,node<nodeuserinfouser>* );
 
 
-void wellcome(int);
-
-/*
-void __fastcall onKey::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
-{
-  // do something with Key
-}
- //*/
-
-int welcomemain(node<nodeuserinfouser>* userdata){
-
-    //mySnake snake = mySnake(15,32);
-    char key;
-    //bool key_up = false;
+int startMenu(node<nodeuserinfouser>* userdata){
+    char key; //contenedor de tecla
     int flag = 1;       //opcion actual del menu
     int sizeOption=3;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
-    sleep(0.1);//para corregir fallo de while
-    wellcome(   flag);  //invocacion del menu
 
-    //cin.ignore();
+    sleep(0.1);//para corregir fallo de while
+    wellcome(flag,userdata);  //invocacion del menu
+
     abrir_buffer();
+    sleep(0.1);//para corregir fallo de whiles
+    
     
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
-        //cout<<int(key);
 
-        //evento de key Up
-        if(  /*GetKeyState(VK_UP) & 0x8000*/ key==65 ){
+        if(key==65 ){
             if(flag > 1){
                 flag--;
-                //wellcome(flag);
             }
-            //sleep(0.1);//para corregir fallo de while
         }
-        //*evento de key DOWN
-        if( /*GetAsyncKeyState(VK_DOWN) & 0x8000*/ key=='B'){
+        if(  key=='B'){
             if(flag < sizeOption){
                 flag++;
-                 //wellcome(flag);
             }
-            //Sleep(100);//para corregir fallo de while
         }
-        wellcome(flag);
-         //evento de ENTER seleccionando una opcion de menu
-        if( /*GetAsyncKeyState(VK_RETURN) & 0x8000*/ key=='\n'){
-            //Sleep(100);//para corregir fallo de while
-            switch (flag) {
-                case 1:
-                    loop=false;
-                    cout<<"new game start :v"<<endl;
-                    //playmatrix(&snake);
-                    welcomedifficulty(userdata);
-                    //playmatrix(&snake);
-                    //game_over(userdata);
-                    // loop=false; //para que termine el juego sin que se regrese al menu :
-                    break;
-                case 2:
-                    loop=false;
-                    welcomeshop(userdata);
-                    break;
-                case 3:
-                    loop=false;
-                    cout<<"exit... :'v"<<endl;
-                    exit(EXIT_SUCCESS);
-                    break;
-                default:
-                    break;
-            }
-
-            //Sleep(100);//para corregir fallo de while
+        wellcome(flag,userdata);
+        if( key=='\n'){
+            cerrar_buffer();
+            return flag;
         }
-         //*/
 
         sleep(0.01);//para corregir fallo de while
     }
@@ -125,14 +66,33 @@ int welcomemain(node<nodeuserinfouser>* userdata){
     return 0;
 }
 
-void wellcome(int opc){
-    //system("cls");//linux
-    //cout<<flush;
-    //system("clear");//windows
+int startMenuOpc(node<nodeuserinfouser>* userdata, int flag){
+    switch (flag) {
+        case 1:
+            cout<<"new game start :v"<<endl;
+            //playmatrix(&snake);
+            welcomedifficulty(userdata);
+            //playmatrix(&snake);
+            game_over(userdata);
+            // loop=false; //para que termine el juego sin que se regrese al menu :
+            break;
+        case 2:
+            welcomeshop(userdata);
+            break;
+        case 3:
+            cout<<"exit... :'v"<<endl;
+            exit(EXIT_SUCCESS);
+            break;
+        default:
+            break;
+    }
+    return 0;
+}
+
+void wellcome(int opc, node<nodeuserinfouser>* userdata){
     CLEAR;
-    //sleep(0.01);//para corregir fallo de while
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t\tWELLCOME !! TO ......!!!\n\n";
+    cout<<"\t\t\t\tWELLCOME !!  ¡¡¡"<<userdata->info.name<<"!!! TO ......!!!\n\n";
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
     cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
     cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;

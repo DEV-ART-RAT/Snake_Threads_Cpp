@@ -50,6 +50,7 @@ struct mySnake{
     int points;
     int coins;
     int lifes;
+    int level;
     double speed;
     double initialSpeed;
     double speedBost;
@@ -63,6 +64,7 @@ struct mySnake{
         flag=true;
         redirect=false;
         steep=1;
+        level=0;
         sizeSnake = 4;
         speedBost = 0;
         speed = 4;

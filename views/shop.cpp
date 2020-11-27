@@ -17,7 +17,8 @@ void keyEventshop(char& key,bool& flag)
 
 }
 void shopwelcome(int, node<nodeuserinfouser>* userdata);
-int welcomemain(node<nodeuserinfouser>* userdata);
+int startMenu(node<nodeuserinfouser>* );
+int startMenuOpc(node<nodeuserinfouser>* ,int);
 
 void buyCoin(node<nodeuserinfouser>* userdata){
     if(userdata->info.puntaje >= 100){
@@ -96,7 +97,8 @@ int welcomeshop(node<nodeuserinfouser>* userdata){
                     break;
                 case 4:
                     loop=false;
-                    welcomemain(userdata);
+                    //welcomemain(userdata);
+                    startMenuOpc(userdata,startMenu(userdata));
                     break;
                 default:
                     break;

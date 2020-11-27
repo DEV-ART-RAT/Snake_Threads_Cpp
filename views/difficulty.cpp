@@ -8,7 +8,7 @@
 #include "../user/nodeuser.h"
 using namespace std;
 
-void keyEventDifficulty(char& key,bool& flag)
+/*void keyEventDifficulty(char& key,bool& flag)
 {
     struct termios term;
     tcgetattr(STDIN_FILENO, &term);
@@ -18,9 +18,10 @@ void keyEventDifficulty(char& key,bool& flag)
     key=getchar();//up:65 down:66 left:68 rigth:67
 
 
-}
+}*/
 void difficultywelcome(int, node<nodeuserinfouser>* userdata);
-int welcomemain(node<nodeuserinfouser>* userdata);
+int startMenu(node<nodeuserinfouser>* );
+int startMenuOpc(node<nodeuserinfouser>* ,int);
 
 
 int welcomedifficulty(node<nodeuserinfouser>* userdata){
@@ -34,12 +35,13 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
     sleep(0.1);//para corregir fallo de while
     difficultywelcome(flag, userdata);  //invocacion del menu
 
-    //*
+    /*
     struct termios term;
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
     //*/
+    cin.ignore();
 
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
@@ -68,16 +70,19 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
             switch (flag) {
                 case 1:
                     playmatrix(&snake,0);
+                    loop=false;
                     break;
                 case 2:
                     playmatrix(&snake,2);
+                    loop=false;
                     break;
                 case 3:
                     playmatrix(&snake,3);
+                    loop=false;
                     break;
                 case 4:
                     loop=false;
-                    welcomemain(userdata);
+                    startMenuOpc(userdata,startMenu(userdata));
                     break;
                 default:
                     break;
@@ -90,6 +95,8 @@ int welcomedifficulty(node<nodeuserinfouser>* userdata){
         sleep(0.01);//para corregir fallo de while
     }
 
+    cin.ignore();
+    /*
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);

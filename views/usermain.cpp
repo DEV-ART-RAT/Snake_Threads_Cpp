@@ -13,8 +13,7 @@ void printUsers(doubleLinked<T>* dl,int &P,int &C,string user);
 
 int usermain(void) {
     doubleLinked<nodeuserinfouser> userlist;
-    string user;
-    int P,C;
+   
     P=0,C=0;
     welcomeuser();
     cin>>user;
@@ -24,7 +23,7 @@ int usermain(void) {
         cout<<"Tus monedas : "<<C<<endl;
         cout<<"Tus puntajes : "<<P<<endl;
     }
-    getchar();
+    // getchar(); borrar buffer
     //traverseBegin(userlist.front);
     return 0;
 };

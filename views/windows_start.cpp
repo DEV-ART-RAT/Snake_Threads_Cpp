@@ -30,7 +30,7 @@ using namespace std;
 struct termios term;
 void abrir_buffer();
 void cerrar_buffer();
-
+int welcomemain(int &P,int&C,string user);
 
 void keyEvent(char& key,bool& flag)
 {
@@ -52,7 +52,7 @@ void __fastcall onKey::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 }
  //*/
 
-int welcomemain(int &P,int&C,string user){
+int welcomemain(nodeuserinfouser* userdata){
 
     mySnake snake = mySnake(15,32);
     char key;
@@ -98,7 +98,7 @@ int welcomemain(int &P,int&C,string user){
                     break;
                 case 2:
                     loop=false;
-                    welcomeshop(&snake);
+                    welcomeshop(userdata);
                     break;
                 case 3:
                     loop=false;

@@ -37,7 +37,7 @@ struct nodeuserinfouser {
     }
 
     friend ostream& operator<<(ostream& os, const nodeuserinfouser& p) {
-        os << "{" + to_string(p.puntaje) + ":" + p.name + "}";
+        os << "{Name: " +p.name +": Puntaje: "+ to_string(p.puntaje) + ": Coin:" + to_string(p.coin)+"}";
         return os;
     }
 };

@@ -10,7 +10,7 @@ g++ -pthread main.cpp -o main
 */
 
 int main(void) {
-   // usermain();
+    usermain();
     welcomemain();
 
     return 0;

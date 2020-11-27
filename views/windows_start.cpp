@@ -67,7 +67,6 @@ int welcomemain(){
     //*/
 
     
-
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
         //cout<<int(key);

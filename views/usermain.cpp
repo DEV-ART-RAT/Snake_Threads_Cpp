@@ -58,9 +58,9 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
                 dl->pushBack(T(point,coin,name));
                 if(name==user){
                     *userInfo = *dl->back;
-                    cout<<"encontre: "<<name<<endl;
+                    //cout<<"encontre: "<<name<<endl;
                 }
-                cout<<"encontre no user: "<<name<<endl;
+                //cout<<"encontre no user: "<<name<<endl;
             }
 
         }

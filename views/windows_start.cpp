@@ -11,6 +11,7 @@
 //#include <thread>
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
+#include "../snake/keyEvent.h"
 #include "./shop.cpp"
 #include "./game_over.cpp"
 //#pragma once;

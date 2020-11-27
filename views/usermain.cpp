@@ -32,8 +32,8 @@ void printUsers(doubleLinked<T>* dl){
     data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
-        string puntaje,name,coin;
-        int point;
+        string puntaje,name;
+        int point,coin;
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;

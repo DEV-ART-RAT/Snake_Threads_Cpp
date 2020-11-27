@@ -31,7 +31,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0ec97f19-da0d-4e6d-9e14-45f063cace71" name="Default Changelist" comment="merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snake/list.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/snake/list.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/shop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/shop.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/usermain.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/usermain.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/windows_start.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/windows_start.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +81,7 @@
       <updated>1606441021639</updated>
       <workItem from="1606441059093" duration="264000" />
       <workItem from="1606441334036" duration="2959000" />
-      <workItem from="1606446582439" duration="1162000" />
+      <workItem from="1606446582439" duration="3365000" />
     </task>
     <task id="LOCAL-00001" summary="change DIDE">
       <created>1606441476659</created>
@@ -106,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606447770336</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merge">
+      <created>1606448209482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606448209482</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,13 +179,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1606446664120" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606441564799">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606448217437">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606441564799" />
-    <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606447777391">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606448217437" />
+    <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606449099280">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="320" y="172" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1606447777391" />
+    <state x="320" y="172" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1606449099280" />
   </component>
 </project>

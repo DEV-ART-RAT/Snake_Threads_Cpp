@@ -52,7 +52,7 @@ void __fastcall onKey::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 }
  //*/
 
-int welcomemain(nodeuserinfouser* userdata){
+int welcomemain(node<nodeuserinfouser>* userdata){
 
     mySnake snake = mySnake(15,32);
     char key;

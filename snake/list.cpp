@@ -43,7 +43,6 @@ struct doubleLinked {
         }
         
         this->back = n;
-        
     }
 
     node<T>* removeFront(){

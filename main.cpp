@@ -12,8 +12,8 @@ g++ -pthread main.cpp -o main
 int main(void) {
     string user;
     int P,C;
-    usermain();
-    welcomemain();
+    usermain(P,C,user);
+    welcomemain(P,C,user);
 
     return 0;
 };

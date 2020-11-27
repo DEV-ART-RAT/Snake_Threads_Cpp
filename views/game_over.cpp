@@ -7,8 +7,8 @@
 
 using namespace std;
 struct termios term_over;
-void abrir_buffer();
-void cerrar_buffer();
+//void abrir_buffer();
+//void cerrar_buffer();
 void game_over_Print(int opc);
 
 int game_over(node<nodeuserinfouser>* userdata) {

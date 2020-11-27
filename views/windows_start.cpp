@@ -101,6 +101,7 @@ int welcomemain(node<nodeuserinfouser>* userdata){
                 case 3:
                     loop=false;
                     cout<<"exit... :'v"<<endl;
+                    exit(EXIT_SUCCESS);
                     break;
                 default:
                     break;

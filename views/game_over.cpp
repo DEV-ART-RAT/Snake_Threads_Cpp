@@ -46,6 +46,7 @@ int game_over(node<nodeuserinfouser>* userdata) {
                     break;
                 case 2:
                     loop_game_over=false;
+                    exit(EXIT_SUCCESS);
                     break;
                 default:
                     break;

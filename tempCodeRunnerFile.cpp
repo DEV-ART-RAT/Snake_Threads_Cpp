@@ -1,1 +1,1 @@
-g++ -pthread main.cpp -o main
+nodeuserinfouser userdata;

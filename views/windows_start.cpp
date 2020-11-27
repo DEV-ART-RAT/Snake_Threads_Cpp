@@ -27,6 +27,10 @@
 /usr/bin/i686-w64-mingw32-g++ -I w32api/include/ -L w32api/lib/ keyboarEvent.cpp
 */
 using namespace std;
+struct termios term;
+void abrir_buffer();
+void cerrar_buffer();
+int welcomemain(int &P,int&C,string user);
 
 void keyEvent(char& key,bool& flag)
 {
@@ -48,7 +52,7 @@ void __fastcall onKey::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 }
  //*/
 
-int welcomemain(){
+int welcomemain(nodeuserinfouser* userdata){
 
     mySnake snake = mySnake(15,32);
     char key;
@@ -59,13 +63,8 @@ int welcomemain(){
     sleep(0.1);//para corregir fallo de while
     wellcome(   flag);  //invocacion del menu
 
-    //*
-    struct termios term;
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-    //*/
-
+    cin.ignore();
+    abrir_buffer();
     
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
@@ -99,7 +98,7 @@ int welcomemain(){
                     break;
                 case 2:
                     loop=false;
-                    welcomeshop(&snake);
+                    welcomeshop(userdata);
                     break;
                 case 3:
                     loop=false;
@@ -116,9 +115,7 @@ int welcomemain(){
         sleep(0.01);//para corregir fallo de while
     }
 
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    cerrar_buffer();
     //*/
 
     return 0;
@@ -147,5 +144,17 @@ void wellcome(int opc){
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }
 
+void abrir_buffer(){
+    //*
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    //*/
+}
+void cerrar_buffer(){
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
 
 

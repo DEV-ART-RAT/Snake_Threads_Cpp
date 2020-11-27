@@ -2,7 +2,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include "../snake/my_snake.h"
-
+#include "../user/nodeuser.h"
 using namespace std;
 
 void keyEventshop(char& key,bool& flag)
@@ -16,9 +16,30 @@ void keyEventshop(char& key,bool& flag)
 
 
 }
-void shopwelcome(int, mySnake*);
-int welcomemain();
-int welcomeshop(mySnake* snake){
+void shopwelcome(int, nodeuserinfouser* userdata);
+int welcomemain(nodeuserinfouser* userdata);
+
+void buyCoin(nodeuserinfouser* userdata){
+    if(userdata->puntaje >= 100){
+        userdata->puntaje -= 100;
+        userdata->coin++;
+        cout<<"Moneda comprada"<<endl;
+    } else {
+        cout<<"Puntos insuficientes"<<endl;
+    }
+}
+
+void buyLife(nodeuserinfouser* userdata){
+    if(userdata->coin >= 5){
+        userdata->coin -= 5;
+       // userdata->lifes++;
+        cout<<"Vida comprada"<<endl;
+    } else {
+        cout<<"Monedas insuficientes"<<endl;
+    }
+}
+
+int welcomeshop(nodeuserinfouser* userdata){
 
     char key;
     //bool key_up = false;
@@ -26,7 +47,7 @@ int welcomeshop(mySnake* snake){
     int sizeOption=4;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
     sleep(0.1);//para corregir fallo de while
-    shopwelcome(flag, snake);  //invocacion del menu
+    shopwelcome(flag, userdata);  //invocacion del menu
 
     //*
     struct termios term;
@@ -55,7 +76,7 @@ int welcomeshop(mySnake* snake){
             }
             //Sleep(100);//para corregir fallo de while
         }
-        shopwelcome(flag, snake);
+        shopwelcome(flag, userdata);
          //evento de ENTER seleccionando una opcion de menu
         if( /*GetAsyncKeyState(VK_RETURN) & 0x8000*/ key=='\n'){
             //Sleep(100);//para corregir fallo de while
@@ -71,7 +92,7 @@ int welcomeshop(mySnake* snake){
                     break;
                 case 4:
                     loop=false;
-                    welcomemain();
+                    welcomemain(userdata);
                     break;
                 default:
                     break;
@@ -92,7 +113,7 @@ int welcomeshop(mySnake* snake){
     return 0;
 }
 
-void shopwelcome(int opc, mySnake* snake){
+void shopwelcome(int opc,nodeuserinfouser* userdata){
     CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
@@ -102,16 +123,16 @@ void shopwelcome(int opc, mySnake* snake){
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
 
-    cout<<"Points: "<<snake->points<<endl;
-    cout<<"Coins: "<<snake->coins<<endl;
-    cout<<"Lifes: "<<snake->lifes<<endl;
+    cout<<"Points: "<<userdata->puntaje<<endl;
+    cout<<"Coins: "<<userdata->coin<<endl;
+    //cout<<"Lifes: "<<snake->lifes<<endl;
     cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vidas Extra "<<((opc==1)?"*":"");
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Velocidad "<<((opc==2)?"*":"");
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" 1 moneda por 100 puntos "<<((opc==3)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  EXIT "<<((opc==4)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  Salir "<<((opc==4)?"*":"");
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }

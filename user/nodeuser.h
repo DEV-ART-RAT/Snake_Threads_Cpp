@@ -10,7 +10,7 @@ struct nodeuserinfouser {
     int puntaje;
     int coin;
     string name;
-
+    
     nodeuserinfouser() {}
     nodeuserinfouser(int _puntaje,int _coin, string _name) : puntaje(_puntaje), coin(_coin),name(_name) {}
 

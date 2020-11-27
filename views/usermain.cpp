@@ -7,14 +7,15 @@
 #include "../user/readuser.cpp"
 using namespace std;
 void welcomeuser();
+//nodeuserinfouser userdata;
 
 template<class T>
 void printUsers(doubleLinked<T>* dl,int &P,int &C,string user);
 
-int usermain(void) {
+int usermain(nodeuserinfouser* userdata) {
     doubleLinked<nodeuserinfouser> userlist;
-    string user;
     int P,C;
+    string user;
     P=0,C=0;
     welcomeuser();
     cin>>user;
@@ -24,7 +25,9 @@ int usermain(void) {
         cout<<"Tus monedas : "<<C<<endl;
         cout<<"Tus puntajes : "<<P<<endl;
     }
-    getchar();
+     *userdata =  nodeuserinfouser(P,C,user)  ;
+
+     // getchar(); borrar buffer
     //traverseBegin(userlist.front);
     return 0;
 };

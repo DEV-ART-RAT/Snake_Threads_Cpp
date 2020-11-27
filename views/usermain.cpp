@@ -8,16 +8,16 @@
 using namespace std;
 void welcomeuser();
 template<class T>
-void printUsers(doubleLinked<T>* dl,int &P,int &C,string user);
+void printUsers(doubleLinked<T>* dl,int &P,int &C,int &life,string user);
 
 int usermain(nodeuserinfouser* userdata) {
     doubleLinked<nodeuserinfouser> userlist;
-    int P,C;
+    int P,C,life;
     string user;
-    P=0,C=0;
+    P=0,C=0,life=3;
     welcomeuser();
     cin>>user;
-    printUsers(&userlist,P,C,user);
+    printUsers(&userlist,P,C,life,user);
     if(C!=0&&P!=0){
         cout<<"Bienvenido de nuevo!"<<endl;
         cout<<"Tus monedas : "<<C<<endl;
@@ -31,13 +31,13 @@ int usermain(nodeuserinfouser* userdata) {
 };
 
 template<class T>
-void printUsers(doubleLinked<T>* dl,int &P,int &C,string user){
+void printUsers(doubleLinked<T>* dl,int &P,int &C,int &life,string user){
     ifstream data;
     data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
         string puntaje,name;
-        int point,coin;
+        int point,coin,lifes;
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;
@@ -53,9 +53,13 @@ void printUsers(doubleLinked<T>* dl,int &P,int &C,string user){
                 coin = stoi(puntaje);
                 //cout<<puntaje<<endl;
                 // aqui es donde guardo los datos que se obtienen del csv
+                
+            }else if(col==3){
+                lifes = stoi(puntaje);
                 if(name==user){
                     P=point;
                     C=coin;
+                    life=lifes;
                 }
                 dl->pushBack(T(point,coin,name));
             }

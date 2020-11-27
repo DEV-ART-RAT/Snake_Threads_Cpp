@@ -17,13 +17,16 @@ int usermain(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* us
     //P=0,C=0;
     welcomeuser();
     cin>>user;
+    //cout<<userdata->info;
     printUsers(userlist,user,userdata);
-    if(userdata){
+    if(userdata->info.name!=""){
         cout<<"Bienvenido de nuevo!"<<endl;
         cout<<"Tus monedas : "<<userdata->info.coin<<endl;
         cout<<"Tus puntajes : "<<userdata->info.puntaje<<endl;
     } else{
-        *userdata =  node<nodeuserinfouser>(nodeuserinfouser(0,0,user))  ;
+        userlist->pushBack(nodeuserinfouser(0,0,user));
+        *userdata = *userlist->back;
+        //cout<<userlist->back->info;
     }
      //*userdata =  nodeuserinfouser(P,C,user)  ;
 

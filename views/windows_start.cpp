@@ -115,7 +115,7 @@ int startMenuOpc(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuse
 }
 
 int startMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    startMenuOpc(userdata,startMenuAux(userdata,mensajeStart,3),userlist);
+    startMenuOpc(userdata,startMenuAux(userdata,mensajeStart,4),userlist);
     return 0;
 }
 

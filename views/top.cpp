@@ -18,6 +18,7 @@ void top_game(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* u
     cout<<"presiona ENTER para continuar";
     cin.ignore();
     cin.get();
+    startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
 };
 void welcometop(){
     // borra esto porque hay nose que conflicto de pragma once

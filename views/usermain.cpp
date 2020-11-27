@@ -24,9 +24,8 @@ int usermain(void) {
         cout<<"Tus monedas : "<<C<<endl;
         cout<<"Tus puntajes : "<<P<<endl;
     }
-
+    getchar();
     //traverseBegin(userlist.front);
-
     return 0;
 };
 

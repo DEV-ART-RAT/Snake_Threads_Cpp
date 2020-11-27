@@ -11,7 +11,7 @@ g++ -pthread main.cpp -o main
 
 int main(void) {
     usermain();
-   //dr welcomemain();
+    welcomemain();
 
     return 0;
 };

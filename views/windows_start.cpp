@@ -11,6 +11,7 @@
 #include "./shop.cpp"
 #include <termios.h>
 #include <unistd.h>
+
 //#define mySleep(x) Sleep(x);
 
 // #elif defined __unix__ /* Creo que es esta macro, deberia estar definida en sistemas Unix-like*/
@@ -49,6 +50,7 @@ void __fastcall onKey::Edit1KeyPress(TObject *Sender, System::WideChar &Key)
 
 int welcomemain(){
 
+    mySnake snake = mySnake(15,32);
     char key;
     //bool key_up = false;
     int flag = 1;       //opcion actual del menu
@@ -63,6 +65,8 @@ int welcomemain(){
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
     //*/
+
+    
 
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
@@ -91,12 +95,12 @@ int welcomemain(){
             switch (flag) {
                 case 1:
                     cout<<"new game start :v"<<endl;
-                    playmatrix();
+                    playmatrix(&snake);
                    // loop=false; //para que termine el juego sin que se regrese al menu :
                     break;
                 case 2:
                     loop=false;
-                    welcomeshop();
+                    welcomeshop(&snake);
                     break;
                 case 3:
                     loop=false;

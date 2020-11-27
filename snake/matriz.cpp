@@ -30,38 +30,38 @@ using namespace std;
 
 
 
-int playmatrix(void){
+int playmatrix(mySnake* snake){
     srand(time(NULL));
 
-    mySnake snake = mySnake(15,32);
+    //mySnake snake = mySnake(15,32);
     //cout<<OS_Windows;
-    snake.list.pushBack(nodeinfo(5,5));
-    snake.list.pushBack(nodeinfo(5,6));
-    snake.list.pushBack(nodeinfo(5,7));
-    snake.list.pushBack(nodeinfo(5,8));
+    snake->list.pushBack(nodeinfo(5,5));
+    snake->list.pushBack(nodeinfo(5,6));
+    snake->list.pushBack(nodeinfo(5,7));
+    snake->list.pushBack(nodeinfo(5,8));
 
-    snake.defineSnake();
-    snake.defineFood();
-    snake.defineLevel(1);
+    snake->defineSnake();
+    snake->defineFood();
+    snake->defineLevel(1);
     
     //thread th2(myThreadTwo,4);
     //*
 
     
     //int flag =0;
-    thread th1(keyEventSnake , &snake);
+    thread th1(keyEventSnake , snake);
     double timer = 0;
     double speed = 1;
-    snake.show();
+    snake->show();
     sleep(1);
-    while (snake.flag)
+    while (snake->flag)
     {
-        if(snake.redirect || timer == 10 * speed){
+        if(snake->redirect || timer == 10 * speed){
             timer = 0;
-            snake.redirect = false;
-            snake.show();
-            //printMatrizChar(snake.M,snake.FILA,snake.COLUMNA);//-----
-            snakeDirection(&snake);
+            snake->redirect = false;
+            snake->show();
+            //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
+            snakeDirection(snake);
         }
         
         

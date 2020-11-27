@@ -1,6 +1,7 @@
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
+#include "../snake/my_snake.h"
 
 using namespace std;
 
@@ -15,17 +16,17 @@ void keyEventshop(char& key,bool& flag)
 
 
 }
-void shopwelcome(int);
+void shopwelcome(int, mySnake*);
 int welcomemain();
-int welcomeshop(){
+int welcomeshop(mySnake* snake){
 
     char key;
     //bool key_up = false;
     int flag = 1;       //opcion actual del menu
-    int sizeOption=3;   //numero total de opciones en el menu
+    int sizeOption=4;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
     sleep(0.1);//para corregir fallo de while
-    shopwelcome(flag);  //invocacion del menu
+    shopwelcome(flag, snake);  //invocacion del menu
 
     //*
     struct termios term;
@@ -54,7 +55,7 @@ int welcomeshop(){
             }
             //Sleep(100);//para corregir fallo de while
         }
-        shopwelcome(flag);
+        shopwelcome(flag, snake);
          //evento de ENTER seleccionando una opcion de menu
         if( /*GetAsyncKeyState(VK_RETURN) & 0x8000*/ key=='\n'){
             //Sleep(100);//para corregir fallo de while
@@ -66,6 +67,9 @@ int welcomeshop(){
                     cout<<"Compraste Velocidad"<<endl;
                     break;
                 case 3:
+                    cout<<"moneda comprada"<<endl;
+                    break;
+                case 4:
                     loop=false;
                     welcomemain();
                     break;
@@ -88,7 +92,7 @@ int welcomeshop(){
     return 0;
 }
 
-void shopwelcome(int opc){
+void shopwelcome(int opc, mySnake* snake){
     CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
@@ -97,11 +101,17 @@ void shopwelcome(int opc){
     cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
+
+    cout<<"Points: "<<snake->points<<endl;
+    cout<<"Coins: "<<snake->coins<<endl;
+    cout<<"Lifes: "<<snake->lifes<<endl;
     cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vidas Extra "<<((opc==1)?"*":"");
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Velocidad "<<((opc==2)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<"  EXIT "<<((opc==3)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" 1 moneda por 100 puntos "<<((opc==3)?"*":"");
+    cout<<endl;
+    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  EXIT "<<((opc==4)?"*":"");
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 }

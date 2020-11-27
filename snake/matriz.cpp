@@ -73,6 +73,7 @@ int playmatrix(mySnake* snake){
     
     
     th1.join();
+    cin.ignore();
     //delete(th1);
     //th2.join();
 

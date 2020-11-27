@@ -30,7 +30,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ec97f19-da0d-4e6d-9e14-45f063cace71" name="Default Changelist" comment="solve buffer config">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/game_over.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/game_over.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/windows_start.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/views/windows_start.cpp" afterDir="false" />
     </list>
@@ -77,7 +77,7 @@
       <updated>1606441021639</updated>
       <workItem from="1606441059093" duration="264000" />
       <workItem from="1606441334036" duration="2959000" />
-      <workItem from="1606446582439" duration="6899000" />
+      <workItem from="1606446582439" duration="7784000" />
     </task>
     <task id="LOCAL-00001" summary="change DIDE">
       <created>1606441476659</created>
@@ -198,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606454465528</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="solve buffer config">
+      <created>1606454751759</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1606454751759</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,13 +270,13 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="321" y="145" key="MultipleFileMergeDialog/0.0.1366.768@0.0.1366.768" timestamp="1606453824554" />
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606454472676">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2" timestamp="1606454769551">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606454472676" />
-    <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606453819100">
+    <state x="275" y="117" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1606454769551" />
+    <state x="320" y="172" key="git4idea.merge.GitPullDialog" timestamp="1606454759635">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="320" y="172" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1606453819100" />
+    <state x="320" y="172" key="git4idea.merge.GitPullDialog/0.0.1366.768@0.0.1366.768" timestamp="1606454759635" />
   </component>
 </project>

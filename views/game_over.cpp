@@ -20,9 +20,9 @@ int game_over(node<nodeuserinfouser>* userdata) {
     bool loop_game_over = true;   //bandera para el while true
     sleep(0.1);//para corregir fallo de while
     game_over_Print(flag_game_over);
-    cin.ignore();
+    //cin.ignore();
     abrir_buffer();
-     while(loop_game_over){
+    while(loop_game_over){
         key_game_over=getchar();//up:65 down:66 left:68 rigth:67
         if(  /*GetKey_game_overState(VK_UP) & 0x8000*/ key_game_over==65 ){
             if(flag_game_over > 1){

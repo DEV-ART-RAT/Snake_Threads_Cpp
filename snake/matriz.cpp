@@ -17,6 +17,7 @@ g++ -pthread matriz.cpp -o matriz
 #include "matriz.h"
 #include "snake.h"
 #include "my_snake.h"
+#include "../scene/parameter_define.cpp"
 
 //compile g++ -pthread  ...
 
@@ -30,11 +31,14 @@ using namespace std;
 
 
 
-int playmatrix(mySnake* snake, int difficulty){
+int playmatrix(mySnake* snake, int difficulty, int mode){
     srand(time(NULL));
+    int level = 11;//[1,5]facil,[6,10]normal,[11,15]dificil
+    int row, col , obstaculos, snkMax;
 
-    //mySnake snake = mySnake(15,32);
-    //cout<<OS_Windows;
+    sceneLevel(level, &row, &col, &obstaculos,&snkMax);
+    snake->inicialiceMySnake(row,col);
+
     snake->list.pushBack(nodeinfo(5,5));
     snake->list.pushBack(nodeinfo(5,6));
     snake->list.pushBack(nodeinfo(5,7));

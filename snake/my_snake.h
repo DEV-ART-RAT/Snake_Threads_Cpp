@@ -74,9 +74,28 @@ struct mySnake{
         lifes = 3;
         sizeMax = 30;
         
-        getMatrizChar(&M,FILA,COLUMNA);//inicando matriz
-        //defineSnake(list,M,FILA,COLUMNA);//inciando snake
-        //defineFood(M,&FILA,&COLUMNA);//comida inicial
+        getMatrizChar(&M,FILA,COLUMNA);
+    }
+
+    void inicialiceMySnake(int _i, int _c) {
+        FILA = _i;
+        COLUMNA = _c;
+        key='0';
+        dir=3;
+        flag=true;
+        redirect=false;
+        steep=1;
+        level=0;
+        sizeSnake = 4;
+        speedBost = 0;
+        speed = 4;
+        initialSpeed = speed + speedBost;
+        points= 1000;
+        coins = 0;
+        lifes = 3;
+        sizeMax = 30;
+        
+        getMatrizChar(&M,FILA,COLUMNA);
     }
 
     void defineLevel(int i){

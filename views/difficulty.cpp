@@ -34,16 +34,16 @@ int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
 int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){
 
-    mySnake snake = mySnake(15,32);
+    mySnake snake = mySnake();
     switch (flag) {
         case 1:
-            playmatrix(&snake,0);
+            playmatrix(&snake,0,0);
             break;
         case 2:
-            playmatrix(&snake,2);
+            playmatrix(&snake,2,0);
             break;
         case 3:
-            playmatrix(&snake,3);
+            playmatrix(&snake,3,0);
             break;
         case 4:
             startMenu(userdata,userlist);

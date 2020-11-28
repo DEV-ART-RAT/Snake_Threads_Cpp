@@ -15,7 +15,7 @@ int main(void) {
         "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
         "=====   ==   ====   ==   ==   ==  ==   =====" 
     };
-    int space = tamanio_largo/2 - linea1->size();
+    int space = (tamanio_largo - linea1->size())/2;
     string str;//("lolcat");
     str.insert(0, space, ' ');
 

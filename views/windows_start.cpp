@@ -17,6 +17,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include "./game_over.cpp"
+#include "./top.cpp"
 
 
 using namespace std;
@@ -37,7 +38,9 @@ auto mensajeStart = [](int opc, node<nodeuserinfouser>* userdata) {
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" TIENDA "<<((opc==2)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<"  EXIT "<<((opc==3)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<"  TOP "<<((opc==3)?"*":"");
+    cout<<endl;
+    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  EXIT "<<((opc==4)?"*":"");
     cout<<endl<<endl;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 };
@@ -85,20 +88,23 @@ int startMenuAux(node<nodeuserinfouser>* userdata, auto wellcome,int sizeOption)
 
 
 
-int startMenuOpc(node<nodeuserinfouser>* userdata, int flag){
+int startMenuOpc(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuserinfouser>* userlist){
     switch (flag) {
         case 1:
             //cout<<"new game start :v"<<endl;
             //playmatrix(&snake);
-            difficultyMenu(userdata);
+            difficultyMenu(userdata,userlist);
             //playmatrix(&snake);
-            gameOverMenu(userdata);
+            gameOverMenu(userdata,userlist);
             // loop=false; //para que termine el juego sin que se regrese al menu :
             break;
         case 2:
-            welcomeshop(userdata);
+            welcomeshop(userdata,userlist);
             break;
         case 3:
+            top_game(userdata,userlist);
+            break;
+        case 4:
             cout<<"exit... :'v"<<endl;
             exit(EXIT_SUCCESS);
             break;
@@ -108,8 +114,8 @@ int startMenuOpc(node<nodeuserinfouser>* userdata, int flag){
     return 0;
 }
 
-int startMenu(node<nodeuserinfouser>* userdata){
-    startMenuOpc(userdata,startMenuAux(userdata,mensajeStart,3));
+int startMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
+    startMenuOpc(userdata,startMenuAux(userdata,mensajeStart,4),userlist);
     return 0;
 }
 

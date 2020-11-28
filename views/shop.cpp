@@ -17,16 +17,30 @@ void keyEventshop(char& key,bool& flag)
 
 }
 void shopwelcome(int, node<nodeuserinfouser>* userdata);
-int startMenu(node<nodeuserinfouser>* );
-int startMenuOpc(node<nodeuserinfouser>* ,int);
+int startMenu(node<nodeuserinfouser>*,doubleLinked<nodeuserinfouser>* );
+int startMenuOpc(node<nodeuserinfouser>* ,int,doubleLinked<nodeuserinfouser>* );
 
-void buyCoin(node<nodeuserinfouser>* userdata){
-    if(userdata->info.puntaje >= 100){
-        userdata->info.puntaje -= 100;
-        userdata->info.coin++;
-        cout<<"Moneda comprada"<<endl;
-    } else {
-        cout<<"Puntos insuficientes"<<endl;
+void boostPointsx2(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
+	if(!x2boosted && !x3boosted && userdata->info.coin >= 20){
+		x2boosted = true;
+        userdata->info.coin -= 20;
+		cout<<"Puntaje potenciado x2"<<endl;
+	}else if(x2boosted || x3boosted){
+		cout<<"Un potenciador ya habia sido activado"<<endl;
+	} else {
+		cout<<"Monedas insuficientes"<<endl;
+    }
+}
+
+void boostPointsx3(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
+	if(!x2boosted && !x3boosted && userdata->info.coin >=30){
+		x3boosted = true;
+        userdata->info.coin -= 30;
+		cout<<"Puntaje potenciado x3"<<endl;
+	}else if(x2boosted || x3boosted){
+		cout<<"Un potenciador ya habia sido activado"<<endl;
+	} else {
+		cout<<"Monedas insuficientes"<<endl;
     }
 }
 
@@ -40,7 +54,7 @@ void buyLife(node<nodeuserinfouser>* userdata){
     }
 }
 
-int welcomeshop(node<nodeuserinfouser>* userdata){
+int welcomeshop(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
 
     char key;
     //bool key_up = false;
@@ -56,6 +70,8 @@ int welcomeshop(node<nodeuserinfouser>* userdata){
     term.c_lflag &= ~ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
     //*/
+
+    bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
 
     while(loop){
         key=getchar();//up:65 down:66 left:68 rigth:67
@@ -88,17 +104,17 @@ int welcomeshop(node<nodeuserinfouser>* userdata){
                     shopwelcome(flag, userdata);
                     break;
                 case 2:
-                    cout<<"Compraste Velocidad"<<endl;
+                    boostPointsx2(userdata, x2Boosted, x3Boosted);
                     break;
                 case 3:
-                    buyCoin(userdata);
+                    boostPointsx3(userdata, x2Boosted, x3Boosted);
                     sleep(1);
                     shopwelcome(flag, userdata);
                     break;
                 case 4:
                     loop=false;
                     //welcomemain(userdata);
-                    startMenuOpc(userdata,startMenu(userdata));
+                    startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
                     break;
                 default:
                     break;
@@ -134,9 +150,9 @@ void shopwelcome(int opc,node<nodeuserinfouser>* userdata){
     //cout<<"Lifes: "<<snake->lifes<<endl;
     cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vida Extra (5 monedas) "<<((opc==1)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Potenciar puntaje x2 (500 puntos) "<<((opc==2)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Potenciar puntaje x2 (20 monedas) "<<((opc==2)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" 1 moneda (100 puntos)"<<((opc==3)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" Potenciar puntaje x3 (30 monedas) "<<((opc==3)?"*":"");
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  Regresar "<<((opc==4)?"*":"");
     cout<<endl<<endl;

@@ -23,6 +23,30 @@ void mensageLine(int col,string linea1){
     (linea1.size()%2 != 0)? cout<<"*"<<str <<  linea1 << str <<" *" <<endl :
     cout<<"*"<<str <<  linea1 << str <<"*" <<endl;
 }
+void mensageLineSeccion(int col,string linea1[],int size){
+    string str;
+    int colaux=0;
+    //obtenemos el tamanio de la terminal en largo
+    col = (col- linea1->size())/2;
+    col=((col)/(size))-size;
+    str.insert(colaux, col, ' ');
+    cout<<"*";
+    if(linea1->size()%2 != 0){
+        for (int i=0; i <size ;i++){
+            // la comumna va  aser igual al
+            cout<<str <<  linea1[i] << str <<"*";
+            colaux=col;
+        }   
+    }else{
+        for (int i=0; i <size ;i++){
+            // la comumna va  aser igual al
+            cout<<str <<  linea1[i] << str <<"*";
+            colaux=col;
+        }   
+    }
+    cout<<endl;
+
+}
 
 void mensageSteep(int col){
     string strl;

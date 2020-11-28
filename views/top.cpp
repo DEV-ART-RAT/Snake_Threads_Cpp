@@ -37,21 +37,14 @@ void welcometop(){
 }
 template<class T>
 void printtop(node<T>* front){
-    string line,lineone,wall,fwall,lwall;
-    line="=================================================================================================================================";
-    wall="\t|\t";
-    fwall="|\t";
-    lwall="\t|";
+  
     //cout<<fwall;
     if(front) {
-        cout<< fwall;
-        cout<<setw(20)<< front->info.name;
-        cout<<setw(20)<< wall;
-        cout<<setw(20)<< front->info.coin;
-        cout<<setw(20)<<wall;
-        cout<<setw(20)<<front->info.puntaje;
-        cout<<setw(20)<<lwall;
-        cout<<endl ;
+        string top[]={
+        front->info.name,to_string(front->info.coin),to_string(front->info.puntaje)
+         };  
+        mensageLineSeccion(w.ws_col,top,3);
+        mensageMargin(w.ws_col);
         printtop(front->next);
     }
     else    
@@ -59,17 +52,14 @@ void printtop(node<T>* front){
 }
 
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
-    string line,lineone,wall,fwall,lwall,all;int size;
-    wall="\t|\t";
-    fwall="|\t";
-    lwall="\t|";
-    cout<< fwall;
-    cout<<setw(20)<< "Nombre ";
-    cout<<setw(20)<<wall;
-    cout<<setw(20)<< "Monedas";
-    cout<<setw(20)<<wall;
-    cout<<setw(20)<<"Puntaje";
-    cout<<setw(20)<<lwall;
-    cout<<endl ;
+
+    mensageMargin(w.ws_col);
+    string top[]={
+        "NOMBRE","MONEDAS","PUNTAJE"
+    };
+    mensageLineSeccion(w.ws_col,top,3);
+    mensageMargin(w.ws_col);
+
+
     printtop(userlist->front);
 }

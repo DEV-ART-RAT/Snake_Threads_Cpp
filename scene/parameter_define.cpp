@@ -11,7 +11,7 @@ void sceneSize(int level, int* row, int* col){
 
     //cout<<"leve: "<<level <<"  col: "<<*col<<"  row: "<<*row<<endl;
     //cin.get();
-    //level=6;
+    level=6;
 
     switch (level)
     {

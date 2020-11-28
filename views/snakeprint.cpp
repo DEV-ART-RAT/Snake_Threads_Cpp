@@ -4,19 +4,12 @@
 #include <string>
 
 using namespace std;
-void mensageSnake(int col){
+void mensageSnake(int col,string linea1[],int linea1size){
+
     string str;
-    string linea1[] = {
-        "=====   ===    ==   =======   ==  ==   =====",
-        "||      ||\\\\   ||   ||   ||   || //    ||   ",
-        "====    || \\\\  ||   ||===||   |||      =====",
-        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
-        "=====   ==   ====   ==   ==   ==  ==   =====" 
-    };
-    
     col = (col- linea1->size() -4 )/2;
     str.insert(0, col, ' ');
-    for (int i=0; i < 5;i++){
+    for (int i=0; i <linea1size ;i++){
         cout<<"*"<<str <<  linea1[i] << str <<"*" <<endl;
     }
 }
@@ -36,10 +29,16 @@ void mensageMargin(int col){
 
 int main(void) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
-    
+    string linea1[] = {
+        "=====   ===    ==   =======   ==  ==   =====",
+        "||      ||\\\\   ||   ||   ||   || //    ||   ",
+        "====    || \\\\  ||   ||===||   |||      =====",
+        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
+        "=====   ==   ====   ==   ==   ==  ==   =====" 
+    };
     mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
-    mensageSnake(w.ws_col);
+    mensageSnake(w.ws_col,linea1 , 5);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     

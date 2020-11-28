@@ -14,7 +14,7 @@ int main(void) {
         cout<<"*"<<setw((tamanio_largo/2)-5)<<"=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;i-=-1;
         cout<<"*"<<setw((tamanio_largo/2)-5)<<"||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;i-=-1;
         cout<<"*"<<setw((tamanio_largo/2)-5)<<"=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;i-=-1;
-        cout<<"*"<<setw((tamanio_largo/2)-5)<<"   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;i-=-1;
+        cout<<"*"<<setw((tamanio_largo/2)-5)<<"   ||   ||  \\\\ ||" <git pu<"   ||   ||   || \\\\ "<<"   ||"      <<endl;i-=-1;
         cout<<"*"<<setw((tamanio_largo/2)-5)<<"=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;i-=-1;
         }
         if (i==0||i==tamanio_alto-1)

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "../tools/screenControl.h"
 #include <iomanip>

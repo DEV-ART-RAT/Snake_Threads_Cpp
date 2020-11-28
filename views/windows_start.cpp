@@ -12,6 +12,7 @@
 #include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
+#include "./snakeprint.cpp"
 #include "./shop.cpp"
 #include "./mode.cpp"
 #include <termios.h>
@@ -46,11 +47,11 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
 
     (opc==1)? mensageLine(w.ws_col,"*  START *"): mensageLine(w.ws_col,"   START  ");
     mensageSteep(w.ws_col);
-    (opc==2)? mensageLine(w.ws_col,"*  TIENDA *"): mensageLine(w.ws_col,"   TIENDA  ");
+    (opc==2)? mensageLine(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
     mensageSteep(w.ws_col);
     (opc==3)? mensageLine(w.ws_col,"*  TOP *"): mensageLine(w.ws_col,"   TOP  ");
     mensageSteep(w.ws_col);
-    (opc==4)? mensageLine(w.ws_col,"*  EXIT *"): mensageLine(w.ws_col,"   EXIT  ");
+    (opc==4)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);

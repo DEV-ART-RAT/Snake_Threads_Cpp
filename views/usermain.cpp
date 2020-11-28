@@ -78,8 +78,8 @@ void welcomeuser(void){
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     snakeprint();
     string linea1[]{
-        "Digita tu  USUARIO",
-        "(si ya tienes un usuario se recuperara tu progreso)"
+        "                 Digita tu  USUARIO                 ",
+        "(si ya tienes un usuario se recuperara tu progreso) "
     };
     mensageSnake(w.ws_col,linea1 , 2);
 

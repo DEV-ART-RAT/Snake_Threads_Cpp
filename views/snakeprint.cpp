@@ -9,8 +9,10 @@ void mensageSnake(int col,string linea1[],int linea1size){
     col = (col- linea1->size() - 4 )/2;
     str.insert(0, col, ' ');
     for (int i=0; i <linea1size ;i++){
-        cout<<"*"<<str <<  linea1[i] << str <<"*" <<endl;
+    cout<<"*"<<str <<  linea1[i] << str <<"*" <<endl;
+
     }
+    
 }
 
 void mensageLine(int col,string linea1){
@@ -35,6 +37,7 @@ void mensageMargin(int col){
 
 int snakeprint(void) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    
     string linea1[] = {
         "=====   ===    ==   =======   ==  ==   =====",
         "||      ||\\\\   ||   ||   ||   || //    ||   ",

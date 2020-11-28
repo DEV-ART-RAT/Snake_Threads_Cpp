@@ -20,6 +20,7 @@ void mensageLine(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
+    (linea1.size()%2 != 0)? cout<<"*"<<str <<  linea1 << str <<" *" <<endl :
     cout<<"*"<<str <<  linea1 << str <<"*" <<endl;
 }
 

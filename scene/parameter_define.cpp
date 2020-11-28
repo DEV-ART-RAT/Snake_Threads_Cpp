@@ -7,7 +7,12 @@ using namespace std;
 void sceneSize(int level, int* row, int* col){
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     *row = w.ws_row - 5;
-    *col = w.ws_col - 5;
+    *col = w.ws_col / 2;
+
+    //cout<<"leve: "<<level <<"  col: "<<*col<<"  row: "<<*row<<endl;
+    //cin.get();
+    //level=6;
+
     switch (level)
     {
     case 1: // pantalla 20%
@@ -23,8 +28,18 @@ void sceneSize(int level, int* row, int* col){
         *col  *= 0.8;
         break;
     default:
+        *col -= 5;
         break;
     }
+
+    if (*col<30){
+        *col=30;
+    }
+    if (*row<10){
+        *row=10;
+    }
+
+    
 }
 
 //total de obstaculos segun dificulatad y tamaño de teminal

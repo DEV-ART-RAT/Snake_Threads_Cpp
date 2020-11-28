@@ -7,32 +7,40 @@
 
 
 using namespace std;
+struct termios term;
 
 /* 
 Para ejecutar:
 g++ -pthread main.cpp -o main
 ./main
 */
+void open_buffer();
+void close_buffer();
 
 int main(void) {
     node<nodeuserinfouser> user;
     doubleLinked<nodeuserinfouser> userlist;
-    //int flag = 0;
-    usermain(&user,&userlist);//ingresando 
     
-
-    struct termios term;
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-
-    //flag = startMenu(&user);//obteniendo opcion de menu principal
+    usermain(&user,&userlist);//ingresando usuario y cargando lista
+    
+    open_buffer();
     startMenu(&user,&userlist);
-    //startMenuOpc(&user,startMenu(&user));//opcion de menu principal
+    close_buffer();
 
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    
 
     return 0;
 };
+
+
+void open_buffer(){
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
+
+void close_buffer(){
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}

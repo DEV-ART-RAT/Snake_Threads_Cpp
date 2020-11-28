@@ -30,6 +30,7 @@ auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) {
 };
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+int startMenu(node<nodeuserinfouser>* ,doubleLinked<nodeuserinfouser>* );
 
 
 int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){

@@ -13,7 +13,7 @@
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
 #include "./shop.cpp"
-#include "./difficulty.cpp"
+#include "./mode.cpp"
 #include <termios.h>
 #include <unistd.h>
 #include "./game_over.cpp"
@@ -60,7 +60,7 @@ int startMenuAux(node<nodeuserinfouser>* userdata, auto wellcome,int sizeOption)
 
     while(loop){
 
-        key=getchar();//up:65 down:66 left:68 rigth:67
+        key=getchar();//up:65 down:66 o B left:68 rigth:67
 
         if(key==65 ){
             if(flag > 1){
@@ -93,16 +93,18 @@ int startMenuOpc(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuse
         case 1:
             //cout<<"new game start :v"<<endl;
             //playmatrix(&snake);
-            difficultyMenu(userdata,userlist);
+            modeMenu(userdata,userlist);
             //playmatrix(&snake);
             gameOverMenu(userdata,userlist);
             // loop=false; //para que termine el juego sin que se regrese al menu :
             break;
         case 2:
-            welcomeshop(userdata,userlist);
+            shopMenu(userdata,userlist);
+            startMenu(userdata,userlist);
             break;
         case 3:
             top_game(userdata,userlist);
+            startMenu(userdata,userlist);
             break;
         case 4:
             cout<<"exit... :'v"<<endl;

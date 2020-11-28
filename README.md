@@ -29,9 +29,6 @@ Documento donde se explican los puntos:
 # 2. Capturas de pantalla:
 
 # 3. Implementacion de :
-- Buenas prácticas
-- Estructuras de datos (dinámicas)
-- Algoritmos de ordenamiento / búsqueda
 ## 3.1. Buenas prácticas:
 
 ## 3.2. Estructuras de datos (dinámicas):

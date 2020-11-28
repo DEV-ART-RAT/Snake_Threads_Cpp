@@ -7,7 +7,7 @@
 #include "../snake/list.cpp"
 #include "../snake/clear.cpp"
 #include "../user/readuser.cpp"
-
+#include "./snakeprint.cpp"
 using namespace std;
 void welcomeuser();
 template<class T>
@@ -75,15 +75,12 @@ void printUsers(doubleLinked<T>* dl,string user,node<T>* userInfo){
 void welcomeuser(void){
     // borra esto porque hay nose que conflicto de pragma once
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<endl<<endl;
-    cout<<"\t\t\t Digita tu  USUARIO \n";
-    cout<<"\t\t\t (si ya tienes un usuario se recuperara tu progreso) \n";
+    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    snakeprint();
+    string linea1[]{
+        "Digita tu  USUARIO",
+        "(si ya tienes un usuario se recuperara tu progreso)"
+    };
+    mensageSnake(w.ws_col,linea1 , 2);
 
 }

@@ -7,6 +7,7 @@ using namespace std;
 void mensageSnake(int col,string linea1[],int linea1size){
 
     string str;
+    //int linesize = sizeof(linea1)/sizeof(linea1[0]);
     col = (col- linea1->size() -4 )/2;
     str.insert(0, col, ' ');
     for (int i=0; i <linea1size ;i++){
@@ -27,7 +28,7 @@ void mensageMargin(int col){
 }
 
 
-int main(void) {
+int snakeprint(void) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     string linea1[] = {
         "=====   ===    ==   =======   ==  ==   =====",

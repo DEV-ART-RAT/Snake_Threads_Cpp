@@ -30,8 +30,7 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
     //cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
-    string linea1 = (userdata->info.name.size() %2 != 0) ? "WELLCOME !!  ¡¡¡" + userdata->info.name + " !!! TO ......!!!"
-    : "WELLCOME !!!  ¡¡¡" + userdata->info.name + " !!! TO F......!!!";
+    string linea1 =  "WELLCOME " + userdata->info.name + "  TO ...";
 
 
     mensageLine(w.ws_col,linea1);

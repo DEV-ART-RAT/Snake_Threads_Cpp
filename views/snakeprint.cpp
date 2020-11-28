@@ -66,7 +66,7 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
 };
 
 
-int main(void) {
+int snakeprint(void) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     string linea1[] = {
         "=====   ===    ==   =======   ==  ==   =====",

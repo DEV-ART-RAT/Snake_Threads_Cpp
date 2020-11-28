@@ -1,1 +1,4 @@
-    welcomemain(&user);
+
+    return 0;
+};
+

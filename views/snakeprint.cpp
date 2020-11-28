@@ -13,6 +13,13 @@ void mensageSnake(int col,string linea1[],int linea1size){
     }
 }
 
+void mensageLine(int col,string linea1){
+    string str;
+    col = (col- linea1.size() - 4 )/2;
+    str.insert(0, col, ' ');
+    cout<<"*"<<str <<  linea1 << str <<"*" <<endl;
+}
+
 void mensageSteep(int col){
     string strl;
     strl.insert(0, col - 4, ' ');
@@ -25,7 +32,7 @@ void mensageMargin(int col){
     cout<<strl<<endl;
 }
 
-auto mensajeStart = [](int opc, node<nodeuserinfouser>* userdata) { 
+void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) { 
     //CLEAR;
     //cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     mensageMargin(w.ws_col);
@@ -45,18 +52,17 @@ auto mensajeStart = [](int opc, node<nodeuserinfouser>* userdata) {
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
 
+    (opc==1)? mensageLine(w.ws_col,"*  START *"): mensageLine(w.ws_col,"   START  ");
+    mensageSteep(w.ws_col);
+    (opc==2)? mensageLine(w.ws_col,"*  TIENDA *"): mensageLine(w.ws_col,"   TIENDA  ");
+    mensageSteep(w.ws_col);
+    (opc==3)? mensageLine(w.ws_col,"*  TOP *"): mensageLine(w.ws_col,"   TOP  ");
+    mensageSteep(w.ws_col);
+    (opc==4)? mensageLine(w.ws_col,"*  EXIT *"): mensageLine(w.ws_col,"   EXIT  ");
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 
-
-    
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<"  START "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" TIENDA "<<((opc==2)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<"  TOP "<<((opc==3)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  EXIT "<<((opc==4)?"*":"");
-    cout<<endl<<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
 };
 
 

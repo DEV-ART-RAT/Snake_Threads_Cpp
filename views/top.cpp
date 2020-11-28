@@ -75,8 +75,5 @@ void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     cout<<setw(20)<<"Puntaje";
     cout<<setw(20)<<lwall;
     cout<<endl ;
-    cout.fill('-') ;
-    cout<<endl ;
-    cout.fill(' ');
     printtop(userlist->front);
 }

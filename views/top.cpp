@@ -7,6 +7,7 @@
 #include "../snake/list.cpp"
 #include "../snake/clear.cpp"
 #include "../user/readuser.cpp"
+#include "./snakeprint.cpp"
 #include <iomanip>
 
 using namespace std;
@@ -21,7 +22,7 @@ void top_game(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* u
     welcometop();
     //traverseBegin(userlist->front);
     printtopaux(userlist);
-    cout<<"presiona ENTER para continuar";
+    mensageLine(w.ws_col,"presiona ENTER para continuar");
     cin.ignore();
     cin.get();
     //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
@@ -30,14 +31,8 @@ void top_game(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* u
 void welcometop(){
     // borra esto porque hay nose que conflicto de pragma once
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<endl<<endl;
+    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    snakeprint();
 
 }
 template<class T>

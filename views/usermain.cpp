@@ -14,21 +14,27 @@ template<class T>
 void printUsers(doubleLinked<T>* dl,string user,node<T>*);
 
 void usermain(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist) {
+    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     string user;
     welcomeuser();//mostrando mensaje visual para pedir usuario
     cin>>user;
 
     printUsers(userlist,user,userdata);//cargando lista de usuarios de fuente externa
     if(userdata->info.name!=""){//revisando si el usuario ya estaba registrado
-        cout<<"Bienvenido de nuevo! "<<userdata->info.name<<endl;
-        cout<<"Tus monedas : "<<userdata->info.coin<<endl;
-        cout<<"Tus puntajes : "<<userdata->info.puntaje<<endl;
+        string coin,punteje;
+        
+        mensageLine(w.ws_col,string("Bienvenido de nuevo! "+userdata->info.name));
+        mensageLine(w.ws_col,string("Tus monedas : "+to_string(userdata->info.coin)));
+        mensageLine(w.ws_col,string("Tus puntajes : "+to_string(userdata->info.puntaje)));
     } else{
         userlist->pushBack(nodeuserinfouser(0,0,user));//creando nuevo usuario
         *userdata = *userlist->back;
-        cout<<"Bienvenido! "<<userdata->info.name<<endl;
+        mensageLine(w.ws_col,string("Bienvenido!"+userdata->info.name));
+        mensageLine(w.ws_col,"Esperamos Te guste!");
     }
-    cout<<"presiona ENTER para continuar";
+    mensageLine(w.ws_col,"presiona ENTER para continuar");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
     cin.ignore();
     cin.get();
 };
@@ -77,10 +83,7 @@ void welcomeuser(void){
     CLEAR;
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     snakeprint();
-    string linea1[]{
-        "                 Digita tu  USUARIO                 ",
-        "(si ya tienes un usuario se recuperara tu progreso) "
-    };
-    mensageSnake(w.ws_col,linea1 , 2);
+    mensageLine(w.ws_col,"Digita tu  USUARIO");
+    mensageLine(w.ws_col,"(si ya tienes un usuario se recuperara tu progreso) ");
 
 }

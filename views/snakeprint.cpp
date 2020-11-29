@@ -29,6 +29,8 @@ void mensageLineSeccion(int col,string linea1[],int size){
     int colaux=0;
     //obtenemos el tamanio de la terminal en largo
     col=((col)/(size));
+    (col%2==0)?col:col-1;
+
     str.insert(colaux, col, ' ');
     cout<<"*";
     if(linea1->size()%2 != 0){
@@ -47,10 +49,10 @@ void mensageLineSeccion(int col,string linea1[],int size){
 }
 void mensageLineSeccionAux(int col,string linea1){
     string str;
-    col = (col- linea1.size()-2)/2;
+    col = (((col)/2)- (linea1.size())/2)-1;
     str.insert(0, col, ' ');
     (linea1.size()%2 != 0)? cout<<str <<  linea1 << str <<" *":
-    cout<<str <<  linea1 << str <<"*";
+    cout<<" "<<str <<  linea1 <<" "<< str <<"*";
 }
 void mensageSteep(int col){
     string strl;

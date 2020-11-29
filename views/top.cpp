@@ -37,13 +37,14 @@ void welcometop(){
 }
 template<class T>
 void printtop(node<T>* front){
-  
+    winsize w = screenSize();
     //cout<<fwall;
     if(front) {
         string top[]={
         front->info.name,to_string(front->info.coin),to_string(front->info.puntaje)
          };  
         mensageLineSeccion(w.ws_col,top,3);
+        //mensageLineSeccionAux(w.ws_col/3,front->info.name);
         mensageMargin(w.ws_col);
         printtop(front->next);
     }

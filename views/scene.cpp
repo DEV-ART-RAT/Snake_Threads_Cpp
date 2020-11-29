@@ -5,9 +5,8 @@
 //#include "../snake/clear.cpp"
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
-#include "../tools/list.h"
+#include "../tools/gameStruct.h"
 #include "./difficulty.cpp"
-#include "./scene.cpp"
 using namespace std;
 
 auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) { 
@@ -20,9 +19,9 @@ auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) {
     cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
     cout<<endl<<endl;
 
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" CLASICO "<<((opc==1)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" LIBRE "<<((opc==1)?"*":"");
     cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" ESPECIAL "<<((opc==2)?"*":"");
+    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" CERRADO "<<((opc==2)?"*":"");
     cout<<endl;
     cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" REGRESAR "<<((opc==3)?"*":"");
     cout<<endl<<endl;
@@ -33,18 +32,17 @@ int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 
 
-int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
+int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
-    game->mode = flag;
+    game->scene =  flag;
     switch (flag) {
         case 1:
-            game->scene =  1;
             difficultyMenu(game);
             break;
         case 2://especial
             //playmatrix(&snake,2,0);
-            sceneMenu(game);
+            difficultyMenu(game);
             break;
         case 3:
             //playmatrix(&snake,3,0);
@@ -57,8 +55,8 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
     return 0;
 }
 
-int modeMenu(myGame<nodeuserinfouser>* game){
-    return modeMenuAux(game,startMenuAux(game->user,mensajeMode,3));
+int sceneMenu(myGame<nodeuserinfouser>* game){
+    return sceneMenuAux(game,startMenuAux(game->user,mensajeMode,3));
 }
 
 

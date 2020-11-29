@@ -11,20 +11,20 @@ void sceneSize(int level, int* row, int* col){
 
     //cout<<"leve: "<<level <<"  col: "<<*col<<"  row: "<<*row<<endl;
     //cin.get();
-    level=6;
+    //level=6;
 
     switch (level)
     {
-    case 1: // pantalla 20%
+    /*case 1: // pantalla 20%
         *col  *= 0.2;
         break;
     case 2: // pantalla 40%
         *col  *= 0.4;
-        break;
-    case 3: // pantalla 60%
+        break;*/
+    case 1: // pantalla 60%
         *col  *= 0.6;
         break;
-    case 4: // pantalla 80%
+    case 2: // pantalla 80%
         *col  *= 0.8;
         break;
     default:
@@ -72,15 +72,15 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
     }
 }
 
-void sceneLevel(int level, int* row, int* col, int* cel,int* snkMax){
-    int levelTwo = 1;
+void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax){
+    int levelTwo = 1;//nivel base
 
-    while(level > 5){
+    while(level > 3){
         levelTwo++;
-        level -= 5;
+        level -= 3;
     }
-    sceneSize(levelTwo,row,col);
-    sceneLevelDif(level,row,col,cel,snkMax);
+    sceneSize(level,row,col);
+    sceneLevelDif(levelTwo,row,col,obstaculos,snkMax);
 }
 
 /*

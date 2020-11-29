@@ -36,16 +36,17 @@ int playmatrix(mySnake*, int , int );
 
 int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 
-    mySnake snake = mySnake();
+    //mySnake snake = mySnake();
+    game->difficulty = flag;
     switch (flag) {
         case 1:
-            playmatrix(&snake,0,0);
+            playmatrix(game);
             break;
         case 2:
-            playmatrix(&snake,2,0);
+            playmatrix(game);
             break;
         case 3:
-            playmatrix(&snake,3,0);
+            playmatrix(game);
             break;
         case 4:
             startMenu(game);

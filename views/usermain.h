@@ -31,7 +31,7 @@ void usermain(myGame<T>* game) {
         mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));
 
     } else{
-        game->list.pushBack(nodeuserinfouser(0,0,0,0,0,user));//creando nuevo usuario
+        game->list.pushBack(nodeuserinfouser(0,0,0,5,1,user));//creando nuevo usuario
         game->user = game->list.back;
         mensageLine(w.ws_col,string("Bienvenido!"+game->user->info.name));
         mensageLine(w.ws_col,"Esperamos Te guste!");

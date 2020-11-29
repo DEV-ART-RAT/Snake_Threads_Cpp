@@ -31,12 +31,12 @@ using namespace std;
 
 
 
-int playmatrix(mySnake* snake, int difficulty, int mode){
+int playmatrix(myGame<nodeuserinfouser>* game){
     srand(time(NULL));
     int level = 11;//[1,5]facil,[6,10]normal,[11,15]dificil
     int row, col , obstaculos, snkMax;
 
-    sceneLevel(level, &row, &col, &obstaculos,&snkMax);
+    sceneLevel(game->snake.level, &row, &col, &obstaculos,&snkMax);
     snake->inicialiceMySnake(row,col);
 
     snake->list.pushBack(nodeinfo(5,5));

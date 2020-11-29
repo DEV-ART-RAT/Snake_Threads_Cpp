@@ -5,8 +5,8 @@
 //#include "../snake/clear.cpp"
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
-#include "../tools/list.h"
-//#include "./difficulty.cpp"
+#include "../tools/gameStruct.h"
+//#include "./windows_start.cpp"
 using namespace std;
 
 auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) { 
@@ -34,8 +34,8 @@ auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) {
 };
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
-int startMenu(node<nodeuserinfouser>* ,doubleLinked<nodeuserinfouser>* );
-int shopMenu(node<nodeuserinfouser>* ,doubleLinked<nodeuserinfouser>*);
+int startMenu(myGame<nodeuserinfouser>* game);
+int shopMenu(myGame<nodeuserinfouser>* game);
 
 void boostPointsx2(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
 	if(!x2boosted && !x3boosted && userdata->info.coin >= 20){
@@ -73,22 +73,22 @@ void buyLife(node<nodeuserinfouser>* userdata){
 
 
 
-int shopMenuAux(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){
+int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
 
     bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
     switch (flag) {
         case 1:
-            buyLife(userdata);
+            buyLife(game->user);
             //sleep(1);
             //shopMenu(userdata,userlist);
             break;
         case 2:
-            boostPointsx2(userdata, x2Boosted, x3Boosted);
+            boostPointsx2(game->user, x2Boosted, x3Boosted);
             break;
         case 3:
-            boostPointsx3(userdata, x2Boosted, x3Boosted);
+            boostPointsx3(game->user, x2Boosted, x3Boosted);
             //sleep(1);
             //shopMenu(flag, userdata);
             break;
@@ -100,13 +100,13 @@ int shopMenuAux(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuseri
             break;
     }
     sleep(1);
-    shopMenu(userdata,userlist);
+    shopMenu(game);
 
     return 0;
 }
 
-int shopMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    return shopMenuAux(userdata,startMenuAux(userdata,mensajeShop,4),userlist);
+int shopMenu(myGame<nodeuserinfouser>* game){
+    return shopMenuAux(game,startMenuAux(game->user,mensajeShop,4));
 }
 
 

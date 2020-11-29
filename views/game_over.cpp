@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include "../snake/keyEvent.h"
 #include "./windows_start.cpp"
+#include "../tools/gameStruct.h"
 
 using namespace std;
 struct termios term_over;
@@ -28,10 +29,10 @@ auto mensajeGameOver = [](int opc,node<nodeuserinfouser>* userdata) {
     cout<<endl<<endl;
 };
 
-int gameOverMenuAux(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuserinfouser>* userlist) {
+int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
-            startMenu(userdata,userlist);
+            startMenu(game);
             break;
         case 2:
             exit(EXIT_SUCCESS);
@@ -41,7 +42,7 @@ int gameOverMenuAux(node<nodeuserinfouser>* userdata, int flag,doubleLinked<node
     }
 };
 
-int gameOverMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    gameOverMenuAux(userdata,startMenuAux(userdata,mensajeGameOver,2),userlist);
+int gameOverMenu(myGame<nodeuserinfouser>* game){
+    gameOverMenuAux(game,startMenuAux(game->user,mensajeGameOver,2));
     return 0;
 }

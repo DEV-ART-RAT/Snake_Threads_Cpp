@@ -79,7 +79,6 @@ void printUsers(myGame<T>* game,string user){
                 game->list.pushBack(T(point,pointContinue,coin,lifes,nivel,name));
                 if(name==user){
                     game->user = game->list.back;
-                    //cout<<"encontre: "<<name<<endl;
                 }
                 break;
             default:

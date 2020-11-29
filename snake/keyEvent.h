@@ -39,11 +39,16 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
         
         //cin.ignore();
         game->snake.key=getchar();
+        if(!game->snake.flag){
+            return;
+        }
         switch (game->snake.key)
         {
         case '\n':
-            game->snake.flag=false;
-            return;//finalizando hilo
+            //game->snake.flag=false;
+            
+                shopMenu(game);
+            break;//finalizando hilo
         case 65://up
             if(game->snake.dir!=2 && game->snake.dir!=1){
                 game->snake.dir=1;

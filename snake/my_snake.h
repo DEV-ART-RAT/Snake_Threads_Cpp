@@ -17,7 +17,7 @@
 
 //compile g++ -pthread  ...
 
-#define FOOD '+'
+#define FOOD 'O'
 #define SNAKE '*'
 #define CRASH '?'
 #define SCENE ' '

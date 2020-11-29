@@ -39,14 +39,16 @@ void snakeDel(myGame<nodeuserinfouser>* game){
     delete(n);
 }
 
+void snakeDelContinued(myGame<nodeuserinfouser>* game){
+    node<nodeinfo>* n = game->snake.list->removeBack();
+    game->snake.M[n->info.i][n->info.j]=' ';
+    delete(n);
+}
+
 //template<class T>
-void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
-    game->snake.list->pushBack(nodeinfo(fil,col));
-    if(game->snake.M[fil][col]== FOOD ){
-        //list->pushFront(T(fil,col));
-        game->snake.sizeSnake = game->snake.sizeSnake + 1;
-        //cout << game->snake.speed;
-        int max = game->snake.sizeMax;
+
+void changeVelocity(myGame<nodeuserinfouser>* game){
+    int max = game->snake.sizeMax;
         if(game->snake.sizeSnake < max*0.2)
             game->snake.speed = game->snake.initialSpeed * 0.8;
         else if (game->snake.sizeSnake < max*0.4)
@@ -61,12 +63,24 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
             game->snake.speed = game->snake.initialSpeed  * 0.2;
         else
             game->snake.speed = game->snake.initialSpeed  * 0.1;
-            
+}
+
+void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
+    game->snake.list->pushBack(nodeinfo(fil,col));
+    if(game->snake.M[fil][col]== FOOD ){
+        //list->pushFront(T(fil,col));
+        game->snake.sizeSnake++;
+        //cout << game->snake.speed;
+        //changeVelocity(game);
         game->snake.defineFood();
         //M[fil][col]='*';
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
         game->snake.flag = false;
         game->snake.M[fil][col]=CRASH;
+        game->snake.list->pushFront(nodeinfo(game->snake.list->front->info.i,game->snake.list->front->info.j));
+        game->snake.list->pushFront(nodeinfo(game->snake.list->front->info.i,game->snake.list->front->info.j));
+        snakeDelContinued(game);
+        snakeDelContinued(game);
         game->snake.show();
         //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
         cout<<"GAME OVER >:´v"<<endl;

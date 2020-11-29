@@ -31,6 +31,26 @@ g++ -pthread matriz.cpp -o matriz
 
 using namespace std;
 
+int playGame(myGame<nodeuserinfouser>* game){
+    double timer = 0;
+    while (game->snake.flag)
+    {
+                    
+        if(game->snake.redirect || timer == 10 * game->snake.speed){
+            timer = 0;
+            game->snake.redirect = false;
+            game->snake.show();
+            //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
+            snakeDirection(game);
+        }
+        
+        
+        usleep(10 * 1000);
+        timer++;
+        //sleep(2);
+    }
+}
+
 
 
 int playmatrix(myGame<nodeuserinfouser>* game){
@@ -48,7 +68,6 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
     }else//juego especial
     {
-        //game->levelSpecial = 1;//inicando escenario especial
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
     }
     
@@ -62,6 +81,7 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     game->snake.defineScene(game->scene);
     game->snake.defineObst(obstaculos);
     game->snake.defineFood();
+    game->snake.defineFood();
     
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty;//nivel de velocidad
     game->snake.sizeMax = snkMax;
@@ -70,32 +90,26 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     //*
 
     thread th1(keyEventSnake , game);
-    double timer = 0;
+    
     
     game->snake.show();
     sleep(1);
-
     
-    while (game->snake.flag)
+
+    playGame(game);
+
+    while (gameOverMenu(game))
     {
-                    
-        if(game->snake.redirect || timer == 10 * game->snake.speed){
-            timer = 0;
-            game->snake.redirect = false;
-            game->snake.show();
-            //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
-            snakeDirection(game);
-        }
+        thread th2(keyEventSnake , game);
+        game->snake.show();
+        sleep(1);
+        playGame(game);
         
-        
-        usleep(10 * 1000);
-        timer++;
-        //sleep(2);
     }
 
     
     
-    th1.join();
+    //th1.join();
     //th2.join();
 
     return 0;

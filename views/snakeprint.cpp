@@ -24,14 +24,18 @@ void mensageLine(int col,string linea1){
     cout<<"*"<<str <<  linea1 << str <<"*" <<endl;
 }
 
-void mensageLineSeccionAux(int col,string linea1,int pos){
+int mensageLineSeccionAux(int col,string linea1){
     string str;
-    col = (((col)/2)- (linea1.size())/2);
-    (pos==0)?cout<<"*":cout<<"";
+    col = (((col)-(linea1.size()))/2)-2;
     str.insert(0, col, ' ');
-    (linea1.size()%2 != 0)? cout<<str <<  linea1 << str <<" *":
-    cout<<str <<  linea1 << str <<"*";chchc
+   if(linea1.size()%2 == 0){
+        cout<<"*"<<str <<  linea1 << str;    
+        return ((col*2)+linea1.size()+2);    
+    };
+    cout<<"*"<<str <<  linea1 << str <<" ";    
+    return (col*2)+linea1.size()+3;
 }
+    
 void mensageSteep(int col){
     string strl;
     strl.insert(0, col - 4, ' ');

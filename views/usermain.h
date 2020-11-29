@@ -22,18 +22,24 @@ void usermain(myGame<T>* game) {
 
     printUsers(game,user);//cargando lista de usuarios de fuente externa
     
-    if(game->user){//revisando si el usuario ya estaba registrado
-        string coin,punteje;
-        
+    if(game->user){//revisando si el usuario ya estaba registrado        
         mensageLine(w.ws_col,string("Bienvenido de nuevo! "+game->user->info.name));
         mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));
-        mensageLine(w.ws_col,string("Tus puntajes : "+to_string(game->user->info.puntaje)));
+        mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));
+        mensageLine(w.ws_col,string("Tu Actual : "+to_string(game->user->info.puntajeContinuar)));
+        mensageLine(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));
+        mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));
+
     } else{
-        game->list.pushBack(nodeuserinfouser(0,0,user));//creando nuevo usuario
-        
+        game->list.pushBack(nodeuserinfouser(0,0,0,0,0,user));//creando nuevo usuario
         game->user = game->list.back;
         mensageLine(w.ws_col,string("Bienvenido!"+game->user->info.name));
         mensageLine(w.ws_col,"Esperamos Te guste!");
+        mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));
+        mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));
+        mensageLine(w.ws_col,string("Tu Actual : "+to_string(game->user->info.puntajeContinuar)));
+        mensageLine(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));
+        mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));
     }
     mensageLine(w.ws_col,"presiona ENTER para continuar");
     mensageSteep(w.ws_col);
@@ -48,31 +54,39 @@ void printUsers(myGame<T>* game,string user){
     data.open("./data/user.csv",ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
-        string puntaje,name;
-        int point,coin,lifes;
-        for (int col = 0;getline(data,puntaje,',');col++){
-            if(col==0){
-                name = puntaje;
-                //cout<<name<<endl;
-            }
-            else if(col==1)
+        string recibo,name;
+        int point,pointContinue,coin,lifes,nivel;
+        for (int col = 0;getline(data,recibo,',');col++){
+            switch (col)
             {
-                point = stoi(puntaje);
-                //cout<<puntaje<<endl;
-
-            }
-            else if(col==2){
-                coin = stoi(puntaje);
-                //cout<<puntaje<<endl;
-                // aqui es donde guardo los datos que se obtienen del csv
-                game->list.pushBack(T(point,coin,name));
+            case 0:
+                name = recibo;
+                break;
+            case 1:
+                point = stoi(recibo);
+                break;
+            case 2:
+                coin = stoi(recibo);
+                break;
+            case 3:
+                lifes = stoi(recibo);
+                break;
+            case 4:
+                nivel = stoi(recibo);
+                break;
+            case 5:
+                pointContinue = stoi(recibo);
+                game->list.pushBack(T(point,pointContinue,coin,lifes,nivel,name));
                 if(name==user){
                     game->user = game->list.back;
                     //cout<<"encontre: "<<name<<endl;
                 }
-                //cout<<"encontre no user: "<<name<<endl;
+                break;
+            default:
+                exit(EXIT_FAILURE);
+                break;
             }
-
+            
         }
 
     }

@@ -5,7 +5,7 @@
 //#include "../snake/clear.cpp"
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
-#include "../user/nodeuser.h"
+#include "../tools/nodeuser.h"
 using namespace std;
 
 auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) { 
@@ -31,6 +31,7 @@ auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) {
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(node<nodeuserinfouser>* ,doubleLinked<nodeuserinfouser>* );
+int playmatrix(mySnake*, int , int );
 
 
 int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){

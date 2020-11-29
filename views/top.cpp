@@ -3,8 +3,8 @@
 #include <string>
 #include <iostream>
 #include <ostream>
-#include "../user/nodeuser.h"
-#include "../snake/list.cpp"
+//#include "../user/nodeuser.h"
+#include "../tools/list.h"
 #include "../snake/clear.cpp"
 #include "../user/readuser.cpp"
 #include "./snakeprint.cpp"

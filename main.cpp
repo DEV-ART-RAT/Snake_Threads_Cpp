@@ -1,6 +1,7 @@
 #include <iostream>
 #include "./views/windows_start.cpp"
-#include "./views/usermain.cpp"
+#include "./views/usermain.h"
+#include "./tools/gameStruct.h"
 
 #include <termios.h>
 #include <unistd.h>
@@ -17,14 +18,16 @@ g++ -pthread main.cpp -o main
 void open_buffer();
 void close_buffer();
 
+
 int main(void) {
-    node<nodeuserinfouser> user;
-    doubleLinked<nodeuserinfouser> userlist;
+    myGame<nodeuserinfouser> game;// = new myGame();
+    //game.list=NULL;
+    game.user=NULL;
     
-    usermain(&user,&userlist);//ingresando usuario y cargando lista
+    usermain(&game);//ingresando usuario y cargando lista
     
     open_buffer();
-    startMenu(&user,&userlist);
+    startMenu(game.user,&game.list);
     close_buffer();
 
     

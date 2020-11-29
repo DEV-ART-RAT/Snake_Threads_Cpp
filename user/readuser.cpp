@@ -2,8 +2,8 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "../snake/node.h"
-#include "../snake/list.cpp"
+//#include "../snake/node.h"
+#include "../tools/list.h"
 
 using namespace std;
 

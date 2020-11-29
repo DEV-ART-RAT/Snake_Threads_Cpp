@@ -129,6 +129,36 @@ struct mySnake{
             M[e->info.i][e->info.j]=SNAKE;
             //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
         }
+        //list = new doubleLinked <nodeinfo>();
+        cout<<"definiendo snake:";
+        traverseBegin(list->front);
+        cin.get();
+    }
+
+    void deleteSnake(){
+        for(node<nodeinfo>* e = list->front; e!=NULL; e=e->next){
+            if(e->info.i>=FILA)
+                e->info.i=0;
+            if(e->info.j>=FILA)
+            e->info.j=0;
+            M[e->info.i][e->info.j]=SCENE;
+            cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
+            //list->removeFront();
+        }
+        /*cout<<"snake deleted";
+        for (size_t i = 0; i < sizeSnake ; i++)
+        {
+            list->removeFront();
+        }
+        list->back=NULL;
+        list->front=NULL;*/
+        traverseBegin(list->front);
+        cin.get();
+        list = new doubleLinked <nodeinfo>();
+        dir = 3;
+        
+
+
     }
 
     void defineFood(){

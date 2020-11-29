@@ -39,12 +39,6 @@ void snakeDel(myGame<nodeuserinfouser>* game){
     delete(n);
 }
 
-void snakeDelContinued(myGame<nodeuserinfouser>* game){
-    node<nodeinfo>* n = game->snake.list->removeBack();
-    game->snake.M[n->info.i][n->info.j]=' ';
-    delete(n);
-}
-
 //template<class T>
 
 void changeVelocity(myGame<nodeuserinfouser>* game){
@@ -77,10 +71,6 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
         game->snake.flag = false;
         game->snake.M[fil][col]=CRASH;
-        game->snake.list->pushFront(nodeinfo(game->snake.list->front->info.i,game->snake.list->front->info.j));
-        game->snake.list->pushFront(nodeinfo(game->snake.list->front->info.i,game->snake.list->front->info.j));
-        snakeDelContinued(game);
-        snakeDelContinued(game);
         game->snake.show();
         //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
         cout<<"GAME OVER >:´v"<<endl;

@@ -51,7 +51,23 @@ int playGame(myGame<nodeuserinfouser>* game){
     }
 }
 
+void playingGame(myGame<nodeuserinfouser>* game){
+    thread th1(keyEventSnake , game);
+    game->snake.show();
+    sleep(2);
+    playGame(game);
+    th1.detach();
+}
 
+void restartingGame(myGame<nodeuserinfouser>* game){
+    game->snake.deleteSnake();
+    for(int i = 0 ; i < game->snake.sizeSnake - 2;i++){
+        game->snake.list->pushBack(nodeinfo(5,5));//cargando serpiente
+    }
+    game->snake.list->pushBack(nodeinfo(5,6));
+    game->snake.list->pushBack(nodeinfo(5,7));
+    game->snake.defineSnake();
+}
 
 int playmatrix(myGame<nodeuserinfouser>* game){
     srand(time(NULL));
@@ -89,21 +105,12 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     //thread th2(myThreadTwo,4);
     //*
 
-    thread th1(keyEventSnake , game);
-    
-    
-    game->snake.show();
-    sleep(1);
-    
-
-    playGame(game);
+    playingGame(game);
 
     while (gameOverMenu(game))
     {
-        thread th2(keyEventSnake , game);
-        game->snake.show();
-        sleep(1);
-        playGame(game);
+        restartingGame(game);
+        playingGame(game);
         
     }
 

@@ -1,9 +1,6 @@
 
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-}
+#include <termios.h>
+#include <unistd.h>
 
-void close_buffer(){
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-}
+
+using namespace std;

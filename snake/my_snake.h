@@ -155,6 +155,7 @@ struct mySnake{
         //cout<<flush;
         //system("clear");//windows
         CLEAR;
+        cout<<"Restante: "<<sizeMax - sizeSnake << "   vidas: "<<lifes << endl;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl;
         for(int i = 0; i < FILA; i++) {

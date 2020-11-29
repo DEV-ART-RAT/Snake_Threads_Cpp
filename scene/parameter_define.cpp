@@ -45,21 +45,21 @@ void sceneSize(int level, int* row, int* col){
 
 //total de obstaculos segun dificulatad y tamaño de teminal
 void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
-    *cel = (*row) * (*col);//obteniendo el numero total de *celdas
+    *cel = (*row *2) + (*col *2);//obteniendo el numero total de *celdas
     *snk = *cel;
     switch (level)
     {
     case 1: // celdas 0%
-        *cel  *= 0;
+        *cel  *= 0.05;
         *snk *= 0.3; //tamaño MAX de snake
         break;
     case 2: // celdas 5%
-        *cel  *= 0.5;
+        *cel  *= 0.1;
         *snk *= 0.6; //tamaño MAX de snake
         break;
     case 3: // celdas 10%
-        *cel  *= 0.1;
-        *snk *= 0.9; //tamaño MAX de snake
+        *cel  *= 0.2;
+        //*snk *= ; //tamaño MAX de snake
         break;
     case 4: // celdas 15%
         *cel  *= 0.15;
@@ -74,15 +74,15 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
 }
 
 void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
-    int levelTwo = 1;//nivel base
+    *velocidad = 1;//nivel base
 
     while(level > 3){
-        levelTwo++;
+        *velocidad++;
         level -= 3;
     }
-    *velocidad = levelTwo;
+
     sceneSize(level,row,col);
-    sceneLevelDif(levelTwo,row,col,obstaculos,snkMax);
+    sceneLevelDif(level,row,col,obstaculos,snkMax);
 }
 
 /*

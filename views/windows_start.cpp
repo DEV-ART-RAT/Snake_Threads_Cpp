@@ -14,6 +14,7 @@
 #include "./top.cpp"
 #include "./game_over.cpp"
 #include "./mode.cpp"
+#include "../tools/gameStruct.h"
 
 
 #include "../snake/matriz.cpp"
@@ -112,23 +113,23 @@ int startMenuAux(node<nodeuserinfouser>* userdata, auto wellcome,int sizeOption)
 
 
 
-int startMenuOpc(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuserinfouser>* userlist){
+int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
     switch (flag) {
         case 1:
             //cout<<"new game start :v"<<endl;
             //playmatrix(&snake);
-            modeMenu(userdata,userlist);
+            modeMenu(game);
             //playmatrix(&snake);
-            gameOverMenu(userdata,userlist);
+            gameOverMenu(game);
             // loop=false; //para que termine el juego sin que se regrese al menu :
             break;
         case 2:
-            shopMenu(userdata,userlist);
-            startMenu(userdata,userlist);
+            shopMenu(game);
+            startMenu(game);
             break;
         case 3:
-            top_game(userdata,userlist);
-            startMenu(userdata,userlist);
+            top_game(game);
+            startMenu(game);
             break;
         case 4:
             cout<<"exit... :'v"<<endl;
@@ -140,8 +141,8 @@ int startMenuOpc(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuse
     return 0;
 }
 
-int startMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    startMenuOpc(userdata,startMenuAux(userdata,mensajeStart,4),userlist);
+int startMenu(myGame<nodeuserinfouser>* game){
+    startMenuOpc(game,startMenuAux(game->user,mensajeStart,4));
     return 0;
 }
 

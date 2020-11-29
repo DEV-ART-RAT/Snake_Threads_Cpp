@@ -11,17 +11,17 @@
 #include <iomanip>
 
 using namespace std;
-void top_game(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist);
+void top_game(myGame<nodeuserinfouser>* game);
 void welcometop();
 
 template<class T>
 void printtop(node<T>* front);
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist);
 
-void top_game(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
+void top_game(myGame<nodeuserinfouser>* game){
     welcometop();
     //traverseBegin(userlist->front);
-    printtopaux(userlist);
+    printtopaux(&game->list);
     mensageLine(w.ws_col,"presiona ENTER para continuar");
     cin.ignore();
     cin.get();

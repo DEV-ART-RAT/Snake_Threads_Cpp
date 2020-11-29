@@ -27,7 +27,7 @@ int main(void) {
     usermain(&game);//ingresando usuario y cargando lista
     
     open_buffer();
-    startMenu(game.user,&game.list);
+    startMenu(&game);
     close_buffer();
 
     

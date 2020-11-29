@@ -53,24 +53,19 @@ void printUsers(myGame<T>* game,string user){
         for (int col = 0;getline(data,puntaje,',');col++){
             if(col==0){
                 name = puntaje;
-                //cout<<name<<endl;
             }
             else if(col==1)
             {
                 point = stoi(puntaje);
-                //cout<<puntaje<<endl;
 
             }
             else if(col==2){
                 coin = stoi(puntaje);
-                //cout<<puntaje<<endl;
                 // aqui es donde guardo los datos que se obtienen del csv
                 game->list.pushBack(T(point,coin,name));
                 if(name==user){
                     game->user = game->list.back;
-                    //cout<<"encontre: "<<name<<endl;
                 }
-                //cout<<"encontre no user: "<<name<<endl;
             }
 
         }

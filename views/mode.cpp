@@ -29,23 +29,23 @@ auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) {
 };
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
-int startMenu(node<nodeuserinfouser>* ,doubleLinked<nodeuserinfouser>* );
+int startMenu(myGame<nodeuserinfouser>* );
 
 
-int modeMenuAux(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){
+int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
     switch (flag) {
         case 1:
-            difficultyMenu(userdata,userlist);
+            difficultyMenu(game);
             break;
         case 2://especial
             //playmatrix(&snake,2,0);
-            difficultyMenu(userdata,userlist);
+            difficultyMenu(game);
             break;
         case 3:
             //playmatrix(&snake,3,0);
-            startMenu(userdata,userlist);
+            startMenu(game);
             break;
         default:
             break;
@@ -54,8 +54,8 @@ int modeMenuAux(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuseri
     return 0;
 }
 
-int modeMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    return modeMenuAux(userdata,startMenuAux(userdata,mensajeMode,3),userlist);
+int modeMenu(myGame<nodeuserinfouser>* game){
+    return modeMenuAux(game,startMenuAux(game->user,mensajeMode,3));
 }
 
 

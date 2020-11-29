@@ -53,6 +53,13 @@ struct doubleLinked {
         this->front=this->front->next;
         return n;
     }
+
+    node<T>* removeBack(){
+        node<T>* n = this->back;
+        this->back->prev->next=NULL;
+        this->back=this->back->prev;
+        return n;
+    }
 };
 
 

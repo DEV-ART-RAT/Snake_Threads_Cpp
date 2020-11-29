@@ -40,13 +40,9 @@ void snakeDel(myGame<nodeuserinfouser>* game){
 }
 
 //template<class T>
-void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
-    game->snake.list->pushBack(nodeinfo(fil,col));
-    if(game->snake.M[fil][col]== FOOD ){
-        //list->pushFront(T(fil,col));
-        game->snake.sizeSnake = game->snake.sizeSnake + 1;
-        //cout << game->snake.speed;
-        int max = game->snake.sizeMax;
+
+void changeVelocity(myGame<nodeuserinfouser>* game){
+    int max = game->snake.sizeMax;
         if(game->snake.sizeSnake < max*0.2)
             game->snake.speed = game->snake.initialSpeed * 0.8;
         else if (game->snake.sizeSnake < max*0.4)
@@ -61,7 +57,15 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
             game->snake.speed = game->snake.initialSpeed  * 0.2;
         else
             game->snake.speed = game->snake.initialSpeed  * 0.1;
-            
+}
+
+void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
+    game->snake.list->pushBack(nodeinfo(fil,col));
+    if(game->snake.M[fil][col]== FOOD ){
+        //list->pushFront(T(fil,col));
+        game->snake.sizeSnake++;
+        //cout << game->snake.speed;
+        //changeVelocity(game);
         game->snake.defineFood();
         //M[fil][col]='*';
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){

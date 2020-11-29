@@ -31,51 +31,8 @@ g++ -pthread matriz.cpp -o matriz
 
 using namespace std;
 
-
-
-int playmatrix(myGame<nodeuserinfouser>* game){
-    srand(time(NULL));
-    //int level = 11;//[1,5]facil,[6,10]normal,[11,15]dificil
-    int row, col , obstaculos, snkMax, velocidad;
-
-    
-    if(game->mode){//juego clasico --continuo
-        game->scene =  1;
-        while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
-            game->scene++;
-        }
-        sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
-        game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
-    }else//juego especial
-    {
-        //game->levelSpecial = 1;//inicando escenario especial
-        sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
-    }
-    
-    game->snake.inicialiceMySnake(row,col);
-
-    game->snake.list->pushBack(nodeinfo(5,5));//cargando serpiente
-    game->snake.list->pushBack(nodeinfo(5,6));
-    game->snake.list->pushBack(nodeinfo(5,7));
-    game->snake.defineSnake();
-
-    game->snake.defineScene(game->scene);
-    game->snake.defineObst(obstaculos);
-    game->snake.defineFood();
-    
-    game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty;//nivel de velocidad
-    game->snake.sizeMax = snkMax;
-    
-    //thread th2(myThreadTwo,4);
-    //*
-
-    thread th1(keyEventSnake , game);
+int playGame(myGame<nodeuserinfouser>* game){
     double timer = 0;
-    
-    game->snake.show();
-    sleep(1);
-
-    
     while (game->snake.flag)
     {
                     
@@ -92,10 +49,74 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         timer++;
         //sleep(2);
     }
+}
+
+void playingGame(myGame<nodeuserinfouser>* game){
+    thread th1(keyEventSnake , game);
+    game->snake.show();
+    sleep(2);
+    playGame(game);
+    th1.detach();
+}
+
+void restartingGame(myGame<nodeuserinfouser>* game){
+    game->snake.deleteSnake();
+    for(int i = 0 ; i < game->snake.sizeSnake - 2;i++){
+        game->snake.list->pushBack(nodeinfo(5,5));//cargando serpiente
+    }
+    game->snake.list->pushBack(nodeinfo(5,6));
+    game->snake.list->pushBack(nodeinfo(5,7));
+    game->snake.defineSnake();
+}
+
+int playmatrix(myGame<nodeuserinfouser>* game){
+    srand(time(NULL));
+    //int level = 11;//[1,5]facil,[6,10]normal,[11,15]dificil
+    int row, col , obstaculos, snkMax, velocidad;
+
+    
+    if(game->mode){//juego clasico --continuo
+        game->scene =  1;
+        while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
+            game->scene++;
+        }
+        sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
+        game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
+    }else//juego especial
+    {
+        sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
+    }
+    
+    game->snake.inicialiceMySnake(row,col);
+
+    game->snake.list->pushBack(nodeinfo(5,5));//cargando serpiente
+    game->snake.list->pushBack(nodeinfo(5,6));
+    game->snake.list->pushBack(nodeinfo(5,7));
+    game->snake.defineSnake();
+
+    game->snake.defineScene(game->scene);
+    game->snake.defineObst(obstaculos);
+    game->snake.defineFood();
+    game->snake.defineFood();
+    
+    game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty;//nivel de velocidad
+    game->snake.sizeMax = snkMax;
+    
+    //thread th2(myThreadTwo,4);
+    //*
+
+    playingGame(game);
+
+    while (gameOverMenu(game))
+    {
+        restartingGame(game);
+        playingGame(game);
+        
+    }
 
     
     
-    th1.join();
+    //th1.join();
     //th2.join();
 
     return 0;

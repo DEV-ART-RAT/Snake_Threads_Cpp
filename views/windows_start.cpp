@@ -120,7 +120,6 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             //playmatrix(&snake);
             modeMenu(game);
             //playmatrix(&snake);
-            gameOverMenu(game);
             // loop=false; //para que termine el juego sin que se regrese al menu :
             break;
         case 2:

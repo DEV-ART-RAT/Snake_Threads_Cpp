@@ -44,6 +44,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->mode = true;//clasico
             //difficultyMenu(game);
             playmatrix(game);
+            //gameOverMenu(game);
             break;
         case 2://especial
             //playmatrix(&snake,2,0);

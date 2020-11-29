@@ -1,9 +1,10 @@
+#pragma once
 #include  "clear.cpp"
 #include <iostream>
 
 //#include "my_snake.h"
 
-#pragma once
+
 
 using namespace std;
 

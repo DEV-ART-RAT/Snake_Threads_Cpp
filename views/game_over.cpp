@@ -3,14 +3,14 @@
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
-#include "../snake/keyEvent.h"
+//#include "../snake/keyEvent.h"
 #include "./windows_start.cpp"
-#include "../tools/gameStruct.h"
+//#include "../tools/gameStruct.h"
 
 using namespace std;
 struct termios term_over;
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+//int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
 auto mensajeGameOver = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
@@ -32,6 +32,9 @@ auto mensajeGameOver = [](int opc,node<nodeuserinfouser>* userdata) {
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
+            delete(game->snake.M);
+            delete(game->snake.list);
+            game->snake.sizeSnake = 3;
             startMenu(game);
             break;
         case 2:

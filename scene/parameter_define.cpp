@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "../tools/screenControl.h"
 
@@ -72,13 +73,14 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
     }
 }
 
-void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax){
+void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
     int levelTwo = 1;//nivel base
 
     while(level > 3){
         levelTwo++;
         level -= 3;
     }
+    *velocidad = levelTwo;
     sceneSize(level,row,col);
     sceneLevelDif(levelTwo,row,col,obstaculos,snkMax);
 }

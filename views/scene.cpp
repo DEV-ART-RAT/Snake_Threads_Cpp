@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -9,7 +10,7 @@
 #include "./difficulty.cpp"
 using namespace std;
 
-auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
     cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
@@ -56,7 +57,7 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int sceneMenu(myGame<nodeuserinfouser>* game){
-    return sceneMenuAux(game,startMenuAux(game->user,mensajeMode,3));
+    return sceneMenuAux(game,startMenuAux(game->user,mensajeScene,3));
 }
 
 

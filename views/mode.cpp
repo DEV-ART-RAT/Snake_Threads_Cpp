@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -5,7 +6,7 @@
 //#include "../snake/clear.cpp"
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
-#include "../tools/list.h"
+#include "../tools/gameStruct.h"
 #include "./difficulty.cpp"
 #include "./scene.cpp"
 using namespace std;
@@ -31,19 +32,23 @@ auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) {
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
+int sceneMenu(myGame<nodeuserinfouser>* );
+int playmatrix(myGame<nodeuserinfouser>* );
 
 
 int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
-    //mySnake snake = mySnake();
-    game->mode = flag;
     switch (flag) {
         case 1:
-            game->scene =  1;
-            difficultyMenu(game);
+            //game->scene =  1;
+            game->mode = true;//clasico
+            //difficultyMenu(game);
+            playmatrix(game);
             break;
         case 2://especial
             //playmatrix(&snake,2,0);
+            
+            game->mode = false;//especial
             sceneMenu(game);
             break;
         case 3:

@@ -1,3 +1,4 @@
+#pragma once
 #include <termios.h>
 #include <unistd.h>
 
@@ -7,83 +8,64 @@
 
 #include "snake.h"
 #include "my_snake.h"
-#pragma once
-
-//struct termios term;
-
-void abrir_buffer(){
-    cin.ignore();
-    /*
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-    //*/
-}
-void cerrar_buffer(){
-    /*
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-    //*/
-    cin.ignore();
-}
+#include "../tools/gameStruct.h"
 
 
 void keyboardEvent(char* key, bool* flag){
-    abrir_buffer();
+    cin.ignore();
 
     while (*flag)
     {
         *key=getchar();
     }
 
-    cerrar_buffer();
+    cin.ignore();
 }
 
-void snakeEvent(mySnake* snake){
+void snakeEvent(myGame<nodeuserinfouser>* game){
     //snakeDirection(snake);
-    //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
+    //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
     //usleep(500 * 1000);
-    snake ->redirect=  true;
+    game->snake.redirect =  true;
 }
 
 //template<class T>
-void keyEventSnake(mySnake* snake){
-    abrir_buffer();
+void keyEventSnake(myGame<nodeuserinfouser>* game){
+    cin.ignore();
 
-    while (snake->flag)
+    while (game->snake.flag)
     {   
         //fflush(stdin);
         
         //cin.ignore();
-        snake->key=getchar();
-        switch (snake->key)
+        game->snake.key=getchar();
+        switch (game->snake.key)
         {
         case '\n':
-            snake->flag=false;
+            game->snake.flag=false;
             return;//finalizando hilo
         case 65://up
-            if(snake->dir!=2 && snake->dir!=1){
-                snake->dir=1;
-                snakeEvent(snake);
+            if(game->snake.dir!=2 && game->snake.dir!=1){
+                game->snake.dir=1;
+                snakeEvent(game);
             }
             break;
         case 66://down
-            if(snake->dir!=2 && snake->dir!=1){
-                snake->dir=2;
-                snakeEvent(snake);
+            if(game->snake.dir!=2 && game->snake.dir!=1){
+                game->snake.dir=2;
+                snakeEvent(game);
             }
             break;
         case 67://right
-            if(snake->dir!=3 && snake->dir!=4){
-                snake->dir=3;
-                snakeEvent(snake);
+            if(game->snake.dir!=3 && game->snake.dir!=4){
+                game->snake.dir=3;
+                snakeEvent(game);
             }
             break;
         case 68://left
-            if(snake->dir!=3 && snake->dir!=4){
-                snake->dir=4;
-                snakeEvent(snake);
+            if(game->snake.dir!=3 && game->snake.dir!=4){
+                game->snake.dir=4;
+                snakeEvent(game);
             }
             break;
         default:
@@ -103,7 +85,7 @@ void keyEventSnake(mySnake* snake){
     
 
 
-    cerrar_buffer();
+    cin.ignore();
 }
 
 /* Thread

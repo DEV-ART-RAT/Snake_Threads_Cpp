@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -30,14 +31,16 @@ auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) {
 };
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
-int startMenu(myGame<nodeuserinfouser>* game);
-int playmatrix(mySnake*, int , int );
+int startMenu(myGame<nodeuserinfouser>* );
+int playmatrix(myGame<nodeuserinfouser>* );
 
 
 int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 
-    //mySnake snake = mySnake();
-    game->difficulty = flag;
+    game->difficulty = flag;//inciando dificultad especial
+    game->levelSpecial = 1;//inicando escenario especial
+    game->liveSpecial = 3;//iniciando vidads especial
+
     switch (flag) {
         case 1:
             playmatrix(game);

@@ -56,7 +56,7 @@ struct mySnake{
     double initialSpeed;
     double speedBost;
     int sizeMax;
-    doubleLinked <nodeinfo> list;
+    doubleLinked <nodeinfo>* list;
 
     mySnake() {}
     mySnake(int _i, int _c) : FILA(_i), COLUMNA(_c) {
@@ -78,16 +78,18 @@ struct mySnake{
         getMatrizChar(&M,FILA,COLUMNA);
     }
 
-    void inicialiceMySnake(int _i, int _c) {
-        FILA = _i;
-        COLUMNA = _c;
+    void inicialiceMySnake(int row, int col) {
+        list = new doubleLinked <nodeinfo>();
+        FILA = row;
+        COLUMNA = col;
+        sizeSnake = 3;
+
         key='0';
         dir=3;
         flag=true;
         redirect=false;
         steep=1;
         level=0;
-        sizeSnake = 4;
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
@@ -99,19 +101,17 @@ struct mySnake{
         getMatrizChar(&M,FILA,COLUMNA);
     }
 
-    void defineLevel(int i){
+    void defineScene(int i){
         switch (i)
         {
-        case 1:
-            //levelOne(M,FILA,COLUMNA);//inicando matriz
-            //difficulty = 1;
+        case 1://ecenario libre
             break;
         case 2:
-            //levelOne(M,FILA,COLUMNA);//inicando matriz
+            levelOne(M,FILA,COLUMNA);//matriz full paredes
             //difficulty = 2;
             break;
         case 3:
-            levelOne(M,FILA,COLUMNA);//inicando matriz
+            //levelOne(M,FILA,COLUMNA);//inicando matriz
             //difficulty = 3;
             break;
         
@@ -121,7 +121,7 @@ struct mySnake{
     }
 
     void defineSnake(){
-        for(node<nodeinfo>* e = list.front; e!=NULL; e=e->next){
+        for(node<nodeinfo>* e = list->front; e!=NULL; e=e->next){
             if(e->info.i>=FILA)
                 e->info.i=0;
             if(e->info.j>=FILA)
@@ -138,6 +138,17 @@ struct mySnake{
             j = getIntRand( 0 , COLUMNA - 1 );
         }while (M[i][j]!=SCENE);
         M[i][j] = FOOD;
+    }
+
+    void defineObst(int obstaculos){
+        for(int k=0 ; k<obstaculos;k++){
+            int i , j;
+        do{
+            i = getIntRand( 0 , FILA - 1 );
+            j = getIntRand( 0 , COLUMNA - 1 );
+        }while (M[i][j]!=SCENE);
+        M[i][j] = WALL;
+        }
     }
 
     void show(){

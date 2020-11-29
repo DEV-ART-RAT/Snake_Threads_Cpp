@@ -40,12 +40,12 @@ void printtop(node<T>* front){
     winsize w = screenSize();
     //cout<<fwall;
     if(front) {
-        string top[]={
-        front->info.name,to_string(front->info.coin),to_string(front->info.puntaje)
-         };  
-        mensageLineSeccion(w.ws_col,top,3);
-        //mensageLineSeccionAux(w.ws_col/3,front->info.name);
-        mensageMargin(w.ws_col);
+
+        mensageLineSeccionAux(((w.ws_col/3)%2==0)?w.ws_col/3:(w.ws_col/3)-1,front->info.name,0);
+        // mensageLineSeccionAux(((w.ws_col/3)%2==0)?w.ws_col/3:(w.ws_col/3)-1,to_string(front->info.coin),1);
+        // mensageLineSeccionAux(((w.ws_col/3)%2==0)?w.ws_col/3:(w.ws_col/3)-1,to_string(front->info.puntaje),2);
+        cout<<endl;
+        // mensageMargin(w.ws_col);
         printtop(front->next);
     }
     else    
@@ -55,12 +55,15 @@ void printtop(node<T>* front){
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
 
     mensageMargin(w.ws_col);
-    string top[]={
-        "NOMBRE","MONEDAS","PUNTAJE"
-    };
-    mensageLineSeccion(w.ws_col,top,3);
-    mensageMargin(w.ws_col);
-
+    int part=((w.ws_col/3)%2==0)?w.ws_col/3:(w.ws_col/3)+1;
+    cout<<"Tamanio total : "<<w.ws_col<<endl;
+    cout<<"Tamanio total/3 :"<<w.ws_col/3<<endl;
+    cout<<"Tamanio part : "<<part<<endl;
+    mensageLineSeccionAux(part,"Nombre",0);
+    // mensageLineSeccionAux(((w.ws_col/3)%2==0)?w.ws_col/3:(w.ws_col/3)-1,"Monedas",1);
+    // mensageLineSeccionAux(((w.ws_col/3)%2==0)?w.ws_col/3:(w.ws_col/3)-1,"Puntaje",1);
+    // mensageMargin(w.ws_col);
+    cout<<endl;
 
     printtop(userlist->front);
 }

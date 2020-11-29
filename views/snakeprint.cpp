@@ -5,7 +5,6 @@
 #include <string>
 
 using namespace std;
-void mensageLineSeccionAux(int col,string linea1);
 void mensageSnake(int col,string linea1[],int linea1size){
     string str;
     col = (col- linea1->size() - 4 )/2;
@@ -24,35 +23,14 @@ void mensageLine(int col,string linea1){
     (linea1.size()%2 != 0)? cout<<"*"<<str <<  linea1 << str <<" *" <<endl :
     cout<<"*"<<str <<  linea1 << str <<"*" <<endl;
 }
-void mensageLineSeccion(int col,string linea1[],int size){
-    string str;
-    int colaux=0;
-    //obtenemos el tamanio de la terminal en largo
-    col=((col)/(size));
-    (col%2==0)?col:col-1;
 
-    str.insert(colaux, col, ' ');
-    cout<<"*";
-    if(linea1->size()%2 != 0){
-        for (int i=0; i <size ;i++){
-            // la comumna va  aser igual al
-            mensageLineSeccionAux(col,linea1[i]);
-        }   
-    }else{
-        for (int i=0; i <size ;i++){
-            // la comumna va  aser igual al
-            mensageLineSeccionAux(col,linea1[i]);
-        }   
-    }
-    cout<<endl;
-
-}
-void mensageLineSeccionAux(int col,string linea1){
+void mensageLineSeccionAux(int col,string linea1,int pos){
     string str;
-    col = (((col)/2)- (linea1.size())/2)-1;
+    col = (((col)/2)- (linea1.size())/2);
+    (pos==0)?cout<<"*":cout<<"";
     str.insert(0, col, ' ');
     (linea1.size()%2 != 0)? cout<<str <<  linea1 << str <<" *":
-    cout<<" "<<str <<  linea1 <<" "<< str <<"*";
+    cout<<str <<  linea1 << str <<"*";chchc
 }
 void mensageSteep(int col){
     string strl;

@@ -5,7 +5,7 @@
 //#include "../snake/clear.cpp"
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
-#include "../user/nodeuser.h"
+#include "../tools/list.h"
 //#include "./difficulty.cpp"
 using namespace std;
 

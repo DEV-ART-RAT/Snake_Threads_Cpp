@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include <termios.h>
-#include <unistd.h>
+//#include <termios.h>
+//#include <unistd.h>
 // #ifdef _WIN32 /* Deberia estar definido en windows*/
 //#include <windows.h>
 //#include <winuser.h>
@@ -10,15 +10,21 @@
 
 //#include <thread>
 #include "../snake/clear.cpp"
+#include "./shop.cpp"
+#include "./top.cpp"
+#include "./game_over.cpp"
+#include "./mode.cpp"
+
+
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
 #include "./snakeprint.cpp"
-#include "./shop.cpp"
-#include "./mode.cpp"
-#include <termios.h>
+
+
+//#include <termios.h>
 #include <unistd.h>
-#include "./game_over.cpp"
-#include "./top.cpp"
+
+
 
 
 using namespace std;
@@ -27,7 +33,6 @@ int welcomemain(int &P,int&C,string user);
 
 void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    //cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
     mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
     string linea1 =  "WELLCOME " + userdata->info.name + "  TO ...";
@@ -75,7 +80,7 @@ int startMenuAux(node<nodeuserinfouser>* userdata, auto wellcome,int sizeOption)
     wellcome(flag,userdata);  //invocacion del menu
 
     cin.ignore();
-    //sleep(0.1);//para corregir fallo de whiles
+    sleep(0.1);//para corregir fallo de whiles
 
     while(loop){
 

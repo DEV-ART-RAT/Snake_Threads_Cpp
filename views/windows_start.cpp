@@ -79,7 +79,7 @@ int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
     bool loop = true;   //bandera para el while true
 
     sleep(0.1);//para corregir fallo de while
-    wellcome(flag,game->user);  //invocacion del menu
+    wellcome(flag,game);  //invocacion del menu
 
     cin.ignore();
     sleep(0.1);//para corregir fallo de whiles
@@ -104,7 +104,7 @@ int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
             return flag;
         }
 
-        wellcome(flag,game->user);
+        wellcome(flag,game);
         sleep(0.01);//para corregir fallo de while
     }
     cin.ignore();

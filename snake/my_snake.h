@@ -149,8 +149,8 @@ struct mySnake{
         }
         list->back=NULL;
         list->front=NULL;*/
-        traverseEnd(list->back);
-        cin.get();
+        // traverseEnd(list->back);
+        // cin.get();
         list = new doubleLinked <nodeinfo>();
         dir = 3;
         

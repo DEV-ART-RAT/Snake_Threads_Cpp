@@ -12,27 +12,31 @@ using namespace std;
 
 auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<endl<<endl;
+   mensageMargin(w.ws_col);
+    mensageSteep(w.ws_col);
 
-    cout<<"Points: "<<userdata->info.puntaje<<endl;
-    cout<<"Coins: "<<userdata->info.coin<<endl;
-    //cout<<"Lifes: "<<snake->lifes<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Vida Extra (5 monedas) "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" Potenciar puntaje x2 (20 monedas) "<<((opc==2)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" Potenciar puntaje x3 (30 monedas) "<<((opc==3)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<"  Regresar "<<((opc==4)?"*":"");
-    cout<<endl<<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-};
+    string linea1[] = {
+        "=====   ===    ==   =======   ==  ==   =====",
+        "||      ||\\\\   ||   ||   ||   || //    ||   ",
+        "====    || \\\\  ||   ||===||   |||      =====",
+        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
+        "=====   ==   ====   ==   ==   ==  ==   =====" 
+    };
+    mensageSteep(w.ws_col);
+    mensageSnake(w.ws_col,linea1 , 5);
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+    mensageLine(w.ws_col,"Points: "+to_string(userdata->info.puntaje));
+    mensageLine(w.ws_col,"Coins: "+to_string(userdata->info.coin));
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+    (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (5 monedas)  *"):              mensageLine(w.ws_col,"   Vida Extra (5 monedas)   ");
+    (opc==2)? mensageLine(w.ws_col,"*  Potenciar puntaje x2 (20 monedas) * "):   mensageLine(w.ws_col,"   Potenciar puntaje x2 (20 monedas)   ");
+    (opc==3)? mensageLine(w.ws_col,"*  Potenciar puntaje x3 (30 monedas) *"):    mensageLine(w.ws_col,"   Potenciar puntaje x3 (30 monedas)  ");
+    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
+}; 
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);

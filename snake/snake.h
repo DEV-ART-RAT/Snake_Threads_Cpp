@@ -34,7 +34,7 @@ void snakeDel(myGame<nodeuserinfouser>* game){
 //template<class T>
 
 void changeVelocity(myGame<nodeuserinfouser>* game){
-    int max = game->snake.sizeMax;
+    int max = game->snake.velMax;
         if(game->snake.sizeSnake < max*0.2)
             game->snake.speed = game->snake.initialSpeed * 0.8;
         else if (game->snake.sizeSnake < max*0.4)

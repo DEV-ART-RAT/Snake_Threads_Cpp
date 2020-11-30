@@ -94,7 +94,7 @@ struct mySnake{
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
-        points= 1000;
+        points= 0;
         coins = 0;
         //lifes = 3;
         sizeMax = 30;
@@ -183,7 +183,7 @@ struct mySnake{
         //system("clear");//windows
         CLEAR;
         cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
-            << "   vidas: "<<lifes << "   dinero: "<<coins<<RESET<<endl;
+            << "   vidas: "<<lifes << "   dinero: "<<coins<<"  Puntos:"<<points<<RESET<<endl;
         cout<<COLOR_BLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;

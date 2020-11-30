@@ -56,24 +56,28 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     if(game->snake.M[fil][col]== FOOD ){
 
         game->snake.sizeSnake++;
-        //Llamar funcion aumentar puntos
+        increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){
             game->snake.flag = false;
         }
         game->snake.defineFood();
+        game->snake.M[fil][col]=SNAKE;
         //M[fil][col]='*';
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
         game->snake.flag = false;
         game->snake.M[fil][col]=CRASH;
         game->snake.show();
+        game->snake.list->removeBack();
+        game->snake.M[fil][col]=WALL;
         //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
-        cout<<"GAME OVER >:´v"<<endl;
+        //cout<<"GAME OVER >:´v"<<endl;
 
     }else
     {
         snakeDel(game);
+        game->snake.M[fil][col]=SNAKE;
     }    
-    game->snake.M[fil][col]=SNAKE;
+    
     //cout<<"voy en:"<<game->snake.list->back->info;
     //cin.get();
 }

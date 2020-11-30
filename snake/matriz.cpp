@@ -1,29 +1,18 @@
 #pragma once
-#include <iostream>
-#include <unistd.h>
-//#include "../tools/list.h"
-#include <stdlib.h>
-//#include <stdio.h>
-/* 
-g++ -pthread matriz.cpp -o matriz
-./matriz
-*/
 #include <thread>
+#include <iostream>
 
-//#include <termios.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <unistd.h>
 
+#include "snake.h"
+#include "matriz.h"
 #include "clear.cpp"
 #include "keyEvent.h"
-#include "matriz.h"
-#include "snake.h"
 #include "my_snake.h"
 #include "../scene/parameter_define.cpp"
-//#include "../tools/gameStruct.h"
 
-//compile g++ -pthread  ...
-
-//#pragma once
 
 using namespace std;
 void close_buffer();
@@ -34,44 +23,27 @@ int redireccionando(myGame<nodeuserinfouser> *game)
     switch (game->key)
     {
     case '\n':
-            //game->playing=false;
-            //game->pause = true;
-            //close_buffer();
             game->pause = true;
             shopMenu(game);
             game->snake.show();
-            //open_buffer();
             game->pause = false;
             sleep(2);
-            //game->pause=false;
             break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)
-        {
-            //game->redirection = true;
             game->direccion = 1;
-        }
         break;
     case 66: //down
         if (game->direccion != 2 && game->direccion != 1)
-        {
-            //game->redirection = true;
             game->direccion = 2;
-        }
         break;
     case 67: //right
         if (game->direccion != 3 && game->direccion != 4)
-        {
-            //game->redirection = true;
             game->direccion = 3;
-        }
         break;
     case 68: //left
         if (game->direccion != 3 && game->direccion != 4)
-        {
-            //game->redirection = true;
             game->direccion = 4;
-        }
         break;
     default:
         break;
@@ -85,7 +57,6 @@ int playGame(myGame<nodeuserinfouser> *game)
     {
         //if (!game->pause)
         //{
-        cout << game->snake.speed;
         if (timer > 10 * game->snake.speed)
         {
             redireccionando(game);
@@ -117,8 +88,6 @@ void playingGame(myGame<nodeuserinfouser> *game)
     {
         game->proxLevel = true;
     }
-    //cout<<"murio el hilo"<<endl;
-    //cin.get();
 }
 
 void restartingGame(myGame<nodeuserinfouser> *game)
@@ -137,10 +106,8 @@ void restartingGame(myGame<nodeuserinfouser> *game)
 int playmatrix(myGame<nodeuserinfouser> *game)
 {
     srand(time(NULL));
-    //int level = 11;//[1,5]facil,[6,10]normal,[11,15]dificil
     int row, col, obstaculos, snkMax, velocidad;
     game->food = 1;
-
     if (game->mode == 1)
     { //juego clasico --continuo
         game->scene = 1;
@@ -150,7 +117,6 @@ int playmatrix(myGame<nodeuserinfouser> *game)
             game->user->info.vidas = 5;
             game->user->info.nivel = 1;
         }
-        //game->snake.lifes = game->user->info.vidas;
         while (game->user->info.nivel * game->scene > 9)
         { //eligiendo escenario clasico
             game->scene++;
@@ -216,23 +182,15 @@ int playmatrix(myGame<nodeuserinfouser> *game)
     {
         game->snake.defineFood();
     }
-
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty; //nivel de velocidad
     game->snake.sizeMax = snkMax;
-
-
-    //thread th2(myThreadTwo,4);
-    //*
-
     playingGame(game);
-
     while (!game->proxLevel && gameOverMenu(game))
     {
         restartingGame(game);
         playingGame(game);
         //game->liveSpecial++;
     }
-
     if (game->mode)
     {
         if (game->snake.lifes <= 0)
@@ -264,9 +222,5 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         playmatrix(game);
         game->proxLevel = false;
     }
-
-    //th1.join();
-    //th2.join();
-
     return 0;
 }

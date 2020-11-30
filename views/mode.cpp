@@ -1,7 +1,10 @@
 #pragma once
+
 #include <iostream>
+
 #include <unistd.h>
 #include <termios.h>
+
 #include "./scene.cpp"
 #include "./difficulty.cpp"
 #include "../snake/my_snake.h"

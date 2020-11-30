@@ -1,8 +1,10 @@
 #pragma once
+
 #include <string>
 #include <ostream>
 #include <iomanip>
 #include <iostream>
+
 #include "../tools/list.h"
 #include "./snakeprint.cpp"
 #include "../snake/clear.cpp"

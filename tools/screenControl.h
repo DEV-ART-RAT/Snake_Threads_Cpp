@@ -1,6 +1,7 @@
 #pragma once
-#include <sys/ioctl.h> 
+
 #include <stdio.h> 
+#include <sys/ioctl.h> 
 
 struct winsize w;
 

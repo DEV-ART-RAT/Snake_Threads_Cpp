@@ -23,8 +23,11 @@ void usermain(myGame<T>* game) {
     welcomeuser();//mostrando mensaje visual para pedir usuario
     int vecesdigitadas=0;
     do{
-        if(vecesdigitadas>0)
-            mensageLine(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+        if(vecesdigitadas>0){
+                CLEAR
+                welcomeuser();//mostrando mensaje visual para pedir usuario
+                mensageLineRED(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+        }
         vecesdigitadas++;
         cin>>user;
     }while(user==""||user.size()>12);

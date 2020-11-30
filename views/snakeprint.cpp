@@ -33,6 +33,14 @@ void mensageLineWHITE(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
+void mensageLineRED(int col,string linea1){
+    string str;
+    col = (col- linea1.size() - 4 )/2;
+    str.insert(0, col, ' ');
+    (linea1.size()%2 != 0)?  
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
+}
 
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     string str,primerespacio="",ultimoespacio="",imprimir="";int extraMitad=0,extraMitadSobra=0,extrasobrafinal=0;

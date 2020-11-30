@@ -71,7 +71,7 @@ struct mySnake{
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
-        points= 1000;
+        points= 0;
         coins = 0;
         //lifes = 3;
         sizeMax = 30;

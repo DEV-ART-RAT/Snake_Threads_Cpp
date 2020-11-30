@@ -88,6 +88,7 @@ int playmatrix(myGame<nodeuserinfouser>* game){
             game->user->info.vidas = 5;
             game->user->info.nivel = 1;
         }
+        //game->snake.lifes = game->user->info.vidas;
         while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
             game->scene++;
             if(game->scene>2){
@@ -104,8 +105,9 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
         game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
         game->snake.level = game->user->info.nivel;
-        //game->snake.setLive(game->liveSpecial);
+        game->liveSpecial = game->user->info.vidas;
     }else if(game->mode == 2){
+        game->liveSpecial = 0;
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
         obstaculos = 0;
         snkMax = 99999;

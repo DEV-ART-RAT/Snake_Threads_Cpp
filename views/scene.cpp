@@ -12,22 +12,8 @@ using namespace std;
 
 auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    
-    mensageMargin(w.ws_col);
-    mensageSteep(w.ws_col);
-
-    string linea1[] = {
-        "=====   ===    ==   =======   ==  ==   =====",
-        "||      ||\\\\   ||   ||   ||   || //    ||   ",
-        "====    || \\\\  ||   ||===||   |||      =====",
-        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
-        "=====   ==   ====   ==   ==   ==  ==   =====" 
-    };
-    mensageSteep(w.ws_col);
-    mensageSnake(w.ws_col,linea1 , 5);
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
-     (opc==1)? mensageLine(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
+    snakeprint();
+    (opc==1)? mensageLine(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
     (opc==2)? mensageLine(w.ws_col,"*  CERRADO * "):   mensageLine(w.ws_col,"   CERRADO   ");
     (opc==3)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);

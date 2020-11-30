@@ -13,21 +13,7 @@ using namespace std;
 
 auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    
-    mensageMargin(w.ws_col);
-    mensageSteep(w.ws_col);
-
-    string linea1[] = {
-        "=====   ===    ==   =======   ==  ==   =====",
-        "||      ||\\\\   ||   ||   ||   || //    ||   ",
-        "====    || \\\\  ||   ||===||   |||      =====",
-        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
-        "=====   ==   ====   ==   ==   ==  ==   =====" 
-    };
-    mensageSteep(w.ws_col);
-    mensageSnake(w.ws_col,linea1 , 5);
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
+    snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  CLASICO  *"):    mensageLine(w.ws_col,"   CLASICO   ");
     (opc==2)? mensageLine(w.ws_col,"*  ESPECIAL * "):   mensageLine(w.ws_col,"   ESPECIAL   ");
     (opc==3)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");

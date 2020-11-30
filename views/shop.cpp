@@ -13,21 +13,7 @@ using namespace std;
 
 auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
-    mensageMargin(w.ws_col);
-    mensageSteep(w.ws_col);
-
-    string linea1[] = {
-        "=====   ===    ==   =======   ==  ==   =====",
-        "||      ||\\\\   ||   ||   ||   || //    ||   ",
-        "====    || \\\\  ||   ||===||   |||      =====",
-        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
-        "=====   ==   ====   ==   ==   ==  ==   =====" 
-    };
-    mensageSteep(w.ws_col);
-    mensageSnake(w.ws_col,linea1 , 5);
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
+    snakeprint();
     mensageLine(w.ws_col,"Points: "+to_string(userdata->info.puntaje));
     mensageLine(w.ws_col,"Coins: "+to_string(userdata->info.coin));
     mensageSteep(w.ws_col);

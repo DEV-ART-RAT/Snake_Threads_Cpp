@@ -6,7 +6,7 @@
 //#include "../snake/keyEvent.h"
 #include "./windows_start.cpp"
 //#include "../tools/gameStruct.h"
-
+#include "./snakeprint.cpp"
 using namespace std;
 struct termios term_over;
 
@@ -15,33 +15,24 @@ struct termios term_over;
 
 auto mensajeGameOverContinued = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<endl<<endl;
-    cout<<"\t\t\t Que desea hacer? \n";
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Continuar "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<"  Regresar "<<((opc==2)?"*":"");
-    cout<<endl<<endl;
+    snakeprint();
+    mensageLine(w.ws_col,"Que desea hacer?");
+    (opc==1)? mensageLine(w.ws_col,"*  Continar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continar(gastaras una vida)  ");
+    (opc==2)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 };
 auto mensajeGameOverFinish = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<endl<<endl;
-    cout<<"\t\t\t Que desea hacer? \n";
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Regresar "<<((opc==1)?"*":"");
-    cout<<endl<<endl;
+    snakeprint();
+    mensageLine(w.ws_col,"Points: "+to_string(userdata->info.puntaje));
+    mensageLine(w.ws_col,"Coins: "+to_string(userdata->info.coin));
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+
+    (opc==1)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 };
 
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {

@@ -24,6 +24,13 @@ void mensageLine(int col,string linea1){
     (linea1.size()%2 != 0)?  cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<" *"<<RESET <<endl
     :cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
 }
+void mensageLineWHITE(int col,string linea1){
+    string str;
+    col = (col- linea1.size() - 4 )/2;
+    str.insert(0, col, ' ');
+    (linea1.size()%2 != 0)?  cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<" *"<<RESET <<endl
+    :cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
+}
 
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     string str,primerespacio="",ultimoespacio="",imprimir="";int extraMitad=0,extraMitadSobra=0,extrasobrafinal=0;
@@ -50,22 +57,22 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     {
     case 0:
         if(SizeEspacios%2==0)
-            cout<<"* "<<str <<primerespacio<<  linea1 << str<<" ";    
+            cout<<COLOR_RED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<" ";    
         else
-            cout<<"* "<<str <<primerespacio<<  linea1 << str<<"  ";    
+            cout<<COLOR_RED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<"  ";    
         break;
     case -1:
          if(SizeEspacios%2==0)
-            cout<<"* "<<str <<  linea1 <<ultimoespacio<< str<<"*"<<endl;    
+            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_RED<<"*"<<RESET<<endl;    
         else 
-            cout<<"* "<<str <<  linea1 <<ultimoespacio<< str<<" *"<<endl;     
+            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_RED<<" *"<<RESET<<endl;     
         break;
 
     default:
         if(SizeEspacios%2==0)
-            cout<<"* "<<str <<  linea1 << str<<" ";    
+            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<" ";    
         else
-            cout<<"* "<<str <<  linea1 << str<<"  ";    
+            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<"  ";    
         
         break;
     }

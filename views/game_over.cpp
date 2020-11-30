@@ -29,7 +29,7 @@ auto mensajeGameOverFinish = [](int opc,node<nodeuserinfouser>* userdata) {
     mensageLine(w.ws_col,"Coins: "+to_string(userdata->info.coin));
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-
+    mensageLine(w.ws_col,"Lo sentimos pero perdiste.");
     (opc==1)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);

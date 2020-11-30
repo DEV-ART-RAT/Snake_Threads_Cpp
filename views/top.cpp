@@ -6,7 +6,6 @@
 //#include "../user/nodeuser.h"
 #include "../tools/list.h"
 #include "../snake/clear.cpp"
-#include "../user/readuser.cpp"
 #include "./snakeprint.cpp"
 #include <iomanip>
 

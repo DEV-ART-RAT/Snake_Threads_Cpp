@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <iostream>
 #include <ostream>
+#include <fstream>
+#include <sstream>
 //#include "../user/nodeuser.h"
 #include "../tools/gameStruct.h"
 #include "../snake/clear.cpp"
-#include "../user/readuser.cpp"
 #include "./snakeprint.cpp"
 #include "./colors.h"
 using namespace std;

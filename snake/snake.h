@@ -54,7 +54,7 @@ void changeVelocity(myGame<nodeuserinfouser>* game){
 void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     game->snake.list->pushBack(nodeinfo(fil,col));
     if(game->snake.M[fil][col]== FOOD ){
-        changeVelocity(game);
+        //changeVelocity(game);
         game->snake.sizeSnake++;
         increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){

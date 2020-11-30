@@ -13,7 +13,7 @@ struct termios term_over;
 
 //int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
-auto mensajeGameOverContinued = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
     snakeprint();
     mensageLine(w.ws_col,"Que desea hacer?");
@@ -22,11 +22,11 @@ auto mensajeGameOverContinued = [](int opc,node<nodeuserinfouser>* userdata) {
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };
-auto mensajeGameOverFinish = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(userdata->info.puntaje));
-    mensageLine(w.ws_col,"Coins: "+to_string(userdata->info.coin));
+    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
+    mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     mensageLine(w.ws_col,"Lo sentimos pero perdiste.");
@@ -52,9 +52,9 @@ int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
 
 bool gameOverMenu(myGame<nodeuserinfouser>* game){
     if(game->snake.lifes > 0){
-        return gameOverMenuAux(game,startMenuAux(game->user,mensajeGameOverContinued,2));
+        return gameOverMenuAux(game,startMenuAux(game,mensajeGameOverContinued,2));
     }
-    gameOverMenuAux(game,startMenuAux(game->user,mensajeGameOverFinish,1));
+    gameOverMenuAux(game,startMenuAux(game,mensajeGameOverFinish,1));
     return false;
     
 }

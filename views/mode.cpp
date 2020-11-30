@@ -11,7 +11,7 @@
 #include "./scene.cpp"
 using namespace std;
 
-auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
     snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  CLASICO  *"):    mensageLine(w.ws_col,"   CLASICO   ");
@@ -21,7 +21,7 @@ auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) {
     mensageMargin(w.ws_col);
 };
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
@@ -55,7 +55,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int modeMenu(myGame<nodeuserinfouser>* game){
-    return modeMenuAux(game,startMenuAux(game->user,mensajeMode,3));
+    return modeMenuAux(game,startMenuAux(game,mensajeMode,3));
 }
 
 

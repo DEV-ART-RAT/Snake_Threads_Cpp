@@ -32,11 +32,11 @@ using namespace std;
 
 int welcomemain(int &P,int&C,string user);
 
-void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) { 
+void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) { 
     CLEAR;
     mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
-    string linea1 =  "WELLCOME " + userdata->info.name + "  TO ...";
+    string linea1 =  "WELLCOME " + game->user->info.name + "  TO ...";
     mensageLineMAGENTA(w.ws_col,linea1);
     string linea2[] = {
         "=====   ===    ==   =======   ==  ==   =====",
@@ -49,11 +49,11 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
     mensageSnake(w.ws_col,linea2 , 5);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    mensageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(userdata->info.coin)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Maximo: "+to_string(userdata->info.puntaje)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Actual : "+to_string(userdata->info.puntajeContinuar)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tus vidas : "+to_string(userdata->info.vidas)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(userdata->info.nivel)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Actual : "+to_string(game->user->info.puntajeContinuar)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
@@ -65,21 +65,21 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
 
 };
 
-auto mensajeStart = [](int opc, node<nodeuserinfouser>* userdata) { 
-    mensageMarginStart(opc,userdata);
+auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game) { 
+    mensageMarginStart(opc,game);
 };
 
 
 
 
-int startMenuAux(node<nodeuserinfouser>* userdata, auto wellcome,int sizeOption){
+int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
     char key; //contenedor de tecla
     int flag = 1;       //opcion actual del menu
     //int sizeOption=3;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
 
     sleep(0.1);//para corregir fallo de while
-    wellcome(flag,userdata);  //invocacion del menu
+    wellcome(flag,game->user);  //invocacion del menu
 
     cin.ignore();
     sleep(0.1);//para corregir fallo de whiles
@@ -104,7 +104,7 @@ int startMenuAux(node<nodeuserinfouser>* userdata, auto wellcome,int sizeOption)
             return flag;
         }
 
-        wellcome(flag,userdata);
+        wellcome(flag,game->user);
         sleep(0.01);//para corregir fallo de while
     }
     cin.ignore();
@@ -143,7 +143,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
 }
 
 int startMenu(myGame<nodeuserinfouser>* game){
-    startMenuOpc(game,startMenuAux(game->user,mensajeStart,4));
+    startMenuOpc(game,startMenuAux(game,mensajeStart,4));
     return 0;
 }
 

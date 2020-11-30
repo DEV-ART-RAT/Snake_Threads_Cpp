@@ -9,7 +9,7 @@
 #include "../tools/nodeuser.h"
 using namespace std;
 
-auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata) { 
     CLEAR;
     snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  FACIL  *"):    mensageLine(w.ws_col,"   FACIL   ");
@@ -20,7 +20,7 @@ auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) {
     mensageMargin(w.ws_col);
 };
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
 int difficultyMenu(myGame<nodeuserinfouser>* );
@@ -53,7 +53,7 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int difficultyMenu(myGame<nodeuserinfouser>* game){
-    return difficultyMenuAuxOpc(game,startMenuAux(game->user,mensajeDifficulty,4));
+    return difficultyMenuAuxOpc(game,startMenuAux(game,mensajeDifficulty,4));
 }
 
 

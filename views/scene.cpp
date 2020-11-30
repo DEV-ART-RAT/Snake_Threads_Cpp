@@ -10,7 +10,7 @@
 #include "./difficulty.cpp"
 using namespace std;
 
-auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
     snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
@@ -20,7 +20,7 @@ auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) {
     mensageMargin(w.ws_col);
 };
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 
@@ -49,7 +49,7 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int sceneMenu(myGame<nodeuserinfouser>* game){
-    return sceneMenuAux(game,startMenuAux(game->user,mensajeScene,3));
+    return sceneMenuAux(game,startMenuAux(game,mensajeScene,3));
 }
 
 

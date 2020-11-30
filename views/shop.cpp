@@ -11,11 +11,11 @@
 //#include "./windows_start.cpp"
 using namespace std;
 
-auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(userdata->info.puntaje));
-    mensageLine(w.ws_col,"Coins: "+to_string(userdata->info.coin));
+    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
+    mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (5 monedas)  *"):              mensageLine(w.ws_col,"   Vida Extra (5 monedas)   ");
@@ -26,7 +26,7 @@ auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) {
     mensageMargin(w.ws_col);
 }; 
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 
@@ -99,7 +99,7 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int shopMenu(myGame<nodeuserinfouser>* game){
-    return shopMenuAux(game,startMenuAux(game->user,mensajeShop,4));
+    return shopMenuAux(game,startMenuAux(game,mensajeShop,4));
 }
 
 

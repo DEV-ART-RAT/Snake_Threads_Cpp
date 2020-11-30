@@ -31,6 +31,38 @@ g++ -pthread matriz.cpp -o matriz
 
 using namespace std;
 
+int redireccionando(myGame<nodeuserinfouser>* game){
+    switch (game->key)
+        {
+        case 65://up
+            if(game->direccion!=2 && game->direccion!=1){
+                game->direccion=1;
+                snakeEvent(game);
+            }
+            break;
+        case 66://down
+            if(game->direccion!=2 && game->direccion!=1){
+                game->direccion=2;
+                snakeEvent(game);
+            }
+            break;
+        case 67://right
+            if(game->direccion!=3 && game->direccion!=4){
+                game->direccion=3;
+                snakeEvent(game);
+            }
+            break;
+        case 68://left
+            if(game->direccion!=3 && game->direccion!=4){
+                game->direccion=4;
+                snakeEvent(game);
+            }
+            break;
+        default:
+            break;
+        }
+}
+
 int playGame(myGame<nodeuserinfouser>* game){
     double timer = 0; // auxiliar para la velocidad
     while (game->playing)

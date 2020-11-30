@@ -85,7 +85,7 @@ int playGame(myGame<nodeuserinfouser> *game)
     {
         //if (!game->pause)
         //{
-            if (timer > 10 * game->snake.speed)
+            if (timer > 40 - game->snake.speed)
             {
                 redireccionando(game);
                 /*if (game->redirection)

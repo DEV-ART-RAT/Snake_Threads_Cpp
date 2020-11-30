@@ -13,9 +13,9 @@
 using namespace std;
 void top_game(myGame<nodeuserinfouser>* game);
 void welcometop();
-
+void ordenarparametros(int colsize,int sobraparallegar);
 template<class T>
-void printtop(node<T>* front);
+void printtop(node<T>* front,int colsize,int sobraparallegar);
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist);
 
 void top_game(myGame<nodeuserinfouser>* game){
@@ -36,47 +36,49 @@ void welcometop(){
 
 }
 template<class T>
-void printtop(node<T>* front){
-    int size=3;
-    int colsize=w.ws_col/size;
-    int sobra=0;
-    string nombres="";
-    //cout<<fwall;
-    if(front) {
-        sobra+=mensageLineSeccionAux(colsize,front->info.name);
-        sobra+=mensageLineSeccionAux(colsize,to_string(front->info.coin));
-        sobra+=mensageLineSeccionAux(colsize,to_string(front->info.puntaje));
-        sobra=w.ws_col-sobra;
-        if(sobra>0){nombres.insert(0,sobra,' ');}
-        cout<<nombres<<"*"<<endl;
-        mensageMargin(w.ws_col);
-
-        printtop(front->next);
+void printtop(node<T>* front,int colsize,int sobraparallegar){
+    int tamaniotabla=w.ws_col-2;
+    if(tamaniotabla<120){
+        tamaniotabla=120;
     }
-    else    
-        cout<<endl;
+    if(front) {
+        mensageLineSeccionAux(colsize,front->info.name,0,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.coin),1,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.nivel),1,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.vidas),1,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.puntajeContinuar),1,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.puntaje),-1,sobraparallegar);
+        mensageMargin(tamaniotabla+2);
+        printtop(front->next,colsize,sobraparallegar);
+    }
 }
 
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
+    int colsize = 0;
+    //numero de columnas de la tabla
+    int columnas=6;
+    // tamanio de la pantalla (menos 2 porque se tiende a pasar al final)
+    int tamaniotabla=w.ws_col-2;
+    if(tamaniotabla<120){
+        tamaniotabla=120;
+    }
+    // calculamos cuantos elementos sobraran (no todas los tamanios de pantalla se pueden dividir exactos)
+    int sobraparallegar=tamaniotabla%columnas;
+    // tamanio de cada columna
+    colsize=((tamaniotabla)/columnas);
+    // tamanio de la tabla entre sus columnas nos da el tamanio de cada columna 
+    //cout<<": Tamanio de todo  : "<< tamaniotabla<<":| | Sobra al dividir las comunas :"<<sobraparallegar<<"| | COLSIZE :"<<colsize<<"| | tamanio tabla exacto : "<<colsize*columnas<<endl;
+    mensageMargin(tamaniotabla+2);   
+    ordenarparametros(colsize,sobraparallegar);
+    mensageMargin(tamaniotabla+2);   
+    printtop(userlist->front,colsize,sobraparallegar);
+}
 
-    mensageMargin(w.ws_col);
-    int size=3;
-    int colsize=w.ws_col/size;
-    int sobra=0;
-    string nombres="";
-  
-
-    // cout<<"Tamanio total : "<<w.ws_col<<endl;
-    // cout<<"Tamanio total/3 :"<<w.ws_col/3<<endl;
-    // cout<<"Tamanio part : "<<part<<endl;
-    sobra+=mensageLineSeccionAux(colsize,"Nombre");
-    sobra+=mensageLineSeccionAux(colsize,"Monedas");
-    sobra+=mensageLineSeccionAux(colsize,"Puntaje");
-    sobra=w.ws_col-sobra;
-    //cout<< sobra<<endl;
-    if(sobra>0){nombres.insert(0,sobra,' ');}
-    cout<<nombres<<"*"<<endl;
-    mensageMargin(w.ws_col);
-
-    printtop(userlist->front);
+void ordenarparametros(int colsize,int sobraparallegar){
+    mensageLineSeccionAux(colsize,"Nombre",0,sobraparallegar);
+    mensageLineSeccionAux(colsize,"Monedas",1,sobraparallegar);
+    mensageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);    
+    mensageLineSeccionAux(colsize,"Vidas",1,sobraparallegar);
+    mensageLineSeccionAux(colsize,"Puntaje Actual",1,sobraparallegar);
+    mensageLineSeccionAux(colsize,"Puntaje Maximo",-1,sobraparallegar);
 }

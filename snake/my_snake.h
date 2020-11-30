@@ -202,7 +202,7 @@ struct mySnake{
                     cout<<COLOR_BOLDRED<<M[i][j]<<" "<<RESET;
                     break;
                 case 'O':
-                    cout<<COLOR_BOLDYELLOW<<M[i][j]<<" "<<RESET;
+                    cout<<COLOR_BOLDWHITE<<M[i][j]<<" "<<RESET;
                     break;                
                 default:
                     cout<<M[i][j]<<" "; 

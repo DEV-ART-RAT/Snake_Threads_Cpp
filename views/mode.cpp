@@ -1,14 +1,11 @@
 #pragma once
 #include <iostream>
-#include <termios.h>
 #include <unistd.h>
-
-//#include "../snake/clear.cpp"
-//#include "../snake/matriz.cpp"
+#include <termios.h>
+#include "./scene.cpp"
+#include "./difficulty.cpp"
 #include "../snake/my_snake.h"
 #include "../tools/gameStruct.h"
-#include "./difficulty.cpp"
-#include "./scene.cpp"
 using namespace std;
 
 auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game) { 

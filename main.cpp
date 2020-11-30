@@ -12,8 +12,7 @@ struct termios term;
 
 /* 
 Para ejecutar:
-g++ -pthread main.cpp -o main
-./main
+g++ -pthread main.cpp -o main && ./main
 */
 void open_buffer();
 void close_buffer();

@@ -8,3 +8,5 @@ matriz
 observer
 main
 w32api
+*.idea
+main

@@ -37,7 +37,7 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
     {   
         //fflush(stdin);
         
-        cin.ignore();
+        //cin.ignore();
         game->key=getchar();
         if(!game->playing){
             return;

@@ -18,7 +18,6 @@ g++ -pthread matriz.cpp -o matriz
 #include "matriz.h"
 #include "snake.h"
 #include "my_snake.h"
-#include "main.cpp"
 #include "../scene/parameter_define.cpp"
 //#include "../tools/gameStruct.h"
 
@@ -27,6 +26,8 @@ g++ -pthread matriz.cpp -o matriz
 //#pragma once
 
 using namespace std;
+void close_buffer();
+void open_buffer();
 
 int redireccionando(myGame<nodeuserinfouser> *game)
 {
@@ -38,6 +39,7 @@ int redireccionando(myGame<nodeuserinfouser> *game)
             close_buffer();
             shopMenu(game);
             game->snake.show();
+            open_buffer();
             sleep(2);
             //game->pause=false;
             break;//finalizando hilo

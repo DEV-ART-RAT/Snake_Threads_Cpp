@@ -25,7 +25,7 @@ void mensageLine(int col,string linea1){
 }
 
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
-    string str,primerespacio="",ultimoespacio="",imprimir="";
+    string str,primerespacio="",ultimoespacio="",imprimir="";int extraMitad=0,extraMitadSobra=0,extrasobrafinal=0;
     // SizeEspacios -> tiene guardada la cantidad de espacios que se tiene que imprimir (-1 por el asterisco que se imprime aparte)
     int SizeEspacios=(col-linea1.size())-1;
     //la mitad puede esconder un sobrante por lo qe esta el if
@@ -34,13 +34,16 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     str.insert(0, mitaEspacios-1, ' ');
     // COMO NO SIEMPRE VA A CABER necesitamos lo siguiente:
     // las casillas que sobran ala mitad
-    int extraMitad=extra/2;// cout<<extraMitad;
-    // si el numero es inpar se va a perder uno por lo cual tambien lo necesotamos
-    int extraMitadSobra=extra%2;// cout<<extraMitadSobra;
-    //primer espacio extra para que cubra la pantalla
-    primerespacio.insert(0, extraMitad, ' ');
-    // si no es par agregara uno , sino es 0 
-    ultimoespacio.insert(0, extraMitad+extraMitadSobra, ' ');
+    if(extra>0){
+        int extraMitad=extra/2;// cout<<extraMitad;
+        // si el numero es inpar se va a perder uno por lo cual tambien lo necesotamos
+        int extraMitadSobra=extra%2;// cout<<extraMitadSobra;
+        //primer espacio extra para que cubra la pantalla
+        primerespacio.insert(0, extraMitad, ' ');
+        // si no es par agregara uno , sino es 0 
+        extrasobrafinal=extraMitad+extraMitadSobra;
+        ultimoespacio.insert(0,extrasobrafinal, ' ');
+    }
     // Se necesita un switch ya que el ultimo tramo necesita un * de cierre sin pasarse de los caracteres
     switch (pos)
     {

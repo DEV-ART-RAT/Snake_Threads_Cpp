@@ -37,6 +37,10 @@ void welcometop(){
 }
 template<class T>
 void printtop(node<T>* front,int colsize,int sobraparallegar){
+    int tamaniotabla=w.ws_col-2;
+    if(tamaniotabla<120){
+        tamaniotabla=120;
+    }
     if(front) {
         mensageLineSeccionAux(colsize,front->info.name,0,sobraparallegar);
         mensageLineSeccionAux(colsize,to_string(front->info.coin),1,sobraparallegar);
@@ -44,37 +48,37 @@ void printtop(node<T>* front,int colsize,int sobraparallegar){
         mensageLineSeccionAux(colsize,to_string(front->info.vidas),1,sobraparallegar);
         mensageLineSeccionAux(colsize,to_string(front->info.puntajeContinuar),1,sobraparallegar);
         mensageLineSeccionAux(colsize,to_string(front->info.puntaje),-1,sobraparallegar);
-        mensageMargin(w.ws_col);
+        mensageMargin(tamaniotabla+2);
         printtop(front->next,colsize,sobraparallegar);
     }
 }
 
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     int colsize = 0;
-     //numero de columnas de la tabla
+    //numero de columnas de la tabla
     int columnas=6;
-     //funcion para que el top sea responsive
-    string espacios="";
     // tamanio de la pantalla (menos 2 porque se tiende a pasar al final)
     int tamaniotabla=w.ws_col-2;
+    if(tamaniotabla<120){
+        tamaniotabla=120;
+    }
     // calculamos cuantos elementos sobraran (no todas los tamanios de pantalla se pueden dividir exactos)
     int sobraparallegar=tamaniotabla%columnas;
     // tamanio de cada columna
     colsize=((tamaniotabla)/columnas);
+    // tamanio de la tabla entre sus columnas nos da el tamanio de cada columna 
+    //cout<<": Tamanio de todo  : "<< tamaniotabla<<":| | Sobra al dividir las comunas :"<<sobraparallegar<<"| | COLSIZE :"<<colsize<<"| | tamanio tabla exacto : "<<colsize*columnas<<endl;
+    mensageMargin(tamaniotabla+2);   
     ordenarparametros(colsize,sobraparallegar);
-
+    mensageMargin(tamaniotabla+2);   
     printtop(userlist->front,colsize,sobraparallegar);
 }
 
 void ordenarparametros(int colsize,int sobraparallegar){
-    //cout<<": Tamanio de todo  : "<< tamaniotabla<<":| | Sobra al dividir las comunas :"<<sobraparallegar<<"| | COLSIZE :"<<colsize<<"| | tamanio tabla exacto : "<<colsize*columnas<<endl;
-    // tamanio de la tabla entre sus columnas nos da el tamanio de cada columna 
-    mensageMargin(w.ws_col);
     mensageLineSeccionAux(colsize,"Nombre",0,sobraparallegar);
     mensageLineSeccionAux(colsize,"Monedas",1,sobraparallegar);
     mensageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);    
     mensageLineSeccionAux(colsize,"Vidas",1,sobraparallegar);
     mensageLineSeccionAux(colsize,"Puntaje Actual",1,sobraparallegar);
     mensageLineSeccionAux(colsize,"Puntaje Maximo",-1,sobraparallegar);
-    mensageMargin(w.ws_col);
 }

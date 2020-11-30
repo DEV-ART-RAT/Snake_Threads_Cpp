@@ -37,8 +37,6 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
     mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
     string linea1 =  "WELLCOME " + userdata->info.name + "  TO ...";
-
-
     mensageLine(w.ws_col,linea1);
     string linea2[] = {
         "=====   ===    ==   =======   ==  ==   =====",
@@ -47,6 +45,7 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
         "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
         "=====   ==   ====   ==   ==   ==  ==   =====" 
     };
+    mensageSteep(w.ws_col);
     mensageSnake(w.ws_col,linea2 , 5);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);

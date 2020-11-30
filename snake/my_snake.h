@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include "../tools/list.h"
 #include <stdlib.h>
+#include "../views/colors.h"
 //#include <stdio.h>
 
 #include <thread>
@@ -181,20 +182,43 @@ struct mySnake{
         //cout<<flush;
         //system("clear");//windows
         CLEAR;
-        cout<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
-            << "   vidas: "<<lifes << "   dinero: "<<coins<<endl;
+        cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
+            << "   vidas: "<<lifes << "   dinero: "<<coins<<RESET<<endl;
+        cout<<COLOR_BLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
-        cout<<"-"<<endl;
+        cout<<"-"<<endl<<RESET;
         for(int i = 0; i < FILA; i++) {
+            cout<<COLOR_BLUE;
             cout<<'|';
-            for(int j = 0; j < COLUMNA; j++)
-                cout<<M[i][j]<<" ";
+            cout<<RESET;
+            for(int j = 0; j < COLUMNA; j++){
+                switch (M[i][j])
+                {
+                //luis creo que me pase de lanza . pd : Rubi
+                case '*':
+                    cout<<COLOR_BOLDGREEN<<M[i][j]<<" "<<RESET;
+                    break;
+                case 'X':
+                    cout<<COLOR_BOLDRED<<M[i][j]<<" "<<RESET;
+                    break;
+                case 'O':
+                    cout<<COLOR_BOLDYELLOW<<M[i][j]<<" "<<RESET;
+                    break;                
+                default:
+                    cout<<M[i][j]<<" "; 
+                    break;
+                }
+            }
+            cout<<COLOR_BLUE;
             cout<<'|'<<endl;
+            cout<<RESET;
         }  
         //int c = 238;
         //char a = c;
+        cout<<COLOR_BLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl;
+        cout<<RESET;
 }
 
     void setLive(int live){

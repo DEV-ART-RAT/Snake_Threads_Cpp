@@ -12,21 +12,25 @@ using namespace std;
 
 auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<endl<<endl;
+ mensageMargin(w.ws_col);
+    mensageSteep(w.ws_col);
 
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" LIBRE "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" CERRADO "<<((opc==2)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" REGRESAR "<<((opc==3)?"*":"");
-    cout<<endl<<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
+    string linea1[] = {
+        "=====   ===    ==   =======   ==  ==   =====",
+        "||      ||\\\\   ||   ||   ||   || //    ||   ",
+        "====    || \\\\  ||   ||===||   |||      =====",
+        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
+        "=====   ==   ====   ==   ==   ==  ==   =====" 
+    };
+    mensageSteep(w.ws_col);
+    mensageSnake(w.ws_col,linea1 , 5);
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+     (opc==1)? mensageLine(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
+    (opc==2)? mensageLine(w.ws_col,"*  CERRADO * "):   mensageLine(w.ws_col,"   CERRADO   ");
+    (opc==3)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 };
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );

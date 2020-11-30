@@ -11,23 +11,27 @@ using namespace std;
 
 auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<endl<<endl;
+    mensageMargin(w.ws_col);
+    mensageSteep(w.ws_col);
 
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" FACIL "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" MEDIO "<<((opc==2)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" DIFICIL "<<((opc==3)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<" REGRESAR "<<((opc==4)?"*":"");
-    cout<<endl<<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
+    string linea1[] = {
+        "=====   ===    ==   =======   ==  ==   =====",
+        "||      ||\\\\   ||   ||   ||   || //    ||   ",
+        "====    || \\\\  ||   ||===||   |||      =====",
+        "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
+        "=====   ==   ====   ==   ==   ==  ==   =====" 
+    };
+    mensageSteep(w.ws_col);
+    mensageSnake(w.ws_col,linea1 , 5);
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+    (opc==1)? mensageLine(w.ws_col,"*  FACIL  *"):    mensageLine(w.ws_col,"   FACIL   ");
+    (opc==2)? mensageLine(w.ws_col,"*  MEDIO * "):   mensageLine(w.ws_col,"   MEDIO   ");
+    (opc==3)? mensageLine(w.ws_col,"*  DIFICIL *"):    mensageLine(w.ws_col,"   DIFICIL  ");
+    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
+
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 };
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );

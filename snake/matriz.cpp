@@ -13,7 +13,7 @@ g++ -pthread matriz.cpp -o matriz
 //#include <termios.h>
 #include <unistd.h>
 
-//#include  "clear.cpp"
+#include  "clear.cpp"
 #include "keyEvent.h"
 #include "matriz.h"
 #include "snake.h"
@@ -91,11 +91,15 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
             game->scene++;
             if(game->scene>2){
-                cout<<"felicidades... completaste el escenario"<<endl;
+                CLEAR;
+                snakeprint();
+                mensageLine(w.ws_col, "Nuevo escenario");
                 game->user->info.puntajeContinuar += game->snake.lifes*100;
                 cout<<" se sumaron "<<game->snake.lifes*100 <<" a tu puntaje actual por tus "
                     <<game->snake.lifes<<" restantes"<<endl;
-                cout<<" presiona cualquier tecla para continuar"<<endl;
+                mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
+                mensageSteep(w.ws_col);
+                mensageMargin(w.ws_col);
                 cin.ignore();
                 getchar();
                 return 1;
@@ -115,8 +119,13 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     {   
         game->food++;
         if(game->levelSpecial>3){
-            cout<<"felicidades... completaste el escenario"<<endl;
-            cout<<" presiona cualquier tecla para continuar"<<endl;
+
+            CLEAR;
+            snakeprint();
+            mensageLine(w.ws_col, "Subiste de nivel");
+            mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
+            mensageSteep(w.ws_col);
+            mensageMargin(w.ws_col);
             cin.ignore();
             getchar();
             return 1;
@@ -164,8 +173,12 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     }
 
     if(game->proxLevel){
-        cout<<"felicidades... avanzas de nivel"<<endl;
-        cout<<" presiona cualquier tecla para continuar"<<endl;
+        CLEAR;
+        snakeprint();
+        mensageLine(w.ws_col, "Subiste de nivel");
+        mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
         cin.ignore();
         getchar();
         if(game->mode){

@@ -70,7 +70,7 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
 
-    bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
+    //bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
     switch (flag) {
         case 1:
             buyLife(game->user);

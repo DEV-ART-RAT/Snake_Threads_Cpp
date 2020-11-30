@@ -232,15 +232,33 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         //game->liveSpecial++;
     }
 
-    if (game->mode)
-    {
+    if (game->mode == 1)
+    {   
+        game->snake.x2Boosted = false;
+        game->snake.x3Boosted = false;
+        if(game->user->info.puntaje < game->snake.points){
+            game->user->info.puntaje = game->snake.points;
+        }
+
         if (game->snake.lifes <= 0)
         {
             game->user->info.vidas = 5;
             game->user->info.nivel = 1;
+            game->snake.points = 0;
         }
     }
 
+    if (game->mode == 2)
+    {   
+        game->snake.x2Boosted = false;
+        game->snake.x3Boosted = false;
+
+        //Cambiar este if por puntaje clasico
+        if(game->user->info.puntaje < game->snake.points){
+            game->user->info.puntaje = game->snake.points;
+        }
+    }
+    
     if (game->proxLevel)
     {
         CLEAR;

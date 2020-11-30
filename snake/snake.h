@@ -11,10 +11,22 @@ void increasePoints(myGame<nodeuserinfouser>* game){
     switch (game->mode)
     {
     case 1:
-        game->snake.points += 10;
+        if(game->snake.x2Boosted){
+            game->snake.points += (100 + (game->snake.sizeSnake-3)*5 + game->snake.level*10)*2;
+        }else if(game->snake.x3Boosted){
+            game->snake.points += (100 + (game->snake.sizeSnake-3)*5 + game->snake.level*10)*3;
+        }else{
+            game->snake.points += 100 + (game->snake.sizeSnake-3)*5 + game->snake.level*10;
+        }
         break;
     case 2:
-        game->snake.points += 50;
+        if(game->snake.x2Boosted){
+            game->snake.points += (100 + (game->snake.sizeSnake-3)*5)*2;
+        }else if(game->snake.x3Boosted){
+            game->snake.points += (100 + (game->snake.sizeSnake-3)*5)*3;
+        }else{
+            game->snake.points += 100 + (game->snake.sizeSnake-3)*5;
+        }
         break;
     case 3:
         game->snake.points += 100;

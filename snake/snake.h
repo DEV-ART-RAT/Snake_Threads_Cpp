@@ -80,6 +80,8 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
         snakeDel(game);
     }    
     game->snake.M[fil][col]=SNAKE;
+    //cout<<"voy en:"<<game->snake.list->back->info;
+    //cin.get();
 }
 
 

@@ -42,6 +42,8 @@ int playGame(myGame<nodeuserinfouser>* game){
             game->snake.show();
             //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
             snakeDirection(game);
+            cout<<"cabeza: "<<game->list.back<<"  direccion: "<<game->snake.dir;
+            cin.get();
         }
         
         
@@ -53,10 +55,13 @@ int playGame(myGame<nodeuserinfouser>* game){
 
 void playingGame(myGame<nodeuserinfouser>* game){
     thread th1(keyEventSnake , game);
+    game->snake.flag=true;
     game->snake.show();
     sleep(2);
     playGame(game);
     th1.detach();
+    cout<<"murio el hilo"<<endl;
+    cin.get();
 }
 
 void restartingGame(myGame<nodeuserinfouser>* game){

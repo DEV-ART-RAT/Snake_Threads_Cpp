@@ -1,12 +1,10 @@
 # Snake -> Dev-ART - ft.freddy.   <!-- omit in toc -->
+
+
 [Pagina con Instrucciones](https://wmoralesdev.github.io/actividadfinal/index)
 
 
 [Pagina README](https://drubico.github.io/Snake_Terminal_cpp/)
-
-
-Documento donde se explican los puntos:
-
 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="55">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
 
@@ -18,6 +16,8 @@ Documento donde se explican los puntos:
   - [3.2. Estructuras de datos (dinámicas):](#32-estructuras-de-datos-dinámicas)
   - [3.3. Algoritmos de ordenamiento / búsqueda:](#33-algoritmos-de-ordenamiento--búsqueda)
 - [4. EJECUCION:](#4-ejecucion)
+  - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
+  - [](#)
 
 # 1. Estudiantes
 
@@ -37,11 +37,11 @@ Documento donde se explican los puntos:
 
 
 # 4. EJECUCION:
+## 4.1. Ejecutar codigo:
 Para correr se necesita una terminal kernel GNU/linux:
 en la raiz de el proyecto ejecutar:
 ```
-g++ -pthread main.cpp -o main
-./main
-
+g++ -pthread main.cpp -o main && ./main
 ```
+## 
 

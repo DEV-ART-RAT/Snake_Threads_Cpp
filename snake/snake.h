@@ -47,26 +47,19 @@ void snakeDel(myGame<nodeuserinfouser>* game){
 
 void changeVelocity(myGame<nodeuserinfouser>* game){
     int max = game->snake.velMax;
-        if(game->snake.sizeSnake < max*0.2)
-            game->snake.speed = game->snake.initialSpeed * 0.8;
-        else if (game->snake.sizeSnake < max*0.4)
-            game->snake.speed = game->snake.initialSpeed  * 0.6;
-        else if (game->snake.sizeSnake < max*0.5)
-            game->snake.speed = game->snake.initialSpeed  * 0.5;
-        else if (game->snake.sizeSnake < max*0.60)
-            game->snake.speed = game->snake.initialSpeed  * 0.4;
-        else if (game->snake.sizeSnake < max*0.80)
-            game->snake.speed = game->snake.initialSpeed  * 0.3;
-        else if (game->snake.sizeSnake < max * 1.2)
-            game->snake.speed = game->snake.initialSpeed  * 0.2;
-        else
-            game->snake.speed = game->snake.initialSpeed  * 0.1;
+    if(game->snake.sizeSnake < max)
+        game->snake.speed = ((max - game->snake.sizeSnake) * 0.15) + 0.5;
+    else if(game->snake.sizeSnake > max *2)
+        game->snake.speed = 0.3;
+    else
+        game->snake.speed = 0.5;
+    
 }
 
 void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     game->snake.list->pushBack(nodeinfo(fil,col));
     if(game->snake.M[fil][col]== FOOD ){
-        //changeVelocity(game);
+        changeVelocity(game);
         game->snake.sizeSnake++;
         increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){

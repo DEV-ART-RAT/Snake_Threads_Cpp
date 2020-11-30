@@ -1,34 +1,19 @@
 #pragma once
 #include <iostream>
-#include <unistd.h>
-#include "../tools/list.h"
-#include <stdlib.h>
-#include "../views/colors.h"
-//#include <stdio.h>
-
 #include <thread>
 
-//#include <termios.h>
+#include <stdlib.h>
 #include <unistd.h>
 
-//#include  "clear.cpp"
-//#include "keyEvent.h"
 #include "matriz.h"
-//#include "snake.h"
-
-//compile g++ -pthread  ...
+#include "../tools/list.h"
+#include "../views/colors.h"
 
 #define FOOD 'O'
 #define SNAKE '*'
 #define CRASH '?'
 #define SCENE ' '
 #define WALL 'X'
-
-
-
-#pragma once
-
-
 
 using namespace std;
 
@@ -114,11 +99,8 @@ struct mySnake{
             break;
         case 2:
             levelOne(M,FILA,COLUMNA);//matriz full paredes
-            //difficulty = 2;
             break;
         case 3:
-            //levelOne(M,FILA,COLUMNA);//inicando matriz
-            //difficulty = 3;
             break;
         
         default:
@@ -133,34 +115,14 @@ struct mySnake{
             if(e->info.j>=FILA)
             e->info.j=0;
             M[e->info.i][e->info.j]=SNAKE;
-            //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
         }
-        //list = new doubleLinked <nodeinfo>();
-        //cout<<"definiendo snake:";
-        //traverseBegin(list->front);
-        //cin.get();
     }
 
     void deleteSnake(){
         for(node<nodeinfo>* e = list->back; e!=NULL; e=e->prev){
             M[e->info.i][e->info.j]=SCENE;
-            //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
-            //list->removeFront();
         }
-        /*cout<<"snake deleted";
-        for (size_t i = 0; i < sizeSnake ; i++)
-        {
-            list->removeFront();
-        }
-        list->back=NULL;
-        list->front=NULL;*/
-        // traverseEnd(list->back);
-        // cin.get();
         list = new doubleLinked <nodeinfo>();
-        //dir = 3;
-        
-
-
     }
 
     void defineFood(){
@@ -188,12 +150,12 @@ struct mySnake{
         //system("clear");//windows
         CLEAR;
         cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
-            << "   vidas: "<<lifes << "   dinero: "<<coins<<"  Puntos:"<<points<<RESET<<endl;
-        cout<<COLOR_BLUE;
+            << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665 : "<<RESET<<lifes << "   dinero: "<<coins<<"  Puntos:"<<points<<RESET<<endl;
+        cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;
         for(int i = 0; i < FILA; i++) {
-            cout<<COLOR_BLUE;
+            cout<<COLOR_BOLDBLUE;
             cout<<'|';
             cout<<RESET;
             for(int j = 0; j < COLUMNA; j++){
@@ -214,13 +176,13 @@ struct mySnake{
                     break;
                 }
             }
-            cout<<COLOR_BLUE;
+            cout<<COLOR_BOLDBLUE;
             cout<<'|'<<endl;
             cout<<RESET;
         }  
         //int c = 238;
         //char a = c;
-        cout<<COLOR_BLUE;
+        cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl;
         cout<<RESET;

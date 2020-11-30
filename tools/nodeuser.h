@@ -1,9 +1,9 @@
 #pragma once
-#include <string>
-#include <iostream>
-#include <ostream>
-using namespace std;
 
+#include <string>
+#include <ostream>
+#include <iostream>
+using namespace std;
 
 //importamos funcion de nodo para listas dobles
 struct nodeuserinfouser {

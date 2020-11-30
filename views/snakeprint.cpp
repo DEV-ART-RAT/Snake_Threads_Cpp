@@ -1,9 +1,11 @@
 #pragma once
-#include <iostream>
-#include "../tools/screenControl.h"
-#include <iomanip>
+
 #include <string>
+#include <iomanip>
+#include <iostream>
+
 #include "./colors.h"
+#include "../tools/screenControl.h"
 
 using namespace std;
 void mensageSnake(int col,string linea1[],int linea1size){

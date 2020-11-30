@@ -1,12 +1,2 @@
-CMakeLists.txt
-cmake-build-debug/*
 *.exe
-keyEvent
-libgcc_s_sjlj-1.dll
-libstdc++-6.dll
-matriz
-observer
-main
-w32api
-*.idea
 main

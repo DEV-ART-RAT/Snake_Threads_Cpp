@@ -1,14 +1,15 @@
 #pragma once
-#include <iostream>
 #include <string>
 #include <ostream>
 #include <fstream>
 #include <sstream>
-//#include "../user/nodeuser.h"
-#include "../tools/gameStruct.h"
-#include "../snake/clear.cpp"
-#include "./snakeprint.cpp"
+#include <iostream>
+
 #include "./colors.h"
+#include "./snakeprint.cpp"
+#include "../snake/clear.cpp"
+#include "../tools/gameStruct.h"
+
 using namespace std;
 void welcomeuser();
 template<class T>

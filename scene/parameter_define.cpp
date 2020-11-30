@@ -9,16 +9,8 @@ void sceneSize(int level, int* row, int* col){
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     *row = w.ws_row - 5;
     *col = w.ws_col / 2;
-
-
     switch (level)
     {
-    /*case 1: // pantalla 20%
-        *col  *= 0.2;
-        break;
-    case 2: // pantalla 40%
-        *col  *= 0.4;
-        break;*/
     case 1: // pantalla 60%
         *col  *= 0.6;
         break;
@@ -29,17 +21,13 @@ void sceneSize(int level, int* row, int* col){
         *col -= 5;
         break;
     }
-
     if (*col<30){
         *col=30;
     }
     if (*row<10){
         *row=10;
     }
-
-    
 }
-
 //total de obstaculos segun dificulatad y tamaño de teminal
 void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
     *cel = (*row) + (*col);//obteniendo el numero total de *celdas
@@ -74,32 +62,13 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
         break;
     }
 }
-
 void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
     *velocidad = 1;//nivel base
-
     while(level > 3){
         *velocidad++;
         level -= 3;
     }
-
     sceneSize(level,row,col);
     sceneLevelDif(level,row,col,obstaculos,snkMax);
-    //*snkMax=5;
-
+    *snkMax=5;
 }
-
-/*
-int main(void){
-    int level = 5, row, col, obst;
-    sceneSize(level,&row,&col);
-    sceneLevelDif(level,&row,&col,&obst);
-
-    cout<<"sizeRow: "<<row<<" , sizeCol: "<<col<<" , numObst: "<<obst<<endl;
-
-
-
-    return 0;
-}
-
- //*/

@@ -57,7 +57,7 @@ void boostPointsx3(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boos
 void buyLife(node<nodeuserinfouser>* userdata){
     if(userdata->info.coin >= 5){
         userdata->info.coin -= 5;
-       // userdata->lifes++;
+        userdata->info.vidas++;
         cout<<"Vida comprada"<<endl;
     } else {
         cout<<"Monedas insuficientes"<<endl;

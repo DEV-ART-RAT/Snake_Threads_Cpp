@@ -65,7 +65,7 @@ struct mySnake{
         flag=true;
         redirect=false;
         steep=1;
-        level=0;
+        //level=0;
         sizeSnake = 4;
         speedBost = 0;
         speed = 4;
@@ -89,7 +89,7 @@ struct mySnake{
         flag=true;
         redirect=false;
         steep=1;
-        level=0;
+        //level=0;
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;

@@ -14,6 +14,7 @@ struct myGame{
     int liveSpecial;
 
     bool pause = false;
+    bool proxLevel = false;
     
     myGame(){};
 };

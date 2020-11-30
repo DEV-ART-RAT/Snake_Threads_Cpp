@@ -58,6 +58,9 @@ void playingGame(myGame<nodeuserinfouser>* game){
     sleep(2);
     playGame(game);
     th1.detach();
+    if(game->snake.sizeSnake == game->snake.sizeMax){
+            game->proxLevel = true;
+    }
     //cout<<"murio el hilo"<<endl;
     //cin.get();
 }
@@ -86,14 +89,32 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         }
         while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
             game->scene++;
+            if(game->scene>2){
+                cout<<"felicidades... completaste el escenario"<<endl;
+                game->user->info.puntajeContinuar += game->snake.lifes*100;
+                cout<<" se sumaron "<<game->snake.lifes*100 <<" a tu puntaje actual por tus "
+                    <<game->snake.lifes<<" restantes"<<endl;
+                cout<<" presiona cualquier tecla para continuar"<<endl;
+                cin.ignore();
+                getchar();
+                return 1;
+            }
         }
         sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
         game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
+        game->snake.level = game->user->info.nivel;
         //game->snake.setLive(game->liveSpecial);
     }else//juego especial
     {
+        if(game->levelSpecial>3){
+            cout<<"felicidades... completaste el escenario"<<endl;
+            cout<<" presiona cualquier tecla para continuar"<endl;
+            cin.ignore();
+            getchar();
+            return 1;
+        }
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
-        game->liveSpecial = 3;
+        game->snake.level = game->liveSpecial;
     }
     game->snake.setLive(game->liveSpecial);
     game->snake.inicialiceMySnake(row,col);
@@ -116,12 +137,38 @@ int playmatrix(myGame<nodeuserinfouser>* game){
 
     playingGame(game);
 
-    while (gameOverMenu(game))
+    while (!game->proxLevel && gameOverMenu(game))
     {
         restartingGame(game);
         playingGame(game);
         //game->liveSpecial++;
         
+    }
+    
+    
+    if(game->mode){
+        if(game->snake.lifes<=0){
+            game->user->info.vidas = 5;
+            game->user->info.nivel = 1;
+        }
+        
+    }
+
+    if(game->proxLevel){
+        cout<<"felicidades... avanzas de nivel"<<endl;
+        cout<<" presiona cualquier tecla para continuar"<<endl;
+        cin.ignore();
+        getchar();
+        if(game->mode){
+            game->user->info.vidas = game->snake.lifes;
+            game->user->info.nivel ++;
+        }else
+        {
+            game->levelSpecial++;
+        }        
+        playmatrix(game);
+        game->proxLevel = false;
+
     }
 
     

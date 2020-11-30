@@ -8,30 +8,6 @@ using namespace std;
 
 
 
-
-
-/*template<class T>
-void defineSnake(doubleLinked<T> list, charMatriz M, int fil, int col){
-    for(node<T>* e = list->front; e!=NULL; e=e->next){
-        if(e->info.i>=fil)
-            e->info.i=0;
-        if(e->info.j>=col)
-        e->info.j=0;
-        M[e->info.i][e->info.j]=SNAKE;
-        //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
-    }
-
-}*/
-
-/*void defineFood(charMatriz M, int* fil, int* col){
-    int i , j;
-    do{
-        i = getIntRand( 0 , *fil - 1 );
-        j = getIntRand( 0 , *col - 1 );
-    }while (M[i][j]!=SCENE);
-    M[i][j] = FOOD;
-}*/
-
 //template<class T>
 void snakeDel(myGame<nodeuserinfouser>* game){
     node<nodeinfo>* n = game->snake.list->removeFront();
@@ -62,10 +38,11 @@ void changeVelocity(myGame<nodeuserinfouser>* game){
 void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     game->snake.list->pushBack(nodeinfo(fil,col));
     if(game->snake.M[fil][col]== FOOD ){
-        //list->pushFront(T(fil,col));
+
         game->snake.sizeSnake++;
-        //cout << game->snake.speed;
-        //changeVelocity(game);
+        if(game->snake.sizeSnake == game->snake.sizeMax){
+            game->snake.flag = false;
+        }
         game->snake.defineFood();
         //M[fil][col]='*';
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){

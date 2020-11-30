@@ -23,4 +23,12 @@ struct myGame{
     int direccion;
     
     myGame(){};
+    
+    void startGame(){
+        key = '0';
+        playing = true;
+        redirection = false;
+        direccion = 3;
+    }
+    
 };

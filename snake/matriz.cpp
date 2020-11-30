@@ -32,14 +32,19 @@ g++ -pthread matriz.cpp -o matriz
 using namespace std;
 
 int playGame(myGame<nodeuserinfouser>* game){
-    double timer = 0;
-    while (game->snake.flag)
+    double timer = 0; // auxiliar para la velocidad
+    while (game->playing)
     {           
         if(!game->pause){
+            if(timer == 10 * game->snake.speed){
+                timer = 0;
+                game->snake.show();
+            }
+            
             if(game->snake.redirect || timer == 10 * game->snake.speed){
-            timer = 0;
+            
             game->snake.redirect = false;
-            game->snake.show();
+            
             snakeDirection(game);
         }
             timer++;
@@ -52,10 +57,10 @@ int playGame(myGame<nodeuserinfouser>* game){
 
 void playingGame(myGame<nodeuserinfouser>* game){
     thread th1(keyEventSnake , game);
-    game->snake.flag=true;
-    game->snake.show();
-    sleep(2);
-    playGame(game);
+    game->startGame(); // alzando banderas
+    game->snake.show(); // mostrando serpiente
+    sleep(2); // tiempo de gracia (espera para iniciar)
+    playGame(game); //
     th1.detach();
     if(game->snake.sizeSnake == game->snake.sizeMax){
             game->proxLevel = true;

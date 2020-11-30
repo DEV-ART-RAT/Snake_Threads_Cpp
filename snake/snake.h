@@ -7,6 +7,22 @@
 using namespace std;
 
 
+void increasePoints(myGame<nodeuserinfouser>* game){
+    switch (game->mode)
+    {
+    case 1:
+        game->snake.points += 10;
+        break;
+    case 2:
+        game->snake.points += 50;
+        break;
+    case 3:
+        game->snake.points += 100;
+        break;
+    default:
+        break;
+    }
+}
 
 //template<class T>
 void snakeDel(myGame<nodeuserinfouser>* game){
@@ -40,6 +56,7 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     if(game->snake.M[fil][col]== FOOD ){
 
         game->snake.sizeSnake++;
+        //Llamar funcion aumentar puntos
         if(game->snake.sizeSnake == game->snake.sizeMax){
             game->snake.flag = false;
         }

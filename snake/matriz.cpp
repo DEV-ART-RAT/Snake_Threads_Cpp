@@ -79,14 +79,16 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     srand(time(NULL));
     //int level = 11;//[1,5]facil,[6,10]normal,[11,15]dificil
     int row, col , obstaculos, snkMax, velocidad;
-
+    game->food =1;
     
-    if(game->mode){//juego clasico --continuo
+    if(game->mode == 1){//juego clasico --continuo
         game->scene =  1;
+        game->food++;
         if(game->user->info.vidas<=0){
             game->user->info.vidas = 5;
             game->user->info.nivel = 1;
         }
+        //game->snake.lifes = game->user->info.vidas;
         while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
             game->scene++;
             if(game->scene>2){
@@ -103,9 +105,16 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
         game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
         game->snake.level = game->user->info.nivel;
-        //game->snake.setLive(game->liveSpecial);
+        game->liveSpecial = game->user->info.vidas;
+    }else if(game->mode == 2){
+        game->liveSpecial = 0;
+        sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
+        obstaculos = 0;
+        snkMax = 99999;
+        game->snake.level = 1;
     }else//juego especial
-    {
+    {   
+        game->food++;
         if(game->levelSpecial>3){
             cout<<"felicidades... completaste el escenario"<<endl;
             cout<<" presiona cualquier tecla para continuar"<<endl;
@@ -126,8 +135,9 @@ int playmatrix(myGame<nodeuserinfouser>* game){
 
     game->snake.defineScene(game->scene);
     game->snake.defineObst(obstaculos);
-    game->snake.defineFood();
-    game->snake.defineFood();
+    for (int i=0; i<game->food; i++){
+        game->snake.defineFood();
+    }
     
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty;//nivel de velocidad
     game->snake.sizeMax = snkMax;

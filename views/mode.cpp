@@ -14,9 +14,10 @@ using namespace std;
 auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
     snakeprint();
-    (opc==1)? mensageLine(w.ws_col,"*  CLASICO  *"):    mensageLine(w.ws_col,"   CLASICO   ");
-    (opc==2)? mensageLine(w.ws_col,"*  ESPECIAL * "):   mensageLine(w.ws_col,"   ESPECIAL   ");
-    (opc==3)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLine(w.ws_col,"*  SNAKE WORLD PARTY  *"):    mensageLine(w.ws_col,"   SNAKE WORLD PARTY   ");
+    (opc==2)? mensageLine(w.ws_col,"*  CLASICO 97  *"):    mensageLine(w.ws_col,"   CLASICO 97   ");
+    (opc==3)? mensageLine(w.ws_col,"*  ESPECIAL * "):   mensageLine(w.ws_col,"   ESPECIAL   ");
+    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };
@@ -33,17 +34,24 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
     switch (flag) {
         case 1:
             //game->scene =  1;
-            game->mode = true;//clasico
+            game->mode = 1;//clasico
             //difficultyMenu(game);
             playmatrix(game);
             //gameOverMenu(game);
             break;
-        case 2://especial
+        case 2:
+            //game->scene =  1;
+            game->mode = 2;//clasico
+            //difficultyMenu(game);
+            playmatrix(game);
+            //gameOverMenu(game);
+            break;
+        case 3://especial
             //playmatrix(&snake,2,0);
-            game->mode = false;//especial
+            game->mode = 3;//especial
             sceneMenu(game);
             break;
-        case 3:
+        case 4:
             //playmatrix(&snake,3,0);
             //startMenu(game);
             return 1;
@@ -55,7 +63,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int modeMenu(myGame<nodeuserinfouser>* game){
-    return modeMenuAux(game,startMenuAux(game,mensajeMode,3));
+    return modeMenuAux(game,startMenuAux(game,mensajeMode,4));
 }
 
 

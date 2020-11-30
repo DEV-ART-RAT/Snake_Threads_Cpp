@@ -8,11 +8,12 @@ struct myGame{
     doubleLinked<T> list;
     mySnake snake = mySnake();
     int difficulty;//dificultad de juego
-    bool mode;//modo de juego: clasico o escenario especial
+    int mode;//modo de juego: clasico o escenario especial
     int scene;//esenario actual
     int levelSpecial;
     int liveSpecial;
-
+    int food;
+    
     bool pause = false;
     bool proxLevel = false;
     

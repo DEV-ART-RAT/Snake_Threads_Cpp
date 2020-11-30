@@ -1,11 +1,12 @@
 #pragma once
-#include <iostream>
+
 #include <string>
+#include <iostream>
 #include <ostream>
 #include <fstream>
 #include <sstream>
-#include "./node.h"
 
+#include "./node.h"
 
 template<class T>
 void saveincsv(node<T>* list){

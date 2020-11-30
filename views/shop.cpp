@@ -1,7 +1,9 @@
 #pragma once
+
 #include <iostream>
 #include <unistd.h>
 #include <termios.h>
+
 #include "./snakeprint.cpp"
 #include "../snake/my_snake.h"
 #include "../tools/gameStruct.h"

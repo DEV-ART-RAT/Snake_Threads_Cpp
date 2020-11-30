@@ -1,8 +1,7 @@
 #pragma once
 
-#include "../tools/gameStruct.h"
 #include "matriz.h"
-//#include "../tools/gameStruct.h"
+#include "../tools/gameStruct.h"
 
 using namespace std;
 

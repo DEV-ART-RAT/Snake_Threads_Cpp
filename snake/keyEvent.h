@@ -1,8 +1,10 @@
 #pragma once
+
 #include <stdio.h>//getChar()
 #include <unistd.h>
 #include <termios.h>
 #include <stdio_ext.h> 
+
 #include "snake.h"
 #include "my_snake.h"
 #include "../tools/gameStruct.h"

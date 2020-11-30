@@ -1,7 +1,10 @@
 #pragma once
+
 #include <iostream>
+
 #include <unistd.h>
 #include <termios.h>
+
 #include "../snake/my_snake.h"
 #include "../tools/nodeuser.h"
 using namespace std;

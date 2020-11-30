@@ -1,7 +1,9 @@
 #pragma once
+
 #include <string>
 #include <iomanip>
 #include <iostream>
+
 #include "./colors.h"
 #include "../tools/screenControl.h"
 

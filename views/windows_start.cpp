@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
+
 #include <unistd.h>
+
 #include "./shop.cpp"
 #include "./top.cpp"
 #include "./mode.cpp"
@@ -11,6 +13,7 @@
 #include "../snake/keyEvent.h"
 #include "../tools/saveUser.h"
 #include "../tools/gameStruct.h"
+
 using namespace std;
 
 int welcomemain(int &P,int&C,string user);

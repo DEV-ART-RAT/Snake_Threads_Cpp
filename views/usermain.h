@@ -17,14 +17,19 @@ void printUsers(myGame<T>* ,string user);
 template <class T>
 void usermain(myGame<T>* game) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
-    string user;
+    string user="";
     welcomeuser();//mostrando mensaje visual para pedir usuario
-    cin>>user;
-
+    int vecesdigitadas=0;
+    do{
+        if(vecesdigitadas>0)
+            mensageLine(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+        vecesdigitadas++;
+        cin>>user;
+    }while(user==""||user.size()>12);
     printUsers(game,user);//cargando lista de usuarios de fuente externa
     
     if(game->user){//revisando si el usuario ya estaba registrado        
-        mensageLine(w.ws_col,string("Bienvenido de nuevo! "+game->user->info.name));cout<<RESET;
+        mensageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
         mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
         mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));        cout<<RESET;
         mensageLine(w.ws_col,string("Tu Actual : "+to_string(game->user->info.puntajeContinuar)));        cout<<RESET;
@@ -35,7 +40,7 @@ void usermain(myGame<T>* game) {
     } else{
         game->list.pushBack(nodeuserinfouser(0,0,0,5,1,user));//creando nuevo usuario
         game->user = game->list.back;
-        mensageLine(w.ws_col,string("Bienvenido!"+game->user->info.name));        cout<<RESET;
+        mensageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
         mensageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
         mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
         mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));        cout<<RESET;
@@ -44,7 +49,7 @@ void usermain(myGame<T>* game) {
         mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 
     }
-    mensageLine(w.ws_col,"presiona ENTER para continuar");
+    mensageLine(w.ws_col,"Presiona ENTER para continuar");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
     cin.ignore();
@@ -103,6 +108,6 @@ void welcomeuser(void){
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     snakeprint();
     mensageLine(w.ws_col,"Digita tu  USUARIO");
-    mensageLine(w.ws_col,"(si ya tienes un usuario se recuperara tu progreso) ");
+    mensageLine(w.ws_col,"(Si ya tienes un usuario se recuperara tu progreso!)");
 
 }

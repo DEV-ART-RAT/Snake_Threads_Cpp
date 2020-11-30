@@ -1,10 +1,10 @@
 #pragma once
 
-#include <iostream>
 #include <map>
-#include <iomanip>
 #include <vector>
-#include <string>
+#include <string> 
+#include <iomanip>
+#include <iostream>
 
 #ifdef TEXTTABLE_ENCODE_MULTIBYTE_STRINGS
 #include <clocale>

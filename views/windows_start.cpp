@@ -1,33 +1,16 @@
 #pragma once
 #include <iostream>
-//#include <termios.h>
-//#include <unistd.h>
-// #ifdef _WIN32 /* Deberia estar definido en windows*/
-//#include <windows.h>
-//#include <winuser.h>
-//#include <cstdlib>
-//#include <conio.h>
-
-//#include <thread>
-#include "../snake/clear.cpp"
+#include <unistd.h>
 #include "./shop.cpp"
 #include "./top.cpp"
-#include "./game_over.cpp"
 #include "./mode.cpp"
-#include "../tools/gameStruct.h"
-
-
+#include "./game_over.cpp"
+#include "./snakeprint.cpp"
+#include "../snake/clear.cpp"
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
-#include "./snakeprint.cpp"
 #include "../tools/saveUser.h"
-
-//#include <termios.h>
-#include <unistd.h>
-
-
-
-
+#include "../tools/gameStruct.h"
 using namespace std;
 
 int welcomemain(int &P,int&C,string user);
@@ -69,41 +52,30 @@ auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game) {
     mensageMarginStart(opc,game);
 };
 
-
-
-
 int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
     char key; //contenedor de tecla
     int flag = 1;       //opcion actual del menu
     //int sizeOption=3;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
-
     sleep(0.1);//para corregir fallo de while
     wellcome(flag,game);  //invocacion del menu
-
     cin.ignore();
     sleep(0.1);//para corregir fallo de whiles
-
     while(loop){
-
         key=getchar();//up:65 down:66 o B left:68 rigth:67
-
         if(key==65 ){
             if(flag > 1){
                 flag--;
             }
         }
-        
         if(  key=='B'){
             if(flag < sizeOption){
                 flag++;
             }
         }
-
         if( key=='\n'){
             return flag;
         }
-
         wellcome(flag,game);
         sleep(0.01);//para corregir fallo de while
     }
@@ -111,8 +83,6 @@ int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
 
     return 0;
 }
-
-
 
 int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
     switch (flag) {
@@ -147,10 +117,3 @@ int startMenu(myGame<nodeuserinfouser>* game){
     startMenuOpc(game,startMenuAux(game,mensajeStart,4));
     return 0;
 }
-
-
-
-
-
-
-

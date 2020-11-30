@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
@@ -5,58 +6,54 @@
 //#include "../snake/clear.cpp"
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
-#include "../user/nodeuser.h"
+#include "../tools/nodeuser.h"
 using namespace std;
 
-auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) { 
+auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<endl<<endl;
-
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" FACIL "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<" MEDIO "<<((opc==2)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==3)?"*":" ")<<" DIFICIL "<<((opc==3)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==4)?"*":" ")<<" REGRESAR "<<((opc==4)?"*":"");
-    cout<<endl<<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
+    snakeprint();
+    (opc==1)? mensageLine(w.ws_col,"*  FACIL  *"):    mensageLine(w.ws_col,"   FACIL   ");
+    (opc==2)? mensageLine(w.ws_col,"*  MEDIO * "):    mensageLine(w.ws_col,"   MEDIO   ");
+    (opc==3)? mensageLine(w.ws_col,"*  DIFICIL *"):   mensageLine(w.ws_col,"   DIFICIL  ");
+    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 };
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
+int startMenu(myGame<nodeuserinfouser>* );
+int playmatrix(myGame<nodeuserinfouser>* );
+int difficultyMenu(myGame<nodeuserinfouser>* );
 
 
-int difficultyMenuAuxOpc(node<nodeuserinfouser>* userdata,int flag,doubleLinked<nodeuserinfouser>* userlist){
+int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 
-    mySnake snake = mySnake();
+    game->difficulty = flag;//inciando dificultad especial
+    game->levelSpecial = 1;//inicando escenario especial
+    game->liveSpecial = 3;//iniciando vidads especial
+
     switch (flag) {
         case 1:
-            playmatrix(&snake,0,0);
+            
+            playmatrix(game);
             break;
         case 2:
-            playmatrix(&snake,2,0);
+            playmatrix(game);
             break;
         case 3:
-            playmatrix(&snake,3,0);
+            playmatrix(game);
             break;
         case 4:
-            startMenu(userdata,userlist);
-            break;
+            return 1;
         default:
             break;
     }
-
+    difficultyMenu(game);
     return 0;
 }
 
-int difficultyMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    return difficultyMenuAuxOpc(userdata,startMenuAux(userdata,mensajeDifficulty,4),userlist);
+int difficultyMenu(myGame<nodeuserinfouser>* game){
+    return difficultyMenuAuxOpc(game,startMenuAux(game,mensajeDifficulty,4));
 }
 
 

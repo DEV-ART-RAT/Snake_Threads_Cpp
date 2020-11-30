@@ -1,7 +1,9 @@
+#pragma once
 #include <iostream>
 #include <string>
 #include "node.h"
-#pragma once
+#include "nodeuser.h"
+
 
 using namespace std;
 
@@ -49,6 +51,13 @@ struct doubleLinked {
         node<T>* n = this->front;
         this->front->next->prev=NULL;
         this->front=this->front->next;
+        return n;
+    }
+
+    node<T>* removeBack(){
+        node<T>* n = this->back;
+        this->back->prev->next=NULL;
+        this->back=this->back->prev;
         return n;
     }
 };

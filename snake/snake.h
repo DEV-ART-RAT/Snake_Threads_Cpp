@@ -1,176 +1,179 @@
-#include "matriz.h"
-#include "my_snake.h"
-
 #pragma once
 
+#include "../tools/gameStruct.h"
+#include "matriz.h"
+//#include "../tools/gameStruct.h"
+
+using namespace std;
 
 
-
-
-/*template<class T>
-void defineSnake(doubleLinked<T> list, charMatriz M, int fil, int col){
-    for(node<T>* e = list.front; e!=NULL; e=e->next){
-        if(e->info.i>=fil)
-            e->info.i=0;
-        if(e->info.j>=col)
-        e->info.j=0;
-        M[e->info.i][e->info.j]=SNAKE;
-        //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
+void increasePoints(myGame<nodeuserinfouser>* game){
+    switch (game->mode)
+    {
+    case 1:
+        game->snake.points += 10;
+        break;
+    case 2:
+        game->snake.points += 50;
+        break;
+    case 3:
+        game->snake.points += 100;
+        break;
+    default:
+        break;
     }
-
-}*/
-
-/*void defineFood(charMatriz M, int* fil, int* col){
-    int i , j;
-    do{
-        i = getIntRand( 0 , *fil - 1 );
-        j = getIntRand( 0 , *col - 1 );
-    }while (M[i][j]!=SCENE);
-    M[i][j] = FOOD;
-}*/
+}
 
 //template<class T>
-void snakeDel(mySnake* snake){
-    node<nodeinfo>* n = snake->list.removeFront();
-    snake->M[n->info.i][n->info.j]=' ';
+void snakeDel(myGame<nodeuserinfouser>* game){
+    node<nodeinfo>* n = game->snake.list->removeFront();
+    game->snake.M[n->info.i][n->info.j]=' ';
     delete(n);
 }
 
 //template<class T>
-void snakeNew(mySnake* snake, int fil, int col){
-    snake->list.pushBack(nodeinfo(fil,col));
-    if(snake->M[fil][col]== FOOD ){
-        //list.pushFront(T(fil,col));
-        snake->sizeSnake = snake->sizeSnake + 1;
-        //cout << snake->speed;
-        int max = snake->sizeMax;
-        if(snake->sizeSnake < max*0.2)
-            snake->speed = snake->initialSpeed * 0.8;
-        else if (snake->sizeSnake < max*0.4)
-            snake->speed = snake->initialSpeed  * 0.6;
-        else if (snake->sizeSnake < max*0.5)
-            snake->speed = snake->initialSpeed  * 0.5;
-        else if (snake->sizeSnake < max*0.60)
-            snake->speed = snake->initialSpeed  * 0.4;
-        else if (snake->sizeSnake < max*0.80)
-            snake->speed = snake->initialSpeed  * 0.3;
-        else if (snake->sizeSnake < max * 1.2)
-            snake->speed = snake->initialSpeed  * 0.2;
+
+void changeVelocity(myGame<nodeuserinfouser>* game){
+    int max = game->snake.sizeMax;
+        if(game->snake.sizeSnake < max*0.2)
+            game->snake.speed = game->snake.initialSpeed * 0.8;
+        else if (game->snake.sizeSnake < max*0.4)
+            game->snake.speed = game->snake.initialSpeed  * 0.6;
+        else if (game->snake.sizeSnake < max*0.5)
+            game->snake.speed = game->snake.initialSpeed  * 0.5;
+        else if (game->snake.sizeSnake < max*0.60)
+            game->snake.speed = game->snake.initialSpeed  * 0.4;
+        else if (game->snake.sizeSnake < max*0.80)
+            game->snake.speed = game->snake.initialSpeed  * 0.3;
+        else if (game->snake.sizeSnake < max * 1.2)
+            game->snake.speed = game->snake.initialSpeed  * 0.2;
         else
-            snake->speed = snake->initialSpeed  * 0.1;
-            
-        snake->defineFood();
+            game->snake.speed = game->snake.initialSpeed  * 0.1;
+}
+
+void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
+    game->snake.list->pushBack(nodeinfo(fil,col));
+    if(game->snake.M[fil][col]== FOOD ){
+
+        game->snake.sizeSnake++;
+        //Llamar funcion aumentar puntos
+        if(game->snake.sizeSnake == game->snake.sizeMax){
+            game->snake.flag = false;
+        }
+        game->snake.defineFood();
         //M[fil][col]='*';
-    }else if(snake->M[fil][col]==SNAKE || snake->M[fil][col]==WALL){
-        snake->flag = false;
-        snake->M[fil][col]=CRASH;
-        snake->show();
-        //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
+    }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
+        game->snake.flag = false;
+        game->snake.M[fil][col]=CRASH;
+        game->snake.show();
+        //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
         cout<<"GAME OVER >:´v"<<endl;
 
     }else
     {
-        snakeDel(snake);
+        snakeDel(game);
     }    
-    snake->M[fil][col]=SNAKE;
+    game->snake.M[fil][col]=SNAKE;
+    //cout<<"voy en:"<<game->snake.list->back->info;
+    //cin.get();
 }
 
 
 //template<class T>
-void snakeRight(mySnake* snake){
-    int prevF= snake->list.back->info.i;
-    int prevC= snake->list.back->info.j;
+void snakeRight(myGame<nodeuserinfouser>* game){
+    int prevF= game->snake.list->back->info.i;
+    int prevC= game->snake.list->back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< snake->steep;k++){
+    for(int k = 0; k< game->snake.steep;k++){
         prevC++;
-        if(prevC>=snake->COLUMNA){
+        if(prevC>=game->snake.COLUMNA){
             prevC=0;
         }
-        snakeNew(snake,prevF,prevC);
+        snakeNew(game,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
 /*
-void speedBooster(mySnake* snake){
+void speedBooster(myGame<nodeuserinfouser>* game){
         int max = 30;
-        if(snake->sizeSnake < max*0.2)
-            snake->speed = snake->initialSpeed * 0.8;
-        else if (snake->sizeSnake < max*0.4)
-            snake->speed = snake->initialSpeed  * 0.6;
-        else if (snake->sizeSnake < max*0.5)
-            snake->speed = snake->initialSpeed * 0.5;
-        else if (snake->sizeSnake < max*0.60)
-            snake->speed = snake->initialSpeed  * 0.4;
-        else if (snake->sizeSnake < max*0.80)
-            snake->speed = snake->initialSpeed  * 0.3;
-        else if (snake->sizeSnake < max * 1.2)
-            snake->speed = snake->initialSpeed  * 0.2;
+        if(game->snake.sizeSnake < max*0.2)
+            game->snake.speed = game->snake.initialSpeed * 0.8;
+        else if (game->snake.sizeSnake < max*0.4)
+            game->snake.speed = game->snake.initialSpeed  * 0.6;
+        else if (game->snake.sizeSnake < max*0.5)
+            game->snake.speed = game->snake.initialSpeed * 0.5;
+        else if (game->snake.sizeSnake < max*0.60)
+            game->snake.speed = game->snake.initialSpeed  * 0.4;
+        else if (game->snake.sizeSnake < max*0.80)
+            game->snake.speed = game->snake.initialSpeed  * 0.3;
+        else if (game->snake.sizeSnake < max * 1.2)
+            game->snake.speed = game->snake.initialSpeed  * 0.2;
         else
-            snake->speed = snake->initialSpeed  * 0.1;
+            game->snake.speed = game->snake.initialSpeed  * 0.1;
 }
 */
 
 //template<class T>
-void snakeLeft(mySnake* snake){
-    int prevF= snake->list.back->info.i;
-    int prevC= snake->list.back->info.j;
+void snakeLeft(myGame<nodeuserinfouser>* game){
+    int prevF= game->snake.list->back->info.i;
+    int prevC= game->snake.list->back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< snake->steep;k++){
+    for(int k = 0; k< game->snake.steep;k++){
         prevC--;
         if(prevC < 0){
-            prevC = snake->COLUMNA -1;
+            prevC = game->snake.COLUMNA -1;
         }
-        snakeNew(snake,prevF,prevC);
+        snakeNew(game,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
 //template<class T>
-void snakeUp(mySnake* snake){
-    int prevF= snake->list.back->info.i;
-    int prevC= snake->list.back->info.j;
+void snakeUp(myGame<nodeuserinfouser>* game){
+    int prevF= game->snake.list->back->info.i;
+    int prevC= game->snake.list->back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< snake->steep;k++){
+    for(int k = 0; k< game->snake.steep;k++){
         prevF--;
         if(prevF < 0){
-            prevF = snake->FILA - 1;
+            prevF = game->snake.FILA - 1;
         }
-        snakeNew(snake,prevF,prevC);
+        snakeNew(game,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
 //template<class T>
-void snakeDown(mySnake* snake){
-    int prevF= snake->list.back->info.i;
-    int prevC= snake->list.back->info.j;
+void snakeDown(myGame<nodeuserinfouser>* game){
+    int prevF= game->snake.list->back->info.i;
+    int prevC= game->snake.list->back->info.j;
     //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
-    for(int k = 0; k< snake->steep;k++){
+    for(int k = 0; k< game->snake.steep;k++){
         prevF++;
-        if(prevF >= snake->FILA){
+        if(prevF >= game->snake.FILA){
             prevF = 0;
         }
-        snakeNew(snake,prevF,prevC);
+        snakeNew(game,prevF,prevC);
         //snakeDel(list,M);
     }
 }
 
 //template<class T>
-void snakeDirection(mySnake* snake){
-    switch (snake->dir)
+void snakeDirection(myGame<nodeuserinfouser>* game){
+    switch (game->snake.dir)
         {
         case 1:
-            snakeUp(snake);
+            snakeUp(game);
             break;
         case 2:
-            snakeDown(snake);
+            snakeDown(game);
             break;
         case 3:
-            snakeRight(snake);
+            snakeRight(game);
             break;
         case 4:
-            snakeLeft(snake);
+            snakeLeft(game);
             break;
         default:
             break;

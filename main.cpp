@@ -1,38 +1,48 @@
 #include <iostream>
 #include "./views/windows_start.cpp"
-#include "./views/usermain.cpp"
+#include "./views/usermain.h"
+#include "./tools/gameStruct.h"
 
 #include <termios.h>
 #include <unistd.h>
 
 
 using namespace std;
+struct termios term;
 
 /* 
 Para ejecutar:
-g++ -pthread main.cpp -o main
-./main
+g++ -pthread main.cpp -o main && ./main
 */
+void open_buffer();
+void close_buffer();
+
 
 int main(void) {
-    node<nodeuserinfouser> user;
-    doubleLinked<nodeuserinfouser> userlist;
-    //int flag = 0;
-    usermain(&user,&userlist);//ingresando 
+    myGame<nodeuserinfouser> game;// = new myGame();
+    //game.list=NULL;
+    game.user=NULL;
+    close_buffer();
+    usermain(&game);//ingresando usuario y cargando lista
     
+    open_buffer();
+    startMenu(&game);
+    close_buffer();
 
-    struct termios term;
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag &= ~ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
-
-    //flag = startMenu(&user);//obteniendo opcion de menu principal
-    startMenu(&user,&userlist);
-    //startMenuOpc(&user,startMenu(&user));//opcion de menu principal
-
-    tcgetattr(STDIN_FILENO, &term);
-    term.c_lflag |= ICANON;
-    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+    
 
     return 0;
 };
+
+
+void open_buffer(){
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag &= ~ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
+
+void close_buffer(){
+    tcgetattr(STDIN_FILENO, &term);
+    term.c_lflag |= ICANON;
+    tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}

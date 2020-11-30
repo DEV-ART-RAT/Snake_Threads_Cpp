@@ -1,6 +1,7 @@
+#pragma once
 #include <string>
 #include <iostream>
-#pragma once
+
 using namespace std;
 
 struct nodeinfo { //nodo con coordenadas matriciales i, j

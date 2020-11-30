@@ -1,3 +1,4 @@
+#pragma once
 #ifdef  linux
 #define OS_Windows 0
 #elif defined (__unix__)

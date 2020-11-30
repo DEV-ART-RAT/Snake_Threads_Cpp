@@ -3,45 +3,58 @@
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
-#include "../snake/keyEvent.h"
+//#include "../snake/keyEvent.h"
 #include "./windows_start.cpp"
-
+//#include "../tools/gameStruct.h"
+#include "./snakeprint.cpp"
 using namespace std;
 struct termios term_over;
 
-int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
-auto mensajeGameOver = [](int opc,node<nodeuserinfouser>* userdata) { 
+//int startMenuAux(node<nodeuserinfouser>* , auto ,int );
+
+auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game) { 
     CLEAR;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<"\t\t\t=====   ===    =="   <<"   =======   ==  =="  <<"   ====="   <<endl;
-    cout<<"\t\t\t||      ||\\\\   ||" <<"   ||   ||   || // "  <<"   ||"      <<endl;
-    cout<<"\t\t\t=====   || \\\\  ||" <<"   ||===||   |||   "  <<"   ====="   <<endl;
-    cout<<"\t\t\t   ||   ||  \\\\ ||" <<"   ||   ||   || \\\\ "<<"   ||"      <<endl;
-    cout<<"\t\t\t=====   ==   ===="   <<"   ==   ==   ==  =="  <<"   ====="   <<endl;
-    cout<<"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"<<endl<<endl;
-    cout<<endl<<endl;
-    cout<<"\t\t\t Que desea hacer? \n";
-    cout<<"\t\t\t\t\t"<<((opc==1)?"*":" ")<<" Comenzar de nuevo "<<((opc==1)?"*":"");
-    cout<<endl;
-    cout<<"\t\t\t\t\t"<<((opc==2)?"*":" ")<<"  EXIT "<<((opc==2)?"*":"");
-    cout<<endl<<endl;
+    snakeprint();
+    mensageLine(w.ws_col,"Que desea hacer?");
+    (opc==1)? mensageLine(w.ws_col,"*  Continar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continar(gastaras una vida)  ");
+    (opc==2)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
+};
+auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game) { 
+    CLEAR;
+    snakeprint();
+    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
+    mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
+    mensageSteep(w.ws_col);
+    mensageSteep(w.ws_col);
+    mensageLine(w.ws_col,"Lo sentimos pero perdiste.");
+    (opc==1)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
 };
 
-int gameOverMenuAux(node<nodeuserinfouser>* userdata, int flag,doubleLinked<nodeuserinfouser>* userlist) {
+int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
-            startMenu(userdata,userlist);
-            break;
+            game->snake.lifes--;
+            return true;
         case 2:
-            exit(EXIT_SUCCESS);
-            break;
+            delete(game->snake.M);
+            delete(game->snake.list);
+            game->snake.sizeSnake = 3;
+            return false;
         default:
-            break;
+            return false;
     }
 };
 
-int gameOverMenu(node<nodeuserinfouser>* userdata,doubleLinked<nodeuserinfouser>* userlist){
-    gameOverMenuAux(userdata,startMenuAux(userdata,mensajeGameOver,2),userlist);
-    return 0;
+bool gameOverMenu(myGame<nodeuserinfouser>* game){
+    if(game->snake.lifes > 0){
+        return gameOverMenuAux(game,startMenuAux(game,mensajeGameOverContinued,2));
+    }
+    gameOverMenuAux(game,startMenuAux(game,mensajeGameOverFinish,1));
+    return false;
+    
 }

@@ -3,6 +3,7 @@
 #include "../tools/screenControl.h"
 #include <iomanip>
 #include <string>
+#include "./colors.h"
 
 using namespace std;
 void mensageSnake(int col,string linea1[],int linea1size){
@@ -10,7 +11,7 @@ void mensageSnake(int col,string linea1[],int linea1size){
     col = (col- linea1->size() - 4 )/2;
     str.insert(0, col, ' ');
     for (int i=0; i <linea1size ;i++){
-    cout<<"*"<<str <<  linea1[i] << str <<"*" <<endl;
+    cout<<COLOR_RED<<"*"<<RESET<<str <<  COLOR_GREEN<<linea1[i]<<RESET << str <<COLOR_RED<<"*"<<RESET <<endl;
 
     }
     
@@ -21,7 +22,7 @@ void mensageLine(int col,string linea1){
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
     (linea1.size()%2 != 0)? cout<<"*"<<str <<  linea1 << str <<" *" <<endl :
-    cout<<"*"<<str <<  linea1 << str <<"*" <<endl;
+    cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
 }
 
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
@@ -74,13 +75,13 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
 void mensageSteep(int col){
     string strl;
     strl.insert(0, col - 4, ' ');
-    cout<<"*"<<strl<<"*"<<endl;
+    cout<<COLOR_RED<<"*"<<strl<<"*"<<RESET<<endl;
 }
 
 void mensageMargin(int col){
     string strl;
     strl.insert(0, col - 2, '*');
-    cout<<strl<<endl;
+    cout<<COLOR_RED<<strl<<RESET<<endl;
 }
 void mensageMarginTableaux1(int col){
     string strl;

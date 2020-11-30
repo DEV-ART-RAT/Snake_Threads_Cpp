@@ -36,10 +36,12 @@ int redireccionando(myGame<nodeuserinfouser> *game)
     case '\n':
             //game->playing=false;
             //game->pause = true;
-            close_buffer();
+            //close_buffer();
+            game->pause = true;
             shopMenu(game);
             game->snake.show();
-            open_buffer();
+            //open_buffer();
+            game->pause = false;
             sleep(2);
             //game->pause=false;
             break;//finalizando hilo

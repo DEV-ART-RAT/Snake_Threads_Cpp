@@ -36,11 +36,12 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
     while (game->playing)
     {   
         //fflush(stdin);
-        
         //cin.ignore();
-        game->key=getchar();
-        if(!game->playing){
-            return;
+        if(!game->pause){
+            game->key=getchar();
+            if(!game->playing){
+                return;
+            }
         }
         /*
         switch (game->key)

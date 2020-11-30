@@ -1,13 +1,11 @@
 #pragma once
-#include <iostream>
 #include <string>
-#include <iostream>
 #include <ostream>
-//#include "../user/nodeuser.h"
-#include "../tools/list.h"
-#include "../snake/clear.cpp"
-#include "./snakeprint.cpp"
 #include <iomanip>
+#include <iostream>
+#include "../tools/list.h"
+#include "./snakeprint.cpp"
+#include "../snake/clear.cpp"
 
 using namespace std;
 void top_game(myGame<nodeuserinfouser>* game);

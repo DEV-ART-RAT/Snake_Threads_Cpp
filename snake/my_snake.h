@@ -186,11 +186,11 @@ struct mySnake{
         CLEAR;
         cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
             << "   vidas: "<<lifes << "   dinero: "<<coins<<"  Puntos:"<<points<<RESET<<endl;
-        cout<<COLOR_BLUE;
+        cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;
         for(int i = 0; i < FILA; i++) {
-            cout<<COLOR_BLUE;
+            cout<<COLOR_BOLDBLUE;
             cout<<'|';
             cout<<RESET;
             for(int j = 0; j < COLUMNA; j++){
@@ -211,13 +211,13 @@ struct mySnake{
                     break;
                 }
             }
-            cout<<COLOR_BLUE;
+            cout<<COLOR_BOLDBLUE;
             cout<<'|'<<endl;
             cout<<RESET;
         }  
         //int c = 238;
         //char a = c;
-        cout<<COLOR_BLUE;
+        cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl;
         cout<<RESET;

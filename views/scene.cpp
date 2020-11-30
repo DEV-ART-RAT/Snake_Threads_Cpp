@@ -38,6 +38,7 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
     game->scene =  flag;
+    //game->levelSpecial = 1;
     switch (flag) {
         case 1:
             difficultyMenu(game);

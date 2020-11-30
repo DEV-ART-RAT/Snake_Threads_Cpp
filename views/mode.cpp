@@ -34,6 +34,7 @@ int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
+int modeMenu(myGame<nodeuserinfouser>* );
 
 
 int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
@@ -48,18 +49,17 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             break;
         case 2://especial
             //playmatrix(&snake,2,0);
-            
             game->mode = false;//especial
             sceneMenu(game);
             break;
         case 3:
             //playmatrix(&snake,3,0);
-            startMenu(game);
-            break;
+            //startMenu(game);
+            return 1;
         default:
             break;
     }
-
+    modeMenu(game);
     return 0;
 }
 

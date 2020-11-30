@@ -10,9 +10,6 @@ void sceneSize(int level, int* row, int* col){
     *row = w.ws_row - 5;
     *col = w.ws_col / 2;
 
-    //cout<<"leve: "<<level <<"  col: "<<*col<<"  row: "<<*row<<endl;
-    //cin.get();
-    //level=6;
 
     switch (level)
     {
@@ -50,23 +47,23 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
     switch (level)
     {
     case 1: // celdas 0%
-        *cel  *= 0.15;
-        *cel = (*cel>15)? 15: *cel;
+        *cel  *= 0.10;
+        *snk = (*snk>15)? 15: *snk;
         //*snk *= 0.3; //tamaño MAX de snake
         break;
     case 2: // celdas 5%
-        *cel  *= 0.25;
-        *cel = (*cel>20)? 20: *cel;
+        *cel  *= 0.20;
+        *snk = (*snk>20)? 20: *snk;
         //*snk *= 0.6; //tamaño MAX de snake
         break;
     case 3: // celdas 10%
-        *cel  *= 0.5;
+        *cel  *= 0.30;
         //*snk *= ; //tamaño MAX de snake
-        *cel = (*cel>25)? 25: *cel;
+        *snk = (*snk>25)? 25: *snk;
         break;
     case 4: // celdas 15%
         *cel  *= 0.8;
-        *cel = (*cel>30)? 30: *cel;
+        *snk = (*snk>30)? 30: *snk;
         break;
     case 5: // celdas 20%
         *cel  *= 0.9;

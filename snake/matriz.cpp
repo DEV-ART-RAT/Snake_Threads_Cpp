@@ -36,21 +36,18 @@ int playGame(myGame<nodeuserinfouser>* game){
     while (game->snake.flag)
     {
                     
-        if(game->snake.redirect || timer == 10 * game->snake.speed){
+        if(!game->pause){
+            if(game->snake.redirect || timer == 10 * game->snake.speed){
             timer = 0;
             game->snake.redirect = false;
             game->snake.show();
-            //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
             snakeDirection(game);
-            cout<<"cabeza: "<<game->snake.list->front->info<<"  direccion: "<<game->snake.dir;
-            //cin.ignore();
-            //getchar();
         }
-        
-        
+            timer++;
+        }
+
         usleep(10 * 1000);
-        timer++;
-        //sleep(2);
+        
     }
 }
 
@@ -61,8 +58,8 @@ void playingGame(myGame<nodeuserinfouser>* game){
     sleep(2);
     playGame(game);
     th1.detach();
-    cout<<"murio el hilo"<<endl;
-    cin.get();
+    //cout<<"murio el hilo"<<endl;
+    //cin.get();
 }
 
 void restartingGame(myGame<nodeuserinfouser>* game){
@@ -92,12 +89,13 @@ int playmatrix(myGame<nodeuserinfouser>* game){
         }
         sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
         game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
-        game->liveSpecial = game->user->info.vidas;
+        //game->snake.setLive(game->liveSpecial);
     }else//juego especial
     {
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
+        game->liveSpecial = 3;
     }
-    
+    game->snake.setLive(game->liveSpecial);
     game->snake.inicialiceMySnake(row,col);
 
     game->snake.list->pushBack(nodeinfo(5,5));//cargando serpiente

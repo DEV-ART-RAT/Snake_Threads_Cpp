@@ -31,6 +31,7 @@ auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) {
 
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
+int sceneMenu(myGame<nodeuserinfouser>* );
 
 
 int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
@@ -47,12 +48,11 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
             break;
         case 3:
             //playmatrix(&snake,3,0);
-            startMenu(game);
-            break;
+            return 1;
         default:
             break;
     }
-
+    sceneMenu(game);
     return 0;
 }
 

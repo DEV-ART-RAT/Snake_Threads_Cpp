@@ -72,7 +72,7 @@ struct mySnake{
         initialSpeed = speed + speedBost;
         points= 1000;
         coins = 0;
-        lifes = 3;
+        //lifes = 3;
         sizeMax = 30;
         
         getMatrizChar(&M,FILA,COLUMNA);
@@ -95,7 +95,7 @@ struct mySnake{
         initialSpeed = speed + speedBost;
         points= 1000;
         coins = 0;
-        lifes = 3;
+        //lifes = 3;
         sizeMax = 30;
         
         getMatrizChar(&M,FILA,COLUMNA);
@@ -181,7 +181,8 @@ struct mySnake{
         //cout<<flush;
         //system("clear");//windows
         CLEAR;
-        cout<<"Restante: "<<sizeMax - sizeSnake << "   vidas: "<<lifes << endl;
+        cout<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
+            << "   vidas: "<<lifes << "   dinero: "<<coins<<endl;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl;
         for(int i = 0; i < FILA; i++) {
@@ -196,8 +197,14 @@ struct mySnake{
         cout<<"-"<<endl;
 }
 
+    void setLive(int live){
+        lifes=live;
+    }
+
     
 };
+
+
 
 void levelOne(char** array, int a, int b){//escenario FULL paredes
     for(int i = 0; i < a; i++) {

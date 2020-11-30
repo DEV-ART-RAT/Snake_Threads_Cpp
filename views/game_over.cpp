@@ -10,6 +10,7 @@
 using namespace std;
 struct termios term_over;
 
+
 //int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
 auto mensajeGameOverContinued = [](int opc,node<nodeuserinfouser>* userdata) { 
@@ -46,7 +47,7 @@ auto mensajeGameOverFinish = [](int opc,node<nodeuserinfouser>* userdata) {
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
-            game->liveSpecial--;
+            game->snake.lifes--;
             return true;
         case 2:
             delete(game->snake.M);
@@ -59,7 +60,7 @@ int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
 };
 
 bool gameOverMenu(myGame<nodeuserinfouser>* game){
-    if(game->liveSpecial>0){
+    if(game->snake.lifes > 0){
         return gameOverMenuAux(game,startMenuAux(game->user,mensajeGameOverContinued,2));
     }
     gameOverMenuAux(game,startMenuAux(game->user,mensajeGameOverFinish,1));

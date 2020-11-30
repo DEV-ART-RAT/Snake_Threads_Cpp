@@ -12,6 +12,8 @@ struct myGame{
     int scene;//esenario actual
     int levelSpecial;
     int liveSpecial;
+
+    bool pause = false;
     
     myGame(){};
 };

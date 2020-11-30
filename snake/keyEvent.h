@@ -46,8 +46,11 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
         {
         case '\n':
             //game->snake.flag=false;
-            
+            game->pause = true;
             shopMenu(game);
+            game->snake.show();
+            sleep(2);
+            game->pause=false;
             break;//finalizando hilo
         case 65://up
             if(game->snake.dir!=2 && game->snake.dir!=1){

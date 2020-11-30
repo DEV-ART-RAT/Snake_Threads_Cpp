@@ -33,6 +33,7 @@ auto mensajeDifficulty = [](int opc,node<nodeuserinfouser>* userdata) {
 int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
+int difficultyMenu(myGame<nodeuserinfouser>* );
 
 
 int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
@@ -43,6 +44,7 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 
     switch (flag) {
         case 1:
+            
             playmatrix(game);
             break;
         case 2:
@@ -52,12 +54,11 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
             playmatrix(game);
             break;
         case 4:
-            startMenu(game);
-            break;
+            return 1;
         default:
             break;
     }
-
+    difficultyMenu(game);
     return 0;
 }
 

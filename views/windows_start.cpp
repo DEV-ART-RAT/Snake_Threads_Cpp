@@ -52,13 +52,9 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
     mensageSteep(w.ws_col);
 
     (opc==1)? mensageLine(w.ws_col,"*  START *"): mensageLine(w.ws_col,"   START  ");
-    mensageSteep(w.ws_col);
     (opc==2)? mensageLine(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
-    mensageSteep(w.ws_col);
     (opc==3)? mensageLine(w.ws_col,"*  TOP *"): mensageLine(w.ws_col,"   TOP  ");
-    mensageSteep(w.ws_col);
     (opc==4)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
-    mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 
@@ -124,11 +120,11 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             break;
         case 2:
             shopMenu(game);
-            startMenu(game);
+            
             break;
         case 3:
             top_game(game);
-            startMenu(game);
+            //startMenu(game);
             break;
         case 4:
             cout<<"exit... :'v"<<endl;
@@ -137,6 +133,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
         default:
             break;
     }
+    startMenu(game);
     return 0;
 }
 

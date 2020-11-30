@@ -85,7 +85,7 @@ void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax,int* 
 
     sceneSize(level,row,col);
     sceneLevelDif(level,row,col,obstaculos,snkMax);
-    *snkMax=5;
+    //*snkMax=5;
 
 }
 

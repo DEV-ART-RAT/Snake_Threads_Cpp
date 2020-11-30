@@ -22,36 +22,29 @@ void keyboardEvent(char* key, bool* flag){
     cin.ignore();
 }
 
-void snakeEvent(myGame<nodeuserinfouser>* game){
+/*void snakeEvent(myGame<nodeuserinfouser>* game){
     //snakeDirection(snake);
     //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
     //usleep(500 * 1000);
     game->snake.redirect =  true;
-}
+}*/
 
 //template<class T>
 void keyEventSnake(myGame<nodeuserinfouser>* game){
     cin.ignore();
 
-    while (game->snake.flag)
+    while (game->playing)
     {   
         //fflush(stdin);
         
-        //cin.ignore();
-        game->snake.key=getchar();
-        if(!game->snake.flag){
+        cin.ignore();
+        game->key=getchar();
+        if(!game->playing){
             return;
         }
-        switch (game->snake.key)
+        /*
+        switch (game->key)
         {
-        case '\n':
-            //game->snake.flag=false;
-            game->pause = true;
-            shopMenu(game);
-            game->snake.show();
-            sleep(2);
-            game->pause=false;
-            break;//finalizando hilo
         case 65://up
             if(game->snake.dir!=2 && game->snake.dir!=1){
                 game->snake.dir=1;
@@ -79,6 +72,7 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
         default:
             break;
         }
+        */
         //cout<<"steep: "<<*steep<<endl;
         //sleep(2);
 

@@ -18,6 +18,7 @@ g++ -pthread matriz.cpp -o matriz
 #include "matriz.h"
 #include "snake.h"
 #include "my_snake.h"
+#include "main.cpp"
 #include "../scene/parameter_define.cpp"
 //#include "../tools/gameStruct.h"
 
@@ -31,28 +32,41 @@ int redireccionando(myGame<nodeuserinfouser> *game)
 {
     switch (game->key)
     {
+    case '\n':
+            //game->playing=false;
+            //game->pause = true;
+            close_buffer();
+            shopMenu(game);
+            game->snake.show();
+            sleep(2);
+            //game->pause=false;
+            break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)
         {
-            game->redirection = true;
+            //game->redirection = true;
+            game->direccion = 1;
         }
         break;
     case 66: //down
         if (game->direccion != 2 && game->direccion != 1)
         {
-            game->redirection = true;
+            //game->redirection = true;
+            game->direccion = 2;
         }
         break;
     case 67: //right
         if (game->direccion != 3 && game->direccion != 4)
         {
-            game->redirection = true;
+            //game->redirection = true;
+            game->direccion = 3;
         }
         break;
     case 68: //left
         if (game->direccion != 3 && game->direccion != 4)
         {
-            game->redirection = true;
+            //game->redirection = true;
+            game->direccion = 4;
         }
         break;
     default:
@@ -65,22 +79,23 @@ int playGame(myGame<nodeuserinfouser> *game)
     double timer = 0; // auxiliar para la velocidad
     while (game->playing)
     {
-        if (!game->pause)
-        {
-            if (timer == 10 * game->snake.speed)
+        //if (!game->pause)
+        //{
+            if (timer > 10 * game->snake.speed)
             {
-                timer = 0;
                 redireccionando(game);
-                if (game->redirection)
+                /*if (game->redirection)
                 {
-                    snakeDirection(game);
+                    
                     game->redirection = false;
-                }
+                }*/
+                snakeDirection(game);
                 game->snake.show();
+                timer = 0;
             }
             timer++;
-        }
-
+        //}
+        
         usleep(10 * 1000);
     }
 }
@@ -104,6 +119,7 @@ void playingGame(myGame<nodeuserinfouser> *game)
 void restartingGame(myGame<nodeuserinfouser> *game)
 {
     game->snake.deleteSnake();
+    game->direccion = 3;
     for (int i = 0; i < game->snake.sizeSnake - 2; i++)
     {
         game->snake.list->pushBack(nodeinfo(5, 5)); //cargando serpiente
@@ -198,8 +214,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
 
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty; //nivel de velocidad
     game->snake.sizeMax = snkMax;
-    cout << snkMax;
-    cin.get();
+
 
     //thread th2(myThreadTwo,4);
     //*

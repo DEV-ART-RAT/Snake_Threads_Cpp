@@ -58,13 +58,13 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
         game->snake.sizeSnake++;
         increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){
-            game->snake.flag = false;
+            game->playing = false;
         }
         game->snake.defineFood();
         game->snake.M[fil][col]=SNAKE;
         //M[fil][col]='*';
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
-        game->snake.flag = false;
+        game->playing = false;
         game->snake.M[fil][col]=CRASH;
         game->snake.show();
         game->snake.list->removeBack();
@@ -165,7 +165,7 @@ void snakeDown(myGame<nodeuserinfouser>* game){
 
 //template<class T>
 void snakeDirection(myGame<nodeuserinfouser>* game){
-    switch (game->snake.dir)
+    switch (game->direccion)
         {
         case 1:
             snakeUp(game);

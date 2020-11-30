@@ -57,6 +57,7 @@ struct mySnake{
     double initialSpeed;
     double speedBost;
     int sizeMax;
+    int velMax;
     doubleLinked <nodeinfo>* list;
 
     mySnake() {}
@@ -67,7 +68,7 @@ struct mySnake{
         redirect=false;
         steep=1;
         //level=0;
-        sizeSnake = 4;
+        sizeSnake = 3;
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
@@ -97,6 +98,7 @@ struct mySnake{
         points= 0;
         coins = 0;
         //lifes = 3;
+        velMax = 30;
         sizeMax = 30;
         
         getMatrizChar(&M,FILA,COLUMNA);

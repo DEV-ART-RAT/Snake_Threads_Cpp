@@ -23,7 +23,7 @@ int main(void) {
     myGame<nodeuserinfouser> game;// = new myGame();
     //game.list=NULL;
     game.user=NULL;
-    
+    close_buffer();
     usermain(&game);//ingresando usuario y cargando lista
     
     open_buffer();

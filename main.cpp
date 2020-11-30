@@ -1,9 +1,11 @@
 #include <iostream>
-#include <termios.h>
+
 #include <unistd.h>
-#include "./views/windows_start.cpp"
+#include <termios.h>
+
 #include "./views/usermain.h"
 #include "./tools/gameStruct.h"
+#include "./views/windows_start.cpp"
 
 /* 
 Para ejecutar:

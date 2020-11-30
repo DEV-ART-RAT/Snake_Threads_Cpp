@@ -85,19 +85,20 @@ int playGame(myGame<nodeuserinfouser> *game)
     {
         //if (!game->pause)
         //{
-            if (timer > 40 - game->snake.speed)
+        cout << game->snake.speed;
+        if (timer > 10 * game->snake.speed)
+        {
+            redireccionando(game);
+            /*if (game->redirection)
             {
-                redireccionando(game);
-                /*if (game->redirection)
-                {
-                    
-                    game->redirection = false;
-                }*/
-                snakeDirection(game);
-                game->snake.show();
-                timer = 0;
-            }
-            timer++;
+                
+                game->redirection = false;
+            }*/
+            snakeDirection(game);
+            game->snake.show();
+            timer = 0;
+        }
+        timer++;
         //}
         
         usleep(10 * 1000);

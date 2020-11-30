@@ -108,7 +108,7 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     {
         if(game->levelSpecial>3){
             cout<<"felicidades... completaste el escenario"<<endl;
-            cout<<" presiona cualquier tecla para continuar"<endl;
+            cout<<" presiona cualquier tecla para continuar"<<endl;
             cin.ignore();
             getchar();
             return 1;

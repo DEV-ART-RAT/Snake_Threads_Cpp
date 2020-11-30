@@ -21,8 +21,8 @@ void mensageLine(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
-    (linea1.size()%2 != 0)? cout<<"*"<<str <<  linea1 << str <<" *" <<endl :
-    cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
+    (linea1.size()%2 != 0)?  cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<" *"<<RESET <<endl
+    :cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
 }
 
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){

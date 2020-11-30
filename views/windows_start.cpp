@@ -58,7 +58,7 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
     (opc==2)? mensageLine(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
-    (opc==3)? mensageLine(w.ws_col,"*  TOP *"): mensageLine(w.ws_col,"   TOP  ");
+    (opc==3)? mensageLine(w.ws_col,"*  TOP  *"): mensageLine(w.ws_col,"   TOP   ");
     (opc==4)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);

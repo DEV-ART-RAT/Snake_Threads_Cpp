@@ -35,13 +35,13 @@ void usermain(myGame<T>* game) {
     
     if(game->user){//revisando si el usuario ya estaba registrado        
         mensageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
-        print_user(game); 
+        //print_user(game); 
     } else{
         game->list.pushBack(nodeuserinfouser(0,0,0,5,1,user));//creando nuevo usuario
         game->user = game->list.back;
         mensageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
         mensageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
-        print_user(game); 
+        //print_user(game); 
     }
     mensageLine(w.ws_col,"Presiona ENTER para continuar");
     mensageSteep(w.ws_col);
@@ -109,7 +109,7 @@ template <class T>
 void print_user(myGame<T>* game){
     mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
     mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Actual : "+to_string(game->user->info.puntajeContinuar)));        cout<<RESET;
+    mensageLine(w.ws_col,string("Tu Puntaje Actual : "+to_string(game->user->info.puntajeContinuar)));        cout<<RESET;
     mensageLine(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
     mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 }

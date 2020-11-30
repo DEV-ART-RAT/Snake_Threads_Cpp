@@ -49,11 +49,11 @@ void mensageMarginStart(int opc, node<nodeuserinfouser>* userdata) {
     mensageSnake(w.ws_col,linea2 , 5);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    mensageLine(w.ws_col,string("Tus monedas : "+to_string(userdata->info.coin)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(userdata->info.puntaje)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Puntaje Actual : "+to_string(userdata->info.puntajeContinuar)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tus vidas : "+to_string(userdata->info.vidas)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Nivel : "+to_string(userdata->info.nivel)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(userdata->info.coin)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Maximo: "+to_string(userdata->info.puntaje)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Actual : "+to_string(userdata->info.puntajeContinuar)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tus vidas : "+to_string(userdata->info.vidas)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(userdata->info.nivel)));        cout<<RESET;
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");

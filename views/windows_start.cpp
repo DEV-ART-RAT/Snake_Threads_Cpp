@@ -20,7 +20,7 @@
 #include "../snake/matriz.cpp"
 #include "../snake/keyEvent.h"
 #include "./snakeprint.cpp"
-
+#include "../tools/saveUser.h"
 
 //#include <termios.h>
 #include <unistd.h>
@@ -132,7 +132,8 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             //startMenu(game);
             break;
         case 4:
-            cout<<"exit... :'v"<<endl;
+            saveincsv(game->list.front);
+            cout<<"Se guardo tu progreso!"<<endl;
             exit(EXIT_SUCCESS);
             break;
         default:

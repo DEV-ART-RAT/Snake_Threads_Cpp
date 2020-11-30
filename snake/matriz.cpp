@@ -149,6 +149,8 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty;//nivel de velocidad
     game->snake.sizeMax = snkMax;
+    cout << snkMax;
+    cin.get();
     
     //thread th2(myThreadTwo,4);
     //*

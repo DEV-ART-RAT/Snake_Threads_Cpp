@@ -17,5 +17,10 @@ struct myGame{
     bool pause = false;
     bool proxLevel = false;
     
+    char key;
+    bool playing;
+    bool redirection;
+    int direccion;
+    
     myGame(){};
 };

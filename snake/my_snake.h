@@ -43,10 +43,10 @@ struct mySnake{
     charMatriz M;
     int FILA;
     int COLUMNA;
-    char key;
-    int dir;
-    bool flag;
-    bool redirect;
+    //char key;
+    //int dir;
+    //bool flag;
+    //bool redirect;
     int steep;
     int sizeSnake;
     int points;
@@ -62,10 +62,10 @@ struct mySnake{
 
     mySnake() {}
     mySnake(int _i, int _c) : FILA(_i), COLUMNA(_c) {
-        key='0';
-        dir=3;
-        flag=true;
-        redirect=false;
+        //key='0';
+        //dir=3;
+        //flag=true;
+        //redirect=false;
         steep=1;
         //level=0;
         sizeSnake = 3;
@@ -86,10 +86,10 @@ struct mySnake{
         COLUMNA = col;
         sizeSnake = 3;
 
-        key='0';
-        dir=3;
-        flag=true;
-        redirect=false;
+        //key='0';
+        //dir=3;
+        //flag=true;
+        //redirect=false;
         steep=1;
         //level=0;
         speedBost = 0;

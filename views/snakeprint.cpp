@@ -11,7 +11,7 @@ void mensageSnake(int col,string linea1[],int linea1size){
     col = (col- linea1->size() - 4 )/2;
     str.insert(0, col, ' ');
     for (int i=0; i <linea1size ;i++){
-    cout<<COLOR_RED<<"*"<<RESET<<str <<  COLOR_GREEN<<linea1[i]<<RESET << str <<COLOR_RED<<"*"<<RESET <<endl;
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<  COLOR_BOLDGREEN<<linea1[i]<<RESET << str <<COLOR_BOLDRED<<"*"<<RESET <<endl;
 
     }
     
@@ -21,15 +21,17 @@ void mensageLine(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
-    (linea1.size()%2 != 0)?  cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<" *"<<RESET <<endl
-    :cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
+    (linea1.size()%2 != 0)?  
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDYELLOW<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDYELLOW<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*"<<RESET <<endl;
 }
 void mensageLineWHITE(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
-    (linea1.size()%2 != 0)?  cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_YELLOW<<  linea1 <<RESET<< str <<COLOR_RED<<" *"<<RESET <<endl
-    :cout<<COLOR_RED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_RED<<"*"<<RESET <<endl;
+    (linea1.size()%2 != 0)?  
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
 
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
@@ -57,22 +59,22 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     {
     case 0:
         if(SizeEspacios%2==0)
-            cout<<COLOR_RED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<" ";    
+            cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<" ";    
         else
-            cout<<COLOR_RED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<"  ";    
+            cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<"  ";    
         break;
     case -1:
          if(SizeEspacios%2==0)
-            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_RED<<"*"<<RESET<<endl;    
+            cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_BOLDRED<<"*"<<RESET<<endl;    
         else 
-            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_RED<<" *"<<RESET<<endl;     
+            cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_BOLDRED<<" *"<<RESET<<endl;     
         break;
 
     default:
         if(SizeEspacios%2==0)
-            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<" ";    
+            cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<" ";    
         else
-            cout<<COLOR_RED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<"  ";    
+            cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<"  ";    
         
         break;
     }
@@ -82,13 +84,13 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
 void mensageSteep(int col){
     string strl;
     strl.insert(0, col - 4, ' ');
-    cout<<COLOR_RED<<"*"<<strl<<"*"<<RESET<<endl;
+    cout<<COLOR_BOLDRED<<"*"<<strl<<"*"<<RESET<<endl;
 }
 
 void mensageMargin(int col){
     string strl;
     strl.insert(0, col - 2, '*');
-    cout<<COLOR_RED<<strl<<RESET<<endl;
+    cout<<COLOR_BOLDRED<<strl<<RESET<<endl;
 }
 void mensageMarginTableaux1(int col){
     string strl;

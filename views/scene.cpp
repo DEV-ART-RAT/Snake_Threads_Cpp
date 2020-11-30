@@ -12,7 +12,8 @@ using namespace std;
 
 auto mensajeScene = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
- mensageMargin(w.ws_col);
+    
+    mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
 
     string linea1[] = {

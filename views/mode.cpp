@@ -13,6 +13,7 @@ using namespace std;
 
 auto mensajeMode = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
+    
     mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
 

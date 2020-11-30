@@ -7,12 +7,14 @@
 //#include "../snake/matriz.cpp"
 #include "../snake/my_snake.h"
 #include "../tools/gameStruct.h"
+#include "./snakeprint.cpp"
 //#include "./windows_start.cpp"
 using namespace std;
 
 auto mensajeShop = [](int opc,node<nodeuserinfouser>* userdata) { 
     CLEAR;
-   mensageMargin(w.ws_col);
+    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    mensageMargin(w.ws_col);
     mensageSteep(w.ws_col);
 
     string linea1[] = {

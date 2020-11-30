@@ -42,8 +42,9 @@ int playGame(myGame<nodeuserinfouser>* game){
             game->snake.show();
             //printMatrizChar(snake->M,snake->FILA,snake->COLUMNA);//-----
             snakeDirection(game);
-            cout<<"cabeza: "<<game->list.back<<"  direccion: "<<game->snake.dir;
-            cin.get();
+            cout<<"cabeza: "<<game->snake.list->front->info<<"  direccion: "<<game->snake.dir;
+            //cin.ignore();
+            //getchar();
         }
         
         
@@ -82,11 +83,16 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     
     if(game->mode){//juego clasico --continuo
         game->scene =  1;
+        if(game->user->info.vidas<=0){
+            game->user->info.vidas = 5;
+            game->user->info.nivel = 1;
+        }
         while (game->user->info.nivel * game->scene > 9){//eligiendo escenario clasico
             game->scene++;
         }
         sceneLevel(game->user->info.nivel, &row, &col, &obstaculos,&snkMax,&velocidad);
         game->difficulty = velocidad;//obteniendo ladificultad segun nivel actual
+        game->liveSpecial = game->user->info.vidas;
     }else//juego especial
     {
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos,&snkMax,&velocidad);
@@ -116,6 +122,7 @@ int playmatrix(myGame<nodeuserinfouser>* game){
     {
         restartingGame(game);
         playingGame(game);
+        //game->liveSpecial++;
         
     }
 

@@ -130,19 +130,15 @@ struct mySnake{
             //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
         }
         //list = new doubleLinked <nodeinfo>();
-        cout<<"definiendo snake:";
-        traverseBegin(list->front);
-        cin.get();
+        //cout<<"definiendo snake:";
+        //traverseBegin(list->front);
+        //cin.get();
     }
 
     void deleteSnake(){
-        for(node<nodeinfo>* e = list->front; e!=NULL; e=e->next){
-            if(e->info.i>=FILA)
-                e->info.i=0;
-            if(e->info.j>=FILA)
-            e->info.j=0;
+        for(node<nodeinfo>* e = list->back; e!=NULL; e=e->prev){
             M[e->info.i][e->info.j]=SCENE;
-            cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
+            //cout<<"e.i"<<e->info.i<<" e.j"<<e->info.j<<" ;";
             //list->removeFront();
         }
         /*cout<<"snake deleted";
@@ -152,7 +148,7 @@ struct mySnake{
         }
         list->back=NULL;
         list->front=NULL;*/
-        traverseBegin(list->front);
+        traverseEnd(list->back);
         cin.get();
         list = new doubleLinked <nodeinfo>();
         dir = 3;

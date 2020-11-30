@@ -34,8 +34,7 @@ using namespace std;
 int playGame(myGame<nodeuserinfouser>* game){
     double timer = 0;
     while (game->snake.flag)
-    {
-                    
+    {           
         if(!game->pause){
             if(game->snake.redirect || timer == 10 * game->snake.speed){
             timer = 0;

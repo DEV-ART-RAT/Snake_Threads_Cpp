@@ -30,24 +30,24 @@ int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 
-void boostPointsx2(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
-	if(!x2boosted && !x3boosted && userdata->info.coin >= 20){
-		x2boosted = true;
-        userdata->info.coin -= 20;
+void boostPointsx2(myGame<nodeuserinfouser>* game){
+	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >= 20){
+		game->snake.x2Boosted = true;
+        game->user->info.coin -= 20;
 		cout<<"Puntaje potenciado x2"<<endl;
-	}else if(x2boosted || x3boosted){
+	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
 		cout<<"Un potenciador ya habia sido activado"<<endl;
 	} else {
 		cout<<"Monedas insuficientes"<<endl;
     }
 }
 
-void boostPointsx3(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
-	if(!x2boosted && !x3boosted && userdata->info.coin >=30){
-		x3boosted = true;
-        userdata->info.coin -= 30;
+void boostPointsx3(myGame<nodeuserinfouser>* game){
+	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >=30){
+		game->snake.x3Boosted = true;
+        game->user->info.coin -= 30;
 		cout<<"Puntaje potenciado x3"<<endl;
-	}else if(x2boosted || x3boosted){
+	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
 		cout<<"Un potenciador ya habia sido activado"<<endl;
 	} else {
 		cout<<"Monedas insuficientes"<<endl;
@@ -78,10 +78,10 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //shopMenu(userdata,userlist);
             break;
         case 2:
-            boostPointsx2(game->user, x2Boosted, x3Boosted);
+            boostPointsx2(game);
             break;
         case 3:
-            boostPointsx3(game->user, x2Boosted, x3Boosted);
+            boostPointsx3(game);
             //sleep(1);
             //shopMenu(flag, userdata);
             break;

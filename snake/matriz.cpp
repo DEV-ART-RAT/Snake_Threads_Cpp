@@ -191,9 +191,9 @@ int playmatrix(myGame<nodeuserinfouser> *game)
     game->snake.list->pushBack(nodeinfo(5, 5)); //cargando serpiente
     game->snake.list->pushBack(nodeinfo(5, 6));
     game->snake.list->pushBack(nodeinfo(5, 7));
-    game->snake.defineSnake();
 
     defineScene(game);
+    game->snake.defineSnake();
     game->snake.defineObst(obstaculos);
     for (int i = 0; i < game->food; i++)
     {

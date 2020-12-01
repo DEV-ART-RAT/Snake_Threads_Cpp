@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "./colors.h"
+#include "./historias.cpp"
 #include "./snakeprint.cpp"
 #include "../snake/clear.cpp"
 #include "../tools/gameStruct.h"
@@ -37,19 +38,26 @@ void usermain(myGame<T>* game) {
     
     if(game->user){//revisando si el usuario ya estaba registrado        
         mensageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
+        mensageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
+        cin.ignore();
+        cin.get();
         //print_user(game); 
     } else{
         game->list.pushBack(nodeuserinfouser(0,0,0,0,5,1,user));//creando nuevo usuario
         game->user = game->list.back;
         mensageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
         mensageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
+        mensageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
+        cin.ignore();
+        cin.get();
+        history();
         //print_user(game); 
     }
-    mensageLine(w.ws_col,"Presiona ENTER para continuar");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
-    cin.ignore();
-    cin.get();
+   
 };
 
 template<class T>

@@ -11,6 +11,12 @@
 ## Indice <!-- omit in toc -->
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
+  - [inicio(usuario):](#iniciousuario)
+  - [principal](#principal)
+    - [Start](#start)
+    - [Tienda](#tienda)
+    - [Top](#top)
+    - [Exit](#exit)
 - [3. Implementacion de :](#3-implementacion-de-)
   - [3.1. Buenas prácticas:](#31-buenas-prácticas)
   - [3.2. Estructuras de datos (dinámicas):](#32-estructuras-de-datos-dinámicas)
@@ -27,6 +33,14 @@
 - Fredy Alexander Sánchez Pérez 00082817
 
 # 2. Capturas de pantalla:
+##  inicio(usuario):
+[<img src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0001.pgn" width="70">]()
+##  principal
+[<img src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0002.pgn" width="70">]()
+### Start
+### Tienda
+### Top
+### Exit
 
 # 3. Implementacion de :
 ## 3.1. Buenas prácticas:

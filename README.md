@@ -1,7 +1,7 @@
 # Snake -> Dev-ART - ft.freddy.   <!-- omit in toc -->
 [Pagina con Instrucciones](https://wmoralesdev.github.io/actividadfinal/index)
 
-[<img src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/click.png" width="50" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
+[<img src="https://github.com/00121117-Archivos/AA_Snake/blob/main/click.png" width="50" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
 
 ## Indice <!-- omit in toc -->
@@ -29,10 +29,10 @@
 
 # 2. Capturas de pantalla:
 ##  2.1. inicio(usuario):
-<img width="1000" height="300" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0001.png" />
+<img width="1000" height="300" src="https://github.com/00121117-Archivos/AA_Snake/blob/main/0001.png" />
 
 ##  2.2. principal
-<img width="1000" height="400" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0002.png" />
+<img width="1000" height="400" src="https://github.com/00121117-Archivos/AA_Snake/blob/main/0002.png" />
 
 ### 2.2.1. Start
 ### 2.2.2. Tienda

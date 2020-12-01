@@ -14,7 +14,8 @@
 #define CRASH '?'
 #define SCENE ' '
 #define WALL 'X'
-
+#define Circulo ''
+#define Pared ''
 using namespace std;
 
 int getIntRand(int a, int b){   
@@ -149,8 +150,13 @@ struct mySnake{
         //cout<<flush;
         //system("clear");//windows
         CLEAR;
-        cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
-            << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665"<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024"<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl;
+        cout<<COLOR_BOLDWHITE
+        <<"Largo: "<<sizeSnake
+        <<"   Restante: "<<sizeMax - sizeSnake 
+        << "     VIDAS :"
+        <<COLOR_BOLDRED<<" \u2665 "<<RESET
+        <<lifes << "   Dinero:"<<COLOR_BOLDYELLOW
+        <<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl;
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;
@@ -167,7 +173,7 @@ struct mySnake{
                     cout<<COLOR_BOLDGREEN<<"\u2B24"<<" "<<RESET;
                     break;
                 case WALL:
-                    cout<<COLOR_BOLDRED<<"\u2BBD"<<" "<<RESET;
+                    cout<<COLOR_BOLDRED<<"\u2612"<<" "<<RESET;
                     break;
                 case FOOD:
                     cout<<COLOR_BOLDYELLOW<<"\u2B24"<<" "<<RESET;

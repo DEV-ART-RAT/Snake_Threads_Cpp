@@ -28,12 +28,17 @@ int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 
 
-int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
+int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag,int size){
 
     //mySnake snake = mySnake();
     game->scene =  flag;
+    //cout<<flag<<size;
+    //cin.get();
     //game->levelSpecial = 1;
-    difficultyMenu(game);
+    
+    if(flag != size){
+        difficultyMenu(game);
+    }
     sceneMenu(game);
     return 0;
 }
@@ -41,7 +46,7 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
 int sceneMenu(myGame<nodeuserinfouser>* game){
     int opciones = 3;
     opciones += game->sceneList.size();
-    return sceneMenuAux(game,startMenuAux(game,mensajeScene,opciones));
+    return sceneMenuAux(game,startMenuAux(game,mensajeScene,opciones),opciones);
 }
 
 

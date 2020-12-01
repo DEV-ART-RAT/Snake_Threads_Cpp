@@ -68,7 +68,7 @@ void sceneChargininstructions(myGame<nodeuserinfouser>* game){
             levelOne(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//matriz full paredes
             break;
         default:
-            sceneChargininstructions(game);
+            sceneChargininstructions(game);//escenarios extras ( externos )
             break;
         }
     }

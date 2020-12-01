@@ -28,6 +28,7 @@ int redireccionando(myGame<nodeuserinfouser> *game)
             game->snake.show();
             game->pause = false;
             sleep(2);
+            game->key = '0';
             break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)

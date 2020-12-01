@@ -102,11 +102,14 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             saveincsv(game->list.front);
             break;
         case 3:
+            quickSort(game->list.front, 1);
+            saveincsv(game->list.front);
             top_game(game);
             saveincsv(game->list.front);
             //startMenu(game);
             break;
         case 4:
+            quickSort(game->list.front, 1);
             saveincsv(game->list.front);
             cout<<"Se guardo tu progreso!"<<endl;
             exit(EXIT_SUCCESS);

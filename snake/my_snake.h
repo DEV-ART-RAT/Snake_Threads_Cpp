@@ -14,8 +14,8 @@
 #define CRASH '?'
 #define SCENE ' '
 #define WALL 'X'
-#define Circulo '\u2B24'
-#define Pared '\u2BBD'
+#define Circulo ''
+#define Pared ''
 using namespace std;
 
 int getIntRand(int a, int b){   
@@ -165,13 +165,13 @@ struct mySnake{
                 //luis creo que me pase de lanza . pd : Rubi
                 //https://unicode-table.com/es/#miscellaneous-mathematical-symbols-b
                 case SNAKE:
-                    cout<<COLOR_BOLDGREEN<<Circulo<<" "<<RESET;
+                    cout<<COLOR_BOLDGREEN<<"\u2B24"<<" "<<RESET;
                     break;
                 case WALL:
-                    cout<<COLOR_BOLDRED<<Pared<<" "<<RESET;
+                    cout<<COLOR_BOLDRED<<"\u2612"<<" "<<RESET;
                     break;
                 case FOOD:
-                    cout<<COLOR_BOLDYELLOW<<Circulo<<" "<<RESET;
+                    cout<<COLOR_BOLDYELLOW<<"\u2B24"<<" "<<RESET;
                     break;                
                 default:
                     cout<<M[i][j]<<" "; 

@@ -150,7 +150,7 @@ struct mySnake{
         //system("clear");//windows
         CLEAR;
         cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
-            << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665 : "<<RESET<<lifes << "   dinero: "<<coins<<"  Puntos:"<<points<<RESET<<endl;
+            << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665"<<RESET<<lifes << "   Dinero: \u0024 "<<coins<<"  Puntos:"<<points<<RESET<<endl;
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;

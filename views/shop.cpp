@@ -15,12 +15,19 @@ auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game) {
     snakeprint();
     mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
     mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
+    if(game->snake.x2Boosted || game->snake.x3Boosted){
+        mensageLine(w.ws_col,"Potenciador Activo: x" + to_string((game->snake.x3Boosted)? 3:2) );
+    }
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (5 monedas)  *"):              mensageLine(w.ws_col,"   Vida Extra (5 monedas)   ");
-    (opc==2)? mensageLine(w.ws_col,"*  Potenciar puntaje x2 (20 monedas) * "):   mensageLine(w.ws_col,"   Potenciar puntaje x2 (20 monedas)   ");
-    (opc==3)? mensageLine(w.ws_col,"*  Potenciar puntaje x3 (30 monedas) *"):    mensageLine(w.ws_col,"   Potenciar puntaje x3 (30 monedas)  ");
-    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (5 monedas)  *"):              
+        mensageLine(w.ws_col,"   Vida Extra (5 monedas)   ");
+    (opc==2)? mensageLine(w.ws_col,"*  Potenciar puntaje x2 (20 monedas) * "):   
+        mensageLine(w.ws_col,"   Potenciar puntaje x2 (20 monedas)   ");
+    (opc==3)? mensageLine(w.ws_col,"*  Potenciar puntaje x3 (30 monedas) *"):    
+        mensageLine(w.ws_col,"   Potenciar puntaje x3 (30 monedas)  ");
+    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    
+        mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 }; 

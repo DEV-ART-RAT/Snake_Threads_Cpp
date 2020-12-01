@@ -88,8 +88,6 @@ struct mySnake{
         //lifes = 3;
         velMax = 30;
         sizeMax = 30;
-        x2Boosted = false;
-        x3Boosted = false;
         getMatrizChar(&M,FILA,COLUMNA);
     }
 

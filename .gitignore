@@ -1,2 +1,3 @@
 *.exe
 main
+cmake-build-debug

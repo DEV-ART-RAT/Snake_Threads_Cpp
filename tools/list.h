@@ -8,6 +8,13 @@
 #include "../scene/nodeScene.h"
 
 using namespace std;
+template < class T>
+int sizeAux(node<T>* front){
+    if(front) {
+        return 1 + sizeAux(front->next);
+    }
+    return 0;
+}
 
 template<class T>
 struct doubleLinked {
@@ -52,7 +59,13 @@ struct doubleLinked {
         this->back=this->back->prev;
         return n;
     }
+
+    int size(){
+        return sizeAux(front);
+    }
+    
 };
+
 
 
 template<class T>

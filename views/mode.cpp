@@ -12,7 +12,7 @@
 
 using namespace std;
 
-auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game) { 
+auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  SNAKE WORLD PARTY  *"):    mensageLine(w.ws_col,"   SNAKE WORLD PARTY   ");

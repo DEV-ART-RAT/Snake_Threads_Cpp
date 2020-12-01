@@ -10,7 +10,7 @@
 
 using namespace std;
 
-auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game) { 
+auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
     mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));

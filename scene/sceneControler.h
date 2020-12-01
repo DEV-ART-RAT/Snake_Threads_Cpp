@@ -11,12 +11,13 @@ using namespace std;
 
 
 template<class T>
-void chargeScenes(myGame<T>* game){
+void chargeScenes(myGame<T>* game,string name){
     ifstream data;
     string recibo;
     int row,col,end;
     bool flag = true;
-    data.open("./data/scenes/extra1.csv",ios::in);
+    doubleLinked<sceneInfo> scenesList;
+    data.open("./data/scenes/" + name,ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
         //cout<<line<<endl;
@@ -35,12 +36,13 @@ void chargeScenes(myGame<T>* game){
             }else
             {
                 end = stoi(recibo);
-                game->scenesList.pushBack(sceneInfo(row,col,end,flag));
+                scenesList.pushBack(sceneInfo(row,col,end,flag));
                 //cout<<"guardado"<<flag<<endl;
             }
             
         }
     }
     data.close();
+    game->sceneList.pushBack(scenesList);
 }
 

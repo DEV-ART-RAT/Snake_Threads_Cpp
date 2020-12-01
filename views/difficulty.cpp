@@ -9,7 +9,7 @@
 #include "../tools/nodeuser.h"
 using namespace std;
 
-auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata) { 
+auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata,int size) { 
     CLEAR;
     snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  FACIL  *"):    mensageLine(w.ws_col,"   FACIL   ");

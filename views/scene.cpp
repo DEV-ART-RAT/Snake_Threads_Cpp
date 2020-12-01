@@ -10,7 +10,7 @@
 #include "../tools/gameStruct.h"
 using namespace std;
 
-auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game) { 
+auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
     (opc==1)? mensageLine(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
@@ -49,7 +49,9 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int sceneMenu(myGame<nodeuserinfouser>* game){
-    return sceneMenuAux(game,startMenuAux(game,mensajeScene,3));
+    int opciones = 3;
+    //opciones += game->sceneList.size();
+    return sceneMenuAux(game,startMenuAux(game,mensajeScene,opciones));
 }
 
 

@@ -47,7 +47,7 @@ void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
 
 };
 
-auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game) { 
+auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game, int size) { 
     mensageMarginStart(opc,game);
 };
 
@@ -57,7 +57,7 @@ int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
     //int sizeOption=3;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
     sleep(0.1);//para corregir fallo de while
-    wellcome(flag,game);  //invocacion del menu
+    wellcome(flag,game,sizeOption);  //invocacion del menu
     cin.clear();
     sleep(0.1);//para corregir fallo de whiles
     while(loop){
@@ -75,11 +75,10 @@ int startMenuAux(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
         if( key=='\n'){
             return flag;
         }
-        wellcome(flag,game);
+        wellcome(flag,game,sizeOption);
         sleep(0.01);//para corregir fallo de while
     }
     cin.clear();
-
     return 0;
 }
 

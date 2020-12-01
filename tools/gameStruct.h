@@ -7,7 +7,8 @@ template<class T>
 struct myGame{
     node<T>* user;
     doubleLinked<T> list;
-    doubleLinked<sceneInfo> scenesList;
+    doubleLinked<doubleLinked<sceneInfo>> sceneList;
+    //doubleLinked<doubleLinked<sceneInfo>> scenesListContainer;
     mySnake snake = mySnake();
     int difficulty;//dificultad de juego
     int mode;//modo de juego: clasico o escenario especial

@@ -17,22 +17,33 @@ struct termios term;
 
 void open_buffer();
 void close_buffer();
+void cargarEscenarios(myGame<nodeuserinfouser>*);
+void cargarEscenarios(myGame<nodeuserinfouser>* game){
+    chargeScenes(game,"extra1.csv");//escenario a cargar
+    //cout<<"escenes:"<<endl;
+    //traverseBegin(game->sceneList.front->info.front);
+
+    //game.scenesListContainer.pushBack(game.scenesList);
+    //cout<<"total: "<<game->sceneList.size()<<"intrucciones 1:"<<game->sceneList.back->info.size();
+    //cout<<"push enter";
+    //cin.get();
+
+}
+
+
 int main(void) {
     myGame<nodeuserinfouser> game;// = new myGame();
-
-    chargeScenes(&game);
-    cout<<"escenes:"<<endl;
-    traverseBegin(game.scenesList.front);
-    cout<<"push enter";
-    cin.get();
+    cargarEscenarios(&game);
     
     //game.list=NULL;
     game.user=NULL;
     close_buffer();
     usermain(&game);//ingresando usuario y cargando lista
+
     open_buffer();
     startMenu(&game);
     close_buffer();
+
     return 0;
 };
 

@@ -11,7 +11,7 @@ struct termios term_over;
 
 //int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
-auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game) { 
+auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
     mensageLine(w.ws_col,"Que desea hacer?");
@@ -20,7 +20,7 @@ auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game) {
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };
-auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game) { 
+auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
     mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));

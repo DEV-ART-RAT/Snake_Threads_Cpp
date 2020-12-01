@@ -1,4 +1,7 @@
-#include <iostream>
+#include<iostream>
+#include<ios> //used to get stream size
+#include<limits> //used to get numeric limits
+
 #include "../snake/clear.cpp"
 #include "./snakeprint.cpp"
 
@@ -25,11 +28,10 @@ int history(void) {
     mensageLineMAGENTA(w.ws_col,"(Presiona Enter para avanzar en la historia)");
     mensageSteep(w.ws_col);
     int size =0;
-    size=sizeof(historia)/sizeof(historia[0]);;
+    size=sizeof(historia)/sizeof(historia[0]);
     mensajehistoria(0,size,historia); 
     return 0;
 };
-
 
 void mensajehistoria(int pos,int max,string histo[]){
     char key=getchar();
@@ -40,6 +42,8 @@ void mensajehistoria(int pos,int max,string histo[]){
             mensageLineCYAN(w.ws_col,histo[pos]);
             mensajehistoria(pos+1,max,histo);
         }else{
+            mensageMargin(w.ws_col);
+            sleep(0.5);
             return;
         }
         break;
@@ -47,5 +51,4 @@ void mensajehistoria(int pos,int max,string histo[]){
         mensajehistoria(pos,max,histo);
         break;
     }
-
 }

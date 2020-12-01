@@ -34,7 +34,7 @@
 
 # 2. Capturas de pantalla:
 ##  inicio(usuario):
-<img width="1000" height="400" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0001.png" />
+<img width="1000" height="300" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0001.png" />
 
 ##  principal
 <img width="1000" height="400" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0002.png" />

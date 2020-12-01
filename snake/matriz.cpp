@@ -115,7 +115,7 @@ void restartingGame(myGame<nodeuserinfouser> *game)
 void nextStage(myGame<nodeuserinfouser> *game){
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col, "Completaste el escenario");
+    mensageLine(w.ws_col, "Completaste el ....M-U-N-D-O... <|:v");
     game->user->info.puntajeContinuar += game->snake.lifes * 100 + game->snake.points;
     cout << " se sumaron " << game->snake.lifes * 100 << " a tu puntaje actual por tus "
             << game->snake.lifes << " restantes" << endl;
@@ -137,38 +137,38 @@ void nextStageLevel(myGame<nodeuserinfouser> *game){
     getchar();
 }
 
-int playmatrix(myGame<nodeuserinfouser> *game){
-    int row, col, obstaculos, snkMax, velocidad;//variables para parametros claves
-    //game->food = 1;
-    if (game->mode == 1)
-    { //juego clasico --continuo
-        game->scene = 1;
-        //game->food++;
-        game->snake.points = game->user->info.puntajeContinuar;
-        if (game->user->info.vidas <= 0)
-        {
+void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
+    game->snake.points = game->user->info.puntajeContinuar;
+        if (game->user->info.vidas <= 0){
             game->user->info.vidas = 5;
             game->user->info.nivel = 1;
         }
         while (game->user->info.nivel * game->scene > 9)
         { //eligiendo escenario clasico
             game->scene++;
-            if (game->scene > 2)
-            {
+            if (game->scene > 2){
                 nextStage(game);
-                game->user->info.puntajeContinuar = 0;
-                game->user->info.vidas = 5;
-                game->user->info.nivel = 1;
                 if(game->user->info.puntajeContinuar > game->user->info.puntaje){
                     game->user->info.puntaje = game->user->info.puntajeContinuar;
                 }
-                return 1;
+                game->user->info.puntajeContinuar = 0;
+                game->user->info.vidas = 5;
+                game->user->info.nivel = 1;
+                return;
             }
         }
-        sceneLevel(game->user->info.nivel, &row, &col, &obstaculos, &snkMax, &velocidad);
-        game->difficulty = velocidad; //obteniendo ladificultad segun nivel actual
+        sceneLevel(game->user->info.nivel, row, col, obstaculos, snkMax, velocidad);
+        game->difficulty = *velocidad; //obteniendo ladificultad segun nivel actual
         game->snake.level = game->user->info.nivel;
         game->liveSpecial = game->user->info.vidas;
+}
+
+int playmatrix(myGame<nodeuserinfouser> *game){
+    int row, col, obstaculos, snkMax, velocidad;//variables para parametros claves
+    //game->food = 1;
+    if (game->mode == 1)
+    { //juego World --continuo
+        cargarModoWorldParty(game,&row,&col,&obstaculos,&snkMax,&velocidad);
     }
     else if (game->mode == 2)
     {

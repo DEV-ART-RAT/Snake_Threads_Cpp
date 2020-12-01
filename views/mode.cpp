@@ -37,6 +37,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //game->scene =  1;
             game->mode = 1;//world
             game->food = 2;
+            game->scene = 1;
             //difficultyMenu(game);
             playmatrix(game);
             //gameOverMenu(game);
@@ -45,6 +46,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //game->scene =  1;
             game->mode = 2;//clasico
             game->food = 1;
+            game->scene = 1;
             game->snake.points = 0;
             //difficultyMenu(game);
             playmatrix(game);

@@ -42,6 +42,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
         case 2:
             //game->scene =  1;
             game->mode = 2;//clasico
+            game->snake.points = 0;
             //difficultyMenu(game);
             playmatrix(game);
             //gameOverMenu(game);

@@ -103,6 +103,31 @@ void restartingGame(myGame<nodeuserinfouser> *game)
     game->snake.defineSnake();
 }
 
+void nextStage(myGame<nodeuserinfouser> *game){
+    CLEAR;
+    snakeprint();
+    mensageLine(w.ws_col, "Completaste el escenario");
+    game->user->info.puntajeContinuar += game->snake.lifes * 100 + game->snake.points;
+    cout << " se sumaron " << game->snake.lifes * 100 << " a tu puntaje actual por tus "
+            << game->snake.lifes << " restantes" << endl;
+    mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
+    cin.ignore();
+    getchar();
+}
+
+void nextStageLevel(myGame<nodeuserinfouser> *game){
+    CLEAR;
+    snakeprint();
+    mensageLine(w.ws_col, "Completaste el escenario");
+    mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
+    mensageSteep(w.ws_col);
+    mensageMargin(w.ws_col);
+    cin.ignore();
+    getchar();
+}
+
 int playmatrix(myGame<nodeuserinfouser> *game)
 {
     srand(time(NULL));
@@ -112,6 +137,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
     { //juego clasico --continuo
         game->scene = 1;
         game->food++;
+        game->snake.points = game->user->info.puntajeContinuar;
         if (game->user->info.vidas <= 0)
         {
             game->user->info.vidas = 5;
@@ -122,17 +148,13 @@ int playmatrix(myGame<nodeuserinfouser> *game)
             game->scene++;
             if (game->scene > 2)
             {
-                CLEAR;
-                snakeprint();
-                mensageLine(w.ws_col, "Nuevo escenario");
-                game->user->info.puntajeContinuar += game->snake.lifes * 100;
-                cout << " se sumaron " << game->snake.lifes * 100 << " a tu puntaje actual por tus "
-                     << game->snake.lifes << " restantes" << endl;
-                mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
-                mensageSteep(w.ws_col);
-                mensageMargin(w.ws_col);
-                cin.ignore();
-                getchar();
+                nextStage(game);
+                game->user->info.puntajeContinuar = 0;
+                game->user->info.vidas = 5;
+                game->user->info.nivel = 1;
+                if(game->user->info.puntajeContinuar > game->user->info.puntaje){
+                    game->user->info.puntaje = game->user->info.puntajeContinuar;
+                }
                 return 1;
             }
         }
@@ -154,15 +176,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         game->food++;
         if (game->levelSpecial > 3)
         {
-
-            CLEAR;
-            snakeprint();
-            mensageLine(w.ws_col, "Subiste de nivel");
-            mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
-            mensageSteep(w.ws_col);
-            mensageMargin(w.ws_col);
-            cin.ignore();
-            getchar();
+            nextStageLevel(game);
             return 1;
         }
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos, &snkMax, &velocidad);
@@ -205,6 +219,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
             game->user->info.nivel = 1;
             game->snake.points = 0;
         }
+        game->user->info.puntajeContinuar = game->snake.points;
     }
 
     if (game->mode == 2)
@@ -237,8 +252,8 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         {
             game->levelSpecial++;
         }
-        playmatrix(game);
         game->proxLevel = false;
+        playmatrix(game);
     }
     return 0;
 }

@@ -31,7 +31,7 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
     game->difficulty = flag;//inciando dificultad especial
     game->levelSpecial = 1;//inicando escenario especial
     game->liveSpecial = 3;//iniciando vidads especial
-
+    game->snake.points = 0;
     switch (flag) {
         case 1:
             

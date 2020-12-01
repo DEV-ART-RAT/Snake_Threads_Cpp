@@ -1,3 +1,9 @@
 [submodule "__pictures"]
 	path = __pictures
 	url = https://github.com/00121117-Archivos/AA_Snake.git
+# git submodule update --init --recursive	
+
+# git submodule update --recursive --remote
+# git pull --recurse-submodules
+
+# git push --recurse-submodules=on-demand

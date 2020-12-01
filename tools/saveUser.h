@@ -24,7 +24,8 @@ void saveincsv(node<T>* list){
         aux->info.coin<<","<<
         aux->info.vidas<<","<<
         aux->info.nivel<<","<<
-        aux->info.puntajeContinuar<<"\n";
+        aux->info.puntajeContinuar<<","<<
+        aux->info.puntajeClasico<<"\n";
         //saltamos 
         aux= aux->next;
     }

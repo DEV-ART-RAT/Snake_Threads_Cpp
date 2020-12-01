@@ -39,7 +39,7 @@ void usermain(myGame<T>* game) {
         mensageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
         //print_user(game); 
     } else{
-        game->list.pushBack(nodeuserinfouser(0,0,0,5,1,user));//creando nuevo usuario
+        game->list.pushBack(nodeuserinfouser(0,0,0,0,5,1,user));//creando nuevo usuario
         game->user = game->list.back;
         mensageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
         mensageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
@@ -59,7 +59,7 @@ void printUsers(myGame<T>* game,string user){
     for(string line; getline(data,line);){
         stringstream data(line);
         string recibo,name;
-        int point,pointContinue,coin,lifes,nivel;
+        int point,pointContinue,coin,lifes,nivel,pointClassic;
         for (int col = 0;getline(data,recibo,',');col++){
             switch (col)
             {
@@ -80,12 +80,14 @@ void printUsers(myGame<T>* game,string user){
                 break;
             case 5:
                 pointContinue = stoi(recibo);
-                game->list.pushBack(T(point,pointContinue,coin,lifes,nivel,name));
-                //AQUI LO VAN A PONER !!
+                break;
+            case 6:
+                pointClassic = stoi(recibo);
+                game->list.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
                 if(name==user){
                     game->user = game->list.back;
                 }
-                quickSort(game->list.front, 1);
+                //quickSort(game->list.front, 1);
                 break;
 
             default:
@@ -98,7 +100,7 @@ void printUsers(myGame<T>* game,string user){
     }
     data.close();
 
-
+ 
 }
 
 void welcomeuser(void){
@@ -113,8 +115,8 @@ void welcomeuser(void){
 template <class T>
 void print_user(myGame<T>* game){
     mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Puntaje Actual : "+to_string(game->user->info.puntajeContinuar)));        cout<<RESET;
+    mensageLine(w.ws_col,string("Tu Puntaje Snake World Party: "+to_string(game->user->info.puntaje)));        cout<<RESET;
+    mensageLine(w.ws_col,string("Tu Puntaje Clasico: "+to_string(game->user->info.puntajeClasico)));        cout<<RESET;
     mensageLine(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
     mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 }

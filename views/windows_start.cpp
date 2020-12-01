@@ -35,11 +35,7 @@ void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
     mensageSnake(w.ws_col,linea2 , 5);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    mensageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Maximo: "+to_string(game->user->info.puntaje)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Actual : "+to_string(game->user->info.puntajeContinuar)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
+    print_user(game);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");

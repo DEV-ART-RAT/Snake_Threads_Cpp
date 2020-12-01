@@ -207,7 +207,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         //game->liveSpecial++;
     }
     if (game->mode == 1)
-    {   
+    {    
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;
         if(game->user->info.puntaje < game->snake.points){

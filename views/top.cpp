@@ -42,11 +42,9 @@ void printtop(node<T>* front,int colsize,int sobraparallegar){
     }
     if(front) {
         mensageLineSeccionAux(colsize,front->info.name,0,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.coin),1,sobraparallegar);
         mensageLineSeccionAux(colsize,to_string(front->info.nivel),1,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.vidas),1,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.puntajeContinuar),1,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.puntaje),-1,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.puntaje),1,sobraparallegar);
+        mensageLineSeccionAux(colsize,to_string(front->info.puntajeClasico),-1,sobraparallegar);
         mensageMargin(tamaniotabla+2);
         printtop(front->next,colsize,sobraparallegar);
     }
@@ -55,7 +53,7 @@ void printtop(node<T>* front,int colsize,int sobraparallegar){
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     int colsize = 0;
     //numero de columnas de la tabla
-    int columnas=6;
+    int columnas=4;
     // tamanio de la pantalla (menos 2 porque se tiende a pasar al final)
     int tamaniotabla=w.ws_col-2;
     if(tamaniotabla<120){
@@ -75,9 +73,7 @@ void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
 
 void ordenarparametros(int colsize,int sobraparallegar){
     mensageLineSeccionAux(colsize,"Nombre",0,sobraparallegar);
-    mensageLineSeccionAux(colsize,"Monedas",1,sobraparallegar);
-    mensageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);    
-    mensageLineSeccionAux(colsize,"Vidas",1,sobraparallegar);
-    mensageLineSeccionAux(colsize,"Puntaje Actual",1,sobraparallegar);
-    mensageLineSeccionAux(colsize,"Puntaje Maximo",-1,sobraparallegar);
+    mensageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);  
+    mensageLineSeccionAux(colsize,"Puntaje World Snake",1,sobraparallegar);
+    mensageLineSeccionAux(colsize,"Puntaje Clasico",-1,sobraparallegar);
 }

@@ -148,7 +148,8 @@ struct mySnake{
         //cout<<flush;
         //system("clear");//windows
         CLEAR;
-        ((sizeMax - sizeSnake)<999)?cout<<COLOR_BOLDWHITE<<"Largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665 "<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl:
+        ((sizeMax - sizeSnake)<999)?
+        cout<<COLOR_BOLDWHITE<<"Largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665 "<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl:
         cout<<COLOR_BOLDWHITE<<"Largo: "<<sizeSnake<<"     VIDAS :"<<COLOR_BOLDRED<<" \u2665 "<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl;
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";

@@ -9,6 +9,7 @@
 #include "./difficulty.cpp"
 #include "../snake/my_snake.h"
 #include "../tools/gameStruct.h"
+
 using namespace std;
 
 auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game) { 

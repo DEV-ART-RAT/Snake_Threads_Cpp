@@ -147,7 +147,6 @@ struct mySnake{
             for(int j = 0; j < COLUMNA; j++){
                 switch (M[i][j])
                 {
-                //luis creo que me pase de lanza . pd : Rubi
                 //https://unicode-table.com/es/#miscellaneous-mathematical-symbols-b
                 case SNAKE:
                     cout<<COLOR_BOLDGREEN<<"\u2B24"<<" "<<RESET;

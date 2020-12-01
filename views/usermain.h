@@ -95,7 +95,6 @@ void printUsers(myGame<T>* game,string user){
                 if(name==user){
                     game->user = game->list.back;
                 }
-                //quickSort(game->list.front, 1);
                 break;
 
             default:

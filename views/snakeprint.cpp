@@ -52,7 +52,7 @@ void mensageLineRED(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
-
+// Esta funcion hace el top recursivo :v (by dr)
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     string str,primerespacio="",ultimoespacio="",imprimir="";int extraMitad=0,extraMitadSobra=0,extrasobrafinal=0;
     // SizeEspacios -> tiene guardada la cantidad de espacios que se tiene que imprimir (-1 por el asterisco que se imprime aparte)
@@ -111,17 +111,6 @@ void mensageMargin(int col){
     strl.insert(0, col - 2, '*');
     cout<<COLOR_BOLDRED<<strl<<RESET<<endl;
 }
-void mensageMarginTableaux1(int col){
-    string strl;
-    strl.insert(0, col, '-');
-    cout<<strl;
-}
-void mensageMarginTableaux2(int col){
-    string strl;
-    strl.insert(0, col, '+');
-    cout<<strl;
-}
-
 
 int snakeprint(void) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal

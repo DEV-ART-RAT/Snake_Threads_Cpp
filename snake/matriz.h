@@ -1,6 +1,8 @@
 #pragma once
-#include  "clear.cpp"
 #include <iostream>
+
+#include  "clear.cpp"
+
 using namespace std;
 typedef char** charMatriz;
 void getMatrizChar(char** array, int b, int a){//solucion de J

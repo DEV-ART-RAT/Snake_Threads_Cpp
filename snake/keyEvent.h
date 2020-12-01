@@ -33,3 +33,36 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
     }
     cin.clear();
 }
+
+int optionSelectionKey(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
+    char key; //contenedor de tecla
+    int flag = 1;       //opcion actual del menu
+    //int sizeOption=3;   //numero total de opciones en el menu
+    bool loop = true;   //bandera para el while true
+    sleep(0.1);//para corregir fallo de while
+    wellcome(flag,game,sizeOption);  //invocacion del menu
+    cin.clear();
+    sleep(0.1);//para corregir fallo de whiles
+    while(loop){
+        key=getchar();//up:65 down:66 o B left:68 rigth:67
+        if(key==65 ){
+            if(flag > 1){
+                flag--;
+            }
+        }
+        if(  key=='B'){
+            if(flag < sizeOption){
+                flag++;
+            }
+        }
+        if( key=='\n'){
+            return flag;
+        }
+        wellcome(flag,game,sizeOption);
+        sleep(0.01);//para corregir fallo de while
+    }
+    cin.clear();
+    return 0;
+}
+
+

@@ -32,6 +32,7 @@ void cargarEscenarios(myGame<nodeuserinfouser>* game){
 
 
 int main(void) {
+    srand(time(NULL));
     myGame<nodeuserinfouser> game;// = new myGame();
     cargarEscenarios(&game);
     

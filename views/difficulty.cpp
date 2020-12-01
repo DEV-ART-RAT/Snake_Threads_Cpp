@@ -20,7 +20,7 @@ auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata,int size)
     mensageMargin(w.ws_col);
 };
 
-int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
+int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
 int difficultyMenu(myGame<nodeuserinfouser>* );
@@ -29,12 +29,13 @@ int difficultyMenu(myGame<nodeuserinfouser>* );
 int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 
     game->difficulty = flag;//inciando dificultad especial
-    game->levelSpecial = 1;//inicando escenario especial
-    game->liveSpecial = 3;//iniciando vidads especial
-    game->snake.points = 0;
+
+    game->levelSpecial = 1;//inicando escenario especial (3 niveles por dificultad);
+    game->liveSpecial = 3;//iniciando vidads especial (3 vidas);
+    game->snake.points = 0;//escenario especial -> puntos -> monedas
+    game->food = 2;
     switch (flag) {
-        case 1:
-            
+        /*case 1:
             playmatrix(game);
             break;
         case 2:
@@ -42,10 +43,11 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
             break;
         case 3:
             playmatrix(game);
-            break;
+            break;*/
         case 4:
             return 1;
         default:
+            playmatrix(game);
             break;
     }
     difficultyMenu(game);
@@ -53,7 +55,7 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int difficultyMenu(myGame<nodeuserinfouser>* game){
-    return difficultyMenuAuxOpc(game,startMenuAux(game,mensajeDifficulty,4));
+    return difficultyMenuAuxOpc(game,optionSelectionKey(game,mensajeDifficulty,4));
 }
 
 

@@ -70,6 +70,7 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
         game->playing = false;
         game->snake.M[fil][col]=CRASH;
+        game->mostrarCabeceraSnake();
         game->snake.show();
         game->snake.list->removeBack();
         game->snake.M[fil][col]=WALL;

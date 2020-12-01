@@ -30,7 +30,7 @@ auto mensajePause = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 }; 
-int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
+int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 bool PauseMenu(myGame<nodeuserinfouser>* game);
@@ -54,7 +54,7 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 bool PauseMenu(myGame<nodeuserinfouser>* game){
-    PauseMenuAux(game,startMenuAux(game,mensajePause,3));
+    PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
     return false;
 }
 

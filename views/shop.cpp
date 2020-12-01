@@ -32,7 +32,7 @@ auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     mensageMargin(w.ws_col);
 }; 
 
-int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
+int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 
@@ -105,7 +105,7 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int shopMenu(myGame<nodeuserinfouser>* game){
-    return shopMenuAux(game,startMenuAux(game,mensajeShop,4));
+    return shopMenuAux(game,optionSelectionKey(game,mensajeShop,4));
 }
 
 

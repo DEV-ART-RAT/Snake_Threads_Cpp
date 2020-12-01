@@ -23,21 +23,20 @@ auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     mensageMargin(w.ws_col);
 };
 
-int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
+int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 
 
 int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag,int size){
 
-    //mySnake snake = mySnake();
     game->scene =  flag;
-    //cout<<flag<<size;
-    //cin.get();
-    //game->levelSpecial = 1;
     
     if(flag != size){
         difficultyMenu(game);
+    }
+    if(flag == size){
+        return 1;
     }
     sceneMenu(game);
     return 0;
@@ -46,7 +45,7 @@ int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag,int size){
 int sceneMenu(myGame<nodeuserinfouser>* game){
     int opciones = 3;
     opciones += game->sceneList.size();
-    return sceneMenuAux(game,startMenuAux(game,mensajeScene,opciones),opciones);
+    return sceneMenuAux(game,optionSelectionKey(game,mensajeScene,opciones),opciones);
 }
 
 

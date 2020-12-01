@@ -30,6 +30,7 @@ int redireccionando(myGame<nodeuserinfouser> *game)
     case '\n':
             game->pause = true;
             //PauseMenu(game);
+            game->mostrarCabeceraSnake();
             game->snake.show();
             game->pause = false;
             sleep(2);
@@ -72,6 +73,7 @@ int playGame(myGame<nodeuserinfouser> *game)
                 game->redirection = false;
             }*/
             snakeDirection(game);
+            game->mostrarCabeceraSnake();
             game->snake.show();
             timer = 0;
         }
@@ -86,6 +88,7 @@ void playingGame(myGame<nodeuserinfouser> *game)
 {
     thread th1(keyEventSnake, game);
     game->startGame();  // alzando banderas
+    game->mostrarCabeceraSnake();
     game->snake.show(); // mostrando serpiente
     sleep(2);           // tiempo de gracia (espera para iniciar)
     playGame(game);     //
@@ -134,15 +137,13 @@ void nextStageLevel(myGame<nodeuserinfouser> *game){
     getchar();
 }
 
-int playmatrix(myGame<nodeuserinfouser> *game)
-{
-    srand(time(NULL));
-    int row, col, obstaculos, snkMax, velocidad;
-    game->food = 1;
+int playmatrix(myGame<nodeuserinfouser> *game){
+    int row, col, obstaculos, snkMax, velocidad;//variables para parametros claves
+    //game->food = 1;
     if (game->mode == 1)
     { //juego clasico --continuo
         game->scene = 1;
-        game->food++;
+        //game->food++;
         game->snake.points = game->user->info.puntajeContinuar;
         if (game->user->info.vidas <= 0)
         {
@@ -188,7 +189,9 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos, &snkMax, &velocidad);
         game->snake.level = game->liveSpecial;
     }
-    game->snake.setLive(game->liveSpecial);
+    
+    
+    game->snake.setLive(game->liveSpecial);//vidas del juego ajugar... valga la redundancia :v
     game->snake.inicialiceMySnake(row, col);
 
     game->snake.list->pushBack(nodeinfo(5, 5)); //cargando serpiente

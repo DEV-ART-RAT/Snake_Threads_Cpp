@@ -8,7 +8,7 @@
 #include "matriz.h"
 #include "../tools/list.h"
 #include "../views/colors.h"
-#include "../tools/gameStruct.h"
+//#include "../tools/gameStruct.h"
 
 
 #define FOOD 'O'
@@ -20,10 +20,11 @@
 #define Pared ''
 using namespace std;
 
+//struct myGame<nodeuserinfouser>;
+
 int getIntRand(int a, int b){   
     return rand() % (b - a + 1) + a;
 }
-
 
 
 struct mySnake{
@@ -37,7 +38,7 @@ struct mySnake{
     int steep;
     int sizeSnake;
     int points;
-    int coins;
+    //int coin;
     int lifes;
     int level;
     double speed;
@@ -57,7 +58,7 @@ struct mySnake{
         speed = 4;
         initialSpeed = speed + speedBost;
         points= 0;
-        coins = 0;
+        //coin = 0;
         sizeMax = 30;
         
         getMatrizChar(&M,FILA,COLUMNA);
@@ -72,7 +73,7 @@ struct mySnake{
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
-        coins = 0;
+        //coins = 0;
         velMax = 30;
         sizeMax = 30;
         getMatrizChar(&M,FILA,COLUMNA);
@@ -114,14 +115,10 @@ struct mySnake{
         M[i][j] = WALL;
         }
     }
-
+    
     void show(){
         //cout<<flush;
         //system("clear");//windows
-        CLEAR;
-        ((sizeMax - sizeSnake)<999)?
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665 "<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa enter para em menu de pausa"<<RESET<<endl:
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<sizeSnake<<"     VIDAS :"<<COLOR_BOLDRED<<" \u2665 "<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa enter para em menu de pausa"<<RESET<<endl;
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;

@@ -23,7 +23,7 @@ auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     mensageMargin(w.ws_col);
 };
 
-int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
+int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
@@ -35,7 +35,8 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
     switch (flag) {
         case 1:
             //game->scene =  1;
-            game->mode = 1;//clasico
+            game->mode = 1;//world
+            game->food = 2;
             //difficultyMenu(game);
             playmatrix(game);
             //gameOverMenu(game);
@@ -43,6 +44,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
         case 2:
             //game->scene =  1;
             game->mode = 2;//clasico
+            game->food = 1;
             game->snake.points = 0;
             //difficultyMenu(game);
             playmatrix(game);
@@ -51,6 +53,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
         case 3://especial
             //playmatrix(&snake,2,0);
             game->mode = 3;//especial
+            game->snake.points = 0;
             sceneMenu(game);
             break;
         case 4:
@@ -65,7 +68,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 int modeMenu(myGame<nodeuserinfouser>* game){
-    return modeMenuAux(game,startMenuAux(game,mensajeMode,4));
+    return modeMenuAux(game,optionSelectionKey(game,mensajeMode,4));
 }
 
 

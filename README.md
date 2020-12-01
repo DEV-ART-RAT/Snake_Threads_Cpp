@@ -2,18 +2,17 @@
 [Pagina con Instrucciones](https://wmoralesdev.github.io/actividadfinal/index)
 
 [<img src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/click.png" width="50" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
-
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
 
 ## Indice <!-- omit in toc -->
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
-  - [inicio(usuario):](#iniciousuario)
-  - [principal](#principal)
-    - [Start](#start)
-    - [Tienda](#tienda)
-    - [Top](#top)
-    - [Exit](#exit)
+  - [2.1. inicio(usuario):](#21-iniciousuario)
+  - [2.2. principal](#22-principal)
+    - [2.2.1. Start](#221-start)
+    - [2.2.2. Tienda](#222-tienda)
+    - [2.2.3. Top](#223-top)
+    - [2.2.4. Exit](#224-exit)
 - [3. Implementacion de :](#3-implementacion-de-)
   - [3.1. Buenas prácticas:](#31-buenas-prácticas)
   - [3.2. Estructuras de datos (dinámicas):](#32-estructuras-de-datos-dinámicas)
@@ -29,16 +28,16 @@
 - Fredy Alexander Sánchez Pérez 00082817
 
 # 2. Capturas de pantalla:
-##  inicio(usuario):
+##  2.1. inicio(usuario):
 <img width="1000" height="300" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0001.png" />
 
-##  principal
+##  2.2. principal
 <img width="1000" height="400" src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/0002.png" />
 
-### Start
-### Tienda
-### Top
-### Exit
+### 2.2.1. Start
+### 2.2.2. Tienda
+### 2.2.3. Top
+### 2.2.4. Exit
 
 # 3. Implementacion de :
 ## 3.1. Buenas prácticas:

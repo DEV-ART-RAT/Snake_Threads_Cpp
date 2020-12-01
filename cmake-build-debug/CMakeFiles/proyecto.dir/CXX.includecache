@@ -1,0 +1,162 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/main.cpp
+iostream
+-
+./views/windows_start.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/views/windows_start.cpp
+./views/usermain.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/views/usermain.cpp
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/clear.cpp
+windows.h
+-
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/keyEvent.h
+termios.h
+-
+unistd.h
+-
+stdio.h
+-
+stdio_ext.h
+-
+snake.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/snake.h
+my_snake.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/my_snake.h
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/list.cpp
+iostream
+-
+string
+-
+node.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/node.h
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/matriz.cpp
+iostream
+-
+unistd.h
+-
+./list.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/list.cpp
+stdlib.h
+-
+thread
+-
+unistd.h
+-
+keyEvent.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/keyEvent.h
+matriz.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/matriz.h
+snake.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/snake.h
+my_snake.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/my_snake.h
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/matriz.h
+clear.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/clear.cpp
+iostream
+-
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/my_snake.h
+iostream
+-
+unistd.h
+-
+./list.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/list.cpp
+stdlib.h
+-
+thread
+-
+unistd.h
+-
+matriz.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/matriz.h
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/node.h
+string
+-
+iostream
+-
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/snake.h
+matriz.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/matriz.h
+my_snake.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/my_snake.h
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/user/nodeuser.h
+string
+-
+iostream
+-
+ostream
+-
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/user/readuser.cpp
+iostream
+-
+string
+-
+fstream
+-
+sstream
+-
+../snake/node.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/node.h
+../snake/list.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/list.cpp
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/views/shop.cpp
+iostream
+-
+termios.h
+-
+unistd.h
+-
+../snake/my_snake.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/my_snake.h
+../user/nodeuser.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/user/nodeuser.h
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/views/usermain.cpp
+iostream
+-
+string
+-
+iostream
+-
+ostream
+-
+../user/nodeuser.h
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/user/nodeuser.h
+../snake/list.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/list.cpp
+../user/readuser.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/user/readuser.cpp
+
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/views/windows_start.cpp
+iostream
+-
+../snake/clear.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/clear.cpp
+../snake/matriz.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/snake/matriz.cpp
+./shop.cpp
+/cygdrive/d/Progra 2020/Ciclo02/Algoritmos/Labos/Repo/myRepo/proyecto/views/shop.cpp
+termios.h
+-
+unistd.h
+-
+

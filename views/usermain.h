@@ -9,6 +9,7 @@
 #include "./snakeprint.cpp"
 #include "../snake/clear.cpp"
 #include "../tools/gameStruct.h"
+#include "../tools/ordenar.h"
 
 using namespace std;
 void welcomeuser();
@@ -83,7 +84,9 @@ void printUsers(myGame<T>* game,string user){
                 if(name==user){
                     game->user = game->list.back;
                 }
+                quickSort(game->list.front, 1);
                 break;
+
             default:
                 exit(EXIT_FAILURE);
                 break;

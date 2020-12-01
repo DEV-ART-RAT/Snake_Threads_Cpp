@@ -17,3 +17,4 @@
 #define COLOR_BOLDMAGENTA "\033[1m\033[35m"       /* Bold Magenta */
 #define COLOR_BOLDCYAN    "\033[1m\033[36m"       /* Bold Cyan */
 #define COLOR_BOLDWHITE   "\033[1m\033[37m"       /* Bold White */
+#define FIGURA_CUADRADO        "\u2587"

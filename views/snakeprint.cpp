@@ -7,6 +7,7 @@
 #include "./colors.h"
 #include "../tools/screenControl.h"
 
+
 using namespace std;
 void mensageSnake(int col,string linea1[],int linea1size){
     string str;
@@ -124,7 +125,6 @@ void mensageMarginTableaux2(int col){
 
 int snakeprint(void) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
-    
     string linea1[] = {
         "=====   ===    ==   =======   ==  ==   =====",
         "||      ||\\\\   ||   ||   ||   || //    ||   ",

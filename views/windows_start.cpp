@@ -101,6 +101,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             quickSort(game->list.front, 1);
             saveincsv(game->list.front);
             top_game(game);
+            saveincsv(game->list.front);
             //startMenu(game);
             break;
         case 4:

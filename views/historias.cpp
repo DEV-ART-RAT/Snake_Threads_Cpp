@@ -3,7 +3,11 @@
 #include "./snakeprint.cpp"
 
 //historia by .Drubi
+
 using namespace std;
+
+void mensajehistoria(int pos,int max,string histo[]);
+
 int history(void) {
     string historia[]={
         "En el princio de la humanidad las personas vivian felizmente",
@@ -15,24 +19,35 @@ int history(void) {
         "El Poderoso ENXEL",
         "Que vino a convertir a toda la raza humana en serpientes",
         "Pero llegaste tu para combatirlo",
-        "Asi que adelante Gana y vence a Enxel!!!",
-        ""
+        "Asi que adelante Gana y vence a Enxel!!!"
     };
-    int i=0;
     CLEAR
     mensageMargin(w.ws_col);
     mensageLineMAGENTA(w.ws_col,"(Presiona Enter para avanzar en la historia)");
     mensageSteep(w.ws_col);
-    while(true){
-        if(historia[i]!=""){
-            mensageLineCYAN(w.ws_col,historia[i]);
-            cin.get();
-            i++;
-        }else
-            break;
-    }
- 
-    
-
+    int size =0;
+    size=sizeof(historia)/sizeof(historia[0]);;
+    mensajehistoria(0,size,historia); 
     return 0;
 };
+
+
+void mensajehistoria(int pos,int max,string histo[]){
+    char key=getchar();
+    cout<<max;
+    switch (key)
+    {
+    case '\n':
+        if(pos<max){
+            mensageLineCYAN(w.ws_col,histo[pos]);
+            mensajehistoria(pos+1,max,histo);
+        }else{
+            return;
+        }
+        break;
+    default:
+        mensajehistoria(pos,max,histo);
+        break;
+    }
+
+}

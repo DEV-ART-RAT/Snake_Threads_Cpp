@@ -5,6 +5,7 @@
 
 #include "node.h"
 #include "nodeuser.h"
+#include "../scene/nodeScene.h"
 
 using namespace std;
 

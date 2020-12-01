@@ -6,6 +6,7 @@
 #include "./views/usermain.h"
 #include "./tools/gameStruct.h"
 #include "./views/windows_start.cpp"
+#include "./scene/sceneControler.h"
 
 /* 
 Para ejecutar:
@@ -18,6 +19,13 @@ void open_buffer();
 void close_buffer();
 int main(void) {
     myGame<nodeuserinfouser> game;// = new myGame();
+
+    chargeScenes(&game);
+    cout<<"escenes:"<<endl;
+    traverseBegin(game.scenesList.front);
+    cout<<"push enter";
+    cin.get();
+    
     //game.list=NULL;
     game.user=NULL;
     close_buffer();

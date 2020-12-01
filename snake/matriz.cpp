@@ -114,7 +114,7 @@ void nextStage(myGame<nodeuserinfouser> *game){
     mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
-    cin.ignore();
+    cin.clear();
     getchar();
 }
 
@@ -125,7 +125,7 @@ void nextStageLevel(myGame<nodeuserinfouser> *game){
     mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
-    cin.ignore();
+    cin.clear();
     getchar();
 }
 
@@ -242,7 +242,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
         mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
         mensageSteep(w.ws_col);
         mensageMargin(w.ws_col);
-        cin.ignore();
+        cin.clear();
         getchar();
         if (game->mode)
         {

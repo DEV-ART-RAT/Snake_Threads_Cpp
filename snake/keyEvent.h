@@ -10,18 +10,18 @@
 #include "../tools/gameStruct.h"
 
 void keyboardEvent(char* key, bool* flag){
-    cin.ignore();
+    cin.clear();
 
     while (*flag)
     {
         *key=getchar();
     }
 
-    cin.ignore();
+    cin.clear();
 }
 //template<class T>
 void keyEventSnake(myGame<nodeuserinfouser>* game){
-    cin.ignore();
+    cin.clear();
     while (game->playing)
     {   
         if(!game->pause){
@@ -31,5 +31,5 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
             }
         }
     }
-    cin.ignore();
+    cin.clear();
 }

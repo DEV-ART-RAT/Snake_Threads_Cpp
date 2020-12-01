@@ -45,7 +45,7 @@ struct mySnake{
     int sizeMax;
     int velMax;
 
-    bool x2Boosted, x3Boosted;
+    bool x2Boosted=false, x3Boosted=false;
     doubleLinked <nodeinfo>* list;
 
     mySnake() {}

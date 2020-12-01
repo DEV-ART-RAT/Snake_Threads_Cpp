@@ -163,31 +163,34 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
         game->liveSpecial = game->user->info.vidas;
 }
 
+
+
 int playmatrix(myGame<nodeuserinfouser> *game){
     int row, col, obstaculos, snkMax, velocidad;//variables para parametros claves
-    //game->food = 1;
-    if (game->mode == 1)
-    { //juego World --continuo
+
+    if (game->mode == 1){ //juego World --continuo
+
         cargarModoWorldParty(game,&row,&col,&obstaculos,&snkMax,&velocidad);
+
     }
     else if (game->mode == 2)
     {
         game->liveSpecial = 0;
-        sceneLevel(game->levelSpecial, &row, &col, &obstaculos, &snkMax, &velocidad);
+
+        sceneLevel(0, &row, &col, &obstaculos, &snkMax, &velocidad);
         obstaculos = 0;
         snkMax = 99999;
         game->snake.level = 1;
-    }
-    else //juego especial
-    {
-        game->food++;
+        game->difficulty = velocidad;
+        
+    }else { //juego especial
         if (game->levelSpecial > 3)
         {
             nextStageLevel(game);
             return 1;
         }
         sceneLevel(game->levelSpecial, &row, &col, &obstaculos, &snkMax, &velocidad);
-        game->snake.level = game->liveSpecial;
+        game->snake.level = game->levelSpecial;
     }
     
     
@@ -207,7 +210,12 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     }
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty; //nivel de velocidad
     game->snake.sizeMax = snkMax;
+
+
+
     playingGame(game);
+
+
     while (!game->proxLevel && gameOverMenu(game))
     {
         restartingGame(game);

@@ -43,6 +43,8 @@ struct mySnake{
     double speedBost;
     int sizeMax;
     int velMax;
+
+    bool x2Boosted, x3Boosted;
     doubleLinked <nodeinfo>* list;
 
     mySnake() {}
@@ -85,7 +87,8 @@ struct mySnake{
         //lifes = 3;
         velMax = 30;
         sizeMax = 30;
-        
+        x2Boosted = false;
+        x3Boosted = false;
         getMatrizChar(&M,FILA,COLUMNA);
     }
 

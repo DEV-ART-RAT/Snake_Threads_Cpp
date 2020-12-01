@@ -29,24 +29,24 @@ int startMenuAux(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 
-void boostPointsx2(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
-	if(!x2boosted && !x3boosted && userdata->info.coin >= 20){
-		x2boosted = true;
-        userdata->info.coin -= 20;
+void boostPointsx2(myGame<nodeuserinfouser>* game){
+	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >= 20){
+		game->snake.x2Boosted = true;
+        game->user->info.coin -= 20;
 		cout<<"Puntaje potenciado x2"<<endl;
-	}else if(x2boosted || x3boosted){
+	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
 		cout<<"Un potenciador ya habia sido activado"<<endl;
 	} else {
 		cout<<"Monedas insuficientes"<<endl;
     }
 }
 
-void boostPointsx3(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boosted){
-	if(!x2boosted && !x3boosted && userdata->info.coin >=30){
-		x3boosted = true;
-        userdata->info.coin -= 30;
+void boostPointsx3(myGame<nodeuserinfouser>* game){
+	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >=30){
+		game->snake.x3Boosted = true;
+        game->user->info.coin -= 30;
 		cout<<"Puntaje potenciado x3"<<endl;
-	}else if(x2boosted || x3boosted){
+	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
 		cout<<"Un potenciador ya habia sido activado"<<endl;
 	} else {
 		cout<<"Monedas insuficientes"<<endl;
@@ -56,7 +56,7 @@ void boostPointsx3(node<nodeuserinfouser>* userdata, bool x2boosted, bool x3boos
 void buyLife(node<nodeuserinfouser>* userdata){
     if(userdata->info.coin >= 5){
         userdata->info.coin -= 5;
-       // userdata->lifes++;
+        userdata->info.vidas++;
         cout<<"Vida comprada"<<endl;
     } else {
         cout<<"Monedas insuficientes"<<endl;
@@ -69,7 +69,7 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
 
-    bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
+    //bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
     switch (flag) {
         case 1:
             buyLife(game->user);
@@ -77,10 +77,10 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //shopMenu(userdata,userlist);
             break;
         case 2:
-            boostPointsx2(game->user, x2Boosted, x3Boosted);
+            boostPointsx2(game);
             break;
         case 3:
-            boostPointsx3(game->user, x2Boosted, x3Boosted);
+            boostPointsx3(game);
             //sleep(1);
             //shopMenu(flag, userdata);
             break;

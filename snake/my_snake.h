@@ -147,7 +147,7 @@ struct mySnake{
         //system("clear");//windows
         CLEAR;
         cout<<COLOR_BOLDWHITE<<"largo: "<<sizeSnake<<"   Restante: "<<sizeMax - sizeSnake 
-            << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665"<<RESET<<lifes << "   Dinero: \u0024 "<<coins<<"  Puntos:"<<points<<RESET<<endl;
+            << "     VIDAS :"<<COLOR_BOLDRED<<" \u2665"<<RESET<<lifes << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024"<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl;
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;
@@ -159,14 +159,15 @@ struct mySnake{
                 switch (M[i][j])
                 {
                 //luis creo que me pase de lanza . pd : Rubi
-                case '*':
-                    cout<<COLOR_BOLDGREEN<<M[i][j]<<" "<<RESET;
+                //https://unicode-table.com/es/#miscellaneous-mathematical-symbols-b
+                case SNAKE:
+                    cout<<COLOR_BOLDGREEN<<"\u2B24"<<" "<<RESET;
                     break;
-                case 'X':
-                    cout<<COLOR_BOLDRED<<M[i][j]<<" "<<RESET;
+                case WALL:
+                    cout<<COLOR_BOLDRED<<"\u2BBD"<<" "<<RESET;
                     break;
-                case 'O':
-                    cout<<COLOR_BOLDWHITE<<M[i][j]<<" "<<RESET;
+                case FOOD:
+                    cout<<COLOR_BOLDYELLOW<<"\u2B24"<<" "<<RESET;
                     break;                
                 default:
                     cout<<M[i][j]<<" "; 

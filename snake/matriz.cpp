@@ -6,12 +6,14 @@
 #include <unistd.h>
 #include <unistd.h>
 
+#include "../scene/scenaryCreator.h"
 #include "snake.h"
 #include "matriz.h"
 #include "clear.cpp"
 #include "keyEvent.h"
 #include "my_snake.h"
 #include "../scene/parameter_define.cpp"
+
 
 
 using namespace std;
@@ -191,7 +193,7 @@ int playmatrix(myGame<nodeuserinfouser> *game)
     game->snake.list->pushBack(nodeinfo(5, 7));
     game->snake.defineSnake();
 
-    game->snake.defineScene(game->scene);
+    defineScene(game);
     game->snake.defineObst(obstaculos);
     for (int i = 0; i < game->food; i++)
     {

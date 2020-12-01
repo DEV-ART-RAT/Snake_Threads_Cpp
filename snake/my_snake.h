@@ -8,6 +8,8 @@
 #include "matriz.h"
 #include "../tools/list.h"
 #include "../views/colors.h"
+#include "../tools/gameStruct.h"
+
 
 #define FOOD 'O'
 #define SNAKE '*'
@@ -22,7 +24,6 @@ int getIntRand(int a, int b){
     return rand() % (b - a + 1) + a;
 }
 
-void levelOne(char** , int , int);
 
 
 struct mySnake{
@@ -75,22 +76,6 @@ struct mySnake{
         velMax = 30;
         sizeMax = 30;
         getMatrizChar(&M,FILA,COLUMNA);
-    }
-
-    void defineScene(int i){
-        switch (i)
-        {
-        case 1://escenario libre
-            break;
-        case 2:
-            levelOne(M,FILA,COLUMNA);//matriz full paredes
-            break;
-        case 3:
-            break;
-        
-        default:
-            break;
-        }
     }
 
     void defineSnake(){
@@ -183,14 +168,3 @@ struct mySnake{
 
 
 
-void levelOne(char** array, int a, int b){//escenario FULL paredes
-    for(int i = 0; i < a; i++) {
-            array[i][0]=WALL;
-            array[i][b-1]=WALL;
-    }
-
-    for(int j = 0; j < b; j++) {
-            array[0][j]=WALL;
-            array[a-1][j]=WALL;
-    }
-}

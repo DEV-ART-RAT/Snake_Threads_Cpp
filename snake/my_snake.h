@@ -50,19 +50,13 @@ struct mySnake{
 
     mySnake() {}
     mySnake(int _i, int _c) : FILA(_i), COLUMNA(_c) {
-        //key='0';
-        //dir=3;
-        //flag=true;
-        //redirect=false;
         steep=1;
-        //level=0;
         sizeSnake = 3;
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
         points= 0;
         coins = 0;
-        //lifes = 3;
         sizeMax = 30;
         
         getMatrizChar(&M,FILA,COLUMNA);
@@ -73,19 +67,11 @@ struct mySnake{
         FILA = row;
         COLUMNA = col;
         sizeSnake = 3;
-
-        //key='0';
-        //dir=3;
-        //flag=true;
-        //redirect=false;
         steep=1;
-        //level=0;
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
-        //points= 0;
         coins = 0;
-        //lifes = 3;
         velMax = 30;
         sizeMax = 30;
         getMatrizChar(&M,FILA,COLUMNA);
@@ -94,7 +80,7 @@ struct mySnake{
     void defineScene(int i){
         switch (i)
         {
-        case 1://ecenario libre
+        case 1://escenario libre
             break;
         case 2:
             levelOne(M,FILA,COLUMNA);//matriz full paredes
@@ -151,7 +137,7 @@ struct mySnake{
         cout<<COLOR_BOLDWHITE
         <<"Largo: "<<sizeSnake
         <<"   Restante: "<<sizeMax - sizeSnake 
-        << "     VIDAS :"
+        << "     VIDAS :" 
         <<COLOR_BOLDRED<<" \u2665 "<<RESET
         <<lifes << "   Dinero:"<<COLOR_BOLDYELLOW
         <<" \u0024 "<<RESET<<coins<<" Puntos:"<<points<<RESET<<endl;

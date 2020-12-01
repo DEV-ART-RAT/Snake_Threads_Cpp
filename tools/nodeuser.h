@@ -9,6 +9,7 @@ using namespace std;
 struct nodeuserinfouser {
     int puntaje;
     int puntajeContinuar;
+    int puntajeClasico;
     int coin;
     int vidas;
     int nivel;
@@ -18,12 +19,14 @@ struct nodeuserinfouser {
     nodeuserinfouser(
         int _puntaje,
         int _puntajeContinuar,
+        int _puntajeClasico,
         int _coin,
         int _vidas,
         int _nivel, 
         string _name) :
         puntaje(_puntaje),
         puntajeContinuar(_puntajeContinuar),
+        puntajeClasico(_puntajeClasico),
         coin(_coin),
         vidas(_vidas),
         nivel(_nivel),
@@ -33,6 +36,7 @@ struct nodeuserinfouser {
         return 
         this->puntaje == r.puntaje 
         && this->puntajeContinuar == r.puntajeContinuar 
+        && this->puntajeClasico == r.puntajeClasico
         && this->coin == r.coin
         && this->vidas == r.vidas
         && this->nivel == r.nivel
@@ -43,6 +47,7 @@ struct nodeuserinfouser {
         return 
         this->puntaje != r.puntaje 
         && this->puntajeContinuar != r.puntajeContinuar 
+        && this->puntajeClasico == r.puntajeClasico
         && this->coin != r.coin
         && this->vidas != r.vidas
         && this->nivel != r.nivel
@@ -58,6 +63,8 @@ struct nodeuserinfouser {
         +to_string(this->puntaje) 
         +":" 
         +to_string(this->puntajeContinuar) 
+        +":"
+        +to_string(this->puntajeClasico) 
         +":"
         +to_string(this->coin) 
         +":"
@@ -75,12 +82,15 @@ struct nodeuserinfouser {
             return this->puntajeContinuar >= r.puntajeContinuar;
         }
         if(flag == 3){
-            return this->coin >= r.coin;
+            return this->puntajeClasico >= r.puntajeClasico;
         }
         if(flag == 4){
-            return this->vidas >= r.vidas;
+            return this->coin >= r.coin;
         }
         if(flag == 5){
+            return this->vidas >= r.vidas;
+        }
+        if(flag == 6){
             return this->nivel >= r.nivel;
         }
         return this->name >= r.name;
@@ -91,6 +101,7 @@ struct nodeuserinfouser {
         "{Name: " +p.name +
         ": Puntaje: "+ to_string(p.puntaje) +
         ": Puntaje para continuar: "+ to_string(p.puntajeContinuar) +
+        ": Puntaje clasico: "+ to_string(p.puntajeClasico) +
         ": Coin:" + to_string(p.coin)+
         ": Vidas:" + to_string(p.vidas)+
         ": Nivel:" + to_string(p.nivel)

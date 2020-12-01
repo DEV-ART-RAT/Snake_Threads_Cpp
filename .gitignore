@@ -4,3 +4,5 @@ cmake-build-debug
 CMakeLists.txt
 .fuse_hidden0000bf9b00000005
 .vscode/testing.json
+.vscode/
+.fuse_hidden0000bf4d00000006

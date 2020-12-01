@@ -21,9 +21,9 @@ void top_game(myGame<nodeuserinfouser>* game){
     welcometop();
     //traverseBegin(userlist->front);
     printtopaux(&game->list);
-    mensageLine(w.ws_col,"presiona ENTER para continuar");
-    cin.ignore();
-    cin.get();
+    cin.clear();
+    mensageLine(w.ws_col,"presiona una tecla para continuar");
+    getchar();
     //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
     return;
 };

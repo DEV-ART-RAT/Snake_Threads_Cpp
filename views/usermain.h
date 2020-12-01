@@ -9,7 +9,7 @@
 #include "./snakeprint.cpp"
 #include "../snake/clear.cpp"
 #include "../tools/gameStruct.h"
-
+#include "../tools/ordenaruser.h"
 using namespace std;
 void welcomeuser();
 template<class T>
@@ -80,6 +80,7 @@ void printUsers(myGame<T>* game,string user){
             case 5:
                 pointContinue = stoi(recibo);
                 game->list.pushBack(T(point,pointContinue,coin,lifes,nivel,name));
+                //AQUI LO VAN A PONER !!
                 if(name==user){
                     game->user = game->list.back;
                 }

@@ -93,15 +93,17 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             //cout<<"new game start :v"<<endl;
             //playmatrix(&snake);
             modeMenu(game);
+            saveincsv(game->list.front);
             //playmatrix(&snake);
             // loop=false; //para que termine el juego sin que se regrese al menu :
             break;
         case 2:
             shopMenu(game);
-            
+            saveincsv(game->list.front);
             break;
         case 3:
             top_game(game);
+            saveincsv(game->list.front);
             //startMenu(game);
             break;
         case 4:

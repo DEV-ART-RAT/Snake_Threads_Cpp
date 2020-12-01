@@ -13,12 +13,15 @@
 #include "keyEvent.h"
 #include "my_snake.h"
 #include "../scene/parameter_define.cpp"
-
+#include "../views/pauseMenu.cpp"
 
 
 using namespace std;
 void close_buffer();
 void open_buffer();
+void restartingGame(myGame<nodeuserinfouser> *game);
+void playingGame(myGame<nodeuserinfouser> *game);
+const bool jugando=false;
 
 int redireccionando(myGame<nodeuserinfouser> *game)
 {
@@ -26,7 +29,7 @@ int redireccionando(myGame<nodeuserinfouser> *game)
     {
     case '\n':
             game->pause = true;
-            shopMenu(game);
+            //PauseMenu(game);
             game->snake.show();
             game->pause = false;
             sleep(2);

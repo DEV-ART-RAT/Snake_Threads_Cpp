@@ -1,12 +1,9 @@
 # Snake -> Dev-ART - ft.freddy.   <!-- omit in toc -->
-
-
 [Pagina con Instrucciones](https://wmoralesdev.github.io/actividadfinal/index)
 
+[<img src="https://github.com/UCASV/miniproyecto-miniproyecto-dev-art-ft-freddy/blob/main/_pictures/click.png" width="50" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
 
-[Pagina README](https://drubico.github.io/Snake_Terminal_cpp/)
-
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="55">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
 
 ## Indice <!-- omit in toc -->
 - [1. Estudiantes](#1-estudiantes)
@@ -23,7 +20,6 @@
   - [3.3. Algoritmos de ordenamiento / búsqueda:](#33-algoritmos-de-ordenamiento--búsqueda)
 - [4. EJECUCION:](#4-ejecucion)
   - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
-  - [](#)
 
 # 1. Estudiantes
 
@@ -59,5 +55,4 @@ en la raiz de el proyecto ejecutar:
 ```
 g++ -pthread main.cpp -o main && ./main
 ```
-## 
 

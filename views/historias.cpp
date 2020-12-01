@@ -34,7 +34,6 @@ int history(void) {
 
 void mensajehistoria(int pos,int max,string histo[]){
     char key=getchar();
-    cout<<max;
     switch (key)
     {
     case '\n':

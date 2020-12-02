@@ -71,10 +71,10 @@ void boostPointsx3(myGame<nodeuserinfouser>* game){
     }
 }
 
-void buyLife(node<nodeuserinfouser>* userdata){
-    if(userdata->info.coin >= 200){
-        userdata->info.coin -= 200;
-        userdata->info.vidas++;
+void buyLife(myGame<nodeuserinfouser>* game){
+    if(game->user->info.coin >= 200){
+        game->user->info.coin -= 200;
+        game->snake.lifes++;
         mensageLine(w.ws_col,"Vida comprada");
         mensageSteep(w.ws_col);
         mensageMargin(w.ws_col);
@@ -94,7 +94,7 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
     //bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
     switch (flag) {
         case 1:
-            buyLife(game->user);
+            buyLife(game);
             //sleep(1);
             //shopMenu(userdata,userlist);
             break;

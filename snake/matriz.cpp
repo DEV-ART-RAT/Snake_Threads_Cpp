@@ -23,20 +23,18 @@ void restartingGame(myGame<nodeuserinfouser> *game);
 bool playingGame(myGame<nodeuserinfouser> *game);
 const bool jugando=false;
 
-bool redireccionando(myGame<nodeuserinfouser> *game)
-{
+bool redireccionando(myGame<nodeuserinfouser> *game){
+    bool exit = true;
     switch (game->key)
     {
     case '\n':
             game->pause = true;
-            if(!PauseMenu(game)){
-                return false;
-            }
-            game->mostrarCabeceraSnake();
-            game->snake.show();
-            game->pause = false;
-            sleep(2);
-            game->key = '0';
+            exit = PauseMenu(game);
+            //game->mostrarCabeceraSnake();
+            //game->snake.show();
+            //game->pause = false;
+            //sleep(2);
+            //game->key = '0';
             break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)
@@ -57,21 +55,21 @@ bool redireccionando(myGame<nodeuserinfouser> *game)
     default:
         break;
     }
-    return true;
+    return exit;
 }
 
-bool playGame(myGame<nodeuserinfouser> *game)
-{
+bool playGame(myGame<nodeuserinfouser> *game){
+    bool exit = true;
     double timer = 0; // auxiliar para la velocidad
     //cin.clear();
-    while (game->playing)
-    {
+    while (game->playing){
         //if (!game->pause)
         //{
         if (timer > 10 * game->snake.speed)
         {
-            if(!redireccionando(game)){
-                return false;
+            if (!redireccionando(game)){
+                exit =  false;
+                break;
             }
             snakeDirection(game);
             game->mostrarCabeceraSnake();
@@ -100,6 +98,7 @@ bool playingGame(myGame<nodeuserinfouser> *game)
     {
         game->proxLevel = true;
     }
+    cin.clear();
     return exit;
 }
 
@@ -219,8 +218,11 @@ int playmatrix(myGame<nodeuserinfouser> *game){
 
     inExit = playingGame(game);
 
-    while (inExit && !game->proxLevel && gameOverMenu(game))
+    while (inExit && !game->proxLevel)
     {
+        if(!gameOverMenu(game)){
+            break;
+        }
         restartingGame(game);
         inExit = playingGame(game);
         //game->liveSpecial++;

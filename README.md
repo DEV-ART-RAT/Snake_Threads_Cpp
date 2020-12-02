@@ -7,7 +7,7 @@
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
 
 ## Ver documento donde nos basamos :
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit?usp=sharing)
 
 ## Indice <!-- omit in toc -->
 - [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)

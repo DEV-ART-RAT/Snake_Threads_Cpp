@@ -52,13 +52,13 @@
 <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0002.png" />
 
 ### Usuario ya guardado:
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0003.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0003.png" />
 
 ##  MENU
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0004.png" />
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0004.png" />
 
 ### Start(Modos de juego)
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0005.png" />
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0005.png" />
 
 #### SNAKE WORLD  PARTY (Cambia el tamaño de la pantalla segun el nivel)
 
@@ -76,10 +76,10 @@
 
 #### ESPECIAL
 
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0010.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0010.png" />
 
 Cada Especial tiene un nivel
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0011.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0011.png" />
 
 ##### LIBRE
 
@@ -96,21 +96,21 @@ Mapas cargados desde un csv
 <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0014.png" />
 
 ### Tienda
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0015.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0015.png" />
 
 ### Ver Tops
 
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0016.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0016.png" />
 
 #### Tipos de top
 
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0017.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0017.png" />
 
 ##### Top World Party
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0018.png" />
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0018.png" />
 
 ##### Top Clasico 97
-<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0019.png" />
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0019.png" />
 
 ### Instrucciones
 

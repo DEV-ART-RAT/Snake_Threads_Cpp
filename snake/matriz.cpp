@@ -30,11 +30,6 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
     case '\n':
             game->pause = true;
             exit = PauseMenu(game);
-            //game->mostrarCabeceraSnake();
-            //game->snake.show();
-            //game->pause = false;
-            //sleep(2);
-            //game->key = '0';
             break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)
@@ -61,10 +56,7 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
 bool playGame(myGame<nodeuserinfouser> *game){
     bool exit = true;
     double timer = 0; // auxiliar para la velocidad
-    //cin.clear();
     while (game->playing){
-        //if (!game->pause)
-        //{
         if (timer > 10 * game->snake.speed)
         {
             if (!redireccionando(game)){
@@ -77,7 +69,6 @@ bool playGame(myGame<nodeuserinfouser> *game){
             timer = 0;
         }
         timer++;
-        //}
         
         usleep(10 * 1000);
     }
@@ -225,7 +216,6 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         }
         restartingGame(game);
         inExit = playingGame(game);
-        //game->liveSpecial++;
     }
 
 

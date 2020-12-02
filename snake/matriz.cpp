@@ -88,18 +88,19 @@ bool playGame(myGame<nodeuserinfouser> *game)
 
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
+    bool exit = true;
     thread th1(keyEventSnake, game);
     game->startGame();  // alzando banderas
     game->mostrarCabeceraSnake();
     game->snake.show(); // mostrando serpiente
     sleep(2);           // tiempo de gracia (espera para iniciar)
-    return playGame(game);     //
+    exit = playGame(game);     //
     th1.detach();
     if (game->snake.sizeSnake == game->snake.sizeMax)
     {
         game->proxLevel = true;
     }
-    return true;
+    return exit;
 }
 
 void restartingGame(myGame<nodeuserinfouser> *game)
@@ -221,7 +222,7 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     while (inExit && !game->proxLevel && gameOverMenu(game))
     {
         restartingGame(game);
-        playingGame(game);
+        inExit = playingGame(game);
         //game->liveSpecial++;
     }
 

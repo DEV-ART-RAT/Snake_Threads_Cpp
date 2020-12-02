@@ -15,15 +15,15 @@ auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int s
     CLEAR;
     snakeprint();
     mensageLine(w.ws_col,"Que desea hacer?");
-    (opc==1)? mensageLine(w.ws_col,"*  Continar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continar(gastaras una vida)  ");
-    (opc==2)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLine(w.ws_col,"*  Continar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continar (gastaras una vida)  ");
+    (opc==2)? mensageLine(w.ws_col,"*  REGRESAR  *"):  mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };
 auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
+    mensageLine(w.ws_col,"Points: "+to_string(game->snake.points));
     mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);

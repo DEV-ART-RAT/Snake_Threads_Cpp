@@ -39,11 +39,17 @@ void boostPointsx2(myGame<nodeuserinfouser>* game){
 	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >= 500){
 		game->snake.x2Boosted = true;
         game->user->info.coin -= 500;
-		cout<<"Puntaje potenciado x2"<<endl;
+		mensageLine(w.ws_col,"Puntaje potenciado x2");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
-		cout<<"Un potenciador ya habia sido activado"<<endl;
+		mensageLine(w.ws_col,"Un potenciador ya habia sido activado");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	} else {
-		cout<<"Monedas insuficientes"<<endl;
+		mensageLine(w.ws_col,"Monedas insuficientes");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     }
 }
 
@@ -51,11 +57,17 @@ void boostPointsx3(myGame<nodeuserinfouser>* game){
 	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >=1000){
 		game->snake.x3Boosted = true;
         game->user->info.coin -= 1000;
-		cout<<"Puntaje potenciado x3"<<endl;
+		mensageLine(w.ws_col,"Puntaje potenciado x3");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
-		cout<<"Un potenciador ya habia sido activado"<<endl;
+		mensageLine(w.ws_col,"Un potenciador ya habia sido activado");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	} else {
-		cout<<"Monedas insuficientes"<<endl;
+		mensageLine(w.ws_col,"Monedas insuficientes");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     }
 }
 
@@ -63,9 +75,13 @@ void buyLife(node<nodeuserinfouser>* userdata){
     if(userdata->info.coin >= 200){
         userdata->info.coin -= 200;
         userdata->info.vidas++;
-        cout<<"Vida comprada"<<endl;
+        mensageLine(w.ws_col,"Vida comprada");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     } else {
-        cout<<"Monedas insuficientes"<<endl;
+        mensageLine(w.ws_col,"Monedas insuficientes");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     }
 }
 

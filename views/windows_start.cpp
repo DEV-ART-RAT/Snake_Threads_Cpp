@@ -76,7 +76,9 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
         case 4:
             quickSort(game->list.front, 1);
             saveincsv(game->list.front);
-            cout<<"Se guardo tu progreso!"<<endl;
+            mensageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
+            mensageSteep(w.ws_col);
+            mensageMargin(w.ws_col);
             exit(EXIT_SUCCESS);
             break;
         default:

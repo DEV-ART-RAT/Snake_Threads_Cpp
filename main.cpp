@@ -17,6 +17,7 @@ struct termios term;
 
 void open_buffer();
 void close_buffer();
+void cargando();
 void cargarEscenarios(myGame<nodeuserinfouser>*);
 void cargarEscenarios(myGame<nodeuserinfouser>* game){
     chargeScenes(game,"extra1.csv");//escenario a cargar
@@ -42,6 +43,7 @@ int main(void) {
     //game.list=NULL;
     game.user=NULL;
     close_buffer();
+    cargando();
     usermain(&game);//ingresando usuario y cargando lista
 
     open_buffer();
@@ -60,4 +62,18 @@ void close_buffer(){
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
+}
+void cargando(){
+    string cargand="Cargando.";
+    for (int i = 0; i < 4; i++)
+    {
+        CLEAR;
+        snakeprint();
+        mensageLine(w.ws_col,cargand);
+        cargand=cargand+".";
+        mensageSteep(w.ws_col);
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
+        sleep(1);
+    }
 }

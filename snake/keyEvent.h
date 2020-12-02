@@ -45,6 +45,9 @@ int optionSelectionKey(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOpt
     sleep(0.1);//para corregir fallo de whiles
     while(loop){
         key=getchar();//up:65 down:66 o B left:68 rigth:67
+        if( key=='\n'){
+            return flag;
+        }
         if(key==65 ){
             if(flag > 1){
                 flag--;
@@ -54,9 +57,6 @@ int optionSelectionKey(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOpt
             if(flag < sizeOption){
                 flag++;
             }
-        }
-        if( key=='\n'){
-            return flag;
         }
         wellcome(flag,game,sizeOption);
         sleep(0.01);//para corregir fallo de while

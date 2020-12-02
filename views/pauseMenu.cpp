@@ -89,10 +89,15 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 bool PauseMenu(myGame<nodeuserinfouser>* game){
-    if(game->mode!=2)
-        return PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
-    else
-        return PauseMenuAux(game,optionSelectionKey(game,mensajePause,2));
+    switch (game->mode)
+    {
+    case 2:
+            return PauseMenuAux(game,optionSelectionKey(game,mensajePause,2));
+            break;
+    default:
+            return PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
+            break;
+    }
 }
 
 

@@ -92,8 +92,9 @@ struct nodeuserinfouser {
         }
         if(flag == 6){
             return this->nivel >= r.nivel;
+        }if(flag==7){
+            return this->name >= r.name;
         }
-        return this->name >= r.name;
     }
 
     friend ostream& operator<<(ostream& os, const nodeuserinfouser& p) {

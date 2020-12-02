@@ -31,7 +31,6 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
             game->pause = true;
             exit = PauseMenu(game);
             game->pause = false;
-            game->key = '0';
             //cin.clear();
             break;//finalizando hilo
     case 65: //up

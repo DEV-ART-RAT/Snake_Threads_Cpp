@@ -13,19 +13,18 @@ using namespace std;
 auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
     mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
     if(game->snake.x2Boosted || game->snake.x3Boosted){
         mensageLine(w.ws_col,"Potenciador Activo: x" + to_string((game->snake.x3Boosted)? 3:2) );
     }
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (5 monedas)  *"):              
-        mensageLine(w.ws_col,"   Vida Extra (5 monedas)   ");
-    (opc==2)? mensageLine(w.ws_col,"*  Potenciar puntaje x2 (20 monedas) * "):   
-        mensageLine(w.ws_col,"   Potenciar puntaje x2 (20 monedas)   ");
-    (opc==3)? mensageLine(w.ws_col,"*  Potenciar puntaje x3 (30 monedas) *"):    
-        mensageLine(w.ws_col,"   Potenciar puntaje x3 (30 monedas)  ");
+    (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (200 monedas)  *"):              
+        mensageLine(w.ws_col,"   Vida Extra (200 monedas)   ");
+    (opc==2)? mensageLine(w.ws_col,"*  Potenciar puntaje x2 (500 monedas) * "):   
+        mensageLine(w.ws_col,"   Potenciar puntaje x2 (500 monedas)   ");
+    (opc==3)? mensageLine(w.ws_col,"*  Potenciar puntaje x3 (1000 monedas) *"):    
+        mensageLine(w.ws_col,"   Potenciar puntaje x3 (1000 monedas)  ");
     (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    
         mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
@@ -37,36 +36,52 @@ int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 
 void boostPointsx2(myGame<nodeuserinfouser>* game){
-	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >= 20){
+	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >= 500){
 		game->snake.x2Boosted = true;
-        game->user->info.coin -= 20;
-		cout<<"Puntaje potenciado x2"<<endl;
+        game->user->info.coin -= 500;
+		mensageLine(w.ws_col,"Puntaje potenciado x2");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
-		cout<<"Un potenciador ya habia sido activado"<<endl;
+		mensageLine(w.ws_col,"Un potenciador ya habia sido activado");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	} else {
-		cout<<"Monedas insuficientes"<<endl;
+		mensageLine(w.ws_col,"Monedas insuficientes");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     }
 }
 
 void boostPointsx3(myGame<nodeuserinfouser>* game){
-	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >=30){
+	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >=1000){
 		game->snake.x3Boosted = true;
-        game->user->info.coin -= 30;
-		cout<<"Puntaje potenciado x3"<<endl;
+        game->user->info.coin -= 1000;
+		mensageLine(w.ws_col,"Puntaje potenciado x3");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
-		cout<<"Un potenciador ya habia sido activado"<<endl;
+		mensageLine(w.ws_col,"Un potenciador ya habia sido activado");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
 	} else {
-		cout<<"Monedas insuficientes"<<endl;
+		mensageLine(w.ws_col,"Monedas insuficientes");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     }
 }
 
 void buyLife(node<nodeuserinfouser>* userdata){
-    if(userdata->info.coin >= 5){
-        userdata->info.coin -= 5;
+    if(userdata->info.coin >= 200){
+        userdata->info.coin -= 200;
         userdata->info.vidas++;
-        cout<<"Vida comprada"<<endl;
+        mensageLine(w.ws_col,"Vida comprada");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     } else {
-        cout<<"Monedas insuficientes"<<endl;
+        mensageLine(w.ws_col,"Monedas insuficientes");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
     }
 }
 

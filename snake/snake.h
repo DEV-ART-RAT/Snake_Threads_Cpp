@@ -46,12 +46,14 @@ void snakeDel(myGame<nodeuserinfouser>* game){
 
 void changeVelocity(myGame<nodeuserinfouser>* game){
     int max = game->snake.velMax;
-    if(game->snake.sizeSnake < max)
-        game->snake.speed = ((max - game->snake.sizeSnake) * 0.15) + 0.5;
+    int level = game->difficulty;
+    double velocity = 0.15;
+    if(game->snake.sizeSnake < (max-(level*level)))
+        game->snake.speed = ((max-(level*level) - game->snake.sizeSnake) * velocity) + 0.5;
     else if(game->snake.sizeSnake > max *2)
-        game->snake.speed = 0.3;
+        game->snake.speed = velocity*2;
     else
-        game->snake.speed = 0.5;
+        game->snake.speed = velocity*3;
     
 }
 
@@ -60,6 +62,7 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     if(game->snake.M[fil][col]== FOOD ){
         changeVelocity(game);
         game->snake.sizeSnake++;
+        game->user->info.coin+=10*game->difficulty;// esta linea incrementa las monedas segun su dificultad;
         increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){
             game->playing = false;
@@ -103,25 +106,6 @@ void snakeRight(myGame<nodeuserinfouser>* game){
     }
 }
 
-/*
-void speedBooster(myGame<nodeuserinfouser>* game){
-        int max = 30;
-        if(game->snake.sizeSnake < max*0.2)
-            game->snake.speed = game->snake.initialSpeed * 0.8;
-        else if (game->snake.sizeSnake < max*0.4)
-            game->snake.speed = game->snake.initialSpeed  * 0.6;
-        else if (game->snake.sizeSnake < max*0.5)
-            game->snake.speed = game->snake.initialSpeed * 0.5;
-        else if (game->snake.sizeSnake < max*0.60)
-            game->snake.speed = game->snake.initialSpeed  * 0.4;
-        else if (game->snake.sizeSnake < max*0.80)
-            game->snake.speed = game->snake.initialSpeed  * 0.3;
-        else if (game->snake.sizeSnake < max * 1.2)
-            game->snake.speed = game->snake.initialSpeed  * 0.2;
-        else
-            game->snake.speed = game->snake.initialSpeed  * 0.1;
-}
-*/
 
 //template<class T>
 void snakeLeft(myGame<nodeuserinfouser>* game){

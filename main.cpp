@@ -43,7 +43,7 @@ int main(void) {
     //game.list=NULL;
     game.user=NULL;
     close_buffer();
-    cargando();
+    //cargando();
     usermain(&game);//ingresando usuario y cargando lista
 
     open_buffer();

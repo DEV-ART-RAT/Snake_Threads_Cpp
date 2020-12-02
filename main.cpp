@@ -3,11 +3,11 @@
 #include <unistd.h>
 #include <termios.h>
 
+#include "./views/colors.h"
 #include "./views/usermain.h"
 #include "./tools/gameStruct.h"
 #include "./views/windows_start.cpp"
 #include "./scene/sceneControler.h"
-
 /* 
 Para ejecutar:
 g++ -pthread main.cpp -o main && ./main
@@ -65,12 +65,14 @@ void close_buffer(){
 }
 void cargando(){
     string cargand="Cargando.";
+    string snakecargando="\u2B24";
     for (int i = 0; i < 4; i++)
     {
         CLEAR;
         snakeprint();
-        mensageLine(w.ws_col,cargand);
-        cargand=cargand+".";
+        mensageLineCYAN(w.ws_col,cargand);
+        cargand=cargand+"..";
+        mensageLineCYAN(w.ws_col,"Porfavor no precione ninguna tecla.");
         mensageSteep(w.ws_col);
         mensageSteep(w.ws_col);
         mensageMargin(w.ws_col);

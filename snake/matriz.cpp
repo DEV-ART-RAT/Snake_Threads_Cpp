@@ -19,6 +19,7 @@
 using namespace std;
 void close_buffer();
 void open_buffer();
+void cargando();
 void restartingGame(myGame<nodeuserinfouser> *game);
 bool playingGame(myGame<nodeuserinfouser> *game);
 const bool jugando=false;
@@ -79,6 +80,8 @@ bool playGame(myGame<nodeuserinfouser> *game){
 
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
+    cargando();
+    cin.clear();
     bool exit = true;
     thread th1(keyEventSnake, game);
     game->startGame();  // alzando banderas

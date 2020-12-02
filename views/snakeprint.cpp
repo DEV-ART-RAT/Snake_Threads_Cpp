@@ -14,7 +14,7 @@ void mensageSnake(int col,string linea1[],int linea1size){
     col = (col- linea1->size() - 4 )/2;
     str.insert(0, col, ' ');
     for (int i=0; i <linea1size ;i++){
-    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<  COLOR_BOLDGREEN<<linea1[i]<<RESET << str <<COLOR_BOLDRED<<"*"<<RESET <<endl;
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str << COLOR_BOLDGREEN<<linea1[i]<<RESET << str <<COLOR_BOLDRED<<"*"<<RESET <<endl;
 
     }
     
@@ -51,6 +51,14 @@ void mensageLineRED(int col,string linea1){
     (linea1.size()%2 != 0)?  
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
+}
+void mensageLineGREEN(int col,string linea1){
+    string str;
+    col = (col- linea1.size() - 4 )/2;
+    str.insert(0, col, ' ');
+    (linea1.size()%2 != 0)?  
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDGREEN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDGREEN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
 // Esta funcion hace el top recursivo :v (by dr)
 int mensageLineSeccionAux(int col,string linea1,int pos,int extra){

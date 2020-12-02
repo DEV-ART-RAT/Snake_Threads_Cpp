@@ -17,6 +17,7 @@ template<class T>
 void printtop(node<T>* front,int colsize,int sobraparallegar);
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist);
 bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag);
+bool TopMenu(myGame<nodeuserinfouser>* );
 
 
 
@@ -43,11 +44,13 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
     switch (flag) {
             case 1:
                 quickSort(game->list.front, 1);
-                top_game(game);      
+                top_game(game);
+                TopMenu(game);      
                 return false; 
             case 2:
                 quickSort(game->list.front, 3);
                 top_game(game);
+                TopMenu(game);
                 return false;
             case 3:
                 return true;

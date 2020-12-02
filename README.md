@@ -129,7 +129,7 @@ Cuando salimos guarda nuestros resultados
     - Simple: Para la creacion de los nodos de listas doblemente enlazadas
     - Doble: Para la creacion de matriz
 ## 3.3. Algoritmos de ordenamiento / búsqueda:
-
+- Algoritmo de ordenamiento quicksort para obtener un top o una clasificación de los jugadores con mayor puntaje
 
 # 4. EJECUCION:
 ## 4.1. Ejecutar codigo:

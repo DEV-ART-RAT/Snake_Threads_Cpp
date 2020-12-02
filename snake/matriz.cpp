@@ -214,12 +214,11 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty; //nivel de velocidad
     game->snake.sizeMax = snkMax;
 
+    bool inExit = true;
 
+    inExit = playingGame(game);
 
-    playingGame(game);
-
-
-    while (!game->proxLevel && gameOverMenu(game))
+    while (inExit && !game->proxLevel && gameOverMenu(game))
     {
         restartingGame(game);
         playingGame(game);
@@ -250,6 +249,10 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         if(game->user->info.puntajeClasico < game->snake.points){
             game->user->info.puntajeClasico = game->snake.points;
         }
+    }
+
+    if(!inExit){
+        return 0;
     }
     
     if (game->proxLevel){

@@ -30,6 +30,7 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
     case '\n':
             game->pause = true;
             exit = PauseMenu(game);
+            game->pause = false;
             break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)

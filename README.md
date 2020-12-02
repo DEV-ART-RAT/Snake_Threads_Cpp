@@ -1,15 +1,19 @@
-# Snake -> Dev-ART - ft.freddy.   <!-- omit in toc -->
+# Snake -> Dev-ART - ft.freddy.   
 [Pagina con Instrucciones(https://wmoralesdev.github.io/actividadfinal/index)](https://wmoralesdev.github.io/actividadfinal/index)
 ## IMPORTANTE :
 [Como ejecutar?:](#4-ejecucion)
 
-## Ver Readme :  <!-- omit in toc -->
+## Ver Readme : 
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
 
-## 0.1. Ver documento donde nos basamos :
+## Ver documento donde nos basamos :
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit)
 
 ## Indice <!-- omit in toc -->
+- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
+  - [IMPORTANTE :](#importante-)
+  - [Ver Readme :](#ver-readme-)
+  - [Ver documento donde nos basamos :](#ver-documento-donde-nos-basamos-)
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
   - [2.1. inicio(usuario):](#21-iniciousuario)
@@ -39,6 +43,7 @@
   - [3.3. Algoritmos de ordenamiento / búsqueda:](#33-algoritmos-de-ordenamiento--búsqueda)
 - [4. EJECUCION:](#4-ejecucion)
   - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
+- [REGRESAR AL INDICE :](#regresar-al-indice-)
 
 # 1. Estudiantes
 
@@ -149,3 +154,6 @@ g++ -pthread main.cpp -o main && ./main
 - El proyecto tiene colores y caracteres especiales que en todas las computadoras que probamos funcionaron igual
   pero hay que aclara que al no haber trabajado con esos caracteres no sabemos si funcionan igual en todas 
   las computadoras.
+
+# REGRESAR AL INDICE :
+- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)

@@ -21,14 +21,23 @@ auto mensajePause = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     (opc==1)? 
     mensageLine(w.ws_col,"* Regresar al juego *"):              
     mensageLine(w.ws_col,"  Regresar al juego  ");
-    (opc==2)? 
-    mensageLine(w.ws_col,"* Ir ala tienda *"):   
-    mensageLine(w.ws_col,"  Ir ala tienda  ");
-    (opc==3)? 
-    mensageLine(w.ws_col,"* Salir del juego *"):    
-    mensageLine(w.ws_col,"  Salir del juego  ");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    if(game->mode!=2){
+        (opc==2)? 
+        mensageLine(w.ws_col,"* Ir ala tienda *"):   
+        mensageLine(w.ws_col,"  Ir ala tienda  ");
+        (opc==3)? 
+        mensageLine(w.ws_col,"* Salir del juego *"):    
+        mensageLine(w.ws_col,"  Salir del juego  ");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
+    }else{
+        (opc==2)? 
+        mensageLine(w.ws_col,"* Salir del juego *"):    
+        mensageLine(w.ws_col,"  Salir del juego  ");
+        mensageSteep(w.ws_col);
+        mensageMargin(w.ws_col);
+    }
+  
 }; 
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
@@ -41,8 +50,14 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
             case 1:
                 return true;
             case 2:
-                shopMenu(game);
-                return PauseMenu(game);;
+                if(game->mode!=2)
+                {
+                    shopMenu(game);
+                    return PauseMenu(game);
+                }else{
+                    game->playing = false;
+                    return false;                   
+                }
             case 3:
                 game->playing = false;
                 return false;
@@ -53,7 +68,10 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
 }
 
 bool PauseMenu(myGame<nodeuserinfouser>* game){
-    return PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
+    if(game->mode!=2)
+        return PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
+    else
+        return PauseMenuAux(game,optionSelectionKey(game,mensajePause,2));
 }
 
 

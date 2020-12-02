@@ -41,6 +41,7 @@ void usermain(myGame<T>* game) {
         mensageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
         mensageSteep(w.ws_col);
         mensageMargin(w.ws_col);
+        cin.ignore();
         cin.clear();
         cin.get();
         //print_user(game); 
@@ -52,6 +53,7 @@ void usermain(myGame<T>* game) {
         mensageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
         mensageSteep(w.ws_col);
         mensageMargin(w.ws_col);
+        cin.ignore();
         cin.clear();
         cin.get();
         history();

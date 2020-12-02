@@ -41,10 +41,9 @@ void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
     (opc==2)? mensageLine(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
-    (opc==3)? mensageLine(w.ws_col,"*  TOP WORLD PARTY  *"): mensageLine(w.ws_col,"   TOP WORLD PARTY   ");
-    (opc==4)? mensageLine(w.ws_col,"*  TOP CLASICO  *"): mensageLine(w.ws_col,"   TOP CLASICO   ");
-    (opc==5)? mensageLine(w.ws_col,"*  INSTRUCCIONES * "): mensageLine(w.ws_col,"   INSTRUCCIONES   ");
-    (opc==6)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
+    (opc==3)? mensageLine(w.ws_col,"*  Ver TOPS  *"): mensageLine(w.ws_col,"   Ver TOPS   ");
+    (opc==4)? mensageLine(w.ws_col,"*  INSTRUCCIONES * "): mensageLine(w.ws_col,"   INSTRUCCIONES   ");
+    (opc==5)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 
@@ -69,26 +68,13 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             saveincsv(game->list.front);
             break;
         case 3:
-        //Puntuacion World party
-            quickSort(game->list.front, 1);
-            saveincsv(game->list.front);
-            top_game(game);
-            saveincsv(game->list.front);
-            //startMenu(game);
+            TopMenu(game);
             break;
         case 4:
-        //Puntuacion Clasico
-            quickSort(game->list.front, 3);
-            saveincsv(game->list.front);
-            top_game(game);
-            saveincsv(game->list.front);
-            //startMenu(game);
-            break;
-        case 5:
             history();
             //startMenu(game);
             break;
-        case 6:
+        case 5:
             quickSort(game->list.front, 0);
             saveincsv(game->list.front);
             mensageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
@@ -104,6 +90,6 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
 }
 
 int startMenu(myGame<nodeuserinfouser>* game){
-    startMenuOpc(game,optionSelectionKey(game,mensajeStart,6));
+    startMenuOpc(game,optionSelectionKey(game,mensajeStart,5));
     return 0;
 }

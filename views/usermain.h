@@ -26,6 +26,8 @@ void usermain(myGame<T>* game) {
     welcomeuser();//mostrando mensaje visual para pedir usuario
     int vecesdigitadas=0;
     do{
+        cin.ignore(10000,'\n');
+        
         if(vecesdigitadas>0){
                 CLEAR
                 welcomeuser();//mostrando mensaje visual para pedir usuario

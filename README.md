@@ -115,6 +115,14 @@ Cuando salimos guarda nuestros resultados
 
 # 3. Implementacion de :
 ## 3.1. Buenas prácticas:
+- Separación en carpetas de los archivos según su utilidad
+- Nombres de variables en inglés para mantener un estándar
+- Comentariado de las funciones
+- Indentación del código
+- Integración continua:
+    - Pruebas periódicas para comprobar el correcto funcionamiento del código
+    - Realización de commits de modificaciones e integración de código
+    - Push al repositorio a menudo
 
 ## 3.2. Estructuras de datos (dinámicas):
 

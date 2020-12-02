@@ -9,7 +9,7 @@ using namespace std;
 struct termios term_over;
 
 
-//int optionSelectionKey(node<nodeuserinfouser>* , auto ,int );
+//int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
 auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
@@ -33,7 +33,7 @@ auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size
     mensageMargin(w.ws_col);
 };
 
-bool gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
+int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
             game->snake.lifes--;
@@ -50,9 +50,9 @@ bool gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
 
 bool gameOverMenu(myGame<nodeuserinfouser>* game){
     if(game->snake.lifes > 0){
-        return gameOverMenuAux(game,optionSelectionKey(game,mensajeGameOverContinued,2));
+        return gameOverMenuAux(game,startMenuAux(game,mensajeGameOverContinued,2));
     }
-    gameOverMenuAux(game,optionSelectionKey(game,mensajeGameOverFinish,1));
+    gameOverMenuAux(game,startMenuAux(game,mensajeGameOverFinish,1));
     return false;
     
 }

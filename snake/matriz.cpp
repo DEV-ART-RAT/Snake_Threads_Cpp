@@ -81,7 +81,7 @@ bool playGame(myGame<nodeuserinfouser> *game){
         
         usleep(10 * 1000);
     }
-    return true;
+    return exit;
 }
 
 bool playingGame(myGame<nodeuserinfouser> *game)

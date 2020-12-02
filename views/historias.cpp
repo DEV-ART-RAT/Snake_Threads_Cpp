@@ -13,19 +13,21 @@ void mensajehistoria(int pos,int max,string histo[]);
 
 int history(void) {
     string historia[]={
-        "En el principio de la humanidad las personas vivian felizmente,",
-        "Habian muchos trabajos y ocupaciones pero el que mas llamaba la atencion era ser mago,",
-        "Por lo que muchos estudiaban magia negra",
-        "En la universidad de los buhos,",
-        "Eran felices hasta que un dia llego",
-        "El Poderoso ENXEL,",
-        "Que vino a convertir a toda la raza humana en Serpientes,",
-        "Pero llegaste tu para combatirlo",
-        "Asi que adelante Gana y vence a Enxel!!!"
+        "Bienvenido Snakero, estas apunto de entrar a una fantastica aventura",
+        "para evitar facilitarte tu viaje te explicaremos los controles basicos:",
+        "Muevete usanso las direccionales dentro del menu y del campo de juego",
+        "presiona ENTER para seleccionar y poner pausa dentro del juego",
+        "Tendras 3 diferentes modos de juego:",
+        "1- World Party Snake: disfruta de diferentes mundos cada uno mas dificil.",
+        "2- Clasico 97: El snake clasico, la velocidad aumenta mientras mas comas!",
+        "3- Especial: Difruta de diferentes mapas creados por los dioses, no sera nada facil.",
+        "No olvides reunir el maximo de monedas que puedas para comprar potenciadores en la tienda",
+        "Y por ultimo ... domina la cima de todos los tops de los modos de juego",
+        "Divierte!!!"
     };
     CLEAR
     mensageMargin(w.ws_col);
-    mensageLineMAGENTA(w.ws_col,"(Presiona Enter para avanzar en la historia)");
+    mensageLineMAGENTA(w.ws_col,"(Presiona Enter para continuar)");
     mensageSteep(w.ws_col);
     int size =0;
     size=sizeof(historia)/sizeof(historia[0]);

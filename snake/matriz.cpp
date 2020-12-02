@@ -31,6 +31,7 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
             game->pause = true;
             exit = PauseMenu(game);
             game->pause = false;
+            cin.ignore(1);
             //cin.clear();
             break;//finalizando hilo
     case 65: //up
@@ -219,8 +220,19 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         restartingGame(game);
         inExit = playingGame(game);
     }
-
-
+    // Guardando las vidas en el usuario
+    // by rubi
+    if(game->mode!=2){
+        if(game->snake.lifes>0){
+            game->user->info.vidas=game->snake.lifes;
+        }else{
+            game->user->info.vidas=0;
+        }            
+    }
+    //guardando cosas en el csv
+    // by rubi
+    saveincsv(game->list.front);
+    //
     if (game->mode == 1){    
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;

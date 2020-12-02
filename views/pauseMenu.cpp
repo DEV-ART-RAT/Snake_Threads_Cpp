@@ -46,25 +46,37 @@ bool PauseMenu(myGame<nodeuserinfouser>* game);
 bool gameOverMenu(myGame<nodeuserinfouser>* game);
 
 bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
-    switch (flag) {
-            case 1:
-                return true;
-            case 2:
-                if(game->mode!=2)
-                {
-                    shopMenu(game);
-                    return PauseMenu(game);
-                }else{
+    switch (game->mode)
+    {
+    case 2:
+            switch (flag) 
+            {
+                case 1:
+                    return true;
+                case 2:
                     game->playing = false;
                     return false;                   
-                }
-            case 3:
-                game->playing = false;
-                return false;
-            default:
-                return true;
-    }
-
+                default:
+                    return true;
+            }  
+            break;
+    default:
+            switch (flag) 
+            {
+                case 1:
+                    cin.clear();
+                    return true;
+                case 2:
+                    shopMenu(game);
+                    return PauseMenu(game);
+                case 3:
+                    game->playing = false;
+                    return false;                   
+                default:
+                    return true;
+            };  
+            break;
+    };
 }
 
 bool PauseMenu(myGame<nodeuserinfouser>* game){

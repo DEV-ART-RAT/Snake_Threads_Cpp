@@ -41,8 +41,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->scene = 1;
             //difficultyMenu(game);
             playmatrix(game);
-            game->user->info.vidas=game->snake.lifes;
-            saveincsv(game->list.front);
             //gameOverMenu(game);
             break;
         case 2:
@@ -53,7 +51,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->snake.points = 0;
             //difficultyMenu(game);
             playmatrix(game);
-            saveincsv(game->list.front);
             //gameOverMenu(game);
             break;
         case 3://especial
@@ -61,8 +58,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->mode = 3;//especial
             game->snake.points = 0;
             sceneMenu(game);
-            game->user->info.vidas=game->snake.lifes;
-            saveincsv(game->list.front);
             break;
         case 4:
             //playmatrix(&snake,3,0);

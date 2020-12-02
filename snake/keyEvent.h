@@ -68,4 +68,17 @@ int optionSelectionKey(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOpt
     return 0;
 }
 
-
+bool enterSelection(myGame<nodeuserinfouser>* game,auto wellcome){
+    char key; //contenedor de tecla
+    bool loop = true;   //bandera para el while true
+    wellcome(game);  //invocacion del menu
+    while(loop){
+        key=getchar();
+        if( key=='\n'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}

@@ -36,6 +36,9 @@ auto mensajeTOPS = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     (opc==3)? 
     mensageLine(w.ws_col,"* TOP Ordenado por Clasico 97 *"):    
     mensageLine(w.ws_col,"  TOP Ordenado por Clasico 97  ");
+    (opc==4)? 
+    mensageLine(w.ws_col,"* Regresar *"):    
+    mensageLine(w.ws_col,"  Regresar  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 }; 
@@ -53,6 +56,8 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
                 quickSort(game->list.front, 3);
                 top_game(game);
                 return false;
+            case 4:
+                return true;
             default:
                 return true;
     }
@@ -121,5 +126,5 @@ void ordenarparametros(int colsize,int sobraparallegar){
 }
 
 bool TopMenu(myGame<nodeuserinfouser>* game){
-    return TopMenuAux(game,optionSelectionKey(game,mensajeTOPS,3));
+    return TopMenuAux(game,optionSelectionKey(game,mensajeTOPS,4));
 }

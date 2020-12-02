@@ -20,7 +20,7 @@ using namespace std;
 void close_buffer();
 void open_buffer();
 void restartingGame(myGame<nodeuserinfouser> *game);
-void playingGame(myGame<nodeuserinfouser> *game);
+bool playingGame(myGame<nodeuserinfouser> *game);
 const bool jugando=false;
 
 bool redireccionando(myGame<nodeuserinfouser> *game)
@@ -57,11 +57,13 @@ bool redireccionando(myGame<nodeuserinfouser> *game)
     default:
         break;
     }
+    return true;
 }
 
-int playGame(myGame<nodeuserinfouser> *game)
+bool playGame(myGame<nodeuserinfouser> *game)
 {
     double timer = 0; // auxiliar para la velocidad
+    //cin.clear();
     while (game->playing)
     {
         //if (!game->pause)
@@ -69,7 +71,7 @@ int playGame(myGame<nodeuserinfouser> *game)
         if (timer > 10 * game->snake.speed)
         {
             if(!redireccionando(game)){
-                break;
+                return false;
             }
             snakeDirection(game);
             game->mostrarCabeceraSnake();
@@ -81,21 +83,23 @@ int playGame(myGame<nodeuserinfouser> *game)
         
         usleep(10 * 1000);
     }
+    return true;
 }
 
-void playingGame(myGame<nodeuserinfouser> *game)
+bool playingGame(myGame<nodeuserinfouser> *game)
 {
     thread th1(keyEventSnake, game);
     game->startGame();  // alzando banderas
     game->mostrarCabeceraSnake();
     game->snake.show(); // mostrando serpiente
     sleep(2);           // tiempo de gracia (espera para iniciar)
-    playGame(game);     //
+    return playGame(game);     //
     th1.detach();
     if (game->snake.sizeSnake == game->snake.sizeMax)
     {
         game->proxLevel = true;
     }
+    return true;
 }
 
 void restartingGame(myGame<nodeuserinfouser> *game)

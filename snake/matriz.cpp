@@ -31,6 +31,7 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
             game->pause = true;
             exit = PauseMenu(game);
             game->pause = false;
+            //cin.clear();
             break;//finalizando hilo
     case 65: //up
         if (game->direccion != 2 && game->direccion != 1)
@@ -90,7 +91,7 @@ bool playingGame(myGame<nodeuserinfouser> *game)
     {
         game->proxLevel = true;
     }
-    cin.clear();
+    //cin.clear();
     return exit;
 }
 
@@ -244,12 +245,8 @@ int playmatrix(myGame<nodeuserinfouser> *game){
             game->user->info.puntajeClasico = game->snake.points;
         }
     }
-
-    if(!inExit){
-        return 0;
-    }
     
-    if (game->proxLevel){
+    if (game->proxLevel && inExit){
         CLEAR;
         snakeprint();
         mensageLine(w.ws_col, "Subiste de nivel");
@@ -269,5 +266,5 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         game->proxLevel = false;
         playmatrix(game);
     }
-    return 0;
+    return inExit;
 }

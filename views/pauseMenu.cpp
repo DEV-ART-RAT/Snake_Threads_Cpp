@@ -44,6 +44,7 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
                 shopMenu(game);
                 return PauseMenu(game);;
             case 3:
+                game->playing = false;
                 return false;
             default:
                 return true;

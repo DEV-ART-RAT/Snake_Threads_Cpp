@@ -41,7 +41,7 @@ void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
     mensageSteep(w.ws_col);
     (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
     (opc==2)? mensageLine(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
-    (opc==3)? mensageLine(w.ws_col,"*  TOP WORLD PARTY *"): mensageLine(w.ws_col,"   TOP WORLD PARTY   ");
+    (opc==3)? mensageLine(w.ws_col,"*  TOP WORLD PARTY  *"): mensageLine(w.ws_col,"   TOP WORLD PARTY   ");
     (opc==4)? mensageLine(w.ws_col,"*  TOP CLASICO  *"): mensageLine(w.ws_col,"   TOP CLASICO   ");
     (opc==5)? mensageLine(w.ws_col,"*  INSTRUCCIONES * "): mensageLine(w.ws_col,"   INSTRUCCIONES   ");
     (opc==6)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
@@ -77,7 +77,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             //startMenu(game);
             break;
         case 4:
-        //Puntuacion World party
+        //Puntuacion Clasico
             quickSort(game->list.front, 3);
             saveincsv(game->list.front);
             top_game(game);
@@ -89,7 +89,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             //startMenu(game);
             break;
         case 6:
-            quickSort(game->list.front, 1);
+            quickSort(game->list.front, 0);
             saveincsv(game->list.front);
             mensageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
             mensageSteep(w.ws_col);

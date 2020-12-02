@@ -29,8 +29,9 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
     switch (game->key)
     {
     case '\n':
-            game->pause = true;
+            //game->pause = true;
             exit = PauseMenu(game);
+            game->key = '0';
             game->pause = false;
             //cin.clear();
             break;//finalizando hilo

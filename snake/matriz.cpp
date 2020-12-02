@@ -17,8 +17,6 @@
 
 
 using namespace std;
-void close_buffer();
-void open_buffer();
 void cargando();
 void restartingGame(myGame<nodeuserinfouser> *game);
 bool playingGame(myGame<nodeuserinfouser> *game);
@@ -82,7 +80,7 @@ bool playGame(myGame<nodeuserinfouser> *game){
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
     //cargando();//Pantalla de carga
-    cin.clear();
+    //cin.clear();
     bool exit = true;
     thread th1(keyEventSnake, game);
     game->startGame();  // alzando banderas
@@ -90,12 +88,12 @@ bool playingGame(myGame<nodeuserinfouser> *game)
     game->snake.show(); // mostrando serpiente
     sleep(2);           // tiempo de gracia (espera para iniciar)
     exit = playGame(game);     //
-    th1.detach();
     if (game->snake.sizeSnake == game->snake.sizeMax)
     {
         game->proxLevel = true;
     }
     //cin.clear();
+    th1.detach();
     return exit;
 }
 
@@ -260,9 +258,11 @@ int playmatrix(myGame<nodeuserinfouser> *game){
             game->user->info.puntajeClasico = game->snake.points;
         }
     }
-    
+    game->pause = true;
+    game->playing = false;
     if (game->proxLevel && inExit){
         CLEAR;
+        //cin.clear();
         snakeprint();
         mensageLine(w.ws_col, "Subiste de nivel");
         mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
@@ -270,6 +270,8 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         mensageMargin(w.ws_col);
         cin.clear();
         getchar();
+        //cin.get();
+
         if (game->mode == 1){
             game->user->info.vidas = game->snake.lifes;
             game->user->info.nivel++;

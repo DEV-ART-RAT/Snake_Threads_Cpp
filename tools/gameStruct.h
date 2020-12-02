@@ -33,6 +33,7 @@ struct myGame{
         key = '0';
         playing = true;
         redirection = false;
+        pause = false;
         direccion = 3;
     }
 

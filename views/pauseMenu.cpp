@@ -18,25 +18,34 @@ auto mensajePause = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    (opc==1)? 
-    mensageLine(w.ws_col,"* Regresar al juego *"):              
-    mensageLine(w.ws_col,"  Regresar al juego  ");
-    if(game->mode!=2){
-        (opc==2)? 
-        mensageLine(w.ws_col,"* Ir ala tienda *"):   
-        mensageLine(w.ws_col,"  Ir ala tienda  ");
-        (opc==3)? 
-        mensageLine(w.ws_col,"* Salir del juego *"):    
-        mensageLine(w.ws_col,"  Salir del juego  ");
-        mensageSteep(w.ws_col);
-        mensageMargin(w.ws_col);
-    }else{
-        (opc==2)? 
-        mensageLine(w.ws_col,"* Salir del juego *"):    
-        mensageLine(w.ws_col,"  Salir del juego  ");
-        mensageSteep(w.ws_col);
-        mensageMargin(w.ws_col);
+    switch (game->mode)
+    {
+    case 2:
+            (opc==1)? 
+            mensageLine(w.ws_col,"* Regresar al juego *"):              
+            mensageLine(w.ws_col,"  Regresar al juego  ");
+            (opc==2)? 
+            mensageLine(w.ws_col,"* Salir del juego *"):    
+            mensageLine(w.ws_col,"  Salir del juego  ");
+            mensageSteep(w.ws_col);
+            mensageMargin(w.ws_col);
+            break;
+    
+    default:
+            (opc==1)? 
+            mensageLine(w.ws_col,"* Regresar al juego *"):              
+            mensageLine(w.ws_col,"  Regresar al juego  ");
+            (opc==2)? 
+            mensageLine(w.ws_col,"* Ir ala tienda *"):   
+            mensageLine(w.ws_col,"  Ir ala tienda  ");
+            (opc==3)? 
+            mensageLine(w.ws_col,"* Salir del juego *"):    
+            mensageLine(w.ws_col,"  Salir del juego  ");
+            mensageSteep(w.ws_col);
+            mensageMargin(w.ws_col);
+            break;
     }
+    
   
 }; 
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
@@ -55,7 +64,7 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
                     return true;
                 case 2:
                     game->playing = false;
-                    return false;                   
+                    return false;  
                 default:
                     return true;
             }  
@@ -71,7 +80,7 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
                     return PauseMenu(game);
                 case 3:
                     game->playing = false;
-                    return false;                   
+                    return false;    
                 default:
                     return true;
             };  

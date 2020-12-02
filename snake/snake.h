@@ -60,7 +60,7 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     if(game->snake.M[fil][col]== FOOD ){
         changeVelocity(game);
         game->snake.sizeSnake++;
-        game->user->info.coin+=1*game->difficulty;// esta linea incrementa las monedas segun su dificultad;
+        game->user->info.coin+=10*game->difficulty;// esta linea incrementa las monedas segun su dificultad;
         increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){
             game->playing = false;

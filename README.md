@@ -125,7 +125,9 @@ Cuando salimos guarda nuestros resultados
     - Push al repositorio a menudo
 
 ## 3.2. Estructuras de datos (dinámicas):
-
+- Punteros
+    - Simple: Para la creacion de los nodos de listas doblemente enlazadas
+    - Doble: Para la creacion de matriz
 ## 3.3. Algoritmos de ordenamiento / búsqueda:
 
 

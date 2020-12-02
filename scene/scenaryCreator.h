@@ -5,13 +5,15 @@ void levelOne(char** , int , int);
 
 void sceneChargininstructionsRow(char** array, int a, int b, sceneInfo* info){
     //cout<<*info<<endl;
-    int i = a * info->row * 0.1;
-    int j = b * info->col * 0.1;
+    int i = (a * info->row * 0.1);
+    int j = (b * info->col * 0.1);
     int end = b * info->end * 0.1;
-    if(i > a || j > b){
-        return;
+    if(i >= a){
+        i = a -1;
     }
-
+    if(j >= b){
+        i = b -1;
+    }
     for(; j < b && j<end ; j++) {//filas
             array[i][j]=WALL;
     }
@@ -19,11 +21,17 @@ void sceneChargininstructionsRow(char** array, int a, int b, sceneInfo* info){
 }
 
 void sceneChargininstructionsCol(char** array, int a, int b,sceneInfo* info){
-    int i = a * info->row * 0.1;
-    int j = b * info->col * 0.1;
+    int i = (a * info->row * 0.1);
+    int j = (b * info->col * 0.1);
     int end = a * info->end * 0.1;
-    if(i > a || j > b){
-        return;
+    //cout<<"a:"<<a <<"i:"<<i<<"j:"<<j<<"b:"<<b<<endl;
+    //cin.get();
+    
+    if(i >= a){
+        i = a - 1;
+    }
+    if(j >= b){
+        j = b - 1;
     }
 
     for(; i < a && i<end ; i++) {//filas
@@ -50,7 +58,7 @@ void sceneChargininstructions(myGame<nodeuserinfouser>* game){
         int escenario = game->scene-discriminante;
         //cout<<"argando escenario extra"<<game->scene-discriminante<<endl;
         node<doubleLinked<sceneInfo>>* temp = game->sceneList.front;
-        for (;escenario<1;escenario--){
+        for (;escenario>1;escenario--){
             temp=temp->next;
         }
         //cout<<temp->info.front->info.col<<endl;

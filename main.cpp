@@ -20,8 +20,8 @@ void close_buffer();
 void cargarEscenarios(myGame<nodeuserinfouser>*);
 void cargarEscenarios(myGame<nodeuserinfouser>* game){
     chargeScenes(game,"extra1.csv");//escenario a cargar
-    chargeScenes(game,"extra1.csv");//escenario a cargar
-    chargeScenes(game,"extra1.csv");//escenario a cargar
+    chargeScenes(game,"extra2.csv");//escenario a cargar
+    //chargeScenes(game,"extra1.csv");//escenario a cargar
     //cout<<"escenes:"<<endl;
     //traverseBegin(game->sceneList.front->info.front);
 

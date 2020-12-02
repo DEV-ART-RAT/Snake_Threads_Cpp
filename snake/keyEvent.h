@@ -26,6 +26,9 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
     {   
         if(!game->pause){
             game->key=getchar();
+            if(game->key == '\n'){
+                game->pause = true;
+            }
             if(!game->playing){
                 return;
             }

@@ -50,9 +50,9 @@ int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
 
 bool gameOverMenu(myGame<nodeuserinfouser>* game){
     if(game->snake.lifes > 0){
-        return gameOverMenuAux(game,startMenuAux(game,mensajeGameOverContinued,2));
+        return gameOverMenuAux(game,optionSelectionKey(game,mensajeGameOverContinued,2));
     }
-    gameOverMenuAux(game,startMenuAux(game,mensajeGameOverFinish,1));
+    gameOverMenuAux(game,optionSelectionKey(game,mensajeGameOverFinish,1));
     return false;
     
 }

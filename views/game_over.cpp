@@ -33,7 +33,7 @@ auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size
     mensageMargin(w.ws_col);
 };
 
-int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
+bool gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
             game->snake.lifes--;

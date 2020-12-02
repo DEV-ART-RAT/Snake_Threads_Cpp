@@ -42,20 +42,17 @@ bool PauseMenuAux(myGame<nodeuserinfouser>* game,int flag){
                 return true;
             case 2:
                 shopMenu(game);
+                return PauseMenu(game);;
             case 3:
-                delete(game->snake.M);
-                delete(game->snake.list);
-                game->snake.sizeSnake = 3;
                 return false;
             default:
-                return false;
+                return true;
     }
 
 }
 
 bool PauseMenu(myGame<nodeuserinfouser>* game){
-    PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
-    return false;
+    return PauseMenuAux(game,optionSelectionKey(game,mensajePause,3));
 }
 
 

@@ -23,13 +23,15 @@ void restartingGame(myGame<nodeuserinfouser> *game);
 void playingGame(myGame<nodeuserinfouser> *game);
 const bool jugando=false;
 
-int redireccionando(myGame<nodeuserinfouser> *game)
+bool redireccionando(myGame<nodeuserinfouser> *game)
 {
     switch (game->key)
     {
     case '\n':
             game->pause = true;
-            //PauseMenu(game);
+            if(!PauseMenu(game)){
+                return false;
+            }
             game->mostrarCabeceraSnake();
             game->snake.show();
             game->pause = false;
@@ -66,12 +68,9 @@ int playGame(myGame<nodeuserinfouser> *game)
         //{
         if (timer > 10 * game->snake.speed)
         {
-            redireccionando(game);
-            /*if (game->redirection)
-            {
-                
-                game->redirection = false;
-            }*/
+            if(!redireccionando(game)){
+                break;
+            }
             snakeDirection(game);
             game->mostrarCabeceraSnake();
             game->snake.show();
@@ -222,36 +221,34 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         playingGame(game);
         //game->liveSpecial++;
     }
-    if (game->mode == 1)
-    {    
+
+
+    if (game->mode == 1){    
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;
-        if(game->user->info.puntaje < game->snake.points){
-            game->user->info.puntaje = game->snake.points;
+
+        game->user->info.puntajeContinuar = game->snake.points;
+
+        if(game->user->info.puntaje < game->user->info.puntajeContinuar){
+            game->user->info.puntaje = game->user->info.puntajeContinuar;
         }
 
-        if (game->snake.lifes <= 0)
-        {
+        if (game->snake.lifes <= 0){
             game->user->info.vidas = 5;
             game->user->info.nivel = 1;
-            game->snake.points = 0;
+            game->user->info.puntajeContinuar = 0;
         }
-        game->user->info.puntajeContinuar = game->snake.points;
     }
 
-    if (game->mode == 2)
-    {   
+    if (game->mode == 2){   
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;
-
-        //Cambiar este if por puntaje clasico
-        if(game->user->info.puntaje < game->snake.points){
-            game->user->info.puntaje = game->snake.points;
+        if(game->user->info.puntajeClasico < game->snake.points){
+            game->user->info.puntajeClasico = game->snake.points;
         }
     }
     
-    if (game->proxLevel)
-    {
+    if (game->proxLevel){
         CLEAR;
         snakeprint();
         mensageLine(w.ws_col, "Subiste de nivel");
@@ -260,8 +257,7 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         mensageMargin(w.ws_col);
         cin.clear();
         getchar();
-        if (game->mode)
-        {
+        if (game->mode == 1){
             game->user->info.vidas = game->snake.lifes;
             game->user->info.nivel++;
         }

@@ -66,12 +66,12 @@ void close_buffer(){
 void cargando(){
     string cargand="Cargando.";
     string snakecargando="\u2B24";
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
         CLEAR;
         snakeprint();
         mensageLineCYAN(w.ws_col,cargand);
-        cargand=cargand+"..";
+        cargand=cargand+".";
         mensageLineCYAN(w.ws_col,"Porfavor no precione ninguna tecla.");
         mensageSteep(w.ws_col);
         mensageSteep(w.ws_col);

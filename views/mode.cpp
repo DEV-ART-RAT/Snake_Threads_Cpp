@@ -16,10 +16,10 @@ using namespace std;
 auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    (opc==1)? mensageLine(w.ws_col,"*  SNAKE WORLD PARTY  *"):    mensageLine(w.ws_col,"   SNAKE WORLD PARTY   ");
-    (opc==2)? mensageLine(w.ws_col,"*  CLASICO 97  *"):    mensageLine(w.ws_col,"   CLASICO 97   ");
-    (opc==3)? mensageLine(w.ws_col,"*  ESPECIAL * "):   mensageLine(w.ws_col,"   ESPECIAL   ");
-    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLineRED(w.ws_col,"*  SNAKE WORLD PARTY  *"):    mensageLine(w.ws_col,"   SNAKE WORLD PARTY   ");
+    (opc==2)? mensageLineRED(w.ws_col,"*  CLASICO 97  *"):    mensageLine(w.ws_col,"   CLASICO 97   ");
+    (opc==3)? mensageLineRED(w.ws_col,"*  ESPECIAL * "):   mensageLine(w.ws_col,"   ESPECIAL   ");
+    (opc==4)? mensageLineRED(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };

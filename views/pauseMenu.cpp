@@ -22,10 +22,10 @@ auto mensajePause = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     {
     case 2:
             (opc==1)? 
-            mensageLine(w.ws_col,"* Regresar al juego *"):              
+            mensageLineRED(w.ws_col,"* Regresar al juego *"):              
             mensageLine(w.ws_col,"  Regresar al juego  ");
             (opc==2)? 
-            mensageLine(w.ws_col,"* Salir del juego *"):    
+            mensageLineRED(w.ws_col,"* Salir del juego *"):    
             mensageLine(w.ws_col,"  Salir del juego  ");
             mensageSteep(w.ws_col);
             mensageMargin(w.ws_col);
@@ -33,13 +33,13 @@ auto mensajePause = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     
     default:
             (opc==1)? 
-            mensageLine(w.ws_col,"* Regresar al juego *"):              
+            mensageLineRED(w.ws_col,"* Regresar al juego *"):              
             mensageLine(w.ws_col,"  Regresar al juego  ");
             (opc==2)? 
-            mensageLine(w.ws_col,"* Ir ala tienda *"):   
+            mensageLineRED(w.ws_col,"* Ir ala tienda *"):   
             mensageLine(w.ws_col,"  Ir ala tienda  ");
             (opc==3)? 
-            mensageLine(w.ws_col,"* Salir del juego *"):    
+            mensageLineRED(w.ws_col,"* Salir del juego *"):    
             mensageLine(w.ws_col,"  Salir del juego  ");
             mensageSteep(w.ws_col);
             mensageMargin(w.ws_col);

@@ -19,13 +19,13 @@ auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     }
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    (opc==1)? mensageLine(w.ws_col,"*  Vida Extra (200 monedas)  *"):              
+    (opc==1)? mensageLineRED(w.ws_col,"*  Vida Extra (200 monedas)  *"):              
         mensageLine(w.ws_col,"   Vida Extra (200 monedas)   ");
-    (opc==2)? mensageLine(w.ws_col,"*  Potenciar puntaje x2 (500 monedas) * "):   
+    (opc==2)? mensageLineRED(w.ws_col,"*  Potenciar puntaje x2 (500 monedas) * "):   
         mensageLine(w.ws_col,"   Potenciar puntaje x2 (500 monedas)   ");
-    (opc==3)? mensageLine(w.ws_col,"*  Potenciar puntaje x3 (1000 monedas) *"):    
+    (opc==3)? mensageLineRED(w.ws_col,"*  Potenciar puntaje x3 (1000 monedas) *"):    
         mensageLine(w.ws_col,"   Potenciar puntaje x3 (1000 monedas)  ");
-    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):    
+    (opc==4)? mensageLineRED(w.ws_col,"*  REGRESAR *"):    
         mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);

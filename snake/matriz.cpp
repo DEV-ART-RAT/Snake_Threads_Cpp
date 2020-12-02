@@ -80,7 +80,7 @@ bool playGame(myGame<nodeuserinfouser> *game){
 
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
-    cargando();
+    //cargando();//Pantalla de carga
     cin.clear();
     bool exit = true;
     thread th1(keyEventSnake, game);

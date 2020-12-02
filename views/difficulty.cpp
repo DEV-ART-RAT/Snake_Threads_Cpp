@@ -12,10 +12,10 @@ using namespace std;
 auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata,int size) { 
     CLEAR;
     snakeprint();
-    (opc==1)? mensageLine(w.ws_col,"*  FACIL  *"):    mensageLine(w.ws_col,"   FACIL   ");
-    (opc==2)? mensageLine(w.ws_col,"*  MEDIO * "):    mensageLine(w.ws_col,"   MEDIO   ");
-    (opc==3)? mensageLine(w.ws_col,"*  DIFICIL *"):   mensageLine(w.ws_col,"   DIFICIL  ");
-    (opc==4)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLineRED(w.ws_col,"*  FACIL  *"):    mensageLine(w.ws_col,"   FACIL   ");
+    (opc==2)? mensageLineRED(w.ws_col,"*  MEDIO * "):    mensageLine(w.ws_col,"   MEDIO   ");
+    (opc==3)? mensageLineRED(w.ws_col,"*  DIFICIL *"):   mensageLine(w.ws_col,"   DIFICIL  ");
+    (opc==4)? mensageLineRED(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };

@@ -28,13 +28,13 @@ auto mensajeTOPS = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     (opc==1)? 
-    mensageLine(w.ws_col,"* TOP Ordenado por World Party *"):   
+    mensageLineRED(w.ws_col,"* TOP Ordenado por World Party *"):   
     mensageLine(w.ws_col,"  TOP Ordenado por World Party  ");
     (opc==2)? 
-    mensageLine(w.ws_col,"* TOP Ordenado por Clasico 97 *"):    
+    mensageLineRED(w.ws_col,"* TOP Ordenado por Clasico 97 *"):    
     mensageLine(w.ws_col,"  TOP Ordenado por Clasico 97  ");
     (opc==3)? 
-    mensageLine(w.ws_col,"* Regresar *"):    
+    mensageLineRED(w.ws_col,"* Regresar *"):    
     mensageLine(w.ws_col,"  Regresar  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);

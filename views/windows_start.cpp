@@ -39,11 +39,11 @@ void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
     print_user(game);
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
-    (opc==1)? mensageLine(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
-    (opc==2)? mensageLine(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
-    (opc==3)? mensageLine(w.ws_col,"*  Ver TOPS  *"): mensageLine(w.ws_col,"   Ver TOPS   ");
-    (opc==4)? mensageLine(w.ws_col,"*  INSTRUCCIONES * "): mensageLine(w.ws_col,"   INSTRUCCIONES   ");
-    (opc==5)? mensageLine(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
+    (opc==1)? mensageLineRED(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
+    (opc==2)? mensageLineRED(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
+    (opc==3)? mensageLineRED(w.ws_col,"*  Ver TOPS  *"): mensageLine(w.ws_col,"   Ver TOPS   ");
+    (opc==4)? mensageLineRED(w.ws_col,"*  INSTRUCCIONES * "): mensageLine(w.ws_col,"   INSTRUCCIONES   ");
+    (opc==5)? mensageLineRED(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 

@@ -15,8 +15,8 @@ auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int s
     CLEAR;
     snakeprint();
     mensageLine(w.ws_col,"Que desea hacer?");
-    (opc==1)? mensageLine(w.ws_col,"*  Continuar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continuar(gastaras una vida)  ");
-    (opc==2)? mensageLine(w.ws_col,"*  REGRESAR  *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLineRED(w.ws_col,"*  Continuar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continuar(gastaras una vida)  ");
+    (opc==2)? mensageLineRED(w.ws_col,"*  REGRESAR  *"):  mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };
@@ -28,7 +28,7 @@ auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size
     mensageSteep(w.ws_col);
     mensageSteep(w.ws_col);
     mensageLine(w.ws_col,"Lo sentimos pero perdiste.");
-    (opc==1)? mensageLine(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
+    (opc==1)? mensageLineRED(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
     mensageSteep(w.ws_col);
     mensageMargin(w.ws_col);
 };

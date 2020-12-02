@@ -123,9 +123,9 @@ void welcomeuser(void){
 }
 template <class T>
 void print_user(myGame<T>* game){
-    mensageLine(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Puntaje Snake World Party: "+to_string(game->user->info.puntaje)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Puntaje Clasico: "+to_string(game->user->info.puntajeClasico)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
-    mensageLine(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Snake World Party: "+to_string(game->user->info.puntaje)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Clasico: "+to_string(game->user->info.puntajeClasico)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
+    mensageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 }

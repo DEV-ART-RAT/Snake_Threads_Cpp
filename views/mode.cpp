@@ -53,7 +53,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->snake.points = 0;
             //difficultyMenu(game);
             playmatrix(game);
-            game->user->info.vidas=game->snake.lifes;
             saveincsv(game->list.front);
             //gameOverMenu(game);
             break;

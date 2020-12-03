@@ -13,17 +13,10 @@ using namespace std;
 auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-<<<<<<< HEAD
     (opc==1)? messageLineRED(w.ws_col,"*  LIBRE  *"):    messageLine(w.ws_col,"   LIBRE   ");
     (opc==2)? messageLineRED(w.ws_col,"*  CERRADO * "):   messageLine(w.ws_col,"   CERRADO   ");
     for(int i=3; i<size;i++){
         (opc==i)? messageLineRED(w.ws_col,"*  EXTRA "+to_string(i-2)+"  *"):    messageLine(w.ws_col,"   EXTRA "+to_string(i-2)+"   ");
-=======
-    (opc==1)? mensageLineRED(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
-    (opc==2)? mensageLineRED(w.ws_col,"*  CERRADO * "):   mensageLine(w.ws_col,"   CERRADO   ");
-    for(int i=3; i<size;i++){//dependiendo del total de escenarios cargados externamente se muestran opciones extra
-        (opc==i)? mensageLineRED(w.ws_col,"*  EXTRA "+to_string(i-2)+"  *"):    mensageLine(w.ws_col,"   EXTRA "+to_string(i-2)+"   ");
->>>>>>> edabbe207694f4de1f2bb01eb41ef6896082baff
     }
     (opc==size)? messageLineRED(w.ws_col,"*  REGRESAR *"):    messageLine(w.ws_col,"   REGRESAR  ");
     messageSteep(w.ws_col);

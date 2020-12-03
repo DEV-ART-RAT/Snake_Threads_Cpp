@@ -47,13 +47,16 @@ void snakeDel(myGame<nodeuserinfouser>* game){
 void changeVelocity(myGame<nodeuserinfouser>* game){
     int max = game->snake.velMax;
     int level = game->difficulty;
+    max = max-(level*level);
     double velocity = 0.15;
-    if(game->snake.sizeSnake < (max-(level*level)))
+    if(game->snake.sizeSnake < max)
         game->snake.speed = ((max-(level*level) - game->snake.sizeSnake) * velocity) + 0.5;
-    else if(game->snake.sizeSnake > max *2)
-        game->snake.speed = velocity*2;
+    else if(max <= game->snake.sizeSnake > max * 2)
+        game->snake.speed = velocity*2.5;
+    else if(max*2 <= game->snake.sizeSnake > max * 3)
+        game->snake.speed = velocity * 1.5;
     else
-        game->snake.speed = velocity*3;
+        game->snake.speed = velocity;
     
 }
 

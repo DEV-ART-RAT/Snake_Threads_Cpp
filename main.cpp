@@ -17,7 +17,6 @@ struct termios term;
 
 void open_buffer();
 void close_buffer();
-void loading();
 void loadScenes(myGame<nodeuserinfouser>*);
 
 /**
@@ -60,24 +59,8 @@ void close_buffer(){
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
-}
+};
 
 /**
  * Function that is used as a load screen
  */
-void loading(){
-    string cargand="loading.";
-    string snakeloading="\u2B24";
-    for (int i = 0; i < 3; i++)
-    {
-        CLEAR;
-        snakeprint();
-        messageLineCYAN(w.ws_col,cargand);
-        cargand=cargand+".";
-        messageLineCYAN(w.ws_col,"Porfavor no precione ninguna tecla.");
-        messageSteep(w.ws_col);
-        messageSteep(w.ws_col);
-        messageMargin(w.ws_col);
-        sleep(1);
-    }
-}

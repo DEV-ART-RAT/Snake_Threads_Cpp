@@ -63,7 +63,7 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 void top_game(myGame<nodeuserinfouser>* game){
     welcometop();
     //traverseBegin(userlist->front);
-    printtopaux(&game->list);
+    printtopaux(&game->lista_ordenar);
     cin.clear();
     messageLine(w.ws_col,"presiona una tecla para continuar");
     getchar();

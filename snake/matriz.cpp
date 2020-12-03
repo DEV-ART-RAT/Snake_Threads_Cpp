@@ -17,7 +17,7 @@
 
 
 using namespace std;
-void cargando();
+void loading();
 void restartingGame(myGame<nodeuserinfouser> *game);
 bool playingGame(myGame<nodeuserinfouser> *game);
 const bool jugando=false;
@@ -79,7 +79,7 @@ bool playGame(myGame<nodeuserinfouser> *game){
 
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
-    //cargando();//Pantalla de carga
+    //loading();//Pantalla de carga
     //cin.clear();
     bool exit = true;
     thread th1(keyEventSnake, game);
@@ -103,7 +103,7 @@ void restartingGame(myGame<nodeuserinfouser> *game)
     game->direccion = 3;
     for (int i = 0; i < game->snake.sizeSnake - 2; i++)
     {
-        game->snake.list->pushBack(nodeinfo(5, 5)); //cargando serpiente
+        game->snake.list->pushBack(nodeinfo(5, 5)); //loading serpiente
     }
     game->snake.list->pushBack(nodeinfo(5, 6));
     game->snake.list->pushBack(nodeinfo(5, 7));
@@ -113,13 +113,13 @@ void restartingGame(myGame<nodeuserinfouser> *game)
 void nextStage(myGame<nodeuserinfouser> *game){
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col, "Completaste el ....M-U-N-D-O... <|:v");
-    game->user->info.puntajeContinuar += game->snake.lifes * 100 + game->snake.points;
-    cout << " se sumaron " << game->snake.lifes * 100 << " a tu puntaje actual por tus "
+    messageLine(w.ws_col, "Completaste el ....M-U-N-D-O... <|:v");
+    game->user->info.Points_Save += game->snake.lifes * 100 + game->snake.points;
+    cout << " se sumaron " << game->snake.lifes * 100 << " a tu Points actual por tus "
             << game->snake.lifes << " restantes" << endl;
-    mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    messageLine(w.ws_col, " presiona cualquier tecla para continuar");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
     cin.clear();
     getchar();
 }
@@ -127,30 +127,30 @@ void nextStage(myGame<nodeuserinfouser> *game){
 void nextStageLevel(myGame<nodeuserinfouser> *game){
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col, "Completaste el escenario");
-    mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    messageLine(w.ws_col, "Completaste el escenario");
+    messageLine(w.ws_col, " presiona cualquier tecla para continuar");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
     cin.clear();
     getchar();
 }
 
 void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
-    game->snake.points = game->user->info.puntajeContinuar;
-        if (game->user->info.vidas <= 0){
-            game->user->info.vidas = 5;
+    game->snake.points = game->user->info.Points_Save;
+        if (game->user->info.Lifes <= 0){
+            game->user->info.Lifes = 5;
             game->user->info.nivel = 1;
         }
         while (game->user->info.nivel * game->scene > 9)
-        { //eligiendo escenario clasico
+        { //eligiendo escenario Clasic
             game->scene++;
             if (game->scene > 2){
                 nextStage(game);
-                if(game->user->info.puntajeContinuar > game->user->info.puntaje){
-                    game->user->info.puntaje = game->user->info.puntajeContinuar;
+                if(game->user->info.Points_Save > game->user->info.Points){
+                    game->user->info.Points = game->user->info.Points_Save;
                 }
-                game->user->info.puntajeContinuar = 0;
-                game->user->info.vidas = 5;
+                game->user->info.Points_Save = 0;
+                game->user->info.Lifes = 5;
                 game->user->info.nivel = 1;
                 return;
             }
@@ -158,7 +158,7 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
         sceneLevel(game->user->info.nivel, row, col, obstaculos, snkMax, velocidad);
         game->difficulty = *velocidad; //obteniendo ladificultad segun nivel actual
         game->snake.level = game->user->info.nivel;
-        game->liveSpecial = game->user->info.vidas;
+        game->liveSpecial = game->user->info.Lifes;
 }
 
 
@@ -192,10 +192,10 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     }
     
     
-    game->snake.setLive(game->liveSpecial);//vidas del juego ajugar... valga la redundancia :v
+    game->snake.setLive(game->liveSpecial);//Lifes del juego ajugar... valga la redundancia :v
     game->snake.inicialiceMySnake(row, col);
 
-    game->snake.list->pushBack(nodeinfo(5, 5)); //cargando serpiente
+    game->snake.list->pushBack(nodeinfo(5, 5)); //loading serpiente
     game->snake.list->pushBack(nodeinfo(5, 6));
     game->snake.list->pushBack(nodeinfo(5, 7));
 
@@ -221,13 +221,13 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         restartingGame(game);
         inExit = playingGame(game);
     }
-    // Guardando las vidas en el usuario
+    // Guardando las Lifes en el usuario
     // by rubi
     if(game->mode!=2){
         if(game->snake.lifes>0){
-            game->user->info.vidas=game->snake.lifes;
+            game->user->info.Lifes=game->snake.lifes;
         }else{
-            game->user->info.vidas=0;
+            game->user->info.Lifes=0;
         }            
     }
     //guardando cosas en el csv
@@ -238,24 +238,24 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;
 
-        game->user->info.puntajeContinuar = game->snake.points;
+        game->user->info.Points_Save = game->snake.points;
 
-        if(game->user->info.puntaje < game->user->info.puntajeContinuar){
-            game->user->info.puntaje = game->user->info.puntajeContinuar;
+        if(game->user->info.Points < game->user->info.Points_Save){
+            game->user->info.Points = game->user->info.Points_Save;
         }
 
         if (game->snake.lifes <= 0){
-            game->user->info.vidas = 5;
+            game->user->info.Lifes = 5;
             game->user->info.nivel = 1;
-            game->user->info.puntajeContinuar = 0;
+            game->user->info.Points_Save = 0;
         }
     }
 
     if (game->mode == 2){   
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;
-        if(game->user->info.puntajeClasico < game->snake.points){
-            game->user->info.puntajeClasico = game->snake.points;
+        if(game->user->info.PointsClasic < game->snake.points){
+            game->user->info.PointsClasic = game->snake.points;
         }
     }
     game->pause = true;
@@ -264,16 +264,16 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         CLEAR;
         //cin.clear();
         snakeprint();
-        mensageLine(w.ws_col, "Subiste de nivel");
-        mensageLine(w.ws_col, " presiona cualquier tecla para continuar");
-        mensageSteep(w.ws_col);
-        mensageMargin(w.ws_col);
+        messageLine(w.ws_col, "Subiste de nivel");
+        messageLine(w.ws_col, " presiona cualquier tecla para continuar");
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
         cin.clear();
         getchar();
         //cin.get();
 
         if (game->mode == 1){
-            game->user->info.vidas = game->snake.lifes;
+            game->user->info.Lifes = game->snake.lifes;
             game->user->info.nivel++;
         }
         else

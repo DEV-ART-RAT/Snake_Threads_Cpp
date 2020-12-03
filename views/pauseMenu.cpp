@@ -14,35 +14,35 @@ extern thread th1;
 auto mensajePause = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
-    mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
+    messageLine(w.ws_col,"Points: "+to_string(game->user->info.Points));
+    messageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
+    messageSteep(w.ws_col);
+    messageSteep(w.ws_col);
     switch (game->mode)
     {
     case 2:
             (opc==1)? 
-            mensageLineRED(w.ws_col,"* Regresar al juego *"):              
-            mensageLine(w.ws_col,"  Regresar al juego  ");
+            messageLineRED(w.ws_col,"* Regresar al juego *"):              
+            messageLine(w.ws_col,"  Regresar al juego  ");
             (opc==2)? 
-            mensageLineRED(w.ws_col,"* Salir del juego *"):    
-            mensageLine(w.ws_col,"  Salir del juego  ");
-            mensageSteep(w.ws_col);
-            mensageMargin(w.ws_col);
+            messageLineRED(w.ws_col,"* Salir del juego *"):    
+            messageLine(w.ws_col,"  Salir del juego  ");
+            messageSteep(w.ws_col);
+            messageMargin(w.ws_col);
             break;
     
     default:
             (opc==1)? 
-            mensageLineRED(w.ws_col,"* Regresar al juego *"):              
-            mensageLine(w.ws_col,"  Regresar al juego  ");
+            messageLineRED(w.ws_col,"* Regresar al juego *"):              
+            messageLine(w.ws_col,"  Regresar al juego  ");
             (opc==2)? 
-            mensageLineRED(w.ws_col,"* Ir ala tienda *"):   
-            mensageLine(w.ws_col,"  Ir ala tienda  ");
+            messageLineRED(w.ws_col,"* Ir ala tienda *"):   
+            messageLine(w.ws_col,"  Ir ala tienda  ");
             (opc==3)? 
-            mensageLineRED(w.ws_col,"* Salir del juego *"):    
-            mensageLine(w.ws_col,"  Salir del juego  ");
-            mensageSteep(w.ws_col);
-            mensageMargin(w.ws_col);
+            messageLineRED(w.ws_col,"* Salir del juego *"):    
+            messageLine(w.ws_col,"  Salir del juego  ");
+            messageSteep(w.ws_col);
+            messageMargin(w.ws_col);
             break;
     }
     

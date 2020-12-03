@@ -24,23 +24,23 @@ void usermain(myGame<T>* game) {
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     string user="";
     welcomeuser();//mostrando mensaje visual para pedir usuario
-    int vecesdigitadas=0;
+    int userIntents=0;
     do{ 
-        if(vecesdigitadas>0){
+        if(userIntents>0){
                 CLEAR
                 welcomeuser();//mostrando mensaje visual para pedir usuario
-                mensageLineRED(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+                messageLineRED(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
         }
-        vecesdigitadas++;
+        userIntents++;
         cin>>user;
     }while(user==""||user.size()>12);
-    printUsers(game,user);//cargando lista de usuarios de fuente externa
+    printUsers(game,user);//loading lista de usuarios de fuente externa
     
     if(game->user){//revisando si el usuario ya estaba registrado        
-        mensageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
-        mensageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
-        mensageSteep(w.ws_col);
-        mensageMargin(w.ws_col);
+        messageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
+        messageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
         cin.ignore();
         cin.clear();
         cin.get();
@@ -48,11 +48,11 @@ void usermain(myGame<T>* game) {
     } else{
         game->list.pushBack(nodeuserinfouser(0,0,0,0,5,1,user));//creando nuevo usuario
         game->user = game->list.back;
-        mensageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
-        mensageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
-        mensageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
-        mensageSteep(w.ws_col);
-        mensageMargin(w.ws_col);
+        messageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
+        messageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
+        messageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
         cin.ignore();
         cin.clear();
         cin.get();
@@ -117,15 +117,15 @@ void welcomeuser(void){
     CLEAR;
     winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
     snakeprint();
-    mensageLine(w.ws_col,"Digita tu  USUARIO");
-    mensageLine(w.ws_col,"(Si ya tienes un usuario se recuperara tu progreso!)");
+    messageLine(w.ws_col,"Digita tu  USUARIO");
+    messageLine(w.ws_col,"(Si ya tienes un usuario se recuperara tu progreso!)");
 
 }
 template <class T>
 void print_user(myGame<T>* game){
-    mensageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Snake World Party: "+to_string(game->user->info.puntaje)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Puntaje Clasico: "+to_string(game->user->info.puntajeClasico)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tus vidas : "+to_string(game->user->info.vidas)));        cout<<RESET;
-    mensageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Points Snake World Party: "+to_string(game->user->info.Points)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Points Clasic: "+to_string(game->user->info.PointsClasic)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tus Lifes : "+to_string(game->user->info.Lifes)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 }

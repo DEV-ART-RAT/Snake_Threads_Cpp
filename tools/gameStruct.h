@@ -12,7 +12,7 @@ struct myGame{
     mySnake snake = mySnake();
 
     int difficulty;//dificultad de juego [facil, normal,dificil]
-    int mode;//modo de juego: clasico o escenario especial[world,clasico,special]
+    int mode;//modo de juego: Clasic o escenario especial[world,Clasic,special]
     int scene;//esenario actual [libre,cerrado,extras...]
 
     int levelSpecial;
@@ -40,8 +40,8 @@ struct myGame{
     void mostrarCabeceraSnake(){
         CLEAR;
         (2!=mode)?
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"   Restante: "<<snake.sizeMax - snake.sizeSnake << "     VIDAS :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes << "   Dinero:"<<RESET<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl:
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"     VIDAS :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<" 1 " << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl;
+        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"   Restante: "<<snake.sizeMax - snake.sizeSnake << "     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes << "   Dinero:"<<RESET<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl:
+        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<" 1 " << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl;
         
     }
     

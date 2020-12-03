@@ -7,49 +7,49 @@ using namespace std;
 
 //importamos funcion de nodo para listas dobles
 struct nodeuserinfouser {
-    int puntaje;
-    int puntajeContinuar;
-    int puntajeClasico;
+    int Points;
+    int Points_Save;
+    int PointsClasic;
     int coin;
-    int vidas;
+    int Lifes;
     int nivel;
     string name;
     
     nodeuserinfouser() {}
     nodeuserinfouser(
-        int _puntaje,
-        int _puntajeContinuar,
-        int _puntajeClasico,
+        int _Points,
+        int _Points_Save,
+        int _PointsClasic,
         int _coin,
-        int _vidas,
+        int _Lifes,
         int _nivel, 
         string _name) :
-        puntaje(_puntaje),
-        puntajeContinuar(_puntajeContinuar),
-        puntajeClasico(_puntajeClasico),
+        Points(_Points),
+        Points_Save(_Points_Save),
+        PointsClasic(_PointsClasic),
         coin(_coin),
-        vidas(_vidas),
+        Lifes(_Lifes),
         nivel(_nivel),
         name(_name) {}
 
     bool operator==(const nodeuserinfouser& r) {
         return 
-        this->puntaje == r.puntaje 
-        && this->puntajeContinuar == r.puntajeContinuar 
-        && this->puntajeClasico == r.puntajeClasico
+        this->Points == r.Points 
+        && this->Points_Save == r.Points_Save 
+        && this->PointsClasic == r.PointsClasic
         && this->coin == r.coin
-        && this->vidas == r.vidas
+        && this->Lifes == r.Lifes
         && this->nivel == r.nivel
         && this->name == r.name; 
     }
 
     bool operator!=(const nodeuserinfouser& r) {
         return 
-        this->puntaje != r.puntaje 
-        && this->puntajeContinuar != r.puntajeContinuar 
-        && this->puntajeClasico == r.puntajeClasico
+        this->Points != r.Points 
+        && this->Points_Save != r.Points_Save 
+        && this->PointsClasic == r.PointsClasic
         && this->coin != r.coin
-        && this->vidas != r.vidas
+        && this->Lifes != r.Lifes
         && this->nivel != r.nivel
         && this->name != r.name; 
        
@@ -60,15 +60,15 @@ struct nodeuserinfouser {
         "{"  + 
         this->name + 
         ":" 
-        +to_string(this->puntaje) 
+        +to_string(this->Points) 
         +":" 
-        +to_string(this->puntajeContinuar) 
+        +to_string(this->Points_Save) 
         +":"
-        +to_string(this->puntajeClasico) 
+        +to_string(this->PointsClasic) 
         +":"
         +to_string(this->coin) 
         +":"
-        +to_string(this->vidas) 
+        +to_string(this->Lifes) 
         +":" 
         +to_string(this->nivel)
         + "}";
@@ -76,19 +76,19 @@ struct nodeuserinfouser {
 
     bool comparate(nodeuserinfouser& r,int flag){
         if(flag == 1){
-            return this->puntaje >= r.puntaje;
+            return this->Points >= r.Points;
         }
         if(flag == 2){
-            return this->puntajeContinuar >= r.puntajeContinuar;
+            return this->Points_Save >= r.Points_Save;
         }
         if(flag == 3){
-            return this->puntajeClasico >= r.puntajeClasico;
+            return this->PointsClasic >= r.PointsClasic;
         }
         if(flag == 4){
             return this->coin >= r.coin;
         }
         if(flag == 5){
-            return this->vidas >= r.vidas;
+            return this->Lifes >= r.Lifes;
         }
         if(flag == 6){
             return this->nivel >= r.nivel;
@@ -100,11 +100,11 @@ struct nodeuserinfouser {
     friend ostream& operator<<(ostream& os, const nodeuserinfouser& p) {
         os << 
         "{Name: " +p.name +
-        ": Puntaje: "+ to_string(p.puntaje) +
-        ": Puntaje para continuar: "+ to_string(p.puntajeContinuar) +
-        ": Puntaje clasico: "+ to_string(p.puntajeClasico) +
+        ": Points: "+ to_string(p.Points) +
+        ": Points_save: "+ to_string(p.Points_Save) +
+        ": Points Clasic: "+ to_string(p.PointsClasic) +
         ": Coin:" + to_string(p.coin)+
-        ": Vidas:" + to_string(p.vidas)+
+        ": Lifes:" + to_string(p.Lifes)+
         ": Nivel:" + to_string(p.nivel)
         +"}";
         return os;

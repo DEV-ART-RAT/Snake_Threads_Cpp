@@ -24,21 +24,21 @@ bool TopMenu(myGame<nodeuserinfouser>* );
 auto mensajeTOPS = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(game->user->info.puntaje));
-    mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
+    messageLine(w.ws_col,"Points: "+to_string(game->user->info.Points));
+    messageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
+    messageSteep(w.ws_col);
+    messageSteep(w.ws_col);
     (opc==1)? 
-    mensageLineRED(w.ws_col,"* TOP Ordenado por World Party *"):   
-    mensageLine(w.ws_col,"  TOP Ordenado por World Party  ");
+    messageLineRED(w.ws_col,"* TOP Ordenado por World Party *"):   
+    messageLine(w.ws_col,"  TOP Ordenado por World Party  ");
     (opc==2)? 
-    mensageLineRED(w.ws_col,"* TOP Ordenado por Clasico 97 *"):    
-    mensageLine(w.ws_col,"  TOP Ordenado por Clasico 97  ");
+    messageLineRED(w.ws_col,"* TOP Ordenado por Clasic 97 *"):    
+    messageLine(w.ws_col,"  TOP Ordenado por Clasic 97  ");
     (opc==3)? 
-    mensageLineRED(w.ws_col,"* Regresar *"):    
-    mensageLine(w.ws_col,"  Regresar  ");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    messageLineRED(w.ws_col,"* Regresar *"):    
+    messageLine(w.ws_col,"  Regresar  ");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
 }; 
 bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
     switch (flag) {
@@ -65,7 +65,7 @@ void top_game(myGame<nodeuserinfouser>* game){
     //traverseBegin(userlist->front);
     printtopaux(&game->list);
     cin.clear();
-    mensageLine(w.ws_col,"presiona una tecla para continuar");
+    messageLine(w.ws_col,"presiona una tecla para continuar");
     getchar();
     //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
     return;
@@ -84,11 +84,11 @@ void printtop(node<T>* front,int colsize,int sobraparallegar){
         tamaniotabla=120;
     }
     if(front) {
-        mensageLineSeccionAux(colsize,front->info.name,0,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.nivel),1,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.puntaje),1,sobraparallegar);
-        mensageLineSeccionAux(colsize,to_string(front->info.puntajeClasico),-1,sobraparallegar);
-        mensageMargin(tamaniotabla+2);
+        messageLineSeccionAux(colsize,front->info.name,0,sobraparallegar);
+        messageLineSeccionAux(colsize,to_string(front->info.nivel),1,sobraparallegar);
+        messageLineSeccionAux(colsize,to_string(front->info.Points),1,sobraparallegar);
+        messageLineSeccionAux(colsize,to_string(front->info.PointsClasic),-1,sobraparallegar);
+        messageMargin(tamaniotabla+2);
         printtop(front->next,colsize,sobraparallegar);
     }
 }
@@ -108,17 +108,17 @@ void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     colsize=((tamaniotabla)/columnas);
     // tamanio de la tabla entre sus columnas nos da el tamanio de cada columna 
     //cout<<": Tamanio de todo  : "<< tamaniotabla<<":| | Sobra al dividir las comunas :"<<sobraparallegar<<"| | COLSIZE :"<<colsize<<"| | tamanio tabla exacto : "<<colsize*columnas<<endl;
-    mensageMargin(tamaniotabla+2);   
+    messageMargin(tamaniotabla+2);   
     ordenarparametros(colsize,sobraparallegar);
-    mensageMargin(tamaniotabla+2);   
+    messageMargin(tamaniotabla+2);   
     printtop(userlist->front,colsize,sobraparallegar);
 }
 
 void ordenarparametros(int colsize,int sobraparallegar){
-    mensageLineSeccionAux(colsize,"Nombre",0,sobraparallegar);
-    mensageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);  
-    mensageLineSeccionAux(colsize,"Puntaje World Snake",1,sobraparallegar);
-    mensageLineSeccionAux(colsize,"Puntaje Clasico",-1,sobraparallegar);
+    messageLineSeccionAux(colsize,"Nombre",0,sobraparallegar);
+    messageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);  
+    messageLineSeccionAux(colsize,"Points World Snake",1,sobraparallegar);
+    messageLineSeccionAux(colsize,"Points Clasic",-1,sobraparallegar);
 }
 
 bool TopMenu(myGame<nodeuserinfouser>* game){

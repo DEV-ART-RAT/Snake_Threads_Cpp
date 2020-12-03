@@ -20,12 +20,12 @@ void saveincsv(node<T>* list){
     {
         //segun nuestra lista que llene el csv
         data<<aux->info.name<<","<<
-        aux->info.puntaje<<","<<
+        aux->info.Points<<","<<
         aux->info.coin<<","<<
-        aux->info.vidas<<","<<
+        aux->info.Lifes<<","<<
         aux->info.nivel<<","<<
-        aux->info.puntajeContinuar<<","<<
-        aux->info.puntajeClasico<<"\n";
+        aux->info.Points_Save<<","<<
+        aux->info.PointsClasic<<"\n";
         //saltamos 
         aux= aux->next;
     }

@@ -9,7 +9,7 @@
 
 
 using namespace std;
-void mensageSnake(int col,string linea1[],int linea1size){
+void messageSnake(int col,string linea1[],int linea1size){
     string str;
     col = (col- linea1->size() - 4 )/2;
     str.insert(0, col, ' ');
@@ -20,7 +20,7 @@ void mensageSnake(int col,string linea1[],int linea1size){
     
 }
 
-void mensageLine(int col,string linea1){
+void messageLine(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
@@ -28,7 +28,7 @@ void mensageLine(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*"<<RESET <<endl;
 }
-void mensageLineCYAN(int col,string linea1){
+void messageLineCYAN(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
@@ -36,7 +36,7 @@ void mensageLineCYAN(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDCYAN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDCYAN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
-void mensageLineMAGENTA(int col,string linea1){
+void messageLineMAGENTA(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
@@ -44,7 +44,7 @@ void mensageLineMAGENTA(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDMAGENTA<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDMAGENTA<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
-void mensageLineRED(int col,string linea1){
+void messageLineRED(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
@@ -52,7 +52,7 @@ void mensageLineRED(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
-void mensageLineGREEN(int col,string linea1){
+void messageLineGREEN(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
     str.insert(0, col, ' ');
@@ -61,14 +61,14 @@ void mensageLineGREEN(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDGREEN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
 // Esta funcion hace el top recursivo :v (by dr)
-int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
+int messageLineSeccionAux(int col,string linea1,int pos,int extra){
     string str,primerespacio="",ultimoespacio="",imprimir="";int extraMitad=0,extraMitadSobra=0,extrasobrafinal=0;
-    // SizeEspacios -> tiene guardada la cantidad de espacios que se tiene que imprimir (-1 por el asterisco que se imprime aparte)
-    int SizeEspacios=(col-linea1.size())-1;
+    // SizeSpaces -> tiene guardada la cantidad de Spaces que se tiene que imprimir (-1 por el asterisco que se imprime aparte)
+    int SizeSpaces=(col-linea1.size())-1;
     //la mitad puede esconder un sobrante por lo qe esta el if
-    int mitaEspacios=SizeEspacios/2;
-    //damos el numero de espacios
-    str.insert(0, mitaEspacios-1, ' ');
+    int mitaSpaces=SizeSpaces/2;
+    //damos el numero de Spaces
+    str.insert(0, mitaSpaces-1, ' ');
     // COMO NO SIEMPRE VA A CABER necesitamos lo siguiente:
     // las casillas que sobran ala mitad
     if(extra>0){
@@ -85,20 +85,20 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
     switch (pos)
     {
     case 0:
-        if(SizeEspacios%2==0)
+        if(SizeSpaces%2==0)
             cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<" ";    
         else
             cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<primerespacio<<COLOR_BOLDWHITE<<  linea1 <<RESET<< str<<"  ";    
         break;
     case -1:
-         if(SizeEspacios%2==0)
+         if(SizeSpaces%2==0)
             cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_BOLDRED<<"*"<<RESET<<endl;    
         else 
             cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<<ultimoespacio<< str<<COLOR_BOLDRED<<" *"<<RESET<<endl;     
         break;
 
     default:
-        if(SizeEspacios%2==0)
+        if(SizeSpaces%2==0)
             cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<" ";    
         else
             cout<<COLOR_BOLDRED<<"* "<<RESET<<str <<COLOR_BOLDWHITE<<linea1<<RESET<< str<<"  ";    
@@ -108,13 +108,13 @@ int mensageLineSeccionAux(int col,string linea1,int pos,int extra){
  
 }
     
-void mensageSteep(int col){
+void messageSteep(int col){
     string strl;
     strl.insert(0, col - 4, ' ');
     cout<<COLOR_BOLDRED<<"*"<<strl<<"*"<<RESET<<endl;
 }
 
-void mensageMargin(int col){
+void messageMargin(int col){
     string strl;
     strl.insert(0, col - 2, '*');
     cout<<COLOR_BOLDRED<<strl<<RESET<<endl;
@@ -129,11 +129,11 @@ int snakeprint(void) {
         "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
         "=====   ==   ====   ==   ==   ==  ==   =====" 
     };
-    mensageMargin(w.ws_col);
-    mensageSteep(w.ws_col);
-    mensageSnake(w.ws_col,linea1 , 5);
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
+    messageMargin(w.ws_col);
+    messageSteep(w.ws_col);
+    messageSnake(w.ws_col,linea1 , 5);
+    messageSteep(w.ws_col);
+    messageSteep(w.ws_col);
     
     
     return 0;

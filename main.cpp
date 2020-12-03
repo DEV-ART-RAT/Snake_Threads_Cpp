@@ -17,9 +17,9 @@ struct termios term;
 
 void open_buffer();
 void close_buffer();
-void cargando();
-void cargarEscenarios(myGame<nodeuserinfouser>*);
-void cargarEscenarios(myGame<nodeuserinfouser>* game){
+void loading();
+void loadScenes(myGame<nodeuserinfouser>*);
+void loadScenes(myGame<nodeuserinfouser>* game){
     chargeScenes(game,"extra1.csv");//escenario a cargar
     chargeScenes(game,"extra2.csv");//escenario a cargar
     chargeScenes(game,"rubi.csv");//escenario a cargar
@@ -38,13 +38,13 @@ void cargarEscenarios(myGame<nodeuserinfouser>* game){
 int main(void) {
     srand(time(NULL));
     myGame<nodeuserinfouser> game;// = new myGame();
-    cargarEscenarios(&game);
+    loadScenes(&game);
     
     //game.list=NULL;
     game.user=NULL;
     close_buffer();
-    //cargando();
-    usermain(&game);//ingresando usuario y cargando lista
+    //loading();
+    usermain(&game);//ingresando usuario y loading lista
 
     open_buffer();
     startMenu(&game);
@@ -63,19 +63,19 @@ void close_buffer(){
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 }
-void cargando(){
-    string cargand="Cargando.";
-    string snakecargando="\u2B24";
+void loading(){
+    string cargand="loading.";
+    string snakeloading="\u2B24";
     for (int i = 0; i < 3; i++)
     {
         CLEAR;
         snakeprint();
-        mensageLineCYAN(w.ws_col,cargand);
+        messageLineCYAN(w.ws_col,cargand);
         cargand=cargand+".";
-        mensageLineCYAN(w.ws_col,"Porfavor no precione ninguna tecla.");
-        mensageSteep(w.ws_col);
-        mensageSteep(w.ws_col);
-        mensageMargin(w.ws_col);
+        messageLineCYAN(w.ws_col,"Porfavor no precione ninguna tecla.");
+        messageSteep(w.ws_col);
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
         sleep(1);
     }
 }

@@ -19,12 +19,12 @@ using namespace std;
 int welcomemain(int &P,int&C,string user);
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 
-void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) { 
+void messageMarginStart(int opc, myGame<nodeuserinfouser>* game) { 
     CLEAR;
-    mensageMargin(w.ws_col);
-    mensageSteep(w.ws_col);
+    messageMargin(w.ws_col);
+    messageSteep(w.ws_col);
     string linea1 =  "WELLCOME " + game->user->info.name + "  TO ...";
-    mensageLineMAGENTA(w.ws_col,linea1);
+    messageLineMAGENTA(w.ws_col,linea1);
     string linea2[] = {
         "=====   ===    ==   =======   ==  ==   =====",
         "||      ||\\\\   ||   ||   ||   || //    ||   ",
@@ -32,25 +32,25 @@ void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
         "   ||   ||  \\\\ ||   ||   ||   || \\\\    ||   " ,
         "=====   ==   ====   ==   ==   ==  ==   =====" 
     };
-    mensageSteep(w.ws_col);
-    mensageSnake(w.ws_col,linea2 , 5);
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
+    messageSteep(w.ws_col);
+    messageSnake(w.ws_col,linea2 , 5);
+    messageSteep(w.ws_col);
+    messageSteep(w.ws_col);
     print_user(game);
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
-    (opc==1)? mensageLineRED(w.ws_col,"*  START  *"): mensageLine(w.ws_col,"   START   ");
-    (opc==2)? mensageLineRED(w.ws_col,"*  TIENDA * "): mensageLine(w.ws_col,"   TIENDA   ");
-    (opc==3)? mensageLineRED(w.ws_col,"*  Ver TOPS  *"): mensageLine(w.ws_col,"   Ver TOPS   ");
-    (opc==4)? mensageLineRED(w.ws_col,"*  INSTRUCCIONES * "): mensageLine(w.ws_col,"   INSTRUCCIONES   ");
-    (opc==5)? mensageLineRED(w.ws_col,"*  EXIT * "): mensageLine(w.ws_col,"   EXIT   ");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    messageSteep(w.ws_col);
+    messageSteep(w.ws_col);
+    (opc==1)? messageLineRED(w.ws_col,"*  START  *"): messageLine(w.ws_col,"   START   ");
+    (opc==2)? messageLineRED(w.ws_col,"*  TIENDA * "): messageLine(w.ws_col,"   TIENDA   ");
+    (opc==3)? messageLineRED(w.ws_col,"*  Ver TOPS  *"): messageLine(w.ws_col,"   Ver TOPS   ");
+    (opc==4)? messageLineRED(w.ws_col,"*  INSTRUCCIONES * "): messageLine(w.ws_col,"   INSTRUCCIONES   ");
+    (opc==5)? messageLineRED(w.ws_col,"*  EXIT * "): messageLine(w.ws_col,"   EXIT   ");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
 
 };
 
 auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game, int size) { 
-    mensageMarginStart(opc,game);
+    messageMarginStart(opc,game);
 };
 
 int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
@@ -75,9 +75,9 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
         case 5:
             quickSort(game->list.front, 0);
             saveincsv(game->list.front);
-            mensageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
-            mensageSteep(w.ws_col);
-            mensageMargin(w.ws_col);
+            messageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
+            messageSteep(w.ws_col);
+            messageMargin(w.ws_col);
             exit(EXIT_SUCCESS);
             break;
         default:

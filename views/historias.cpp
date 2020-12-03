@@ -19,16 +19,16 @@ int history(void) {
         "presiona ENTER para seleccionar y poner pausa dentro del juego",
         "Tendras 3 diferentes modos de juego:",
         "1- World Party Snake: disfruta de diferentes mundos cada uno mas dificil.",
-        "2- Clasico 97: El snake clasico, la velocidad aumenta mientras mas comas!",
+        "2- Clasic 97: El snake Clasic, la velocidad aumenta mientras mas comas!",
         "3- Especial: Difruta de diferentes mapas creados por los dioses, no sera nada facil.",
         "No olvides reunir el maximo de monedas que puedas para comprar potenciadores en la tienda",
         "Y por ultimo ... domina la cima de todos los tops de los modos de juego",
         "Divierte!!!"
     };
     CLEAR
-    mensageMargin(w.ws_col);
-    mensageLineMAGENTA(w.ws_col,"(Presiona Enter para continuar)");
-    mensageSteep(w.ws_col);
+    messageMargin(w.ws_col);
+    messageLineMAGENTA(w.ws_col,"(Presiona Enter para continuar)");
+    messageSteep(w.ws_col);
     int size =0;
     size=sizeof(historia)/sizeof(historia[0]);
     mensajehistoria(0,size,historia); 
@@ -41,10 +41,10 @@ void mensajehistoria(int pos,int max,string histo[]){
     {
     case '\n':
         if(pos<max){
-            mensageLineCYAN(w.ws_col,histo[pos]);
+            messageLineCYAN(w.ws_col,histo[pos]);
             mensajehistoria(pos+1,max,histo);
         }else{
-            mensageMargin(w.ws_col);
+            messageMargin(w.ws_col);
             sleep(0.5);
             return;
         }

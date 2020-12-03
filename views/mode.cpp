@@ -16,12 +16,12 @@ using namespace std;
 auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    (opc==1)? mensageLineRED(w.ws_col,"*  SNAKE WORLD PARTY  *"):    mensageLine(w.ws_col,"   SNAKE WORLD PARTY   ");
-    (opc==2)? mensageLineRED(w.ws_col,"*  CLASICO 97  *"):    mensageLine(w.ws_col,"   CLASICO 97   ");
-    (opc==3)? mensageLineRED(w.ws_col,"*  ESPECIAL * "):   mensageLine(w.ws_col,"   ESPECIAL   ");
-    (opc==4)? mensageLineRED(w.ws_col,"*  REGRESAR *"):    mensageLine(w.ws_col,"   REGRESAR  ");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    (opc==1)? messageLineRED(w.ws_col,"*  SNAKE WORLD PARTY  *"):    messageLine(w.ws_col,"   SNAKE WORLD PARTY   ");
+    (opc==2)? messageLineRED(w.ws_col,"*  Clasic 97  *"):    messageLine(w.ws_col,"   Clasic 97   ");
+    (opc==3)? messageLineRED(w.ws_col,"*  ESPECIAL * "):   messageLine(w.ws_col,"   ESPECIAL   ");
+    (opc==4)? messageLineRED(w.ws_col,"*  REGRESAR *"):    messageLine(w.ws_col,"   REGRESAR  ");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
 };
 
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
@@ -45,7 +45,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             break;
         case 2:
             //game->scene =  1;
-            game->mode = 2;//clasico
+            game->mode = 2;//Clasic
             game->food = 1;
             game->scene = 1;
             game->snake.points = 0;

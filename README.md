@@ -63,7 +63,7 @@
 ##### 2.2.1.1.3. Nivel Dificil (pantalla completa)<!-- omit in toc -->
 <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0008.png" />
 
-#### 2.2.1.2. CLASICO 97<!-- omit in toc -->
+#### 2.2.1.2. Clasic 97<!-- omit in toc -->
 <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0009.png" />
 
 #### 2.2.1.3. ESPECIAL<!-- omit in toc -->
@@ -101,7 +101,7 @@ Mapas cargados desde un csv
 ##### 2.2.3.1.1. Top World Party<!-- omit in toc -->
 <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0018.png" />
 
-##### 2.2.3.1.2. Top Clasico 97<!-- omit in toc -->
+##### 2.2.3.1.2. Top Clasic 97<!-- omit in toc -->
 <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0019.png" />
 
 ### 2.2.4. Instrucciones
@@ -129,7 +129,7 @@ Cuando salimos guarda nuestros resultados
     - Simple: Para la creacion de los nodos de listas doblemente enlazadas
     - Doble: Para la creacion de matriz
 ## 3.3. Algoritmos de ordenamiento / búsqueda:
-- Algoritmo de ordenamiento quicksort para obtener un top o una clasificación de los jugadores con mayor puntaje
+- Algoritmo de ordenamiento quicksort para obtener un top o una clasificación de los jugadores con mayor Points
 
 # 4. EJECUCION:
 ## 4.1. Ejecutar codigo:

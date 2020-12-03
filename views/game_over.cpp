@@ -14,23 +14,23 @@ struct termios term_over;
 auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Que desea hacer?");
-    (opc==1)? mensageLineRED(w.ws_col,"*  Continuar(gastaras una vida) *"):  mensageLine(w.ws_col,"   Continuar(gastaras una vida)  ");
-    (opc==2)? mensageLineRED(w.ws_col,"*  REGRESAR  *"):  mensageLine(w.ws_col,"   REGRESAR  ");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    messageLine(w.ws_col,"Que desea hacer?");
+    (opc==1)? messageLineRED(w.ws_col,"*  Continuar(gastaras una vida) *"):  messageLine(w.ws_col,"   Continuar(gastaras una vida)  ");
+    (opc==2)? messageLineRED(w.ws_col,"*  REGRESAR  *"):  messageLine(w.ws_col,"   REGRESAR  ");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
 };
 auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
-    mensageLine(w.ws_col,"Points: "+to_string(game->snake.points));
-    mensageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
-    mensageSteep(w.ws_col);
-    mensageSteep(w.ws_col);
-    mensageLine(w.ws_col,"Lo sentimos pero perdiste.");
-    (opc==1)? mensageLineRED(w.ws_col,"*  REGRESAR *"):  mensageLine(w.ws_col,"   REGRESAR  ");
-    mensageSteep(w.ws_col);
-    mensageMargin(w.ws_col);
+    messageLine(w.ws_col,"Points: "+to_string(game->snake.points));
+    messageLine(w.ws_col,"Coins: "+to_string(game->user->info.coin));
+    messageSteep(w.ws_col);
+    messageSteep(w.ws_col);
+    messageLine(w.ws_col,"Lo sentimos pero perdiste.");
+    (opc==1)? messageLineRED(w.ws_col,"*  REGRESAR *"):  messageLine(w.ws_col,"   REGRESAR  ");
+    messageSteep(w.ws_col);
+    messageMargin(w.ws_col);
 };
 
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {

@@ -11,6 +11,9 @@ struct termios term_over;
 
 //int startMenuAux(node<nodeuserinfouser>* , auto ,int );
 
+/**
+ * Function that shows the game over menu options
+ */
 auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -20,6 +23,10 @@ auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int s
     messageSteep(w.ws_col);
     messageMargin(w.ws_col);
 };
+
+/**
+ * Function that shows the message when there are no more lifes
+ */
 auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -33,6 +40,9 @@ auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size
     messageMargin(w.ws_col);
 };
 
+/**
+ * Function that 
+ */
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:

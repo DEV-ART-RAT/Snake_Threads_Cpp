@@ -146,9 +146,5 @@ g++ -pthread main.cpp -o main && ./main
 
 - Los archivos CSV de los mapas precargados tienen ciertas intrucciones especiales.
 
-- El proyecto tiene colores y caracteres especiales que en todas las computadoras que probamos funcionaron igual
-  pero hay que aclara que al no haber trabajado con esos caracteres no sabemos si funcionan igual en todas 
-  las computadoras.
-
 # REGRESAR AL INDICE :
-- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
+- [Snake -> Dev-ART 

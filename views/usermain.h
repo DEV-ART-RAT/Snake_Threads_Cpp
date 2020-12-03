@@ -8,7 +8,7 @@
 #include "./colors.h"
 #include "./historias.cpp"
 #include "./snakeprint.cpp"
-#include "../snake/clear.cpp"
+#include "../tools/clear.cpp"
 #include "../tools/gameStruct.h"
 #include "../tools/ordenar.h"
 

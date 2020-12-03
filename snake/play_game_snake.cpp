@@ -9,7 +9,7 @@
 #include "../scene/scenaryCreator.h"
 #include "snake.h"
 #include "matriz.h"
-#include "clear.cpp"
+#include "../tools/clear.cpp"
 #include "keyEvent.h"
 #include "my_snake.h"
 #include "../scene/parameter_define.cpp"

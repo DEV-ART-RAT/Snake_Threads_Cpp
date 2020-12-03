@@ -11,25 +11,24 @@
 
 void keyboardEvent(char* key, bool* flag){
     cin.clear();
-
-    while (*flag)
-    {
+    while (*flag){
         *key=getchar();
     }
-
     cin.clear();
 }
-//template<class T>
+
+//funcion la cual se usa para escuchar el teclado en el momento de jugar...
+//sera usada como un thread (hilo) separado
 void keyEventSnake(myGame<nodeuserinfouser>* game){
-    cin.clear();
-    while (game->playing)
+    cin.clear();//limpia el buffer de entrada
+    while (game->playing)//utiliza una bandera para indicar que el juego esta en proceso
     {   
-        if(!game->pause){
-            game->key=getchar();
-            if(game->key == '\n'){
-                game->pause = true;
+        if(!game->pause){//utiliza una bandera para evitar que este hilo este ejecutandose con el menu de pausa
+            game->key=getchar();//cactura un evento delteclado
+            if(game->key == '\n'){//si durante el juego captura un ENTER procese a pausarlo
+                game->pause = true;//se alza la badera que pausa el juego
             }
-            if(!game->playing){
+            if(!game->playing){//si se detecta que el juego termino termina esta funcion (entiendase: el thread)
                 return;
             }
         }
@@ -37,31 +36,31 @@ void keyEventSnake(myGame<nodeuserinfouser>* game){
     cin.clear();
 }
 
-int optionSelectionKey(myGame<nodeuserinfouser>* game, auto wellcome,int sizeOption){
+//funcion empleada por los diferentes menus para navegar entre opciones
+int optionSelectionKey(myGame<nodeuserinfouser>* game, auto menssage,int sizeOption){
     char key; //contenedor de tecla
     int flag = 1;       //opcion actual del menu
-    //int sizeOption=3;   //numero total de opciones en el menu
     bool loop = true;   //bandera para el while true
     sleep(0.1);//para corregir fallo de while
-    wellcome(flag,game,sizeOption);  //invocacion del menu
-    cin.clear();
+    menssage(flag,game,sizeOption);  // muestra el mensaje del menu (a travez de una funcion lambda)
+    cin.clear();//vaciamos el buffer por si hay "teclas" esperando a procesarse
     sleep(0.1);//para corregir fallo de whiles
     while(loop){
         key=getchar();//up:65 down:66 o B left:68 rigth:67
-        if( key=='\n'){
+        if( key=='\n'){//revisa si se ha presionado la tecla ENTER
             return flag;
         }
-        if(key==65 ){
+        if(key==65 ){//revisa si se ha presionado la tecla UP (direccion)
             if(flag > 1){
                 flag--;
             }
         }
-        if(  key=='B'){
+        if(  key=='B'){//revisa si se ha presionado la tecla DOWN (dreccion)
             if(flag < sizeOption){
                 flag++;
             }
         }
-        wellcome(flag,game,sizeOption);
+        menssage(flag,game,sizeOption); // muestra el mensaje del menu (a travez de una funcion lambda)
         sleep(0.01);//para corregir fallo de while
     }
     cin.clear();

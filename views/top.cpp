@@ -7,7 +7,7 @@
 
 #include "../tools/list.h"
 #include "./snakeprint.cpp"
-#include "../snake/clear.cpp"
+#include "../tools/clear.cpp"
 
 using namespace std;
 void top_game(myGame<nodeuserinfouser>* game);

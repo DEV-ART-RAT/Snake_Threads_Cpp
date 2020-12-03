@@ -48,17 +48,17 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
     //cells 0%
     case 1: 
         *cel  *= 0.10;
-        *snk = (*snk>15)? 15: *snk;
+        *snk = (*snk>10)? 10: *snk;
         break;
     //cells 5%
     case 2: 
         *cel  *= 0.20;
-        *snk = (*snk>25)? 25: *snk;
+        *snk = (*snk>20)? 20: *snk;
         break;
     //cells 10%
     case 3:
         *cel  *= 0.30;
-        *snk = (*snk>50)? 50: *snk;
+        *snk = (*snk>30)? 30: *snk;
         break;
     default:
         break;

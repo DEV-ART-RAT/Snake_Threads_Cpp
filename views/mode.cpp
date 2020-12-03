@@ -50,6 +50,8 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //Loads stage one by default
             game->scene = 1;
             //Starts the game
+            loading();
+            game->key='0';
             playmatrix(game);
             break;
         //"Clasico 97" game mode

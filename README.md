@@ -6,7 +6,7 @@
 
 [Como ejecutar?](#4-ejecucion)
 ## Caracteristicas:<!-- omit in toc -->
-- [Caracteristicas del juego](#5caracteristicas)
+[Caracteristicas del juego](#5caracteristicas)
 ## Jugar en linea (no es la misma experiencia)<!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://repl.it/@dilverpro/SnakeTerminalcpp#README.md)
 

@@ -26,14 +26,22 @@ void usermain(myGame<T>* game) {
     welcomeuser();//mostrando mensaje visual para pedir usuario
     int userIntents=0;
     do{ 
-        if(userIntents>0){
+        if(user=="enxel"){
+            CLEAR;
+            welcomeuser();//mostrando mensaje visual para pedir usuario
+            messageLineRED(w.ws_col,"Lo sentimos ese nombre no esta disponible ");
+        }else
+        {
+            if(userIntents>0){
                 CLEAR
                 welcomeuser();//mostrando mensaje visual para pedir usuario
                 messageLineRED(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+            }
         }
         userIntents++;
         cin>>user;
-    }while(user==""||user.size()>12);
+    }while(user==""||user.size()>12||user=="enxel");
+
     printUsers(game,user);//loading lista de usuarios de fuente externa
     
     if(game->user){//revisando si el usuario ya estaba registrado        

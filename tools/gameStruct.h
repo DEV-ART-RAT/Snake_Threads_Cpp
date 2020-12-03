@@ -5,7 +5,7 @@
 
 template<class T>
 struct myGame{
-    node<T>* user;
+    node<T>* user = NULL;
     doubleLinked<T> list;
     doubleLinked<doubleLinked<sceneInfo>> sceneList;
     //doubleLinked<doubleLinked<sceneInfo>> scenesListContainer;

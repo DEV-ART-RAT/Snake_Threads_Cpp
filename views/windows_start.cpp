@@ -16,7 +16,6 @@
 
 using namespace std;
 
-int welcomemain(int &P,int&C,string user);
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 
 void mensageMarginStart(int opc, myGame<nodeuserinfouser>* game) { 
@@ -53,32 +52,29 @@ auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game, int size) {
     mensageMarginStart(opc,game);
 };
 
+//opciones en el menu principal
 int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
     switch (flag) {
         case 1:
-            //cout<<"new game start :v"<<endl;
-            modeMenu(game);
-            //playmatrix(&snake);
-            // loop=false; //para que termine el juego sin que se regrese al menu :
+            modeMenu(game);//carga el menu de seleccion de tipo de juego
             break;
         case 2:
-            shopMenu(game);
-            saveincsv(game->list.front);
+            shopMenu(game);//carga el menu de tienda
+            saveincsv(game->list.front);//actualiza lainformacion del usuario
             break;
         case 3:
-            TopMenu(game);
+            TopMenu(game);//carga el menu de TOP
             break;
         case 4:
-            history();
-            //startMenu(game);
+            history();//menu que muestra instrucciones de los tipos de juegos
             break;
         case 5:
-            quickSort(game->list.front, 0);
-            saveincsv(game->list.front);
+            quickSort(game->list.front, 0);//ordena la lista de jugadores segun su puntje
+            saveincsv(game->list.front);//se guarda la lista ordenada en archivo externo
             mensageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
             mensageSteep(w.ws_col);
             mensageMargin(w.ws_col);
-            exit(EXIT_SUCCESS);
+            exit(EXIT_SUCCESS);//cierra la aplicacion
             break;
         default:
             break;
@@ -87,6 +83,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
     return 0;
 }
 
+//funcion que llama al selector de opciones mandando la funcion para escuchar el teclado
 int startMenu(myGame<nodeuserinfouser>* game){
     startMenuOpc(game,optionSelectionKey(game,mensajeStart,5));
     return 0;

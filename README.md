@@ -1,4 +1,4 @@
-# Snake -> Dev-ART - ft.freddy.  <!-- omit in toc -->
+# Snake -> Dev-ART - ft.freddy.
 [Pagina con Instrucciones dadas para el juego : (https://wmoralesdev.github.io/actividadfinal/index)](https://wmoralesdev.github.io/actividadfinal/index)
 ## La mejor forma de ver el Readme : <!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
@@ -24,6 +24,7 @@
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit?usp=sharing)
 
 ## Indice <!-- omit in toc -->
+- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
   - [2.1. inicio(usuario):](#21-iniciousuario)

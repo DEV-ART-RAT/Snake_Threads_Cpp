@@ -29,7 +29,7 @@ void usermain(myGame<T>* game) {
         if(user=="enxel"){
             CLEAR;
             welcomeuser();//mostrando mensaje visual para pedir usuario
-            messageLineRED(w.ws_col,"Lo sentimos ese nombre no esta disponible ");
+            messageLineRED(w.ws_col,"Lo sentimos el nombre enxel no esta disponible, porque completo todo ");
         }else
         {
             if(userIntents>0){

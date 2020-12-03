@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include  "clear.cpp"
+#include  "../tools/clear.cpp"
 
 using namespace std;
 typedef char** charMatriz;

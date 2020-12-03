@@ -2,7 +2,7 @@
 #include<ios> //used to get stream size
 #include<limits> //used to get numeric limits
 
-#include "../snake/clear.cpp"
+#include "../tools/clear.cpp"
 #include "./snakeprint.cpp"
 
 //historia by .Drubi

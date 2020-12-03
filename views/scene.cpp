@@ -13,10 +13,17 @@ using namespace std;
 auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
+<<<<<<< HEAD
     (opc==1)? messageLineRED(w.ws_col,"*  LIBRE  *"):    messageLine(w.ws_col,"   LIBRE   ");
     (opc==2)? messageLineRED(w.ws_col,"*  CERRADO * "):   messageLine(w.ws_col,"   CERRADO   ");
     for(int i=3; i<size;i++){
         (opc==i)? messageLineRED(w.ws_col,"*  EXTRA "+to_string(i-2)+"  *"):    messageLine(w.ws_col,"   EXTRA "+to_string(i-2)+"   ");
+=======
+    (opc==1)? mensageLineRED(w.ws_col,"*  LIBRE  *"):    mensageLine(w.ws_col,"   LIBRE   ");
+    (opc==2)? mensageLineRED(w.ws_col,"*  CERRADO * "):   mensageLine(w.ws_col,"   CERRADO   ");
+    for(int i=3; i<size;i++){//dependiendo del total de escenarios cargados externamente se muestran opciones extra
+        (opc==i)? mensageLineRED(w.ws_col,"*  EXTRA "+to_string(i-2)+"  *"):    mensageLine(w.ws_col,"   EXTRA "+to_string(i-2)+"   ");
+>>>>>>> edabbe207694f4de1f2bb01eb41ef6896082baff
     }
     (opc==size)? messageLineRED(w.ws_col,"*  REGRESAR *"):    messageLine(w.ws_col,"   REGRESAR  ");
     messageSteep(w.ws_col);
@@ -24,27 +31,28 @@ auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) {
 };
 
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
-int startMenu(myGame<nodeuserinfouser>* );
+//int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 
-
+//menu para seleccionar el tipo de escenario
 int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag,int size){
 
-    game->scene =  flag;
+    game->scene =  flag;//se guarda el numero de escenario a cargar
     
-    if(flag != size){
-        difficultyMenu(game);
+    if(flag != size){//se revisa si la opcion seleccionada no sea la de retroeceder
+        difficultyMenu(game);//se carga el menu de seleccion de dificultad
     }
-    if(flag == size){
-        return 1;
+    if(flag == size){//si la opcion es de retroceder
+        return 1;//se retorna a un menu previo
     }
-    sceneMenu(game);
+    sceneMenu(game);//se vuelve a cargar este menu desde una seleccionposterior
     return 0;
 }
 
+//funcion que llama al selector de opciones mandando la funcion para escuchar el teclado
 int sceneMenu(myGame<nodeuserinfouser>* game){
-    int opciones = 3;
-    opciones += game->sceneList.size();
+    int opciones = 3;//numero de opciones por default
+    opciones += game->sceneList.size();//se suma el totaldeescenarios cargados externamente a las opciones
     return sceneMenuAux(game,optionSelectionKey(game,mensajeScene,opciones),opciones);
 }
 

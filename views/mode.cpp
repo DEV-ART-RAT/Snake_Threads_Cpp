@@ -33,16 +33,16 @@ int modeMenu(myGame<nodeuserinfouser>* );
 
 int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
+    game->mode = flag;//se guarda el modo de juego en una bandera escencial
+
     switch (flag) {
-        case 1:
-            //game->scene =  1;
-            game->mode = 1;//world
-            game->food = 2;
-            game->scene = 1;
-            //difficultyMenu(game);
-            playmatrix(game);
-            //gameOverMenu(game);
+        case 1://modo de juego "WORLD"
+            //se inicializan banderas necesarias para este modo
+            game->food = 2;//considerando un escenario muy especifico se decide en este juego enplear 2 "comidas"
+            game->scene = 1;//se carga por defecto el escenario 1
+            playmatrix(game);//inicia el juego
             break;
+<<<<<<< HEAD
         case 2:
             //game->scene =  1;
             game->mode = 2;//Clasic
@@ -52,24 +52,30 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //difficultyMenu(game);
             playmatrix(game);
             //gameOverMenu(game);
+=======
+        case 2://modo de juego "CLASICO"
+            //se inicializan banderas necesarias para este modo
+            game->food = 1;//en este modo solo existira una comida a la vez
+            game->scene = 1;//se jugara son en el esenario 1
+            game->snake.points = 0;//siempre se inicia con una puntuacion de cero
+            playmatrix(game);//inicia el juego
+>>>>>>> edabbe207694f4de1f2bb01eb41ef6896082baff
             break;
-        case 3://especial
-            //playmatrix(&snake,2,0);
-            game->mode = 3;//especial
-            game->snake.points = 0;
-            sceneMenu(game);
+        case 3://modo de juego "ESPECIAL"
+            //se inicializan banderas necesarias para este modo
+            game->snake.points = 0;//siempre se inicia con una puntuacion de cero
+            sceneMenu(game);//se carga el menu de escenarios
             break;
         case 4:
-            //playmatrix(&snake,3,0);
-            //startMenu(game);
-            return 1;
+            return 1;//se escapa de este menu
         default:
             break;
     }
-    modeMenu(game);
+    modeMenu(game);//si se regresa de una opcion posterior se vuelve a cargar este menu
     return 0;
 }
 
+//funcion que llama al selector de opciones mandando la funcion para escuchar el teclado
 int modeMenu(myGame<nodeuserinfouser>* game){
     return modeMenuAux(game,optionSelectionKey(game,mensajeMode,4));
 }

@@ -102,6 +102,7 @@ void printUsers(myGame<T>* game,string user){
             case 6:
                 pointClassic = stoi(recibo);
                 game->list.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
+                game->lista_ordenar.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
                 if(name==user){
                     game->user = game->list.back;
                 }

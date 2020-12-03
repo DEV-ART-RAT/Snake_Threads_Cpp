@@ -69,7 +69,7 @@ int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
             history();//menu que muestra instrucciones de los tipos de juegos
             break;
         case 5:
-            quickSort(game->list.front, 0);//ordena la lista de jugadores segun su puntje
+            quickSort(game->lista_ordenar.front, 0);//ordena la lista de jugadores segun su puntje
             saveincsv(game->list.front);//se guarda la lista ordenada en archivo externo
             messageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
             messageSteep(w.ws_col);

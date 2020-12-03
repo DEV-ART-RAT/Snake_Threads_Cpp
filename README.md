@@ -51,6 +51,13 @@
 - [4. EJECUCION:](#4-ejecucion)
   - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
 - [5.Caracteristicas](#5caracteristicas)
+  - [La mejor forma de jugar:](#la-mejor-forma-de-jugar)
+  - [Juego](#juego)
+  - [Gameplay](#gameplay)
+  - [Tops](#tops)
+  - [Tienda](#tienda)
+  - [Instrucciones](#instrucciones)
+  - [Escenarios](#escenarios)
 
 # 1. Estudiantes
 
@@ -195,13 +202,29 @@ g++ -pthread main.cpp -o main && ./main
 - Los archivos CSV de los mapas precargados tienen ciertas intrucciones especiales.
 
 # 5.Caracteristicas
+
+## La mejor forma de jugar:
 - El juego Esta hecho en kernel base linux por lo que es mejor ejecutarlo en un sistema o distribucion linux.
-- Es muy importante que antes de cargar el juego la terminal sea grande para poder disfrutar el juego ya que se adapta el mapa ala terminal,
-- Los niveles de dicicultad cambian tanto en tamaño de la terminal como en la cantidad de monedas a recolectar.
-- En el juego hay varios modos de juego , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
-- La tienda esta disponible unicamente en los modos basados en World Party.
-- Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
+- Es muy importante que antes de cargar el juego la terminal sea grande para poder disfrutar el juego ya que se adapta el mapa ala terminal.
+
+## Juego
+- Los niveles de dificultad cambian tanto en tamaño de la terminal como en la cantidad de monedas a recolectar.
+- En el juego hay varios modos , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
+
+## Gameplay
+- Los niveles de velocidad podrian tardar en aumentar ,pero en el gameplay podemos ver que al final es muy dificil por lo que es un reto a superar.
+  
+## Tops
+- Los top se ordenan de 2 formas (Classic 97 y World Party)
+## Tienda
+- La tienda no esta disponible unicamente en modo Classic 97 ya que su dificultad es tener 1 vida.
+
+## Instrucciones
 - Las instrucciones solo parecen cuando un usuario juega por primera vez .
+
+## Escenarios 
+- Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
+- Las inctrucciones de los escenarios estan en el archivo model.txt
 
 # REGRESAR AL INDICE :<!-- omit in toc -->
 - [Snake -> Dev-ART](#snake---dev-art---ftfreddy) 

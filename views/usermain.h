@@ -35,8 +35,8 @@ void usermain(myGame<T>* game) {
         //Forbidden name
         if(user=="enxel"){
             CLEAR;
-            welcomeuser();
-            messageLineRED(w.ws_col,"Lo sentimos ese nombre no esta disponible ");
+            welcomeuser();//mostrando mensaje visual para pedir usuario
+            messageLineRED(w.ws_col,"Lo sentimos el nombre enxel no esta disponible, porque completo todo ");
         }else
         {
             //If the user name is left in blanck or has more than 12 characters

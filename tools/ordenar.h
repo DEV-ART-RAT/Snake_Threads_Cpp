@@ -10,17 +10,11 @@ void swapy(node<T>* a, node<T>* b,node<T>** user) {
     T temp = a->info;
     a->info = b->info;
     b->info = temp;
-    //cout<<"intercambio"<<*user<<endl;
     if(a == *user){
         *user = b;
-        //cout<<"cambio con b"<<endl;
-        //cout<<(*user)->info<<endl;
     }else if(b == *user){
         *user = a;
-        //cout<<"cambio con a"<<endl;
-        //cout<<(*user)->info<<endl;
     }
-    //cin.get();
 }
 
 /** Function that pushes a new node in the back

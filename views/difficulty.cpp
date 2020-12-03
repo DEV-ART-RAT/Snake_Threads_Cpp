@@ -48,15 +48,6 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
     game->food = 2;
 
     switch (flag) {
-        /*case 1:
-            playmatrix(game);
-            break;
-        case 2:
-            playmatrix(game);
-            break;
-        case 3:
-            playmatrix(game);
-            break;*/
         case 4:
             return 1;
         default:

@@ -8,7 +8,6 @@
 #include "matriz.h"
 #include "../tools/list.h"
 #include "../views/colors.h"
-//#include "../tools/gameStruct.h"
 
 //Constants to be used
 #define FOOD 'O'
@@ -19,8 +18,6 @@
 #define Circulo ''
 #define Pared ''
 using namespace std;
-
-//struct myGame<nodeuserinfouser>;
 
 /**
  * Funtion that gets a random number in a range
@@ -35,14 +32,9 @@ struct mySnake{
     charMatriz M;
     int FILA;
     int COLUMNA;
-    //char key;
-    //int dir;
-    //bool flag;
-    //bool redirect;
     int steep;
     int sizeSnake;
     int points;
-    //int coin;
     int lifes;
     int level;
     double speed;
@@ -63,7 +55,6 @@ struct mySnake{
         speed = 4;
         initialSpeed = speed + speedBost;
         points= 0;
-        //coin = 0;
         sizeMax = 30;
         
         getMatrizChar(&M,FILA,COLUMNA);
@@ -80,7 +71,6 @@ struct mySnake{
         speedBost = 0;
         speed = 4;
         initialSpeed = speed + speedBost;
-        //coins = 0;
         velMax = 30;
         sizeMax = 30;
         getMatrizChar(&M,FILA,COLUMNA);
@@ -132,8 +122,6 @@ struct mySnake{
     //Prints the spaces with diferent items depending it they are
     // Snake, wall, food or a blank space
     void show(){
-        //cout<<flush;
-        //system("clear");//windows
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl<<RESET;
@@ -163,8 +151,6 @@ struct mySnake{
             cout<<'|'<<endl;
             cout<<RESET;
         }  
-        //int c = 238;
-        //char a = c;
         cout<<COLOR_BOLDBLUE;
         for(int i=0; i< COLUMNA; i++)cout<<"- ";
         cout<<"-"<<endl;

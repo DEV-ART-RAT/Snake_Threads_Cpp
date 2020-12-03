@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stdio.h>//getChar()
+#include <stdio.h>
 #include <unistd.h>
 #include <termios.h>
 #include <stdio_ext.h> 

@@ -150,7 +150,7 @@ void messageMargin(int col){
  * Function that prints the SNAKE title
  */
 int snakeprint(void) {
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    winsize w = screenSize();
     string linea1[] = {
         "=====   ===    ==   =======   ==  ==   =====",
         "||      ||\\\\   ||   ||   ||   || //    ||   ",

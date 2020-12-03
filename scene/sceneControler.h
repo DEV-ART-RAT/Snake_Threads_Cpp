@@ -23,14 +23,11 @@ void chargeScenes(myGame<T>* game,string name){
     data.open("./data/scenes/" + name,ios::in);
     for(string line; getline(data,line);){
         stringstream data(line);
-        //cout<<line<<endl;
         for (int colec = 0;getline(data,recibo,',');colec++){
             if(stoi(recibo) == -1){
                 flag=false;
-                //cout<<"f "<<recibo<<endl;
                 break;
             }
-            //cout<<recibo<<endl;
             if(colec==0){
                 row = stoi(recibo);
             }
@@ -40,7 +37,6 @@ void chargeScenes(myGame<T>* game,string name){
             {
                 end = stoi(recibo);
                 scenesList.pushBack(sceneInfo(row,col,end,flag));
-                //cout<<"guardado"<<flag<<endl;
             }
             
         }

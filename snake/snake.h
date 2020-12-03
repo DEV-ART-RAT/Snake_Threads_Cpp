@@ -40,14 +40,12 @@ void increasePoints(myGame<nodeuserinfouser>* game){
 
 /** Function that deletes the snake in the double list and matrix
  */
-//template<class T>
 void snakeDel(myGame<nodeuserinfouser>* game){
     node<nodeinfo>* n = game->snake.list->removeFront();
     game->snake.M[n->info.i][n->info.j]=' ';
     delete(n);
 }
 
-//template<class T>
 /** Function that caluclates changes of snake's velocity depending on its size, difficulty, and level
  */
 void changeVelocity(myGame<nodeuserinfouser>* game){
@@ -75,14 +73,14 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
     if(game->snake.M[fil][col]== FOOD ){
         changeVelocity(game);
         game->snake.sizeSnake++;
-        game->user->info.coin+=10*game->difficulty;// esta linea incrementa las monedas segun su dificultad;
+        //Increments coins according the difficuly
+        game->user->info.coin+=10*game->difficulty;
         increasePoints(game);
         if(game->snake.sizeSnake == game->snake.sizeMax){
             game->playing = false;
         }
         game->snake.defineFood();
         game->snake.M[fil][col]=SNAKE;
-        //M[fil][col]='*';
     }else if(game->snake.M[fil][col]==SNAKE || game->snake.M[fil][col]==WALL){
         game->playing = false;
         game->snake.M[fil][col]=CRASH;
@@ -90,90 +88,72 @@ void snakeNew(myGame<nodeuserinfouser>* game, int fil, int col){
         game->snake.show();
         game->snake.list->removeBack();
         game->snake.M[fil][col]=WALL;
-        //printMatrizChar(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//-----
-        //cout<<"GAME OVER >:´v"<<endl;
 
     }else
     {
         snakeDel(game);
         game->snake.M[fil][col]=SNAKE;
     }    
-    
-    //cout<<"voy en:"<<game->snake.list->back->info;
-    //cin.get();
+
 }
 
 
-//template<class T>
 /** Function that changes snake's direction or orientation to the right
  */
 void snakeRight(myGame<nodeuserinfouser>* game){
     int prevF= game->snake.list->back->info.i;
     int prevC= game->snake.list->back->info.j;
-    //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
     for(int k = 0; k< game->snake.steep;k++){
         prevC++;
         if(prevC>=game->snake.COLUMNA){
             prevC=0;
         }
         snakeNew(game,prevF,prevC);
-        //snakeDel(list,M);
     }
 }
 
-
-//template<class T>
 /** Function that changes snake's direction or orientation to the left
  */
 void snakeLeft(myGame<nodeuserinfouser>* game){
     int prevF= game->snake.list->back->info.i;
     int prevC= game->snake.list->back->info.j;
-    //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
     for(int k = 0; k< game->snake.steep;k++){
         prevC--;
         if(prevC < 0){
             prevC = game->snake.COLUMNA -1;
         }
         snakeNew(game,prevF,prevC);
-        //snakeDel(list,M);
     }
 }
 
-//template<class T>
 /** Function that changes snake's direction or orientation up
  */
 void snakeUp(myGame<nodeuserinfouser>* game){
     int prevF= game->snake.list->back->info.i;
     int prevC= game->snake.list->back->info.j;
-    //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
     for(int k = 0; k< game->snake.steep;k++){
         prevF--;
         if(prevF < 0){
             prevF = game->snake.FILA - 1;
         }
         snakeNew(game,prevF,prevC);
-        //snakeDel(list,M);
     }
 }
 
-//template<class T>
 /** Function that changes snake's direction or orientation above
  */
 void snakeDown(myGame<nodeuserinfouser>* game){
     int prevF= game->snake.list->back->info.i;
     int prevC= game->snake.list->back->info.j;
-    //cout<<"back.i "<<prevF<<" back.j "<<prevC<<endl;
     for(int k = 0; k< game->snake.steep;k++){
         prevF++;
         if(prevF >= game->snake.FILA){
             prevF = 0;
         }
         snakeNew(game,prevF,prevC);
-        //snakeDel(list,M);
     }
 }
 
-//template<class T>
 /** Function that determines snake's direction and calls one of the four functions above
  */
 void snakeDirection(myGame<nodeuserinfouser>* game){

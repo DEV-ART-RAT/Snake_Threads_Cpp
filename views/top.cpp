@@ -74,12 +74,10 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
  */
 void top_game(myGame<nodeuserinfouser>* game){
     welcometop();
-    //traverseBegin(userlist->front);
     printtopaux(&game->list);
     cin.clear();
     messageLine(w.ws_col,"presiona una tecla para continuar");
     getchar();
-    //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
     return;
 };
 
@@ -130,7 +128,6 @@ void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     // Columns size
     colsize=((tamaniotabla)/columnas);
     // Table size betwwen columns gives us each column size
-    //cout<<": Tamanio de todo  : "<< tamaniotabla<<":| | Sobra al dividir las comunas :"<<sobraparallegar<<"| | COLSIZE :"<<colsize<<"| | tamanio tabla exacto : "<<colsize*columnas<<endl;
     messageMargin(tamaniotabla+2);   
     ordenarparametros(colsize,sobraparallegar);
     messageMargin(tamaniotabla+2);   

@@ -62,7 +62,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->scene = 1;
             //Always begins with no points
             game->snake.points = 0;
-            //difficultyMenu(game);
             //Starts the game
             playmatrix(game);
             //gameOverMenu(game);

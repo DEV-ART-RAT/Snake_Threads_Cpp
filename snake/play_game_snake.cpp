@@ -36,8 +36,7 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
             exit = PauseMenu(game);
             game->key = '0';
             game->pause = false;
-            //cin.clear();
-            break;//finalizando hilo
+            break;
     //up
     case 65: 
         if (game->direccion != 2 && game->direccion != 1)
@@ -68,7 +67,7 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
  */
 bool playGame(myGame<nodeuserinfouser> *game){
     bool exit = true;
-    double timer = 0; // auxiliar para la velocidad
+    double timer = 0; 
     while (game->playing){
         if (timer > 10 * game->snake.speed)
         {
@@ -92,20 +91,20 @@ bool playGame(myGame<nodeuserinfouser> *game){
  */
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
-    //loading();//Pantalla de carga
-    //cin.clear();
     bool exit = true;
     thread th1(keyEventSnake, game);
-    game->startGame();  // alzando banderas
+    //Raising flags
+    game->startGame();
     game->mostrarCabeceraSnake();
-    game->snake.show(); // mostrando serpiente
-    sleep(2);           // tiempo de gracia (espera para iniciar)
+    //Shows the snake
+    game->snake.show();
+    //Grace time (waits to start)
+    sleep(2);           
     exit = playGame(game);     //
     if (game->snake.sizeSnake == game->snake.sizeMax)
     {
         game->proxLevel = true;
     }
-    //cin.clear();
     th1.detach();
     return exit;
 }
@@ -118,7 +117,8 @@ void restartingGame(myGame<nodeuserinfouser> *game)
     game->direccion = 3;
     for (int i = 0; i < game->snake.sizeSnake - 2; i++)
     {
-        game->snake.list->pushBack(nodeinfo(5, 5)); //loading serpiente
+        //loads the snake
+        game->snake.list->pushBack(nodeinfo(5, 5)); 
     }
     game->snake.list->pushBack(nodeinfo(5, 6));
     game->snake.list->pushBack(nodeinfo(5, 7));
@@ -163,7 +163,8 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
             game->user->info.nivel = 1;
         }
         while (game->user->info.nivel * game->scene > 9)
-        { //eligiendo escenario Clasic
+        { 
+            //Chooses "Clasico 97" game mode
             game->scene++;
             if (game->scene > 2){
                 nextStage(game);
@@ -177,7 +178,8 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
             }
         }
         sceneLevel(game->user->info.nivel, row, col, obstaculos, snkMax, velocidad);
-        game->difficulty = *velocidad; //obteniendo ladificultad segun nivel actual
+        //Getting difficulty according to actual level
+        game->difficulty = *velocidad;
         game->snake.level = game->user->info.nivel;
         game->liveSpecial = game->user->info.Lifes;
 }
@@ -304,7 +306,6 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     //Checks if player levels up
     if (game->proxLevel && inExit){
         CLEAR;
-        //cin.clear();
         snakeprint();
         messageLine(w.ws_col, "Subiste de nivel");
         messageLine(w.ws_col, " presiona cualquier tecla para continuar");
@@ -312,7 +313,6 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         messageMargin(w.ws_col);
         cin.clear();
         getchar();
-        //cin.get();
 
         if (game->mode == 1){
             game->user->info.Lifes = game->snake.lifes;

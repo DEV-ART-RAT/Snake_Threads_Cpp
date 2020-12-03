@@ -115,16 +115,11 @@ void buyLife(myGame<nodeuserinfouser>* game){
  */
 int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
-    //mySnake snake = mySnake();
-
-    //bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
     //Cheks option selected
     switch (flag) {
         //Buy a life
         case 1:
             buyLife(game);
-            //sleep(1);
-            //shopMenu(userdata,userlist);
             break;
         //Boost points x2
         case 2:
@@ -133,13 +128,9 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
         //Boost points x3
         case 3:
             boostPointsx3(game);
-            //sleep(1);
-            //shopMenu(flag, userdata);
             break;
         //Retuns previous menu 
         case 4:
-            //welcomemain(userdata);
-            //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
             return 0;
         default:
             break;

@@ -35,7 +35,7 @@ void usermain(myGame<T>* game) {
         //Forbidden name
         if(user=="enxel"){
             CLEAR;
-            welcomeuser();//mostrando mensaje visual para pedir usuario
+            welcomeuser();
             messageLineRED(w.ws_col,"Lo sentimos el nombre enxel no esta disponible, porque completo todo ");
         }else
         {
@@ -61,7 +61,6 @@ void usermain(myGame<T>* game) {
         cin.ignore();
         cin.clear();
         cin.get();
-        //print_user(game); 
     } 
     // Creates a new user
     else{
@@ -76,7 +75,6 @@ void usermain(myGame<T>* game) {
         cin.clear();
         cin.get();
         history();
-        //print_user(game); 
     }
    
 };
@@ -116,7 +114,6 @@ void printUsers(myGame<T>* game,string user){
             case 6:
                 pointClassic = stoi(recibo);
                 game->list.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
-                //ame->lista_ordenar.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
                 if(name==user){
                     game->user = game->list.back;
                 }

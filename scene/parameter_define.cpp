@@ -54,12 +54,10 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
     case 2: 
         *cel  *= 0.20;
         *snk = (*snk>25)? 25: *snk;
-        //*snk *= 0.6; //tamaño MAX de snake
         break;
     //cells 10%
     case 3:
         *cel  *= 0.30;
-        //*snk *= ; //tamaño MAX de snake
         *snk = (*snk>50)? 50: *snk;
         break;
     default:
@@ -80,5 +78,4 @@ void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax,int* 
     }
     sceneSize(level,row,col);
     sceneLevelDif(level,row,col,obstaculos,snkMax);
-    //*snkMax=5;
 }

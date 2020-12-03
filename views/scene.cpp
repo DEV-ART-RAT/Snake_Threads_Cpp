@@ -27,7 +27,6 @@ auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) {
 };
 
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
-//int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 
 /**

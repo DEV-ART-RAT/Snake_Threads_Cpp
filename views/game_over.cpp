@@ -8,9 +8,6 @@
 using namespace std;
 struct termios term_over;
 
-
-//int startMenuAux(node<nodeuserinfouser>* , auto ,int );
-
 /**
  * Function that shows the game over menu options
  */

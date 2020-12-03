@@ -55,7 +55,7 @@ struct myGame{
     void mostrarCabeceraSnake(){
         CLEAR;
         (2!=mode)?
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"   Restante: "<<snake.sizeMax - snake.sizeSnake << "     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes << "   Dinero:"<<RESET<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl:
+        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"   Restante: "<<snake.sizeMax - snake.sizeSnake << "     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes << "   Dinero:"<<RESET<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<"lvl: "<<user->info.nivel<<"/"<< ((3!=mode)? ((sceneList.size() + 2) * 9): 3)<<endl:
         cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<" 1 " << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl;
         
     }

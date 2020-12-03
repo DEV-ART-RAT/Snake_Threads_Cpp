@@ -11,7 +11,7 @@ struct myGame{
     // Properties
     node<T>* user = NULL;
     doubleLinked<T> list;
-    doubleLinked<T> lista_ordenar;
+    //doubleLinked<T> lista_ordenar;
     doubleLinked<doubleLinked<sceneInfo>> sceneList;
     //doubleLinked<doubleLinked<sceneInfo>> scenesListContainer;
     mySnake snake = mySnake();

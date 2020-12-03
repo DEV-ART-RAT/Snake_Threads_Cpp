@@ -43,12 +43,12 @@ auto mensajeTOPS = [](int opc,myGame<nodeuserinfouser>* game, int size) {
 bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
     switch (flag) {
             case 1:
-                quickSort(game->lista_ordenar.front, 1);
+                quickSort(game->list.front, 1,&game->user);
                 top_game(game);
                 TopMenu(game);      
                 return false; 
             case 2:
-                quickSort(game->lista_ordenar.front, 3);
+                quickSort(game->list.front, 3,&game->user);
                 top_game(game);
                 TopMenu(game);
                 return false;
@@ -63,7 +63,7 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 void top_game(myGame<nodeuserinfouser>* game){
     welcometop();
     //traverseBegin(userlist->front);
-    printtopaux(&game->lista_ordenar);
+    printtopaux(&game->list);
     cin.clear();
     messageLine(w.ws_col,"presiona una tecla para continuar");
     getchar();

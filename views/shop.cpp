@@ -10,6 +10,9 @@
 
 using namespace std;
 
+/**
+ * Function that shows the Shop of the game
+ */
 auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -35,43 +38,64 @@ int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 int startMenu(myGame<nodeuserinfouser>* game);
 int shopMenu(myGame<nodeuserinfouser>* game);
 
+/**
+ * Function that implements functionality to buy the x2 points booster
+ */
 void boostPointsx2(myGame<nodeuserinfouser>* game){
+    //Checks if a booster hasn't been buyed before or if has the enough money to buy
 	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >= 500){
 		game->snake.x2Boosted = true;
         game->user->info.coin -= 500;
 		messageLine(w.ws_col,"Points potenciado x2");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
-	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
+	}
+    //If a booster has already been selected
+    else if(game->snake.x2Boosted || game->snake.x3Boosted){
 		messageLine(w.ws_col,"Un potenciador ya habia sido activado");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
-	} else {
+    
+	}
+    //If doesn't have enough money to buy 
+    else {
 		messageLine(w.ws_col,"Monedas insuficientes");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
     }
 }
 
+/**
+ * Function that implements functionality to buy the x3 points booster
+ */
 void boostPointsx3(myGame<nodeuserinfouser>* game){
+    //Checks if a booster hasn't been buyed before or if has the enough money to buy
 	if(!game->snake.x2Boosted && !game->snake.x3Boosted && game->user->info.coin >=1000){
 		game->snake.x3Boosted = true;
         game->user->info.coin -= 1000;
 		messageLine(w.ws_col,"Points potenciado x3");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
-	}else if(game->snake.x2Boosted || game->snake.x3Boosted){
+	}
+    //If a booster has already been selected
+    else if(game->snake.x2Boosted || game->snake.x3Boosted){
 		messageLine(w.ws_col,"Un potenciador ya habia sido activado");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
-	} else {
+	} 
+    //If doesn't have enough money to buy 
+    else {
 		messageLine(w.ws_col,"Monedas insuficientes");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
     }
 }
 
+/**
+ * Function that implements functionality to buy an extra life
+ */
 void buyLife(myGame<nodeuserinfouser>* game){
+    //Checks if has the enough money
     if(game->user->info.coin >= 200){
         game->user->info.coin -= 200;
         game->snake.lifes++;
@@ -86,26 +110,33 @@ void buyLife(myGame<nodeuserinfouser>* game){
 }
 
 
-
+/**
+ * Function that implements shop menu functionality
+ */
 int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
     //mySnake snake = mySnake();
 
     //bool x2Boosted = false, x3Boosted = false; //Espero que temporalmente aqui
+    //Cheks option selected
     switch (flag) {
+        //Buy a life
         case 1:
             buyLife(game);
             //sleep(1);
             //shopMenu(userdata,userlist);
             break;
+        //Boost points x2
         case 2:
             boostPointsx2(game);
             break;
+        //Boost points x3
         case 3:
             boostPointsx3(game);
             //sleep(1);
             //shopMenu(flag, userdata);
             break;
+        //Retuns previous menu 
         case 4:
             //welcomemain(userdata);
             //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
@@ -119,6 +150,9 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
     return 0;
 }
 
+/**
+ * Function that calls the shop menu implementation
+ */
 int shopMenu(myGame<nodeuserinfouser>* game){
     return shopMenuAux(game,optionSelectionKey(game,mensajeShop,4));
 }

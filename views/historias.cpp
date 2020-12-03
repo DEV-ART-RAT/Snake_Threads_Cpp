@@ -11,6 +11,10 @@ using namespace std;
 
 void mensajehistoria(int pos,int max,string histo[]);
 
+/**
+ * Function that contains the history and instructions to be shown when a new player begins the game
+ * and its properties
+ */
 int history(void) {
     string historia[]={
         "Bienvenido Snakero, estas apunto de entrar a una fantastica aventura",
@@ -35,6 +39,9 @@ int history(void) {
     return 0;
 };
 
+/**
+ * Function that is used to show the history line by line depending on the key pressed
+ */
 void mensajehistoria(int pos,int max,string histo[]){
     char key=getchar();
     switch (key)

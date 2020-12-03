@@ -10,6 +10,9 @@
 #include "../tools/gameStruct.h"
 using namespace std;
 
+/**
+ * Function that shows the "Especial" game mode options
+ */
 auto mensajeScene = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -27,25 +30,38 @@ int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 //int startMenu(myGame<nodeuserinfouser>* );
 int sceneMenu(myGame<nodeuserinfouser>* );
 
-//menu para seleccionar el tipo de escenario
+/**
+ * Function that implements the stage selection menu
+ */
 int sceneMenuAux(myGame<nodeuserinfouser>* game,int flag,int size){
 
-    game->scene =  flag;//se guarda el numero de escenario a cargar
+    //Saves the stage number to load
+    game->scene =  flag;
     
-    if(flag != size){//se revisa si la opcion seleccionada no sea la de retroeceder
-        difficultyMenu(game);//se carga el menu de seleccion de dificultad
+    //Checks if options selected is not "Regresar"
+    if(flag != size){
+        //Loads the difficulty selection menu
+        difficultyMenu(game);
     }
-    if(flag == size){//si la opcion es de retroceder
-        return 1;//se retorna a un menu previo
+    //If the option selected is go back
+    if(flag == size){
+        //Returns previous menu
+        return 1;
     }
-    sceneMenu(game);//se vuelve a cargar este menu desde una seleccionposterior
+    //Charges this menu again from a later menu
+    sceneMenu(game);
     return 0;
 }
 
-//funcion que llama al selector de opciones mandando la funcion para escuchar el teclado
+/**
+ * Function that calls options menu selector sending a function to 'listen' from keyboard
+ */
 int sceneMenu(myGame<nodeuserinfouser>* game){
-    int opciones = 3;//numero de opciones por default
-    opciones += game->sceneList.size();//se suma el totaldeescenarios cargados externamente a las opciones
+    //Default options number
+    int opciones = 3;
+    //Adds total of stages loaded from files to the options
+    opciones += game->sceneList.size();
+    
     return sceneMenuAux(game,optionSelectionKey(game,mensajeScene,opciones),opciones);
 }
 

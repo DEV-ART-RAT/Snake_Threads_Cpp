@@ -41,7 +41,7 @@ auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size
 };
 
 /**
- * Function that 
+ * Function that implements game over menu functionality
  */
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
@@ -58,6 +58,9 @@ int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     }
 };
 
+/**
+ * Function that checks if player's lifes are done
+ */
 bool gameOverMenu(myGame<nodeuserinfouser>* game){
     if(game->snake.lifes > 0){
         return gameOverMenuAux(game,optionSelectionKey(game,mensajeGameOverContinued,2));

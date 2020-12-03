@@ -166,7 +166,7 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
         { 
             //Chooses "Clasico 97" game mode
             game->scene++;
-            if (game->scene > 2){
+            if (game->scene > 2 + game->sceneList.size()){
                 nextStage(game);
                 if(game->user->info.Points_Save > game->user->info.Points){
                     game->user->info.Points = game->user->info.Points_Save;

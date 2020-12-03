@@ -10,7 +10,7 @@
 #include "../views/colors.h"
 //#include "../tools/gameStruct.h"
 
-
+//Constants to be used
 #define FOOD 'O'
 #define SNAKE '*'
 #define CRASH '?'
@@ -22,12 +22,16 @@ using namespace std;
 
 //struct myGame<nodeuserinfouser>;
 
+/**
+ * Funtion that gets a random number in a range
+ */
 int getIntRand(int a, int b){   
     return rand() % (b - a + 1) + a;
 }
 
-
+//Structure to define the snake in the game
 struct mySnake{
+    //Variables
     charMatriz M;
     int FILA;
     int COLUMNA;
@@ -50,6 +54,7 @@ struct mySnake{
     bool x2Boosted=false, x3Boosted=false;
     doubleLinked <nodeinfo>* list;
 
+    //Contructors
     mySnake() {}
     mySnake(int _i, int _c) : FILA(_i), COLUMNA(_c) {
         steep=1;
@@ -64,6 +69,8 @@ struct mySnake{
         getMatrizChar(&M,FILA,COLUMNA);
     }
 
+    //Functions
+    //Initial values (position, size, speed) of the snake
     void inicialiceMySnake(int row, int col) {
         list = new doubleLinked <nodeinfo>();
         FILA = row;
@@ -79,6 +86,8 @@ struct mySnake{
         getMatrizChar(&M,FILA,COLUMNA);
     }
 
+    //Reads the values from a double linked list and 
+    //determines wich elements are the body of the snake
     void defineSnake(){
         for(node<nodeinfo>* e = list->front; e!=NULL; e=e->next){
             if(e->info.i>=FILA)
@@ -89,6 +98,7 @@ struct mySnake{
         }
     }
 
+    //Erases the snake from the matrix and the double linked list
     void deleteSnake(){
         for(node<nodeinfo>* e = list->back; e!=NULL; e=e->prev){
             M[e->info.i][e->info.j]=SCENE;
@@ -96,6 +106,7 @@ struct mySnake{
         list = new doubleLinked <nodeinfo>();
     }
 
+    // Creates randomly a food in the stage calculating a possible space
     void defineFood(){
         int i , j;
         do{
@@ -105,6 +116,7 @@ struct mySnake{
         M[i][j] = FOOD;
     }
 
+    // Creates randomly obstacles in the stage calculating a possible space
     void defineObst(int obstaculos){
         for(int k=0 ; k<obstaculos;k++){
             int i , j;
@@ -116,6 +128,9 @@ struct mySnake{
         }
     }
     
+
+    //Prints the spaces with diferent items depending it they are
+    // Snake, wall, food or a blank space
     void show(){
         //cout<<flush;
         //system("clear");//windows
@@ -155,7 +170,7 @@ struct mySnake{
         cout<<"-"<<endl;
         cout<<RESET;
 }
-
+    //Sets lifes
     void setLive(int live){
         lifes=live;
     }

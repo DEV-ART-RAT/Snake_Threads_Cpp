@@ -26,14 +26,22 @@ void usermain(myGame<T>* game) {
     welcomeuser();//mostrando mensaje visual para pedir usuario
     int userIntents=0;
     do{ 
-        if(userIntents>0){
+        if(user=="enxel"){
+            CLEAR;
+            welcomeuser();//mostrando mensaje visual para pedir usuario
+            messageLineRED(w.ws_col,"Lo sentimos ese nombre no esta disponible ");
+        }else
+        {
+            if(userIntents>0){
                 CLEAR
                 welcomeuser();//mostrando mensaje visual para pedir usuario
                 messageLineRED(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+            }
         }
         userIntents++;
         cin>>user;
-    }while(user==""||user.size()>12);
+    }while(user==""||user.size()>12||user=="enxel");
+
     printUsers(game,user);//loading lista de usuarios de fuente externa
     
     if(game->user){//revisando si el usuario ya estaba registrado        
@@ -94,6 +102,7 @@ void printUsers(myGame<T>* game,string user){
             case 6:
                 pointClassic = stoi(recibo);
                 game->list.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
+                game->lista_ordenar.pushBack(T(point,pointContinue,pointClassic,coin,lifes,nivel,name));
                 if(name==user){
                     game->user = game->list.back;
                 }
@@ -124,8 +133,8 @@ void welcomeuser(void){
 template <class T>
 void print_user(myGame<T>* game){
     messageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
-    messageLineMAGENTA(w.ws_col,string("Tu Points Snake World Party: "+to_string(game->user->info.Points)));        cout<<RESET;
-    messageLineMAGENTA(w.ws_col,string("Tu Points Clasic: "+to_string(game->user->info.PointsClasic)));        cout<<RESET;
-    messageLineMAGENTA(w.ws_col,string("Tus Lifes : "+to_string(game->user->info.Lifes)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Puntos Snake World Party: "+to_string(game->user->info.Points)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Puntos Clasic: "+to_string(game->user->info.PointsClasic)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tus Vidas : "+to_string(game->user->info.Lifes)));        cout<<RESET;
     messageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 }

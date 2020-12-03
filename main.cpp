@@ -17,18 +17,9 @@ struct termios term;
 
 void open_buffer();
 void close_buffer();
-<<<<<<< HEAD
 void loading();
 void loadScenes(myGame<nodeuserinfouser>*);
 void loadScenes(myGame<nodeuserinfouser>* game){
-=======
-void cargando();
-void cargarEscenarios(myGame<nodeuserinfouser>*);
-
-
-//funcion en la que se pueden añadir escenarios externos
-void cargarEscenarios(myGame<nodeuserinfouser>* game){
->>>>>>> edabbe207694f4de1f2bb01eb41ef6896082baff
     chargeScenes(game,"extra1.csv");//escenario a cargar
     chargeScenes(game,"extra2.csv");//escenario a cargar
     chargeScenes(game,"rubi.csv");//escenario a cargar
@@ -37,7 +28,6 @@ void cargarEscenarios(myGame<nodeuserinfouser>* game){
 
 
 int main(void) {
-<<<<<<< HEAD
     srand(time(NULL));
     myGame<nodeuserinfouser> game;// = new myGame();
     loadScenes(&game);
@@ -47,14 +37,6 @@ int main(void) {
     close_buffer();
     //loading();
     usermain(&game);//ingresando usuario y loading lista
-=======
-    srand(time(NULL));//se inicia el random
-    myGame<nodeuserinfouser> game;// se crea la estructura que contiene elemetos claves del juego
-    cargarEscenarios(&game);//se caragan los escenarios externos
-
-    close_buffer();
-    usermain(&game);//ingresando usuario y cargando lista
->>>>>>> edabbe207694f4de1f2bb01eb41ef6896082baff
 
     open_buffer();
     startMenu(&game);//procedemos al menu de inicio

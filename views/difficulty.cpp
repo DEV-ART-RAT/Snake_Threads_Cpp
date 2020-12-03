@@ -9,6 +9,9 @@
 #include "../tools/nodeuser.h"
 using namespace std;
 
+/**
+ * Function that shows the dificulty menu options
+ */
 auto mensajeDifficulty = [](int opc,myGame<nodeuserinfouser>* userdata,int size) { 
     CLEAR;
     snakeprint();
@@ -25,15 +28,25 @@ int startMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
 int difficultyMenu(myGame<nodeuserinfouser>* );
 
-
+/**
+ * Function that shows the dificulty menu options
+ */
 int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
+    //Inits special difficulty
+    game->difficulty = flag;
 
-    game->difficulty = flag;//inciando dificultad especial
+    //Inits special stage (3 level by difficulty)
+    game->levelSpecial = 1;
 
-    game->levelSpecial = 1;//inicando escenario especial (3 niveles por dificultad);
-    game->liveSpecial = 3;//iniciando vidads especial (3 Lifes);
-    game->snake.points = 0;//escenario especial -> puntos -> monedas
+    //Inits lifes in special mode (3 lifes)
+    game->liveSpecial = 3;
+
+    //Special stage points
+    game->snake.points = 0;
+
+    //Number of food
     game->food = 2;
+
     switch (flag) {
         /*case 1:
             playmatrix(game);
@@ -54,6 +67,9 @@ int difficultyMenuAuxOpc(myGame<nodeuserinfouser>* game,int flag){
     return 0;
 }
 
+/**
+ * Function that calls function above
+ */
 int difficultyMenu(myGame<nodeuserinfouser>* game){
     return difficultyMenuAuxOpc(game,optionSelectionKey(game,mensajeDifficulty,4));
 }

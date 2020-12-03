@@ -3,6 +3,8 @@
 
 void levelOne(char** , int , int);
 
+//Modifies the matrix tho load de stage
+//If the parameter to be used is a row
 void sceneChargininstructionsRow(char** array, int a, int b, sceneInfo* info){
     //cout<<*info<<endl;
     int i = (a * info->row * 0.1);
@@ -20,6 +22,8 @@ void sceneChargininstructionsRow(char** array, int a, int b, sceneInfo* info){
 
 }
 
+//Modifies the matrix tho load de stage 
+//If the parameter to be used is a column
 void sceneChargininstructionsCol(char** array, int a, int b,sceneInfo* info){
     int i = (a * info->row * 0.1);
     int j = (b * info->col * 0.1);
@@ -39,6 +43,7 @@ void sceneChargininstructionsCol(char** array, int a, int b,sceneInfo* info){
     }
 }
 
+//Recursive function that uses one or another of the funtions above depending on a flag given
 void ejecutarInstruccion(char** array, int a, int b,node<sceneInfo>* temp){
     if(temp){
         if(temp->info.direction){
@@ -52,7 +57,7 @@ void ejecutarInstruccion(char** array, int a, int b,node<sceneInfo>* temp){
     }
 }
 
-
+//Loads the stage with instructions given in a file
 void sceneChargininstructions(myGame<nodeuserinfouser>* game){
         int discriminante = 2;
         int escenario = game->scene-discriminante;
@@ -67,29 +72,32 @@ void sceneChargininstructions(myGame<nodeuserinfouser>* game){
 
     }
 
-    void defineScene(myGame<nodeuserinfouser>* game){
-        switch (game->scene)
-        {
-        case 1://escenario libre
-            break;
-        case 2:
-            levelOne(game->snake.M,game->snake.FILA,game->snake.COLUMNA);//matriz full paredes
-            break;
-        default:
-            sceneChargininstructions(game);//escenarios extras ( externos )
-            break;
-        }
+//Determines wich of the stages will be loaded
+// - Free stage
+// - With full walls in margin
+// - Extra stages from a file
+void defineScene(myGame<nodeuserinfouser>* game){
+    switch (game->scene)
+    {
+    case 1:
+        break;
+    case 2:
+        levelOne(game->snake.M,game->snake.FILA,game->snake.COLUMNA);
+        break;
+    default:
+        sceneChargininstructions(game);
+        break;
     }
+}
 
-
-    
-void levelOne(char** array, int a, int b){//escenario FULL paredes
-    for(int i = 0; i < a; i++) {//columnas
+// Creates an stage with walls in the margin     
+void levelOne(char** array, int a, int b){
+    for(int i = 0; i < a; i++) {
             array[i][0]=WALL;
             array[i][b-1]=WALL;
     }
 
-    for(int j = 0; j < b; j++) {//filas
+    for(int j = 0; j < b; j++) {
             array[0][j]=WALL;
             array[a-1][j]=WALL;
     }

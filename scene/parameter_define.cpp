@@ -4,17 +4,24 @@
 
 using namespace std;
 
-//tamaño de terminal
+//Here we make the game responsive
+
+/**Terminal size
+ * *row and *col gets the dimension of terminal
+ */
 void sceneSize(int level, int* row, int* col){
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    winsize w = screenSize();
     *row = w.ws_row - 5;
     *col = w.ws_col / 2;
+
     switch (level)
     {
-    case 1: // pantalla 60%
+    //60% Screen 
+    case 1: 
         *col  *= 0.4;
         break;
-    case 2: // pantalla 80%
+    //80% Screen 
+    case 2:
         *col  *= 0.7;
         break;
     default:
@@ -29,23 +36,28 @@ void sceneSize(int level, int* row, int* col){
         *row=10;
     }
 }
-//total de obstaculos segun dificulatad y tamaño de teminal
+/**Determines total of obstacles by dificulty and terminal size
+ * *cel obtains total of obstacles using some parameters *obstaculos(cel)
+ * *snk gets the max size of the snake
+ */ 
 void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
-    *cel = (*row) + (*col);//obteniendo el numero total de *obstaculos(cel)
+    *cel = (*row) + (*col);
     *snk = *cel * 0.7;
     switch (level)
     {
-    case 1: // celdas 0%
+    //cells 0%
+    case 1: 
         *cel  *= 0.10;
         *snk = (*snk>15)? 15: *snk;
-        //*snk *= 0.3; //tamaño MAX de snake
         break;
-    case 2: // celdas 5%
+    //cells 5%
+    case 2: 
         *cel  *= 0.20;
         *snk = (*snk>25)? 25: *snk;
         //*snk *= 0.6; //tamaño MAX de snake
         break;
-    case 3: // celdas 10%
+    //cells 10%
+    case 3:
         *cel  *= 0.30;
         //*snk *= ; //tamaño MAX de snake
         *snk = (*snk>50)? 50: *snk;
@@ -54,8 +66,11 @@ void sceneLevelDif(int level, int* row, int* col, int* cel, int* snk){
         break;
     }
 }
+
+//Determines volocity according level
 void sceneLevel(int level, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
-    *velocidad = 1;//nivel base
+    //base level
+    *velocidad = 1;
     while(level > 3){
         *velocidad++;
         if(*velocidad > 3){

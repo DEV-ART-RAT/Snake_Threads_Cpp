@@ -42,7 +42,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->scene = 1;//se carga por defecto el escenario 1
             playmatrix(game);//inicia el juego
             break;
-<<<<<<< HEAD
         case 2:
             //game->scene =  1;
             game->mode = 2;//Clasic
@@ -52,14 +51,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //difficultyMenu(game);
             playmatrix(game);
             //gameOverMenu(game);
-=======
-        case 2://modo de juego "CLASICO"
-            //se inicializan banderas necesarias para este modo
-            game->food = 1;//en este modo solo existira una comida a la vez
-            game->scene = 1;//se jugara son en el esenario 1
-            game->snake.points = 0;//siempre se inicia con una puntuacion de cero
-            playmatrix(game);//inicia el juego
->>>>>>> edabbe207694f4de1f2bb01eb41ef6896082baff
             break;
         case 3://modo de juego "ESPECIAL"
             //se inicializan banderas necesarias para este modo

@@ -5,6 +5,8 @@
 
 struct winsize w;
 
+/** Function that calculates screen size
+ */
 winsize screenSize () {
     
     ioctl(0, TIOCGWINSZ, &w);

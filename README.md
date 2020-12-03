@@ -7,6 +7,11 @@
 ## IMPORTANTE :
 [Como ejecutar?:](#4-ejecucion)
 
+##  Game play:
+(Para jugar mejor hacerlo desde un sistema base GNU/Linux)
+
+[<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://www.youtube.com/watch?v=AzBj7Uu7Noc&feature=youtu.be)
+
 ## Ver documento donde nos basamos :
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit?usp=sharing)
 
@@ -14,6 +19,7 @@
 - [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
   - [La mejor forma de ver el Readme :](#la-mejor-forma-de-ver-el-readme-)
   - [IMPORTANTE :](#importante-)
+  - [Game play:](#game-play)
   - [Ver documento donde nos basamos :](#ver-documento-donde-nos-basamos-)
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
@@ -146,9 +152,5 @@ g++ -pthread main.cpp -o main && ./main
 
 - Los archivos CSV de los mapas precargados tienen ciertas intrucciones especiales.
 
-- El proyecto tiene colores y caracteres especiales que en todas las computadoras que probamos funcionaron igual
-  pero hay que aclara que al no haber trabajado con esos caracteres no sabemos si funcionan igual en todas 
-  las computadoras.
-
 # REGRESAR AL INDICE :
-- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
+- [Snake -> Dev-ART 

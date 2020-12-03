@@ -1,39 +1,29 @@
-# Snake -> Dev-ART - ft.freddy.   
+# Snake -> Dev-ART - ft.freddy.  <!-- omit in toc -->
 [Pagina con Instrucciones dadas para el juego : (https://wmoralesdev.github.io/actividadfinal/index)](https://wmoralesdev.github.io/actividadfinal/index)
-
-## La mejor forma de ver el Readme : 
+## La mejor forma de ver el Readme : <!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
+## IMPORTANTE :<!-- omit in toc -->
 
-## IMPORTANTE :
 [Como ejecutar?](#4-ejecucion)
-## Caracteristicas:
+## Caracteristicas:<!-- omit in toc -->
 - [Caracteristicas del juego](#5caracteristicas)
-
-
-## Jugar en linea (no es la misma experiencia)
+## Jugar en linea (no es la misma experiencia)<!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://repl.it/@dilverpro/SnakeTerminalcpp#README.md)
 
-##  Game play:
+##  Game play:<!-- omit in toc -->
 (Para jugar mejor hacerlo desde un sistema base GNU/Linux por que en WSL no se distrufa del todo)
 
-### Snake World Party
+### Snake World Party:<!-- omit in toc -->
+
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://www.youtube.com/watch?v=AzBj7Uu7Noc&feature=youtu.be)
-### Classic 97 
+### Classic 97 :<!-- omit in toc -->
+
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://www.youtube.com/watch?v=V3rWEKqDolY&feature=youtu.be)
 
-## Ver documento donde nos basamos :
+## Ver documento donde nos basamos :<!-- omit in toc -->
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit?usp=sharing)
 
 ## Indice <!-- omit in toc -->
-- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
-  - [La mejor forma de ver el Readme :](#la-mejor-forma-de-ver-el-readme-)
-  - [IMPORTANTE :](#importante-)
-  - [Caracteristicas:](#caracteristicas)
-  - [Jugar en linea (no es la misma experiencia)](#jugar-en-linea-no-es-la-misma-experiencia)
-  - [Game play:](#game-play)
-    - [Snake World Party](#snake-world-party)
-    - [Classic 97](#classic-97)
-  - [Ver documento donde nos basamos :](#ver-documento-donde-nos-basamos-)
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
   - [2.1. inicio(usuario):](#21-iniciousuario)
@@ -174,4 +164,4 @@ g++ -pthread main.cpp -o main && ./main
 - Las instrucciones solo parecen cuando un usuario juega por primera vez 
 
 # REGRESAR AL INDICE :
-- [Snake -> Dev-ART 
+- [Snake -> Dev-ART](#snake---dev-art---ftfreddy) 

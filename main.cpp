@@ -60,7 +60,3 @@ void close_buffer(){
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 };
-
-/**
- * Function that is used as a load screen
- */

@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/**Function that reads files with instructions given
+ * And modifies a double linked list used to storage the stages
+*/
 
 template<class T>
 void chargeScenes(myGame<T>* game,string name){

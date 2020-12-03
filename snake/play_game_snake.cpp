@@ -17,15 +17,20 @@
 
 
 using namespace std;
+//Declarations
 void loading();
 void restartingGame(myGame<nodeuserinfouser> *game);
 bool playingGame(myGame<nodeuserinfouser> *game);
 const bool jugando=false;
 
+/**
+ * Function that redirects the orientation of the snake depending on the key pressed
+ */
 bool redireccionando(myGame<nodeuserinfouser> *game){
     bool exit = true;
     switch (game->key)
     {
+    //enter => pause
     case '\n':
             //game->pause = true;
             exit = PauseMenu(game);
@@ -33,19 +38,23 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
             game->pause = false;
             //cin.clear();
             break;//finalizando hilo
-    case 65: //up
+    //up
+    case 65: 
         if (game->direccion != 2 && game->direccion != 1)
             game->direccion = 1;
         break;
-    case 66: //down
+    //down
+    case 66: 
         if (game->direccion != 2 && game->direccion != 1)
             game->direccion = 2;
         break;
-    case 67: //right
+    //right
+    case 67: 
         if (game->direccion != 3 && game->direccion != 4)
             game->direccion = 3;
         break;
-    case 68: //left
+    //left
+    case 68: 
         if (game->direccion != 3 && game->direccion != 4)
             game->direccion = 4;
         break;
@@ -55,6 +64,8 @@ bool redireccionando(myGame<nodeuserinfouser> *game){
     return exit;
 }
 
+/** Funtion that checks if the game is been played
+ */
 bool playGame(myGame<nodeuserinfouser> *game){
     bool exit = true;
     double timer = 0; // auxiliar para la velocidad
@@ -77,6 +88,8 @@ bool playGame(myGame<nodeuserinfouser> *game){
     return exit;
 }
 
+/**Funtion that checks if the game pauses
+ */
 bool playingGame(myGame<nodeuserinfouser> *game)
 {
     //loading();//Pantalla de carga
@@ -97,6 +110,8 @@ bool playingGame(myGame<nodeuserinfouser> *game)
     return exit;
 }
 
+/** Funtion that restarts game
+ */
 void restartingGame(myGame<nodeuserinfouser> *game)
 {
     game->snake.deleteSnake();
@@ -110,6 +125,8 @@ void restartingGame(myGame<nodeuserinfouser> *game)
     game->snake.defineSnake();
 }
 
+/** Funtion that shows a screen when an Stage is completed
+ */
 void nextStage(myGame<nodeuserinfouser> *game){
     CLEAR;
     snakeprint();
@@ -124,6 +141,8 @@ void nextStage(myGame<nodeuserinfouser> *game){
     getchar();
 }
 
+/** Funtion that shows a screen when a level is completed
+ */
 void nextStageLevel(myGame<nodeuserinfouser> *game){
     CLEAR;
     snakeprint();
@@ -135,6 +154,8 @@ void nextStageLevel(myGame<nodeuserinfouser> *game){
     getchar();
 }
 
+/** Funtion that loads World Party game mode
+ */
 void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
     game->snake.points = game->user->info.Points_Save;
         if (game->user->info.Lifes <= 0){
@@ -161,16 +182,22 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
         game->liveSpecial = game->user->info.Lifes;
 }
 
-
-
+/** Funtion that checks the option selected from user to determine game mode
+ * and its difficulty if it has it
+ * sets user parameters 
+ * and saves the progress data in the .csv file
+ */
 int playmatrix(myGame<nodeuserinfouser> *game){
-    int row, col, obstaculos, snkMax, velocidad;//variables para parametros claves
+    //variables to storage key parameters
+    int row, col, obstaculos, snkMax, velocidad;
 
-    if (game->mode == 1){ //juego World --continuo
+    //Loads World Party game mode
+    if (game->mode == 1){ 
 
         cargarModoWorldParty(game,&row,&col,&obstaculos,&snkMax,&velocidad);
 
     }
+    //Loads classic 97 game mode
     else if (game->mode == 2)
     {
         game->liveSpecial = 0;
@@ -181,7 +208,9 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         game->snake.level = 1;
         game->difficulty = velocidad;
         
-    }else { //juego especial
+    }
+    //Loads special game mode
+    else { 
         if (game->levelSpecial > 3)
         {
             nextStageLevel(game);
@@ -191,14 +220,16 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         game->snake.level = game->levelSpecial;
     }
     
-    
-    game->snake.setLive(game->liveSpecial);//Lifes del juego ajugar... valga la redundancia :v
+    //Gamer lifes of game to be played
+    game->snake.setLive(game->liveSpecial);
     game->snake.inicialiceMySnake(row, col);
 
-    game->snake.list->pushBack(nodeinfo(5, 5)); //loading serpiente
+    //Loads initial snake with three nodes
+    game->snake.list->pushBack(nodeinfo(5, 5)); 
     game->snake.list->pushBack(nodeinfo(5, 6));
     game->snake.list->pushBack(nodeinfo(5, 7));
 
+    //Defines the scene to be showed
     defineScene(game);
     game->snake.defineSnake();
     game->snake.defineObst(obstaculos);
@@ -206,13 +237,16 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     {
         game->snake.defineFood();
     }
-    game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty; //nivel de velocidad
+
+    //Define velocity depending on levels
+    game->snake.initialSpeed = game->snake.initialSpeed - game->difficulty;
+
+    //Defines snake max size
     game->snake.sizeMax = snkMax;
 
+    //Determines if the player looses or continues playing
     bool inExit = true;
-
     inExit = playingGame(game);
-
     while (inExit && !game->proxLevel)
     {
         if(!gameOverMenu(game)){
@@ -221,7 +255,8 @@ int playmatrix(myGame<nodeuserinfouser> *game){
         restartingGame(game);
         inExit = playingGame(game);
     }
-    // Guardando las Lifes en el usuario
+
+    // Saving player lifes
     // by rubi
     if(game->mode!=2){
         if(game->snake.lifes>0){
@@ -230,10 +265,13 @@ int playmatrix(myGame<nodeuserinfouser> *game){
             game->user->info.Lifes=0;
         }            
     }
-    //guardando cosas en el csv
+
+    //Saving progress at .csv file
     // by rubi
     saveincsv(game->list.front);
-    //
+
+    // When 'Game over' restarts some values depending on game mode
+    // and saves progress
     if (game->mode == 1){    
         game->snake.x2Boosted = false;
         game->snake.x3Boosted = false;
@@ -258,8 +296,12 @@ int playmatrix(myGame<nodeuserinfouser> *game){
             game->user->info.PointsClasic = game->snake.points;
         }
     }
+
+    //When Game is paused
     game->pause = true;
     game->playing = false;
+    
+    //Checks if player levels up
     if (game->proxLevel && inExit){
         CLEAR;
         //cin.clear();

@@ -196,10 +196,12 @@ g++ -pthread main.cpp -o main && ./main
 
 # 5.Caracteristicas
 - El juego Esta hecho en kernel base linux por lo que es mejor ejecutarlo en un sistema o distribucion linux.
+- Es muy importante que antes de cargar el juego la terminal sea grande para poder disfrutar el juego ya que se adapta el mapa ala terminal,
+- Los niveles de dicicultad cambian tanto en tamaño de la terminal como en la cantidad de monedas a recolectar.
 - En el juego hay varios modos de juego , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
-- La tienda esta disponible unicamente en los modos basados en World Party
+- La tienda esta disponible unicamente en los modos basados en World Party.
 - Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
-- Las instrucciones solo parecen cuando un usuario juega por primera vez 
+- Las instrucciones solo parecen cuando un usuario juega por primera vez .
 
 # REGRESAR AL INDICE :<!-- omit in toc -->
 - [Snake -> Dev-ART](#snake---dev-art---ftfreddy) 

@@ -19,14 +19,20 @@ void open_buffer();
 void close_buffer();
 void loading();
 void loadScenes(myGame<nodeuserinfouser>*);
+
+/**
+ * Function that loads all the stages from external files
+ */
 void loadScenes(myGame<nodeuserinfouser>* game){
-    chargeScenes(game,"extra1.csv");//escenario a cargar
-    chargeScenes(game,"extra2.csv");//escenario a cargar
-    chargeScenes(game,"rubi.csv");//escenario a cargar
+    chargeScenes(game,"extra1.csv");
+    chargeScenes(game,"extra2.csv");
+    chargeScenes(game,"rubi.csv");
 
 }
 
-
+/**
+ * MAIN FUNCTION
+ */
 int main(void) {
     srand(time(NULL));
     myGame<nodeuserinfouser> game;// = new myGame();
@@ -45,7 +51,7 @@ int main(void) {
     return 0;
 };
 
-//elemento necesaeio para poder procesar cada pulsacion sin dar ENTER despues de esta
+//Element needed to process each pulse without pressing ENTER after this
 void open_buffer(){
     tcgetattr(STDIN_FILENO, &term);
     term.c_lflag &= ~ICANON;
@@ -56,6 +62,10 @@ void close_buffer(){
     term.c_lflag |= ICANON;
     tcsetattr(STDIN_FILENO, TCSANOW, &term);
 }
+
+/**
+ * Function that is used as a load screen
+ */
 void loading(){
     string cargand="loading.";
     string snakeloading="\u2B24";

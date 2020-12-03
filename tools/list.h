@@ -7,6 +7,8 @@
 #include "nodeuser.h"
 #include "../scene/nodeScene.h"
 
+/** Function that calculates a double linked list's size
+ */
 using namespace std;
 template < class T>
 int sizeAux(node<T>* front){
@@ -16,10 +18,19 @@ int sizeAux(node<T>* front){
     return 0;
 }
 
+/** Structure to create a double linked list using pointers
+ */
 template<class T>
 struct doubleLinked {
+    //Properties
     node<T>* front,* back;
+
+    //Constructor
     doubleLinked () {front = back = NULL;}
+
+    //Methods
+
+    //Adds a new node in the front
     void pushFront(T info){
         node<T>* n = new node<T>;
         n->info = info;
@@ -33,6 +44,7 @@ struct doubleLinked {
         this->front = n;
     }
 
+    //Adds a new node in the back
     void pushBack(T info){
         node<T>* n = new node<T>;
         n->info = info;
@@ -46,6 +58,7 @@ struct doubleLinked {
         this->back = n;
     }
 
+    //removes a node from the front
     node<T>* removeFront(){
         node<T>* n = this->front;
         this->front->next->prev=NULL;
@@ -53,6 +66,7 @@ struct doubleLinked {
         return n;
     }
 
+    //removes a node from the back
     node<T>* removeBack(){
         node<T>* n = this->back;
         this->back->prev->next=NULL;
@@ -60,14 +74,14 @@ struct doubleLinked {
         return n;
     }
 
+    //returns list's size
     int size(){
         return sizeAux(front);
     }
     
 };
 
-
-
+//Adds a new node in an specific position given
 template<class T>
 void pushAt(int pos, T info, node<T>** front) {
     node<T>* n = new node<T>;
@@ -93,6 +107,8 @@ void pushAt(int pos, T info, node<T>** front) {
     aux->next = n;
 }
 
+/** Function that prints a double linked list from beginig
+ */
 template<class T>
 void traverseBegin(node<T>* front) {
     if(front) {
@@ -103,6 +119,9 @@ void traverseBegin(node<T>* front) {
         cout << endl;
 }
 
+
+/** Function that prints a double linked list from end
+ */
 template<class T>
 void traverseEnd(node<T>* back) {
     if(back) {
@@ -113,6 +132,8 @@ void traverseEnd(node<T>* back) {
         cout << endl;
 }
 
+/** Function that removes last node from a double linked list
+ */
 template<class T>
 int remove(T e, node<T>** front) {
     if(*front) {
@@ -139,6 +160,8 @@ int remove(T e, node<T>** front) {
         return 0;
 }
 
+/** Function that removes first node from a double linked list
+ */
 template<class T>
 bool removeFirst(T e, node<T>** front) {
     if(*front) {
@@ -165,6 +188,8 @@ bool removeFirst(T e, node<T>** front) {
         return false;
 }
 
+/** Function that removes a node from a double linked list in a position given
+ */
 template<class T>
 bool removeAt(int current, int pos, node<T>** front) {
     if(*front) {
@@ -192,6 +217,8 @@ bool removeAt(int current, int pos, node<T>** front) {
         return false;
 }
 
+/** Function that removes a node from a double linked list with a conditional
+ */
 template <class Predicative, class T>
 int removeIf(Predicative removeCondition, node<T>** front) {
     if(*front) {

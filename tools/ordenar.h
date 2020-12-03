@@ -3,13 +3,17 @@
 #include "./node.h"
 using namespace std;
 
+/** Function that swaps info of 2 nodes
+ */
 template<class T>
 void swap(node<T>* a, node<T>* b) {
     T temp = a->info;
     a->info = b->info;
     b->info = temp;
 }
-//push atras
+
+/** Function that pushes a new node in the back
+ */
 template<class T>
 void pushBack(node<T>** dl, T info) {
     node<T>* n = new node<T>(info);
@@ -25,6 +29,11 @@ void pushBack(node<T>** dl, T info) {
     }
 }
 
+//////////////////////QUICKSORT ALGORITHM////////////////////////////
+
+/** Recursive function that calculates the pivot 
+ * and distributes the elements of the list
+ */
 template<class T>
 void _quickSort(node<T>* low, node<T>* high,int flag) {
     if(high && low != high && low != high->next) {
@@ -34,12 +43,16 @@ void _quickSort(node<T>* low, node<T>* high,int flag) {
     }
 }
 
+/** Function that calculates last node of a list
+ */
 template<class T>
 void quickSort(node<T>* head,int flag) {
     node<T>* last = lastNode(head);
     _quickSort(head, last,flag);
 }
 
+/** Function that returns head of a list
+ */
 template<class T>
 node<T>* lastNode(node<T>* head) {
     while(head && head->next)
@@ -47,6 +60,8 @@ node<T>* lastNode(node<T>* head) {
     return head;
 }
 
+/** Function that returns the pivot of the list
+*/ 
 template<class T>
 node<T>* partition(node<T>* low, node<T>* high,int flag) {
     T pivot = high->info;

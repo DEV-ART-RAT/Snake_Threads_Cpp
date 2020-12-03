@@ -3,17 +3,26 @@
 #include "list.h"
 #include "../snake/my_snake.h"
 
+/**Structure used to define game
+ * 
+ */
 template<class T>
 struct myGame{
+    // Properties
     node<T>* user = NULL;
     doubleLinked<T> list;
     doubleLinked<doubleLinked<sceneInfo>> sceneList;
     //doubleLinked<doubleLinked<sceneInfo>> scenesListContainer;
     mySnake snake = mySnake();
 
-    int difficulty;//dificultad de juego [facil, normal,dificil]
-    int mode;//modo de juego: Clasic o escenario especial[world,Clasic,special]
-    int scene;//esenario actual [libre,cerrado,extras...]
+    //Game difficulty: easy, normal or hard
+    int difficulty;
+
+    //Game mode: World Party, Classic or Special
+    int mode;
+
+    //Current stage, free, closed or extras
+    int scene;
 
     int levelSpecial;
     int liveSpecial;
@@ -27,8 +36,12 @@ struct myGame{
     bool redirection;
     int direccion;
     
+    //Constructor
     myGame(){};
     
+    //Methods
+    
+    //Initial values when starting a new game
     void startGame(){
         key = '0';
         playing = true;
@@ -37,6 +50,7 @@ struct myGame{
         direccion = 3;
     }
 
+    //Shows Game's header depending on game mode
     void mostrarCabeceraSnake(){
         CLEAR;
         (2!=mode)?

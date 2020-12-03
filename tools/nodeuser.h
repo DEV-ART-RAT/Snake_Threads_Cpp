@@ -5,8 +5,10 @@
 #include <iostream>
 using namespace std;
 
-//importamos funcion de nodo para listas dobles
+/**Structure used to create a node of the user info
+ */
 struct nodeuserinfouser {
+    //Properties
     int Points;
     int Points_Save;
     int PointsClasic;
@@ -15,6 +17,7 @@ struct nodeuserinfouser {
     int nivel;
     string name;
     
+    //Constructors
     nodeuserinfouser() {}
     nodeuserinfouser(
         int _Points,
@@ -32,6 +35,7 @@ struct nodeuserinfouser {
         nivel(_nivel),
         name(_name) {}
 
+    //Overloads
     bool operator==(const nodeuserinfouser& r) {
         return 
         this->Points == r.Points 
@@ -55,6 +59,7 @@ struct nodeuserinfouser {
        
     }
 
+    //Methods
     string toString() {
         return 
         "{"  + 

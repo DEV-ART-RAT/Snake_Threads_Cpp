@@ -5,12 +5,21 @@
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
 
 ## IMPORTANTE :
-[Como ejecutar?:](#4-ejecucion)
+[Como ejecutar?](#4-ejecucion)
+## Caracteristicas:
+- [Caracteristicas del juego](#5caracteristicas)
+
+
+## Jugar en linea (no es la misma experiencia)
+[<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://repl.it/@dilverpro/SnakeTerminalcpp#README.md)
 
 ##  Game play:
-(Para jugar mejor hacerlo desde un sistema base GNU/Linux)
+(Para jugar mejor hacerlo desde un sistema base GNU/Linux por que en WSL no se distrufa del todo)
 
+### Snake World Party
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://www.youtube.com/watch?v=AzBj7Uu7Noc&feature=youtu.be)
+### Classic 97 
+[<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://www.youtube.com/watch?v=V3rWEKqDolY&feature=youtu.be)
 
 ## Ver documento donde nos basamos :
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit?usp=sharing)
@@ -19,7 +28,11 @@
 - [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
   - [La mejor forma de ver el Readme :](#la-mejor-forma-de-ver-el-readme-)
   - [IMPORTANTE :](#importante-)
+  - [Caracteristicas:](#caracteristicas)
+  - [Jugar en linea (no es la misma experiencia)](#jugar-en-linea-no-es-la-misma-experiencia)
   - [Game play:](#game-play)
+    - [Snake World Party](#snake-world-party)
+    - [Classic 97](#classic-97)
   - [Ver documento donde nos basamos :](#ver-documento-donde-nos-basamos-)
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
@@ -34,6 +47,7 @@
   - [3.3. Algoritmos de ordenamiento / búsqueda:](#33-algoritmos-de-ordenamiento--búsqueda)
 - [4. EJECUCION:](#4-ejecucion)
   - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
+- [5.Caracteristicas](#5caracteristicas)
 - [REGRESAR AL INDICE :](#regresar-al-indice-)
 
 # 1. Estudiantes
@@ -151,6 +165,13 @@ g++ -pthread main.cpp -o main && ./main
   en pantalla grande .
 
 - Los archivos CSV de los mapas precargados tienen ciertas intrucciones especiales.
+
+# 5.Caracteristicas
+- El juego Esta hecho en kernel base linux por lo que es mejor ejecutarlo en un sistema o distribucion linux.
+- En el juego hay varios modos de juego , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
+- La tienda esta disponible unicamente en los modos basados en World Party
+- Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
+- Las instrucciones solo parecen cuando un usuario juega por primera vez 
 
 # REGRESAR AL INDICE :
 - [Snake -> Dev-ART 

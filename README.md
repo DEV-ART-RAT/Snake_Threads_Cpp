@@ -1,12 +1,16 @@
 # Snake -> Dev-ART - ft.freddy.
 [Pagina con Instrucciones dadas para el juego : (https://wmoralesdev.github.io/actividadfinal/index)](https://wmoralesdev.github.io/actividadfinal/index)
+
 ## La mejor forma de ver el Readme : <!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://drubico.github.io/Snake_Terminal_cpp)
-## IMPORTANTE :<!-- omit in toc -->
 
+## IMPORTANTE :<!-- omit in toc -->
 [Como ejecutar?](#4-ejecucion)
+
 ## Caracteristicas:<!-- omit in toc -->
 [Caracteristicas del juego](#5caracteristicas)
+
+
 ## Jugar en linea (no es la misma experiencia)<!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://repl.it/@dilverpro/SnakeTerminalcpp#README.md)
 
@@ -139,6 +143,7 @@ Cuando salimos guarda nuestros resultados
 - Punteros
     - Simple: Para la creacion de los nodos de listas doblemente enlazadas
     - Doble: Para la creacion de matriz
+
 ## 3.3. Algoritmos de ordenamiento / búsqueda:
 - Algoritmo de ordenamiento quicksort para obtener un top o una clasificación de los jugadores con mayor Points
 

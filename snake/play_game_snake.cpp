@@ -294,6 +294,9 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     //When Game is paused
     game->pause = true;
     game->playing = false;
+
+    //Restarts snakes's speedBoost
+    game->snake.speedBost = 1;
     
     //Checks if player levels up
     if (game->proxLevel && inExit){

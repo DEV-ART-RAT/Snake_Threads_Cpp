@@ -54,13 +54,13 @@ void changeVelocity(myGame<nodeuserinfouser>* game){
     max = max-(level*level);
     double velocity = 0.15;
     if(game->snake.sizeSnake < max)
-        game->snake.speed = ((max-(level*level) - game->snake.sizeSnake) * velocity) + 0.5;
+        game->snake.speed = (((max-(level*level) - game->snake.sizeSnake) * velocity) + 0.5)/game->snake.speedBost;
     else if(max <= game->snake.sizeSnake > max * 2)
-        game->snake.speed = velocity*2.5;
+        game->snake.speed = (velocity*2.5)/game->snake.speedBost;
     else if(max*2 <= game->snake.sizeSnake > max * 3)
-        game->snake.speed = velocity * 1.5;
+        game->snake.speed = (velocity * 1.5)/game->snake.speedBost;
     else
-        game->snake.speed = velocity;
+        game->snake.speed = (velocity)/game->snake.speedBost;
     
 }
 

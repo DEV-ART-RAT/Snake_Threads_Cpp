@@ -29,6 +29,31 @@ int history(void) {
         "Y por ultimo ... domina la cima de todos los tops de los modos de juego",
         "Divierte!!!"
     };
+    if(w.ws_col<100){
+        w.ws_col = 100;
+        string historia[]={
+            "Bienvenido Snakero,estas apunto",
+            "de entrar a una fantastica aventura",
+            "para evitar facilitarte tu viaje",
+            " te explicaremos los controles basicos:",
+            "Muevete usanso las direccionales",
+            " dentro del menu y del campo de juego",
+            "presiona ENTER para seleccionar y",
+            "poner pausa dentro del juego",
+            "Tendras 3 diferentes modos de juego:",
+            "1- World Party Snake: disfruta",
+            "de diferentes mundos cada uno mas dificil.",
+            "2- Clasic 97: El snake Clasic, la velocidad",
+            "aumenta mientras mas comas!",
+            "3- Especial: Difruta de diferentes mapas",
+            "creados por los dioses, no sera nada facil.",
+            "No olvides reunir el maximo de monedas que",
+            " puedas para comprar potenciadores en la tienda",
+            "Y por ultimo ... domina la cima de todos",
+            "los tops de los modos de juego",
+            "Divierte!!!"
+        };
+    }
     CLEAR
     messageMargin(w.ws_col);
     messageLineMAGENTA(w.ws_col,"(Presiona Enter para continuar)");

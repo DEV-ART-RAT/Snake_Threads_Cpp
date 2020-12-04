@@ -126,6 +126,7 @@ void boostVelocity(myGame<nodeuserinfouser>* game, double optn){
     //Checks if a booster hasn't been buyed before or if has the enough money to buy
 	if(game->snake.speedBost == 1.0 && game->user->info.coin >=100){
 		game->snake.speedBost = optn;
+        game->snake.speed/=optn;
         game->user->info.coin -= 100;
 		messageLine(w.ws_col,"Velocidad potenciada  x"+to_string(optn));
         messageSteep(w.ws_col);

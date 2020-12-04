@@ -67,9 +67,9 @@ struct mySnake{
         FILA = row;
         COLUMNA = col;
         sizeSnake = 3;
-        steep=1;
+        steep=1; 
        // speedBost = 1;
-        speed = 4;
+        speed = 5;
         initialSpeed = speed/speedBost;
         velMax = 30;
         sizeMax = 30;

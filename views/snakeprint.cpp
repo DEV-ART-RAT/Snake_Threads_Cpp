@@ -73,6 +73,18 @@ void messageLineRED(int col,string linea1){
 }
 
 /**
+ * Function used to show a line of message with red color with an emoji
+ */
+void messageLineREDEmoji(int col,string linea1, int len){
+    string str;
+    col = (col- linea1.size() - 4 + len)/2;
+    str.insert(0, col, ' ');
+    (linea1.size()%2 != 0)?  
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
+    cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
+}
+
+/**
  * Function used to show a line of message with green color
  */
 void messageLineGREEN(int col,string linea1){

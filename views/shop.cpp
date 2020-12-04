@@ -22,7 +22,7 @@ auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     }
     messageSteep(w.ws_col);
     messageSteep(w.ws_col);
-    (opc==1)? messageLineRED(w.ws_col,"*  Vida Extra (200 monedas)  *"):              
+    (opc==1)? messageLineRED(w.ws_col,"*  Vida Extra (200 monedas) *"): 
         messageLine(w.ws_col,"   Vida Extra (200 monedas)   ");
     (opc==2)? messageLineRED(w.ws_col,"*  Potenciar Points x2 (500 monedas) * "):   
         messageLine(w.ws_col,"   Potenciar Points x2 (500 monedas)   ");

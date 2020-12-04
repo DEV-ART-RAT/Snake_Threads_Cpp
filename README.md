@@ -220,11 +220,13 @@ g++ -pthread main.cpp -o main && ./main
 - Los niveles de dificultad cambian tanto en tamaño de la terminal como en la cantidad de monedas a recolectar.
 - En el juego hay varios modos , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
 - En el modo World Party salen todos los mapas con 3 niveles de dificultad cada uno.
+- 
 ## Gameplay
 - Los niveles de velocidad podrian tardar en aumentar ,pero en el gameplay podemos ver que al final es muy dificil por lo que es un reto a superar.
   
 ## Tops
 - Los top se ordenan de 2 formas (Classic 97 y World Party)
+  
 ## Tienda
 - La tienda no esta disponible unicamente en modo Classic 97 ya que su dificultad es tener 1 vida.
 
@@ -233,7 +235,7 @@ g++ -pthread main.cpp -o main && ./main
 
 ## Escenarios 
 - Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
-- Las inctrucciones de los escenarios estan en el archivo model.txt
+- Las instrucciones de los escenarios estan en el archivo model.txt
 
 # REGRESAR AL INDICE :<!-- omit in toc -->
 - [Snake -> Dev-ART](#snake---dev-art---ftfreddy) 

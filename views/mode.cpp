@@ -51,6 +51,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->scene = 1;
             //Starts the game
             playmatrix(game);
+            saveincsv(game->list.front);
             break;
         //"Clasico 97" game mode
         case 2:
@@ -64,6 +65,7 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             game->snake.points = 0;
             //Starts the game
             playmatrix(game);
+            saveincsv(game->list.front);
             //gameOverMenu(game);
             break;
         //"Especial" Game mode

@@ -180,14 +180,14 @@ Cuando salimos guarda nuestros resultados
 - Comentariado de las funciones
 - Indentación del código
 - Integración continua:
-- Pruebas periódicas para comprobar el correcto funcionamiento del código
-- Realización de commits de modificaciones e integración de código
-- Push al repositorio a menudo
+  - Pruebas periódicas para comprobar el correcto funcionamiento del código
+  - Realización de commits de modificaciones e integración de código
+  - Push al repositorio a menudo
 
 ## 3.2. Estructuras de datos (dinámicas):
 - Punteros
-- Simple: Para la creacion de los nodos de listas doblemente enlazadas
-- Doble: Para la creacion de matriz
+  - Simple: Para la creacion de los nodos de listas doblemente enlazadas
+  - Doble: Para la creacion de matriz
 
 ## 3.3. Algoritmos de ordenamiento / búsqueda:
 - Algoritmo de ordenamiento quicksort para obtener un top o una clasificación de los jugadores con mayor Points

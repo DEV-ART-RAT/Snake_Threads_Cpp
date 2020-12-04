@@ -131,9 +131,9 @@ void nextStage(myGame<nodeuserinfouser> *game){
     CLEAR;
     snakeprint();
     messageLine(w.ws_col, "Completaste el ....M-U-N-D-O... <|:v");
-    game->user->info.Points_Save += game->snake.lifes * 100 + game->snake.points;
-    cout << " se sumaron " << game->snake.lifes * 100 << " a tu Points actual por tus "
-            << game->snake.lifes << " restantes" << endl;
+    messageLine(w.ws_col, " se sumaron " + to_string(game->snake.lifes * 100) + " a tu Points actual por tus "
+        +  to_string(game->snake.lifes) + " restantes"
+    );
     messageLine(w.ws_col, " presiona cualquier tecla para continuar");
     messageSteep(w.ws_col);
     messageMargin(w.ws_col);
@@ -156,7 +156,7 @@ void nextStageLevel(myGame<nodeuserinfouser> *game){
 
 /** Funtion that loads World Party game mode
  */
-void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
+bool cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, int* obstaculos,int* snkMax,int* velocidad){
     game->snake.points = game->user->info.Points_Save;
         if (game->user->info.Lifes <= 0){
             game->user->info.Lifes = 5;
@@ -174,7 +174,7 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
                 game->user->info.Points_Save = 0;
                 game->user->info.Lifes = 5;
                 game->user->info.nivel = 1;
-                return;
+                return false;
             }
         }
         sceneLevel(game->user->info.nivel, row, col, obstaculos, snkMax, velocidad);
@@ -182,6 +182,7 @@ void cargarModoWorldParty(myGame<nodeuserinfouser> *game, int* row, int* col, in
         game->difficulty = *velocidad;
         game->snake.level = game->user->info.nivel;
         game->liveSpecial = game->user->info.Lifes;
+        return true;
 }
 
 /** Funtion that checks the option selected from user to determine game mode
@@ -195,8 +196,11 @@ int playmatrix(myGame<nodeuserinfouser> *game){
 
     //Loads World Party game mode
     if (game->mode == 1){ 
-
-        cargarModoWorldParty(game,&row,&col,&obstaculos,&snkMax,&velocidad);
+        bool nexting = true;
+        nexting = cargarModoWorldParty(game,&row,&col,&obstaculos,&snkMax,&velocidad);
+        if(!nexting){
+            return 0;
+        }
 
     }
     //Loads classic 97 game mode

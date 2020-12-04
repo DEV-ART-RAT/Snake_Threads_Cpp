@@ -219,7 +219,7 @@ g++ -pthread main.cpp -o main && ./main
 ## Juego
 - Los niveles de dificultad cambian tanto en tamaño de la terminal como en la cantidad de monedas a recolectar.
 - En el juego hay varios modos , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
-
+- En el modo World Party salen todos los mapas con 3 niveles de dificultad cada uno.
 ## Gameplay
 - Los niveles de velocidad podrian tardar en aumentar ,pero en el gameplay podemos ver que al final es muy dificil por lo que es un reto a superar.
   

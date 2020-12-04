@@ -55,8 +55,31 @@ struct myGame{
     void mostrarCabeceraSnake(){
         CLEAR;
         (2!=mode)?
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"   Restante: "<<snake.sizeMax - snake.sizeSnake << "     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes << "   Dinero:"<<RESET<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<"lvl: "<<user->info.nivel<<"/"<< ((3!=mode)? ((sceneList.size() + 2) * 9): 3)<<endl:
-        cout<<COLOR_BOLDWHITE<<"Largo: "<<snake.sizeSnake<<"     Lifes :"<<RESET<<COLOR_BOLDRED<<" \u2665 "<<RESET<<" 1 " << "   Dinero:"<<COLOR_BOLDYELLOW<<" \u0024 "<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<" Puntos:"<<snake.points<<RESET<<COLOR_BOLDGREEN<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl;
+        cout<<COLOR_BOLDMAGENTA<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl
+        <<COLOR_BOLDGREEN<<
+        "Largo: "<<snake.sizeSnake<<
+        "\tRestante: "<<snake.sizeMax - snake.sizeSnake <<RESET<<COLOR_BOLDWHITE<<
+        "\tPuntos: "<<snake.points<<
+        "\tlvl: "<<user->info.nivel<<"/"<< ((3!=mode)? ((sceneList.size() + 2) * 9): 3)<<
+        "\tLifes :"<<RESET<<COLOR_BOLDRED<<
+        /*Heart icon*/
+        "\u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes <<
+        "\tDinero: "<<RESET<<COLOR_BOLDYELLOW<<
+        /*Coin icon*/
+        "\u0024"<<RESET<< COLOR_BOLDWHITE<<user->info.coin<<RESET<<endl
+        :
+        cout<<COLOR_BOLDMAGENTA<<"\t Pulsa Enter para entrar en el menu de opciones."<<RESET<<endl
+        <<COLOR_BOLDGREEN<<
+        "Largo: "<<snake.sizeSnake<<RESET<<COLOR_BOLDWHITE
+        "\tPuntos: "<<snake.points<<  
+        "\tLifes: "<<RESET<<
+        COLOR_BOLDRED<<
+        /*Coin icon*/
+        " \u2665"<<RESET<<COLOR_BOLDWHITE<<
+        "1"<< 
+        "\tDinero: "<<RESET<<COLOR_BOLDYELLOW<<
+        /*Heart icon*/
+        "\u0024"<<RESET<<COLOR_BOLDWHITE<<user->info.coin<<RESET<<endl;
         
     }
     

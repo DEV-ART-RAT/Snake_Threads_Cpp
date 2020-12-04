@@ -10,7 +10,9 @@
 #include "../tools/saveUser.h"
 #include "../snake/my_snake.h"
 #include "../tools/gameStruct.h"
+
 using namespace std;
+
 /**
  * Function that shows the Game mode menu
  */
@@ -31,21 +33,6 @@ int sceneMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
 int modeMenu(myGame<nodeuserinfouser>* );
 
-void loadingScreen(){
-    string loaginsSnakeView="loading.";
-    for (int i = 0; i < 3; i++)
-    {
-        CLEAR;
-        snakeprint();
-        messageLineCYAN(w.ws_col,loaginsSnakeView);
-        loaginsSnakeView=loaginsSnakeView+".";
-        messageLineCYAN(w.ws_col,"Porfavor no precione ninguna tecla.");
-        messageSteep(w.ws_col);
-        messageSteep(w.ws_col);
-        messageMargin(w.ws_col);
-        sleep(1);
-    }
-}
 /**
  * Function that implements the mode menu functionality
  */
@@ -63,8 +50,6 @@ int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
             //Loads stage one by default
             game->scene = 1;
             //Starts the game
-            loadingScreen();
-            game->key='0';
             playmatrix(game);
             break;
         //"Clasico 97" game mode

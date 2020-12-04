@@ -69,6 +69,7 @@ bool playGame(myGame<nodeuserinfouser> *game){
     bool exit = true;
     double timer = 0; 
     while (game->playing){
+        cout << game->snake.speedBost;
         if (timer > 10 * game->snake.speed)
         {
             if (!redireccionando(game)){

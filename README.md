@@ -1,4 +1,5 @@
-## Indice <!-- omit in toc -->
+# Indice 
+- [Indice](#indice)
 - [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
 - [1. Estudiantes](#1-estudiantes)
 - [2. Capturas de pantalla:](#2-capturas-de-pantalla)
@@ -21,7 +22,7 @@
   - [Tienda](#tienda)
   - [Instrucciones](#instrucciones)
   - [Escenarios](#escenarios)
-- [Capturas](#capturas)
+  - [Capturas](#capturas)
 
 # Snake -> Dev-ART - ft.freddy.
 [Pagina con Instrucciones dadas para el juego : (https://wmoralesdev.github.io/actividadfinal/index)](https://wmoralesdev.github.io/actividadfinal/index)
@@ -38,8 +39,7 @@
 ## Caracteristicas:<!-- omit in toc -->
 [Caracteristicas del juego](#5caracteristicas)
 
-
-## Jugar en linea (no es la misma experiencia)<!-- omit in toc -->
+## Jugar en linea (no es la misma experiencia ademas que podria tardar en comenzar.)<!-- omit in toc -->
 [<img src="https://www.ciesi.net/images/boton-clic-aqui.png" width="150" height="50">](https://repl.it/@dilverpro/SnakeTerminalcpp#README.md)
 
 
@@ -212,7 +212,8 @@ g++ -pthread main.cpp -o main && ./main
   en pantalla grande .
 
 - Los archivos CSV de los mapas precargados tienen ciertas intrucciones especiales.
-
+  
+[Regresar a indice](#indice) 
 # 5.Caracteristicas
 
 ## La mejor forma de jugar:
@@ -239,8 +240,8 @@ g++ -pthread main.cpp -o main && ./main
 ## Escenarios 
 - Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
 - Las instrucciones de los escenarios estan en el archivo model.txt
-# Capturas 
+## Capturas 
 - Las capturas estan en un submodulo publico porque el readme en el github.io necesita imagenes publicas
 
 # REGRESAR AL INDICE :<!-- omit in toc -->
-- [Snake -> Dev-ART](#snake---dev-art---ftfreddy) 
+- [Regresar a indice](#indice) 

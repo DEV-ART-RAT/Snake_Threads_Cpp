@@ -93,19 +93,19 @@
 
 
   ##### 2.2.1.1.1. Nivel Facil (Mitad de pantalla)<!-- omit in toc -->
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0006.png" />
+  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0006.png" />
 
 
   ##### 2.2.1.1.2. Nivel Normal (Pantalla en 60%)<!-- omit in toc -->
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0007.png" />
+  <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0007.png" />
 
 
   ##### 2.2.1.1.3. Nivel Dificil (pantalla completa)<!-- omit in toc -->
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0008.png" />
+  <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0008.png" />
 
 
   #### 2.2.1.2. Clasic 97<!-- omit in toc -->
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0009.png" />
+  <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0009.png" />
 
 
   #### 2.2.1.3. ESPECIAL<!-- omit in toc -->
@@ -120,19 +120,19 @@
 
   No tiene paredes
 
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0012.png" />
+  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0012.png" />
 
   ##### 2.2.1.3.2. CERRADO<!-- omit in toc -->
 
   Tiene paredes
 
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0013.png" />
+  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0013.png" />
 
   ##### 2.2.1.3.3. EXTRA<!-- omit in toc -->
 
   Mapas cargados desde un csv
 
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0014.png" />
+  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0014.png" />
 
 ### 2.2.2. Tienda
 

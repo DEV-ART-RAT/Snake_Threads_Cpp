@@ -24,11 +24,11 @@ auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     messageSteep(w.ws_col);
     (opc==1)? messageLineREDEmoji(w.ws_col,"*  Vida Extra (っ◔◡◔)っ ❤ (200 monedas)  *", 10):              
         messageLine(w.ws_col,"   Vida Extra (200 monedas)   ");
-    (opc==2)? messageLineREDEmoji(w.ws_col,"*  Potenciar Points x2 ☜(ˆ▿ˆc) (500 monedas) * ", 6):   
+    (opc==2)? messageLineREDEmoji(w.ws_col,"*  Potenciar Points x2 ☜(ˆ▿ˆc) (500 monedas) * ", 8):   
         messageLine(w.ws_col,"   Potenciar Points x2 (500 monedas)   ");
-    (opc==3)? messageLineREDEmoji(w.ws_col,"*  Potenciar Points x3 (͠≖ ͜ʖ͠≖)👌 (1000 monedas) *", 14):    
+    (opc==3)? messageLineREDEmoji(w.ws_col,"*  Potenciar Points x3 (͠≖ ͜ʖ͠≖)👌 (1000 monedas) *  ", 12):    
         messageLine(w.ws_col,"   Potenciar Points x3 (1000 monedas)  ");
-    (opc==4)? messageLineREDEmoji(w.ws_col,"*  Velocidad x2 Masoquista (͠◉_◉᷅ )(͠◉_◉᷅ ) (100 monedas) * ", 18):    
+    (opc==4)? messageLineREDEmoji(w.ws_col,"   *  Velocidad x2 Masoquista (͠◉_◉᷅ )(͠◉_◉᷅ ) (100 monedas) *    ", 16):    
         messageLine(w.ws_col,"   Velocidad x2 Masoquista (100 monedas)  ");
     (opc==5)? messageLineREDEmoji(w.ws_col,"*  Velocidad x3 Demente (ㆆ_ㆆ) (100 monedas) *", 2):    
         messageLine(w.ws_col,"   Velocidad x3 Demente (100 monedas)  ");

@@ -13,6 +13,9 @@ winsize screenSize () {
     if(w.ws_col%2!=0){
         w.ws_col--;
     }
+    if(w.ws_col<60){
+        w.ws_col=60;
+    }
     return w; 
 }
 

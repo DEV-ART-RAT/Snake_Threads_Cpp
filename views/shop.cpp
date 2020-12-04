@@ -22,14 +22,23 @@ auto mensajeShop = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     }
     messageSteep(w.ws_col);
     messageSteep(w.ws_col);
-    (opc==1)? messageLineRED(w.ws_col,"*  Vida Extra (200 monedas)  *"):              
+    (opc==1)? messageLineREDEmoji(w.ws_col,"*  Vida Extra (っ◔◡◔)っ ❤ (200 monedas)  *", 10):              
         messageLine(w.ws_col,"   Vida Extra (200 monedas)   ");
-    (opc==2)? messageLineRED(w.ws_col,"*  Potenciar Points x2 (500 monedas) * "):   
+    (opc==2)? messageLineREDEmoji(w.ws_col,"*  Potenciar Points x2 ☜(ˆ▿ˆc) (500 monedas) * ", 6):   
         messageLine(w.ws_col,"   Potenciar Points x2 (500 monedas)   ");
-    (opc==3)? messageLineRED(w.ws_col,"*  Potenciar Points x3 (1000 monedas) *"):    
+    (opc==3)? messageLineREDEmoji(w.ws_col,"*  Potenciar Points x3 (͠≖ ͜ʖ͠≖)👌 (1000 monedas) *", 14):    
         messageLine(w.ws_col,"   Potenciar Points x3 (1000 monedas)  ");
-    (opc==4)? messageLineRED(w.ws_col,"*  REGRESAR *"):    
+    (opc==4)? messageLineREDEmoji(w.ws_col,"*  Velocidad x2 Masoquista (͠◉_◉᷅ )(͠◉_◉᷅ ) (100 monedas) * ", 18):    
+        messageLine(w.ws_col,"   Velocidad x2 Masoquista (100 monedas)  ");
+    (opc==5)? messageLineREDEmoji(w.ws_col,"*  Velocidad x3 Demente (ㆆ_ㆆ) (100 monedas) *", 2):    
+        messageLine(w.ws_col,"   Velocidad x3 Demente (100 monedas)  ");
+    (opc==6)? messageLineREDEmoji(w.ws_col,"*  Velocidad x0.5 Cauteloso (✿◠‿◠) (100 monedas) *", 8)://14    
+        messageLine(w.ws_col,"   Velocidad x0.5 Cauteloso (100 monedas)  ");
+    (opc==7)? messageLineRED(w.ws_col,"*  REGRESAR *"):    
         messageLine(w.ws_col,"   REGRESAR  ");
+    // string cadena = "(͠◉_◉᷅ )";
+    // cout<<cadena.size();
+    // cin.get();
     messageSteep(w.ws_col);
     messageMargin(w.ws_col);
 }; 
@@ -111,6 +120,24 @@ void buyLife(myGame<nodeuserinfouser>* game){
 
 
 /**
+ * Function that implements functionality to boost velocity
+ */
+void boostVelocity(myGame<nodeuserinfouser>* game){
+    //Checks if has the enough money
+    if(game->user->info.coin >= 200){
+        game->user->info.coin -= 200;
+        game->snake.lifes++;
+        messageLine(w.ws_col,"Vida comprada");
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
+    } else {
+        messageLine(w.ws_col,"Monedas insuficientes");
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
+    }
+}
+
+/**
  * Function that implements shop menu functionality
  */
 int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
@@ -129,8 +156,12 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
         case 3:
             boostPointsx3(game);
             break;
-        //Retuns previous menu 
+        //Boost velocity
         case 4:
+            //boostVelocity(game);
+            return 0;
+        //Retuns previous menu 
+        case 5:
             return 0;
         default:
             break;
@@ -145,7 +176,7 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
  * Function that calls the shop menu implementation
  */
 int shopMenu(myGame<nodeuserinfouser>* game){
-    return shopMenuAux(game,optionSelectionKey(game,mensajeShop,4));
+    return shopMenuAux(game,optionSelectionKey(game,mensajeShop,7));
 }
 
 

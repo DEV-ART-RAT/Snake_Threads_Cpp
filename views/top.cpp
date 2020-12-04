@@ -98,8 +98,9 @@ void welcometop(){
 template<class T>
 void printtop(node<T>* front,int colsize,int sobraparallegar){
     int tamaniotabla=w.ws_col-2;
-    if(tamaniotabla<120){
-        tamaniotabla=120;
+    if(tamaniotabla<100){
+        w.ws_col = 100;
+        tamaniotabla=102;
     }
     if(front) {
         messageLineSeccionAux(colsize,front->info.name,0,sobraparallegar);
@@ -120,8 +121,9 @@ void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     int columnas=4;
     // Screen size
     int tamaniotabla=w.ws_col-2;
-    if(tamaniotabla<120){
-        tamaniotabla=120;
+    if(tamaniotabla<100){
+        w.ws_col = 100;
+        tamaniotabla=102;
     }
     // calculates how many elements will be left
     int sobraparallegar=tamaniotabla%columnas;

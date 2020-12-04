@@ -196,10 +196,10 @@ int playmatrix(myGame<nodeuserinfouser> *game){
 
     //Loads World Party game mode
     if (game->mode == 1){ 
-        bool nexting = true;
+        bool nexting = true;//variable para verificar escenarios completos
         nexting = cargarModoWorldParty(game,&row,&col,&obstaculos,&snkMax,&velocidad);
         if(!nexting){
-            return 0;
+            return 0;//termina el proceso si el escenario se completa
         }
 
     }
@@ -207,7 +207,6 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     else if (game->mode == 2)
     {
         game->liveSpecial = 0;
-
         sceneLevel(0, &row, &col, &obstaculos, &snkMax, &velocidad);
         obstaculos = 0;
         snkMax = 99999;
@@ -217,8 +216,7 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     }
     //Loads special game mode
     else { 
-        if (game->levelSpecial > 3)
-        {
+        if (game->levelSpecial > 3){//verificamos si no se a completado el escenario en su dificultad
             nextStageLevel(game);
             return 1;
         }
@@ -239,8 +237,7 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     defineScene(game);
     game->snake.defineSnake();
     game->snake.defineObst(obstaculos);
-    for (int i = 0; i < game->food; i++)
-    {
+    for (int i = 0; i < game->food; i++){//por ciertos esenarios a considerar se cargan ya sea una o dos comidas
         game->snake.defineFood();
     }
 
@@ -255,26 +252,17 @@ int playmatrix(myGame<nodeuserinfouser> *game){
     inExit = playingGame(game);
     while (inExit && !game->proxLevel)
     {
-        if(!gameOverMenu(game)){
-            break;
+        if(!gameOverMenu(game)){// se pregunta si se desea continuar
+            break;//si no se desea continuar se romple el loop
         }
-        restartingGame(game);
-        inExit = playingGame(game);
+        restartingGame(game);//se borra la "snake" y se ubica en su pocicion inicial
+        inExit = playingGame(game);//secontinua el juego
     }
 
-    // Saving player lifes
-    // by rubi
-    if(game->mode!=2){
-        if(game->snake.lifes>0){
-            game->user->info.Lifes=game->snake.lifes;
-        }else{
-            game->user->info.Lifes=0;
-        }            
-    }
 
     //Saving progress at .csv file
     // by rubi
-    saveincsv(game->list.front);
+    //saveincsv(game->list.front);
 
     // When 'Game over' restarts some values depending on game mode
     // and saves progress

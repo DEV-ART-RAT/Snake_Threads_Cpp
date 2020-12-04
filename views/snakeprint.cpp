@@ -82,6 +82,7 @@ void messageLineREDEmoji(int col,string linea1, int len){
     (linea1.size()%2 != 0)?  
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
+    //cout<<linea1.size();
 }
 
 /**

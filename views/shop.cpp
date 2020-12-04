@@ -122,16 +122,24 @@ void buyLife(myGame<nodeuserinfouser>* game){
 /**
  * Function that implements functionality to boost velocity
  */
-void boostVelocity(myGame<nodeuserinfouser>* game){
-    //Checks if has the enough money
-    if(game->user->info.coin >= 200){
-        game->user->info.coin -= 200;
-        game->snake.lifes++;
-        messageLine(w.ws_col,"Vida comprada");
+void boostVelocity(myGame<nodeuserinfouser>* game, double optn){
+    //Checks if a booster hasn't been buyed before or if has the enough money to buy
+	if(game->snake.speedBost == 1 && game->user->info.coin >=100){
+		game->snake.speedBost = optn;
+        game->user->info.coin -= 100;
+		messageLine(w.ws_col,"Velocidad potenciada  x"+to_string(optn));
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
-    } else {
-        messageLine(w.ws_col,"Monedas insuficientes");
+	}
+    //If a booster has already been selected
+    else if(game->snake.speedBost != 1){
+		messageLine(w.ws_col,"Un potenciador ya habia sido activado");
+        messageSteep(w.ws_col);
+        messageMargin(w.ws_col);
+	} 
+    //If doesn't have enough money to buy 
+    else {
+		messageLine(w.ws_col,"Monedas insuficientes");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
     }
@@ -156,12 +164,20 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
         case 3:
             boostPointsx3(game);
             break;
-        //Boost velocity
+        //Boost velocity x2
         case 4:
-            //boostVelocity(game);
+            boostVelocity(game, 2);
+            return 0;
+        //Boost velocity x3
+        case 5:
+            boostVelocity(game,3);
+            return 0;
+        //Boost velocity x0.5
+        case 6:
+            boostVelocity(game,0.5);
             return 0;
         //Retuns previous menu 
-        case 5:
+        case 7:
             return 0;
         default:
             break;

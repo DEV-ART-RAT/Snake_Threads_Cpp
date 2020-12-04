@@ -124,7 +124,7 @@ void buyLife(myGame<nodeuserinfouser>* game){
  */
 void boostVelocity(myGame<nodeuserinfouser>* game, double optn){
     //Checks if a booster hasn't been buyed before or if has the enough money to buy
-	if(game->snake.speedBost == 1 && game->user->info.coin >=100){
+	if(game->snake.speedBost == 1.0 && game->user->info.coin >=100){
 		game->snake.speedBost = optn;
         game->user->info.coin -= 100;
 		messageLine(w.ws_col,"Velocidad potenciada  x"+to_string(optn));
@@ -132,7 +132,7 @@ void boostVelocity(myGame<nodeuserinfouser>* game, double optn){
         messageMargin(w.ws_col);
 	}
     //If a booster has already been selected
-    else if(game->snake.speedBost != 1){
+    else if(game->snake.speedBost != 1.0){
 		messageLine(w.ws_col,"Un potenciador ya habia sido activado");
         messageSteep(w.ws_col);
         messageMargin(w.ws_col);
@@ -166,11 +166,11 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
             break;
         //Boost velocity x2
         case 4:
-            boostVelocity(game, 2);
+            boostVelocity(game, 2.0);
             break;
         //Boost velocity x3
         case 5:
-            boostVelocity(game,3);
+            boostVelocity(game,3.0);
             break;
         //Boost velocity x0.5
         case 6:

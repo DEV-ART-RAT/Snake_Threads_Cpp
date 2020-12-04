@@ -167,15 +167,15 @@ int shopMenuAux(myGame<nodeuserinfouser>* game,int flag){
         //Boost velocity x2
         case 4:
             boostVelocity(game, 2);
-            return 0;
+            break;
         //Boost velocity x3
         case 5:
             boostVelocity(game,3);
-            return 0;
+            break;
         //Boost velocity x0.5
         case 6:
             boostVelocity(game,0.5);
-            return 0;
+            break;
         //Retuns previous menu 
         case 7:
             return 0;

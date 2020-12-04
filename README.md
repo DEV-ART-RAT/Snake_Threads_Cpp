@@ -1,3 +1,28 @@
+## Indice <!-- omit in toc -->
+- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
+- [1. Estudiantes](#1-estudiantes)
+- [2. Capturas de pantalla:](#2-capturas-de-pantalla)
+  - [2.1. inicio(usuario):](#21-iniciousuario)
+    - [2.2.2. Tienda](#222-tienda)
+    - [2.2.3. Ver Tops](#223-ver-tops)
+    - [2.2.4. Instrucciones](#224-instrucciones)
+    - [2.2.5. Exit](#225-exit)
+- [3. Implementacion de :](#3-implementacion-de-)
+  - [3.1. Buenas prácticas:](#31-buenas-prácticas)
+  - [3.2. Estructuras de datos (dinámicas):](#32-estructuras-de-datos-dinámicas)
+  - [3.3. Algoritmos de ordenamiento / búsqueda:](#33-algoritmos-de-ordenamiento--búsqueda)
+- [4. EJECUCION:](#4-ejecucion)
+  - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
+- [5.Caracteristicas](#5caracteristicas)
+  - [La mejor forma de jugar:](#la-mejor-forma-de-jugar)
+  - [Juego](#juego)
+  - [Gameplay](#gameplay)
+  - [Tops](#tops)
+  - [Tienda](#tienda)
+  - [Instrucciones](#instrucciones)
+  - [Escenarios](#escenarios)
+- [Capturas](#capturas)
+
 # Snake -> Dev-ART - ft.freddy.
 [Pagina con Instrucciones dadas para el juego : (https://wmoralesdev.github.io/actividadfinal/index)](https://wmoralesdev.github.io/actividadfinal/index)
 
@@ -35,30 +60,7 @@
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Icon-doc.svg/810px-Icon-doc.svg.png" width="50" height="50">](https://docs.google.com/document/d/1vROBoDUtuphx_JmOmtY_wQ03JmSLFBe3MnIY0XbRCk8/edit?usp=sharing)
 
 
-## Indice <!-- omit in toc -->
-- [Snake -> Dev-ART - ft.freddy.](#snake---dev-art---ftfreddy)
-- [1. Estudiantes](#1-estudiantes)
-- [2. Capturas de pantalla:](#2-capturas-de-pantalla)
-  - [2.1. inicio(usuario):](#21-iniciousuario)
-    - [2.2.2. Tienda](#222-tienda)
-    - [2.2.3. Ver Tops](#223-ver-tops)
-    - [2.2.4. Instrucciones](#224-instrucciones)
-    - [2.2.5. Exit](#225-exit)
-- [3. Implementacion de :](#3-implementacion-de-)
-  - [3.1. Buenas prácticas:](#31-buenas-prácticas)
-  - [3.2. Estructuras de datos (dinámicas):](#32-estructuras-de-datos-dinámicas)
-  - [3.3. Algoritmos de ordenamiento / búsqueda:](#33-algoritmos-de-ordenamiento--búsqueda)
-- [4. EJECUCION:](#4-ejecucion)
-  - [4.1. Ejecutar codigo:](#41-ejecutar-codigo)
-- [5.Caracteristicas](#5caracteristicas)
-  - [La mejor forma de jugar:](#la-mejor-forma-de-jugar)
-  - [Juego](#juego)
-  - [Gameplay](#gameplay)
-  - [Tops](#tops)
-  - [Tienda](#tienda)
-  - [Instrucciones](#instrucciones)
-  - [Escenarios](#escenarios)
-- [Capturas](#capturas)
+
 
 # 1. Estudiantes
 
@@ -220,8 +222,8 @@ g++ -pthread main.cpp -o main && ./main
 ## Juego
 - Los niveles de dificultad cambian tanto en tamaño de la terminal como en la cantidad de monedas a recolectar.
 - En el juego hay varios modos , depende del modo de juego cuantas monedas se ganen o cuantas vidas tendran.
-- En el modo World Party salen todos los mapas con 3 niveles de dificultad cada uno.
-- 
+- En el modo World Party salen todos los mapas con 3 niveles por cada dificultad(3 niveles de dificultad), 9 niveles en total por mapa.
+  
 ## Gameplay
 - Los niveles de velocidad podrian tardar en aumentar ,pero en el gameplay podemos ver que al final es muy dificil por lo que es un reto a superar.
   

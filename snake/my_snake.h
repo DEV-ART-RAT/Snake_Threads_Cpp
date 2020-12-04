@@ -51,7 +51,7 @@ struct mySnake{
     mySnake(int _i, int _c) : FILA(_i), COLUMNA(_c) {
         steep=1;
         sizeSnake = 3;
-        speedBost = 0;
+        speedBost = 1;
         speed = 4;
         initialSpeed = speed + speedBost;
         points= 0;
@@ -68,7 +68,7 @@ struct mySnake{
         COLUMNA = col;
         sizeSnake = 3;
         steep=1;
-        speedBost = 0;
+        speedBost = 1;
         speed = 4;
         initialSpeed = speed + speedBost;
         velMax = 30;

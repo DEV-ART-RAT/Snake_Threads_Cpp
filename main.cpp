@@ -25,7 +25,9 @@ void loadScenes(myGame<nodeuserinfouser>*);
 void loadScenes(myGame<nodeuserinfouser>* game){
     chargeScenes(game,"extra1.csv");
     chargeScenes(game,"extra2.csv");
+    chargeScenes(game,"extra3.csv");
     chargeScenes(game,"rubi.csv");
+    
 
 }
 

@@ -241,7 +241,7 @@ g++ -pthread main.cpp -o main && ./main
 - Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
 - Las instrucciones de los escenarios estan en el archivo model.txt
 ## Capturas 
-- Las capturas estan en un submodulo publico porque el readme en el github.io necesita imagenes publicas
+- Las capturas estan en /Capturas pero las de la pagina del README estan un submodulo publico porque el README en el github.io necesita imagenes publicas
 
 # REGRESAR AL INDICE :<!-- omit in toc -->
 - [Regresar a indice](#indice) 

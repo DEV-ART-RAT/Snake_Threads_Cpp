@@ -70,21 +70,21 @@
 
 ##  2.1. inicio(usuario):
 
-  ### 2.1.1. Primera Vez <!-- omit in toc -->
+### 2.1.1. Primera Vez <!-- omit in toc -->
 
-  <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0001.png" />
-    
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0002.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0001.png" />
+
+<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0002.png" />
 
 
-  ### 2.1.2. Usuario ya guardado:<!-- omit in toc -->
+### 2.1.2. Usuario ya guardado:<!-- omit in toc -->
 
-  <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0003.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0003.png" />
 
 
 ##  2.2. MENU<!-- omit in toc -->
 
-  <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0004.png" />
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0004.png" />
 
 
 ### 2.2.1. Start(Modos de juego)<!-- omit in toc -->
@@ -92,54 +92,54 @@
 <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0005.png" />
 
 
-  #### 2.2.1.1. SNAKE WORLD  PARTY (Cambia el tamaño de la pantalla segun el nivel)<!-- omit in toc -->
+#### 2.2.1.1. SNAKE WORLD  PARTY (Cambia el tamaño de la pantalla segun el nivel)<!-- omit in toc -->
 
 
-  ##### 2.2.1.1.1. Nivel Facil (Mitad de pantalla)<!-- omit in toc -->
+##### 2.2.1.1.1. Nivel Facil (Mitad de pantalla)<!-- omit in toc -->
 
-  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0006.png" />
-
-
-  ##### 2.2.1.1.2. Nivel Normal (Pantalla en 60%)<!-- omit in toc -->
-
-  <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0007.png" />
+<img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0006.png" />
 
 
-  ##### 2.2.1.1.3. Nivel Dificil (pantalla completa)<!-- omit in toc -->
+##### 2.2.1.1.2. Nivel Normal (Pantalla en 60%)<!-- omit in toc -->
 
-  <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0008.png" />
-
-
-  #### 2.2.1.2. Clasic 97<!-- omit in toc -->
-
-  <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0009.png" />
+<img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0007.png" />
 
 
-  #### 2.2.1.3. ESPECIAL<!-- omit in toc -->
+##### 2.2.1.1.3. Nivel Dificil (pantalla completa)<!-- omit in toc -->
 
-  <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0010.png" />
+<img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0008.png" />
 
-  Cada Especial tiene un nivel
 
-  <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0011.png" />
+#### 2.2.1.2. Clasic 97<!-- omit in toc -->
 
-  ##### 2.2.1.3.1. LIBRE<!-- omit in toc -->
+<img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0009.png" />
 
-  No tiene paredes
 
-  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0012.png" />
+#### 2.2.1.3. ESPECIAL<!-- omit in toc -->
 
-  ##### 2.2.1.3.2. CERRADO<!-- omit in toc -->
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0010.png" />
 
-  Tiene paredes
+Cada Especial tiene un nivel
 
-  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0013.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0011.png" />
 
-  ##### 2.2.1.3.3. EXTRA<!-- omit in toc -->
+##### 2.2.1.3.1. LIBRE<!-- omit in toc -->
 
-  Mapas cargados desde un csv
+No tiene paredes
 
-  <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0014.png" />
+<img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0012.png" />
+
+##### 2.2.1.3.2. CERRADO<!-- omit in toc -->
+
+Tiene paredes
+
+<img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0013.png" />
+
+##### 2.2.1.3.3. EXTRA<!-- omit in toc -->
+
+Mapas cargados desde un csv
+
+<img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0014.png" />
 
 ### 2.2.2. Tienda
 
@@ -148,23 +148,23 @@
 
 ### 2.2.3. Ver Tops
 
-  <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0016.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0016.png" />
 
-  #### 2.2.3.1. Tipos de top<!-- omit in toc -->
+#### 2.2.3.1. Tipos de top<!-- omit in toc -->
 
-  <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0017.png" />
+<img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0017.png" />
 
-  ##### 2.2.3.1.1. Top World Party<!-- omit in toc -->
+##### 2.2.3.1.1. Top World Party<!-- omit in toc -->
 
-  <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0018.png" />
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0018.png" />
 
-  ##### 2.2.3.1.2. Top Clasic 97<!-- omit in toc -->
-  
-  <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0019.png" />
+##### 2.2.3.1.2. Top Clasic 97<!-- omit in toc -->
 
-  ### 2.2.4. Instrucciones
+<img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0019.png" />
 
-  <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0020.png" />
+### 2.2.4. Instrucciones
+
+<img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0020.png" />
 
 ### 2.2.5. Exit
 
@@ -180,14 +180,14 @@ Cuando salimos guarda nuestros resultados
 - Comentariado de las funciones
 - Indentación del código
 - Integración continua:
-    - Pruebas periódicas para comprobar el correcto funcionamiento del código
-    - Realización de commits de modificaciones e integración de código
-    - Push al repositorio a menudo
+- Pruebas periódicas para comprobar el correcto funcionamiento del código
+- Realización de commits de modificaciones e integración de código
+- Push al repositorio a menudo
 
 ## 3.2. Estructuras de datos (dinámicas):
 - Punteros
-    - Simple: Para la creacion de los nodos de listas doblemente enlazadas
-    - Doble: Para la creacion de matriz
+- Simple: Para la creacion de los nodos de listas doblemente enlazadas
+- Doble: Para la creacion de matriz
 
 ## 3.3. Algoritmos de ordenamiento / búsqueda:
 - Algoritmo de ordenamiento quicksort para obtener un top o una clasificación de los jugadores con mayor Points

@@ -70,22 +70,25 @@
 
 ##  2.1. inicio(usuario):
 
-
   ### 2.1.1. Primera Vez <!-- omit in toc -->
+
   <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0001.png" />
     
   <img width="1000" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0002.png" />
 
 
   ### 2.1.2. Usuario ya guardado:<!-- omit in toc -->
+
   <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0003.png" />
 
 
 ##  2.2. MENU<!-- omit in toc -->
+
   <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0004.png" />
 
 
 ### 2.2.1. Start(Modos de juego)<!-- omit in toc -->
+
 <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0005.png" />
 
 
@@ -93,18 +96,22 @@
 
 
   ##### 2.2.1.1.1. Nivel Facil (Mitad de pantalla)<!-- omit in toc -->
+
   <img width="600" height="400" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0006.png" />
 
 
   ##### 2.2.1.1.2. Nivel Normal (Pantalla en 60%)<!-- omit in toc -->
+
   <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0007.png" />
 
 
   ##### 2.2.1.1.3. Nivel Dificil (pantalla completa)<!-- omit in toc -->
+
   <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0008.png" />
 
 
   #### 2.2.1.2. Clasic 97<!-- omit in toc -->
+
   <img width="1000" height="500" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0009.png" />
 
 
@@ -148,9 +155,11 @@
   <img width="1000" height="250" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0017.png" />
 
   ##### 2.2.3.1.1. Top World Party<!-- omit in toc -->
+
   <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0018.png" />
 
   ##### 2.2.3.1.2. Top Clasic 97<!-- omit in toc -->
+  
   <img width="1000" height="300" src="https://raw.githubusercontent.com/00121117-Archivos/AA_Snake/main/0019.png" />
 
   ### 2.2.4. Instrucciones

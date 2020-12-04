@@ -8,9 +8,9 @@
 using namespace std;
 struct termios term_over;
 
-
-//int startMenuAux(node<nodeuserinfouser>* , auto ,int );
-
+/**
+ * Function that shows the game over menu options
+ */
 auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -20,6 +20,10 @@ auto mensajeGameOverContinued = [](int opc,myGame<nodeuserinfouser>* game, int s
     messageSteep(w.ws_col);
     messageMargin(w.ws_col);
 };
+
+/**
+ * Function that shows the message when there are no more lifes
+ */
 auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -33,6 +37,9 @@ auto mensajeGameOverFinish = [](int opc,myGame<nodeuserinfouser>* game, int size
     messageMargin(w.ws_col);
 };
 
+/**
+ * Function that implements game over menu functionality
+ */
 int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     switch (flag) {
         case 1:
@@ -48,6 +55,9 @@ int gameOverMenuAux(myGame<nodeuserinfouser>* game, int flag) {
     }
 };
 
+/**
+ * Function that checks if player's lifes are done
+ */
 bool gameOverMenu(myGame<nodeuserinfouser>* game){
     if(game->snake.lifes > 0){
         return gameOverMenuAux(game,optionSelectionKey(game,mensajeGameOverContinued,2));

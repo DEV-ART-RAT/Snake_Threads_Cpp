@@ -1,3 +1,4 @@
+//Defines how to clear the screen
 #pragma once
 #ifdef  linux
 #define OS_Windows 0

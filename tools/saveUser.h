@@ -8,17 +8,20 @@
 
 #include "./node.h"
 
+/** Function that saves players progress
+ */
 template<class T>
 void saveincsv(node<T>* list){
-    //auxiliamos el nodo
+    //Node auxiliar
     node<T>* aux = list;
     ofstream data;
     remove("data/user.csv");
-    //abrimos data
+
+    //Open the file
     data.open("data/user.csv",ios::app);
     while (aux)
     {
-        //segun nuestra lista que llene el csv
+        //Fills the file according the lines
         data<<aux->info.name<<","<<
         aux->info.Points<<","<<
         aux->info.coin<<","<<
@@ -26,7 +29,7 @@ void saveincsv(node<T>* list){
         aux->info.nivel<<","<<
         aux->info.Points_Save<<","<<
         aux->info.PointsClasic<<"\n";
-        //saltamos 
+        //Jump to next 
         aux= aux->next;
     }
     data.close();

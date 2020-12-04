@@ -19,24 +19,41 @@ void printUsers(myGame<T>* ,string user);
 template<class T>
 void printUser(myGame<T>*);
 
+/**
+ * Function that asks for insert a name correctly and checks if the user exists or not
+ */
 template <class T>
 void usermain(myGame<T>* game) {
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    //Gets the terminal dimensions
+    winsize w = screenSize();
     string user="";
-    welcomeuser();//mostrando mensaje visual para pedir usuario
+
+    //Shows message to ask for a user name
+    welcomeuser();
     int userIntents=0;
     do{ 
-        if(userIntents>0){
+        //Forbidden name
+        if(user=="enxel"){
+            CLEAR;
+            welcomeuser();
+            messageLineRED(w.ws_col,"Lo sentimos el nombre enxel no esta disponible, porque completo todo ");
+        }else
+        {
+            //If the user name is left in blanck or has more than 12 characters
+            if(userIntents>0){
                 CLEAR
-                welcomeuser();//mostrando mensaje visual para pedir usuario
+                welcomeuser();
                 messageLineRED(w.ws_col,"El usuario no puede estar vacio o tener mas de 12 caracteres ");
+            }
         }
         userIntents++;
         cin>>user;
-    }while(user==""||user.size()>12);
-    printUsers(game,user);//loading lista de usuarios de fuente externa
-    
-    if(game->user){//revisando si el usuario ya estaba registrado        
+    }while(user==""||user.size()>12||user=="enxel");
+
+    //loads players from an external source
+    printUsers(game,user);
+    //Checks if user was already registered
+    if(game->user){
         messageLine(w.ws_col,string("Bienvenido de nuevo!  "+game->user->info.name));cout<<RESET;
         messageLineMAGENTA(w.ws_col,"Presiona ENTER para continuar");
         messageSteep(w.ws_col);
@@ -44,9 +61,10 @@ void usermain(myGame<T>* game) {
         cin.ignore();
         cin.clear();
         cin.get();
-        //print_user(game); 
-    } else{
-        game->list.pushBack(nodeuserinfouser(0,0,0,0,5,1,user));//creando nuevo usuario
+    } 
+    // Creates a new user
+    else{
+        game->list.pushBack(nodeuserinfouser(0,0,0,0,5,1,user));
         game->user = game->list.back;
         messageLine(w.ws_col,string("Bienvenido!   "+game->user->info.name));        cout<<RESET;
         messageLine(w.ws_col,"Esperamos Te guste!");        cout<<RESET;
@@ -57,11 +75,13 @@ void usermain(myGame<T>* game) {
         cin.clear();
         cin.get();
         history();
-        //print_user(game); 
     }
    
 };
 
+/**
+ * Function that shows the players registered saved in an external file
+ */
 template<class T>
 void printUsers(myGame<T>* game,string user){
     ifstream data;
@@ -112,20 +132,27 @@ void printUsers(myGame<T>* game,string user){
  
 }
 
+/**
+ * Function that asks for the users name
+ */
 void welcomeuser(void){
-    // borra esto porque hay nose que conflicto de pragma once
     CLEAR;
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    // Gets terminal dimensions
+    winsize w = screenSize();
     snakeprint();
     messageLine(w.ws_col,"Digita tu  USUARIO");
     messageLine(w.ws_col,"(Si ya tienes un usuario se recuperara tu progreso!)");
 
 }
+
+/**
+ * Function that shows the info of an user
+ */
 template <class T>
 void print_user(myGame<T>* game){
     messageLineMAGENTA(w.ws_col,string("Tus monedas : "+to_string(game->user->info.coin)));        cout<<RESET;
-    messageLineMAGENTA(w.ws_col,string("Tu Points Snake World Party: "+to_string(game->user->info.Points)));        cout<<RESET;
-    messageLineMAGENTA(w.ws_col,string("Tu Points Clasic: "+to_string(game->user->info.PointsClasic)));        cout<<RESET;
-    messageLineMAGENTA(w.ws_col,string("Tus Lifes : "+to_string(game->user->info.Lifes)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Puntos Snake World Party: "+to_string(game->user->info.Points)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tu Puntos Clasic: "+to_string(game->user->info.PointsClasic)));        cout<<RESET;
+    messageLineMAGENTA(w.ws_col,string("Tus Vidas : "+to_string(game->user->info.Lifes)));        cout<<RESET;
     messageLineMAGENTA(w.ws_col,string("Tu Nivel : "+to_string(game->user->info.nivel)));        cout<<RESET;
 }

@@ -13,6 +13,9 @@
 
 using namespace std;
 
+/**
+ * Function that shows the Game mode menu
+ */
 auto mensajeMode = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -30,43 +33,61 @@ int sceneMenu(myGame<nodeuserinfouser>* );
 int playmatrix(myGame<nodeuserinfouser>* );
 int modeMenu(myGame<nodeuserinfouser>* );
 
-
+/**
+ * Function that implements the mode menu functionality
+ */
 int modeMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
-    game->mode = flag;//se guarda el modo de juego en una bandera escencial
+    //Saves the game mode in a flag
+    game->mode = flag;
 
     switch (flag) {
-        case 1://modo de juego "WORLD"
-            //se inicializan banderas necesarias para este modo
-            game->food = 2;//considerando un escenario muy especifico se decide en este juego enplear 2 "comidas"
-            game->scene = 1;//se carga por defecto el escenario 1
-            playmatrix(game);//inicia el juego
+        //"World Party" Game mode
+        case 1:
+            //Inits necesary flags for this game mode
+            //Especifies two foods
+            game->food = 2;
+            //Loads stage one by default
+            game->scene = 1;
+            //Starts the game
+            playmatrix(game);
             break;
+        //"Clasico 97" game mode
         case 2:
             //game->scene =  1;
-            game->mode = 2;//Clasic
+            game->mode = 2;
+            //Especifies one foor
             game->food = 1;
+            //Stage one
             game->scene = 1;
+            //Always begins with no points
             game->snake.points = 0;
-            //difficultyMenu(game);
+            //Starts the game
             playmatrix(game);
             //gameOverMenu(game);
             break;
-        case 3://modo de juego "ESPECIAL"
-            //se inicializan banderas necesarias para este modo
-            game->snake.points = 0;//siempre se inicia con una puntuacion de cero
-            sceneMenu(game);//se carga el menu de escenarios
+        //"Especial" Game mode
+        case 3:
+            //Inits flags needed for this game mode
+            //Starts with no points
+            game->snake.points = 0;
+            //Loads the stages menu
+            sceneMenu(game);
             break;
         case 4:
-            return 1;//se escapa de este menu
+            //skips this menu
+            return 1;
         default:
             break;
     }
-    modeMenu(game);//si se regresa de una opcion posterior se vuelve a cargar este menu
+    //If the player selects "Regresar" returns this menu
+    modeMenu(game);
     return 0;
 }
 
-//funcion que llama al selector de opciones mandando la funcion para escuchar el teclado
+/**
+ * Function that calls option selector sending the function to 'listen' from keyboard
+ */
 int modeMenu(myGame<nodeuserinfouser>* game){
     return modeMenuAux(game,optionSelectionKey(game,mensajeMode,4));
 }

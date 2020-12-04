@@ -18,6 +18,9 @@ using namespace std;
 
 int optionSelectionKey(myGame<nodeuserinfouser>* , auto ,int );
 
+/**
+ * Function that shows the initial menu to a player who inserted the name
+ */
 void messageMarginStart(int opc, myGame<nodeuserinfouser>* game) { 
     CLEAR;
     messageMargin(w.ws_col);
@@ -48,42 +51,58 @@ void messageMarginStart(int opc, myGame<nodeuserinfouser>* game) {
 
 };
 
+/**
+ * Function that calls the initial screen or menu
+ */
 auto mensajeStart = [](int opc, myGame<nodeuserinfouser>* game, int size) { 
     messageMarginStart(opc,game);
 };
 
-//opciones en el menu principal
+/**
+ * Function that implements the functionality of the main menu
+ */
 int startMenuOpc(myGame<nodeuserinfouser>* game, int flag){
     switch (flag) {
         case 1:
-            modeMenu(game);//carga el menu de seleccion de tipo de juego
+            //Loads the game mode selection menu
+            modeMenu(game);
             break;
         case 2:
-            shopMenu(game);//carga el menu de tienda
-            saveincsv(game->list.front);//actualiza lainformacion del usuario
+            //Loads the shop menu
+            shopMenu(game);
+            //Updates user's info
+            saveincsv(game->list.front);
             break;
         case 3:
-            TopMenu(game);//carga el menu de TOP
+            //Loads the top menu
+            TopMenu(game);
             break;
         case 4:
-            history();//menu que muestra instrucciones de los tipos de juegos
+            //Shows the initial history and instructions
+            history();
             break;
         case 5:
-            quickSort(game->list.front, 0);//ordena la lista de jugadores segun su puntje
-            saveincsv(game->list.front);//se guarda la lista ordenada en archivo externo
+            //Sorts users name by name
+            quickSort(game->list.front, 7,&game->user);
+            //Saves the list in the external file
+            saveincsv(game->list.front);
             messageLineMAGENTA(w.ws_col,"Se guardo tu progreso!");
             messageSteep(w.ws_col);
             messageMargin(w.ws_col);
-            exit(EXIT_SUCCESS);//cierra la aplicacion
+            //Closes the program
+            exit(EXIT_SUCCESS);
             break;
         default:
             break;
     }
+    //Returns to the start menu
     startMenu(game);
     return 0;
 }
 
-//funcion que llama al selector de opciones mandando la funcion para escuchar el teclado
+/**
+ * Function that calls the option selector sending a function to 'listen' from the keyboard
+ */
 int startMenu(myGame<nodeuserinfouser>* game){
     startMenuOpc(game,optionSelectionKey(game,mensajeStart,5));
     return 0;

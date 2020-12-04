@@ -9,6 +9,10 @@
 
 
 using namespace std;
+
+/**
+ * Function that gives general parameters to the begining message
+ */
 void messageSnake(int col,string linea1[],int linea1size){
     string str;
     col = (col- linea1->size() - 4 )/2;
@@ -20,6 +24,9 @@ void messageSnake(int col,string linea1[],int linea1size){
     
 }
 
+/**
+ * Function used to show a line of message
+ */
 void messageLine(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
@@ -28,6 +35,10 @@ void messageLine(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDWHITE<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*"<<RESET <<endl;
 }
+
+/**
+ * Function used to show a line of message with cyan color
+ */
 void messageLineCYAN(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
@@ -36,6 +47,10 @@ void messageLineCYAN(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDCYAN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDCYAN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
+
+/**
+ * Function used to show a line of message with magenta color
+ */
 void messageLineMAGENTA(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
@@ -44,6 +59,10 @@ void messageLineMAGENTA(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDMAGENTA<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDMAGENTA<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
+
+/**
+ * Function used to show a line of message with red color
+ */
 void messageLineRED(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
@@ -52,6 +71,10 @@ void messageLineRED(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDRED<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
+
+/**
+ * Function used to show a line of message with green color
+ */
 void messageLineGREEN(int col,string linea1){
     string str;
     col = (col- linea1.size() - 4 )/2;
@@ -60,28 +83,31 @@ void messageLineGREEN(int col,string linea1){
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDGREEN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<" *"<<RESET <<endl:
     cout<<COLOR_BOLDRED<<"*"<<RESET<<str <<COLOR_BOLDGREEN<<  linea1 <<RESET<< str <<COLOR_BOLDRED<<"*" <<RESET <<endl;
 }
-// Esta funcion hace el top recursivo :v (by dr)
+/**
+ * Function that makes the top recursive
+ */
+// (by drubi)
 int messageLineSeccionAux(int col,string linea1,int pos,int extra){
     string str,primerespacio="",ultimoespacio="",imprimir="";int extraMitad=0,extraMitadSobra=0,extrasobrafinal=0;
-    // SizeSpaces -> tiene guardada la cantidad de Spaces que se tiene que imprimir (-1 por el asterisco que se imprime aparte)
+    // SizeSpaces -> saves spaces quantity to be printed (-1 because of the asterisc printed apart)
     int SizeSpaces=(col-linea1.size())-1;
-    //la mitad puede esconder un sobrante por lo qe esta el if
+    //the half can hide a leftover thats why the if
     int mitaSpaces=SizeSpaces/2;
-    //damos el numero de Spaces
+    //Gives spaces quantity
     str.insert(0, mitaSpaces-1, ' ');
-    // COMO NO SIEMPRE VA A CABER necesitamos lo siguiente:
-    // las casillas que sobran ala mitad
+    // It won't always fit so we need 
+    // half of the 'boxes' leftover to the left
     if(extra>0){
         int extraMitad=extra/2;// cout<<extraMitad;
-        // si el numero es inpar se va a perder uno por lo cual tambien lo necesotamos
+        //If quantity is an odd number one will be loosed thats why we need it
         int extraMitadSobra=extra%2;// cout<<extraMitadSobra;
-        //primer espacio extra para que cubra la pantalla
+        //First extra space to fill the screen
         primerespacio.insert(0, extraMitad, ' ');
-        // si no es par agregara uno , sino es 0 
+        // if its odd we add one if not then zero
         extrasobrafinal=extraMitad+extraMitadSobra;
         ultimoespacio.insert(0,extrasobrafinal, ' ');
     }
-    // Se necesita un switch ya que el ultimo tramo necesita un * de cierre sin pasarse de los caracteres
+    // This switch is needed because the last stretch needs a closing * without exceed the limits
     switch (pos)
     {
     case 0:
@@ -120,8 +146,11 @@ void messageMargin(int col){
     cout<<COLOR_BOLDRED<<strl<<RESET<<endl;
 }
 
+/**
+ * Function that prints the SNAKE title
+ */
 int snakeprint(void) {
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    winsize w = screenSize();
     string linea1[] = {
         "=====   ===    ==   =======   ==  ==   =====",
         "||      ||\\\\   ||   ||   ||   || //    ||   ",

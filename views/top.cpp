@@ -20,7 +20,9 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag);
 bool TopMenu(myGame<nodeuserinfouser>* );
 
 
-
+/**
+ * Function that shows the top menu options
+ */
 auto mensajeTOPS = [](int opc,myGame<nodeuserinfouser>* game, int size) { 
     CLEAR;
     snakeprint();
@@ -39,19 +41,26 @@ auto mensajeTOPS = [](int opc,myGame<nodeuserinfouser>* game, int size) {
     messageLine(w.ws_col,"  Regresar  ");
     messageSteep(w.ws_col);
     messageMargin(w.ws_col);
-}; 
+};
+
+/**
+ * Function that implements the top menu options functionality
+ */
 bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
     switch (flag) {
+            //Sort by "World party" game mode score
             case 1:
-                quickSort(game->list.front, 1);
+                quickSort(game->list.front, 1,&game->user);
                 top_game(game);
                 TopMenu(game);      
                 return false; 
+            //Sort by "Clasico 97" game mode score
             case 2:
-                quickSort(game->list.front, 3);
+                quickSort(game->list.front, 3,&game->user);
                 top_game(game);
                 TopMenu(game);
                 return false;
+            //GO back
             case 3:
                 return true;
             default:
@@ -60,23 +69,32 @@ bool TopMenuAux(myGame<nodeuserinfouser>* game,int flag){
 
 }
 
+/**
+ * Function that shows the top players
+ */
 void top_game(myGame<nodeuserinfouser>* game){
     welcometop();
-    //traverseBegin(userlist->front);
     printtopaux(&game->list);
     cin.clear();
     messageLine(w.ws_col,"presiona una tecla para continuar");
     getchar();
-    //startMenuOpc(userdata,startMenu(userdata,userlist),userlist);
     return;
 };
+
+/**
+ * Function that calls the top menu
+ */
 void welcometop(){
-    // borra esto porque hay nose que conflicto de pragma once
     CLEAR;
-    winsize w = screenSize();//obtenemos las dimensiones de nuestra terminal
+    //gets terminal size
+    winsize w = screenSize();
     snakeprint();
 
 }
+
+/**
+ * Function that is used to print the top table
+ */
 template<class T>
 void printtop(node<T>* front,int colsize,int sobraparallegar){
     int tamaniotabla=w.ws_col-2;
@@ -93,27 +111,32 @@ void printtop(node<T>* front,int colsize,int sobraparallegar){
     }
 }
 
+/**
+ * Function that creates the table of the top
+ */
 void printtopaux(doubleLinked<nodeuserinfouser>* userlist){
     int colsize = 0;
-    //numero de columnas de la tabla
+    //Columns number
     int columnas=4;
-    // tamanio de la pantalla (menos 2 porque se tiende a pasar al final)
+    // Screen size
     int tamaniotabla=w.ws_col-2;
     if(tamaniotabla<120){
         tamaniotabla=120;
     }
-    // calculamos cuantos elementos sobraran (no todas los tamanios de pantalla se pueden dividir exactos)
+    // calculates how many elements will be left
     int sobraparallegar=tamaniotabla%columnas;
-    // tamanio de cada columna
+    // Columns size
     colsize=((tamaniotabla)/columnas);
-    // tamanio de la tabla entre sus columnas nos da el tamanio de cada columna 
-    //cout<<": Tamanio de todo  : "<< tamaniotabla<<":| | Sobra al dividir las comunas :"<<sobraparallegar<<"| | COLSIZE :"<<colsize<<"| | tamanio tabla exacto : "<<colsize*columnas<<endl;
+    // Table size betwwen columns gives us each column size
     messageMargin(tamaniotabla+2);   
     ordenarparametros(colsize,sobraparallegar);
     messageMargin(tamaniotabla+2);   
     printtop(userlist->front,colsize,sobraparallegar);
 }
 
+/**
+ * Function that sorts the table parameters
+ */
 void ordenarparametros(int colsize,int sobraparallegar){
     messageLineSeccionAux(colsize,"Nombre",0,sobraparallegar);
     messageLineSeccionAux(colsize,"Nivel",1,sobraparallegar);  
@@ -121,6 +144,9 @@ void ordenarparametros(int colsize,int sobraparallegar){
     messageLineSeccionAux(colsize,"Points Clasic",-1,sobraparallegar);
 }
 
+/**
+ * Function that calls the top table
+ */
 bool TopMenu(myGame<nodeuserinfouser>* game){
     return TopMenuAux(game,optionSelectionKey(game,mensajeTOPS,3));
 }

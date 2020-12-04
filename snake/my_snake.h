@@ -70,7 +70,7 @@ struct mySnake{
         steep=1;
        // speedBost = 1;
         speed = 4;
-        initialSpeed = speed + speedBost;
+        initialSpeed = speed/speedBost;
         velMax = 30;
         sizeMax = 30;
         getMatrizChar(&M,FILA,COLUMNA);

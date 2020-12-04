@@ -58,6 +58,7 @@
   - [Tienda](#tienda)
   - [Instrucciones](#instrucciones)
   - [Escenarios](#escenarios)
+- [Capturas](#capturas)
 
 # 1. Estudiantes
 
@@ -236,6 +237,8 @@ g++ -pthread main.cpp -o main && ./main
 ## Escenarios 
 - Los escenarios que uno carga son modificables y estan en -> Especiales -> Extra n (donde n es el escenario cargado).
 - Las instrucciones de los escenarios estan en el archivo model.txt
+# Capturas 
+- Las capturas estan en un submodulo publico porque el readme en el github.io necesita imagenes publicas
 
 # REGRESAR AL INDICE :<!-- omit in toc -->
 - [Snake -> Dev-ART](#snake---dev-art---ftfreddy) 

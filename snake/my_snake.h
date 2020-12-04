@@ -74,7 +74,7 @@ struct mySnake{
         speed = 4;
         initialSpeed = speed + speedBost;
         //coins = 0;
-        velMax = 30;
+        velMax = 5;
         sizeMax = 30;
         getMatrizChar(&M,FILA,COLUMNA);
     }

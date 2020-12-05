@@ -18,7 +18,7 @@ void mensajehistoria(int pos,int max,string histo[]);
 int history(void) {
     string historia[]={
         "Bienvenido Snakero, estas apunto de entrar a una fantastica aventura",
-        "para evitar facilitarte tu viaje te explicaremos los controles basicos:",
+        "para facilitarte tu viaje te explicaremos los controles basicos:",
         "Muevete usanso las direccionales dentro del menu y del campo de juego",
         "presiona ENTER para seleccionar y poner pausa dentro del juego",
         "Tendras 3 diferentes modos de juego:",
@@ -34,7 +34,7 @@ int history(void) {
         string historia[]={
             "Bienvenido Snakero,estas apunto",
             "de entrar a una fantastica aventura",
-            "para evitar facilitarte tu viaje",
+            "para facilitarte tu viaje",
             " te explicaremos los controles basicos:",
             "Muevete usanso las direccionales",
             " dentro del menu y del campo de juego",

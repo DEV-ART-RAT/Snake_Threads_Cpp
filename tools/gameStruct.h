@@ -60,7 +60,7 @@ struct myGame{
         "Largo: "<<snake.sizeSnake<<
         "\tRestante: "<<snake.sizeMax - snake.sizeSnake <<RESET<<COLOR_BOLDWHITE<<
         "\tPuntos: "<<snake.points<<
-        "\tlvl: "<<user->info.nivel<<"/"<< ((3!=mode)? ((sceneList.size() + 2) * 9): 3)<<
+        "\tlvl: "<<((1==mode)?user->info.nivel:snake.level)<<"/"<< ((3!=mode)? ((sceneList.size() + 2) * 9): 3)<<
         "\tLifes :"<<RESET<<COLOR_BOLDRED<<
         /*Heart icon*/
         "\u2665 "<<RESET<<COLOR_BOLDWHITE<<snake.lifes <<
